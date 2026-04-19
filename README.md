@@ -22,6 +22,7 @@ Gamers who enjoy atmospheric, slow paced, story driven survival experiences.
 
 ### Look & Feel
 **Setting:** Post apocalyptic Eastern Europe.
+
 **Vibe:** Haunting, unsettling, moody environments.
 Inspired by Chernobyl, Pripyat.
 
@@ -37,6 +38,7 @@ And you start to wonder, _where do these rails lead to?_
 
 ### UI
 Avoid as much UI as possible, and lean on in-world information.
+
 Inspired by Metro Exodus.
 
 ## Level Design WIP

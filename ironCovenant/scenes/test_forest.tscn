@@ -47,8 +47,32 @@
 [ext_resource type="PackedScene" uid="uid://c3wwtxlx2blt5" path="res://assets/forest_floor/shrooms/Mushroom_Red_S_flat.glb" id="45_wtd6b"]
 [ext_resource type="PackedScene" path="res://scenes/snow.tscn" id="46_4tp0g"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4tp0g"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_1o1u4"]
+sky_material = SubResource("ProceduralSkyMaterial_4tp0g")
+
+[sub_resource type="Environment" id="Environment_5t5ik"]
+background_mode = 2
+sky = SubResource("Sky_1o1u4")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_density = 0.0224
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4tp0g"]
+
 [node name="TestForest" type="Node3D" unique_id=2095375635]
 script = ExtResource("1_aim8d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=966021062]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1954522669]
+environment = SubResource("Environment_5t5ik")
 
 [node name="Forest" type="Node3D" parent="." unique_id=1906540079]
 
@@ -363,7 +387,7 @@ transform = Transform3D(0.9792317, 0, -0.20274425, 0, 1, 0, 0.20274425, 0, 0.979
 transform = Transform3D(0.9698066, 0, -0.24387515, 0, 1, 0, 0.24387515, 0, 0.9698066, 61.940296, 0, 77.97987)
 
 [node name="@Node3D@22728" type="Node3D" parent="Forest/GeneratedForestFloor" unique_id=467221152 instance=ExtResource("21_22k8g")]
-transform = Transform3D(-0.98669255, 0, 0.16259725, 0, 1, 0, -0.16259725, 0, -0.98669255, -11.717239, 0, -37.190807)
+transform = Transform3D(-0.98669255, 0, 0.16259725, 0, 1, 0, -0.16259725, 0, -0.98669255, -11.717239, 0, -26.826439)
 
 [node name="@Node3D@22729" type="Node3D" parent="Forest/GeneratedForestFloor" unique_id=298683538 instance=ExtResource("21_22k8g")]
 transform = Transform3D(0.9069866, 0, 0.42115957, 0, 1, 0, -0.42115957, 0, 0.9069866, -68.92726, 0, 35.50107)
@@ -3642,4 +3666,8 @@ transform = Transform3D(-0.67691326, 0, 0.73606277, 0, 1, 0, -0.73606277, 0, -0.
 transform = Transform3D(-0.82068974, 0, -0.57137406, 0, 1, 0, 0.57137406, 0, -0.82068974, 90.7157, 0, -88.75174)
 
 [node name="Snow" parent="." unique_id=459404493 instance=ExtResource("46_4tp0g")]
-transform = Transform3D(9.767883, 2.1420689, 1.8659772e-08, 0, -4.371139e-07, 1.992867, 2.1420689, -9.767883, -8.508899e-08, 0, 7.844208, -90.45151)
+transform = Transform3D(12.829366, 3.5802357, 1.1924318e-08, 0, -7.3058845e-07, 1.2735193, 2.8134432, -16.325958, -5.4375167e-08, 0, 7.844208, -19.30394)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=382378155]
+transform = Transform3D(311.12924, 0, 0, 0, 1.0000001, 0, 0, 0, 171.9477, 0, 0, 0)
+mesh = SubResource("PlaneMesh_4tp0g")

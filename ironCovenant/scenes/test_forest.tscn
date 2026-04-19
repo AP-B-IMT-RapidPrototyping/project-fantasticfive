@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://dssaysv0llmia" path="res://assets/forest_floor/shrooms/Mushroom_Brown_M_flat.glb" id="43_qwgm0"]
 [ext_resource type="PackedScene" uid="uid://crclrhmydocbb" path="res://assets/forest_floor/shrooms/Mushroom_Brown_S_flat.glb" id="44_7f0me"]
 [ext_resource type="PackedScene" uid="uid://c3wwtxlx2blt5" path="res://assets/forest_floor/shrooms/Mushroom_Red_S_flat.glb" id="45_wtd6b"]
+[ext_resource type="PackedScene" path="res://scenes/snow.tscn" id="46_4tp0g"]
 
 [node name="TestForest" type="Node3D" unique_id=2095375635]
 script = ExtResource("1_aim8d")
@@ -3639,3 +3640,6 @@ transform = Transform3D(-0.67691326, 0, 0.73606277, 0, 1, 0, -0.73606277, 0, -0.
 
 [node name="@Node3D@23816" type="Node3D" parent="Forest/GeneratedForestFloor" unique_id=458163095 instance=ExtResource("43_qwgm0")]
 transform = Transform3D(-0.82068974, 0, -0.57137406, 0, 1, 0, 0.57137406, 0, -0.82068974, 90.7157, 0, -88.75174)
+
+[node name="Snow" parent="." unique_id=459404493 instance=ExtResource("46_4tp0g")]
+transform = Transform3D(9.767883, 2.1420689, 1.8659772e-08, 0, -4.371139e-07, 1.992867, 2.1420689, -9.767883, -8.508899e-08, 0, 7.844208, -90.45151)

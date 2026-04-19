@@ -24,6 +24,7 @@ Gamers who enjoy atmospheric, slow paced, story driven survival experiences.
 **Setting:** Post apocalyptic Eastern Europe.
 
 **Vibe:** Haunting, unsettling, moody environments.
+
 Inspired by Chernobyl, Pripyat.
 
 

@@ -521,9 +521,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("6_crctu")
-_animCamSwitch = NodePath("../AnimCamSwitch")
 _gameScene = ExtResource("7_sn5u3")
 _newGameScene = ExtResource("7_crctu")
+_animCamSwitch = NodePath("../AnimCamSwitch")
 
 [node name="Background" type="ColorRect" parent="PlayOptionsControl" unique_id=421278735]
 layout_mode = 1

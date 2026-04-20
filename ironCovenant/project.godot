@@ -15,6 +15,10 @@ config/version="0.0.0"
 run/main_scene="uid://dy53kd20h4anj"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="uid://drriewsemwcky"
+
 [autoload]
 
 SceneManager="*uid://diicdj4h77m67"
@@ -34,9 +38,6 @@ project/assembly_name="Iron Covenant"
 [file_customization]
 
 folder_colors={
-"res://Asset/": "yellow",
-"res://Scene/": "green",
-"res://Script/": "blue",
 "res://addons/": "red",
 "res://assets/": "yellow",
 "res://scenes/": "green",

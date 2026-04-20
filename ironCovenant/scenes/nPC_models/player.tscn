@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cljofefpq0wr2"]
+[gd_scene format=3 uid="uid://cljofefpq0wr2"]
 
 [ext_resource type="Script" uid="uid://c7yxai3p1a3pr" path="res://scripts/npc_logic/player/Player.cs" id="1_o7mkg"]
 [ext_resource type="Script" uid="uid://cklsqql0h031y" path="res://scripts/npc_logic/player/PlayerFootstep.cs" id="2_b4nt1"]
@@ -30,36 +30,36 @@ albedo_color = Color(0.037521772, 0.2753775, 1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35tf2"]
 albedo_color = Color(0, 0, 0, 1)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_playerHead", "_playerCamera") groups=["player"]]
+[node name="Player" type="CharacterBody3D" unique_id=746536559 node_paths=PackedStringArray("_playerHead", "_playerCamera") groups=["player"]]
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_o7mkg")
+_noclipSprintSpeedDEBUG = 250.0
 _playerHead = NodePath("PlayerHead")
 _playerCamera = NodePath("PlayerHead/PlayerCamera")
-_noclipSprintSpeedDEBUG = 250.0
 
-[node name="Pause" parent="." instance=ExtResource("2_cp7s5")]
+[node name="Pause" parent="." unique_id=1074082978 instance=ExtResource("2_cp7s5")]
 
-[node name="PlayerCollision" type="CollisionShape3D" parent="."]
+[node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1006931496]
 shape = SubResource("CapsuleShape3D_b4nt1")
 
-[node name="PlayerModel" type="MeshInstance3D" parent="."]
+[node name="PlayerModel" type="MeshInstance3D" parent="." unique_id=1988484477]
 layers = 16
 mesh = SubResource("CapsuleMesh_qvykc")
 
-[node name="PlayerHead" type="Node3D" parent="." node_paths=PackedStringArray("_player", "_playerCamera")]
+[node name="PlayerHead" type="Node3D" parent="." unique_id=1089481490 node_paths=PackedStringArray("_player", "_playerCamera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("3_cp7s5")
 _player = NodePath("..")
 _playerCamera = NodePath("PlayerCamera")
 
-[node name="PlayerFace" type="CSGBox3D" parent="PlayerHead"]
+[node name="PlayerFace" type="CSGBox3D" parent="PlayerHead" unique_id=1262174952]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
 layers = 8
 size = Vector3(0.9, 0.4, 0.5)
 material = SubResource("StandardMaterial3D_cp7s5")
 
-[node name="EyeR" type="CSGSphere3D" parent="PlayerHead/PlayerFace"]
+[node name="EyeR" type="CSGSphere3D" parent="PlayerHead/PlayerFace" unique_id=847684895]
 transform = Transform3D(1, 0, 0, 0, 0.9, 0, 0, 0, 1, 0.2, 0, -0.24999999)
 operation = 2
 radius = 0.1
@@ -68,7 +68,7 @@ rings = 4
 smooth_faces = false
 material = SubResource("StandardMaterial3D_d7324")
 
-[node name="Pupil" type="CSGSphere3D" parent="PlayerHead/PlayerFace/EyeR"]
+[node name="Pupil" type="CSGSphere3D" parent="PlayerHead/PlayerFace/EyeR" unique_id=263822125]
 transform = Transform3D(0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0.099999994)
 operation = 2
 radius = 0.1
@@ -77,7 +77,7 @@ rings = 4
 smooth_faces = false
 material = SubResource("StandardMaterial3D_35tf2")
 
-[node name="EyeL" type="CSGSphere3D" parent="PlayerHead/PlayerFace"]
+[node name="EyeL" type="CSGSphere3D" parent="PlayerHead/PlayerFace" unique_id=1482077185]
 transform = Transform3D(1, 0, 0, 0, 0.9, 0, 0, 0, 1, -0.2, 0, -0.24999999)
 operation = 2
 radius = 0.1
@@ -86,7 +86,7 @@ rings = 4
 smooth_faces = false
 material = SubResource("StandardMaterial3D_d7324")
 
-[node name="Pupil" type="CSGSphere3D" parent="PlayerHead/PlayerFace/EyeL"]
+[node name="Pupil" type="CSGSphere3D" parent="PlayerHead/PlayerFace/EyeL" unique_id=656281680]
 transform = Transform3D(0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0.099999994)
 operation = 2
 radius = 0.1
@@ -95,34 +95,33 @@ rings = 4
 smooth_faces = false
 material = SubResource("StandardMaterial3D_35tf2")
 
-[node name="PlayerCamera" type="Camera3D" parent="PlayerHead"]
+[node name="PlayerCamera" type="Camera3D" parent="PlayerHead" unique_id=1820625364]
 cull_mask = 1048567
 fov = 90.0
 
-[node name="PlayerHand" type="Node3D" parent="."]
+[node name="PlayerHand" type="Node3D" parent="." unique_id=1575503551]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="PlayerHand"]
+[node name="CSGBox3D" type="CSGBox3D" parent="PlayerHand" unique_id=2026619168]
 transform = Transform3D(0.19999999, 0, 0, 0, 0.19999999, 0, 0, 0, 0.78, 0.3, 0, -0.4)
 
-[node name="FootstepSound" type="Node3D" parent="." node_paths=PackedStringArray("_player", "_footRaycast", "_footstepPlayer")]
+[node name="FootstepSound" type="Node3D" parent="." unique_id=257852073 node_paths=PackedStringArray("_player", "_footRaycast", "_footstepPlayer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
 script = ExtResource("2_b4nt1")
 _player = NodePath("..")
 _footRaycast = NodePath("FootRayCast")
 _footstepPlayer = NodePath("FootstepPlayer")
 
-[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="FootstepSound"]
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="FootstepSound" unique_id=1204284983]
 volume_db = -5.0
 max_db = -2.0
-bus = &"Gameplay"
 area_mask = 8
 
-[node name="FootRayCast" type="RayCast3D" parent="FootstepSound"]
+[node name="FootRayCast" type="RayCast3D" parent="FootstepSound" unique_id=998055940]
 target_position = Vector3(0, -0.4, 0)
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1698097815]
 
-[node name="UI" type="Control" parent="HUD"]
+[node name="UI" type="Control" parent="HUD" unique_id=1487373396]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -131,7 +130,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="HUD/UI"]
+[node name="ColorRect" type="ColorRect" parent="HUD/UI" unique_id=1408433612]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -146,11 +145,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.69803923)
 
-[node name="DEBUGTRANSFORM" type="RemoteTransform3D" parent="."]
+[node name="DEBUGTRANSFORM" type="RemoteTransform3D" parent="." unique_id=684393037]
 transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, 1.694, 1.119, -2.469)
 remote_path = NodePath("../DebugStats/CamToPlayer/SubViewport/Camera3D")
 
-[node name="DebugStats" type="Control" parent="." node_paths=PackedStringArray("_player", "_playerHead", "_playerCamera", "_moveStateLabel", "_actionStateLabel", "_speedXLabel", "_speedZLabel", "_speedYLabel", "_headOffsetLabel", "_fovLabel")]
+[node name="DebugStats" type="Control" parent="." unique_id=4397430 node_paths=PackedStringArray("_player", "_playerHead", "_playerCamera", "_moveStateLabel", "_actionStateLabel", "_speedXLabel", "_speedZLabel", "_speedYLabel", "_headOffsetLabel", "_fovLabel")]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -171,7 +170,7 @@ _speedYLabel = NodePath("DebugStatsContainer/VBoxContainer/SpeedY")
 _headOffsetLabel = NodePath("DebugStatsContainer/VBoxContainer/Head")
 _fovLabel = NodePath("DebugStatsContainer/VBoxContainer/Fov")
 
-[node name="DebugStatsContainer" type="ColorRect" parent="DebugStats"]
+[node name="DebugStatsContainer" type="ColorRect" parent="DebugStats" unique_id=871897484]
 visible = false
 layout_mode = 0
 offset_right = 330.0
@@ -179,47 +178,47 @@ offset_bottom = 395.0
 mouse_filter = 2
 color = Color(0.05882353, 0.05882353, 0.05882353, 0.2509804)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DebugStats/DebugStatsContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugStats/DebugStatsContainer" unique_id=1309866561]
 layout_mode = 1
 offset_right = 154.0
 offset_bottom = 395.0
 
-[node name="PlayerMoveState" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+[node name="PlayerMoveState" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer" unique_id=1045710712]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Move: "
 
-[node name="PlayerActionState" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+[node name="PlayerActionState" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer" unique_id=575507936]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Action: "
 
-[node name="SpeedX" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+[node name="SpeedX" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer" unique_id=133123070]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Speed X:"
 
-[node name="SpeedZ" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+[node name="SpeedZ" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer" unique_id=124681656]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Speed Z:"
 
-[node name="SpeedY" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+[node name="SpeedY" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer" unique_id=296316725]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Speed Y:"
 
-[node name="Head" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+[node name="Head" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer" unique_id=1880114353]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Cam: X, Z"
 
-[node name="Fov" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+[node name="Fov" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer" unique_id=1836883039]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Fov: "
 
-[node name="CamToPlayer" type="SubViewportContainer" parent="DebugStats"]
+[node name="CamToPlayer" type="SubViewportContainer" parent="DebugStats" unique_id=1178681391]
 visible = false
 layout_mode = 1
 anchors_preset = 1
@@ -232,17 +231,17 @@ scale = Vector2(2, 2)
 pivot_offset = Vector2(170, 0)
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="DebugStats/CamToPlayer"]
+[node name="SubViewport" type="SubViewport" parent="DebugStats/CamToPlayer" unique_id=28746108]
 handle_input_locally = false
 size = Vector2i(170, 170)
 render_target_update_mode = 0
 
-[node name="Camera3D" type="Camera3D" parent="DebugStats/CamToPlayer/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="DebugStats/CamToPlayer/SubViewport" unique_id=527580327]
 transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, 1.694, 1.119, -2.469)
 cull_mask = 1048574
 fov = 32.0
 
-[node name="DevMenu" type="Control" parent="." node_paths=PackedStringArray("_pauseMenu", "_playerHead", "_debug", "_debugStatsContainer", "_camToPlayer", "_cin")]
+[node name="DevMenu" type="Control" parent="." unique_id=923707927 node_paths=PackedStringArray("_pauseMenu", "_playerHead", "_debug", "_debugStatsContainer", "_camToPlayer", "_cin")]
 process_mode = 3
 visible = false
 z_index = 5
@@ -262,7 +261,7 @@ _debugStatsContainer = NodePath("../DebugStats/DebugStatsContainer")
 _camToPlayer = NodePath("../DebugStats/CamToPlayer")
 _cin = NodePath("DebugConsole/Console")
 
-[node name="ColorRectTitle" type="ColorRect" parent="DevMenu"]
+[node name="ColorRectTitle" type="ColorRect" parent="DevMenu" unique_id=634947225]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -272,7 +271,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.05882353, 0.05882353, 0.05882353, 0.32941177)
 
-[node name="VBoxCenter" type="VBoxContainer" parent="DevMenu"]
+[node name="VBoxCenter" type="VBoxContainer" parent="DevMenu" unique_id=1913246091]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -282,7 +281,7 @@ offset_right = 117.50012
 offset_bottom = 187.0
 grow_horizontal = 2
 
-[node name="DevTitle" type="RichTextLabel" parent="DevMenu/VBoxCenter"]
+[node name="DevTitle" type="RichTextLabel" parent="DevMenu/VBoxCenter" unique_id=330523575]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
@@ -292,7 +291,7 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DebugControls" type="Label" parent="DevMenu/VBoxCenter"]
+[node name="DebugControls" type="Label" parent="DevMenu/VBoxCenter" unique_id=380889380]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 text = "Escape - Close
@@ -300,7 +299,7 @@ F1 - Show"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxLeft" type="VBoxContainer" parent="DevMenu"]
+[node name="VBoxLeft" type="VBoxContainer" parent="DevMenu" unique_id=1008712685]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -310,35 +309,35 @@ offset_right = -249.99951
 offset_bottom = 292.0
 grow_horizontal = 0
 
-[node name="Title" type="Label" parent="DevMenu/VBoxLeft"]
+[node name="Title" type="Label" parent="DevMenu/VBoxLeft" unique_id=1592505813]
 layout_mode = 2
 theme_override_font_sizes/font_size = 33
 text = "Toggle"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Debug" type="CheckButton" parent="DevMenu/VBoxLeft"]
+[node name="Debug" type="CheckButton" parent="DevMenu/VBoxLeft" unique_id=272768316]
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
 text = "DEBUG STATS"
 
-[node name="DebugStats" type="CheckButton" parent="DevMenu/VBoxLeft"]
+[node name="DebugStats" type="CheckButton" parent="DevMenu/VBoxLeft" unique_id=1186179645]
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
 text = "DEBUG STATS"
 
-[node name="CamToPlayer" type="CheckButton" parent="DevMenu/VBoxLeft"]
+[node name="CamToPlayer" type="CheckButton" parent="DevMenu/VBoxLeft" unique_id=1492674708]
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
 text = "CamToPlayer"
 
-[node name="CheckButton3" type="CheckButton" parent="DevMenu/VBoxLeft"]
+[node name="CheckButton3" type="CheckButton" parent="DevMenu/VBoxLeft" unique_id=1461875342]
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
 disabled = true
 text = "TEST"
 
-[node name="VBoxRight" type="VBoxContainer" parent="DevMenu"]
+[node name="VBoxRight" type="VBoxContainer" parent="DevMenu" unique_id=1111148308]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -347,24 +346,24 @@ offset_left = -234.0
 offset_bottom = 172.0
 grow_horizontal = 0
 
-[node name="Title" type="Label" parent="DevMenu/VBoxRight"]
+[node name="Title" type="Label" parent="DevMenu/VBoxRight" unique_id=1373457800]
 layout_mode = 2
 theme_override_font_sizes/font_size = 33
 text = "Events"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ShakeExplode" type="Button" parent="DevMenu/VBoxRight"]
+[node name="ShakeExplode" type="Button" parent="DevMenu/VBoxRight" unique_id=588994799]
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
 text = "shake_explode"
 
-[node name="ShakeEarthquake" type="Button" parent="DevMenu/VBoxRight"]
+[node name="ShakeEarthquake" type="Button" parent="DevMenu/VBoxRight" unique_id=1828734674]
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
 text = "shake_earthq"
 
-[node name="DebugConsole" type="VBoxContainer" parent="DevMenu"]
+[node name="DebugConsole" type="VBoxContainer" parent="DevMenu" unique_id=1879108609]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -376,7 +375,7 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("7_35tf2")
 
-[node name="CommandOutput" type="RichTextLabel" parent="DevMenu/DebugConsole"]
+[node name="CommandOutput" type="RichTextLabel" parent="DevMenu/DebugConsole" unique_id=282486387]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(1, 1, 1, 0.5921569)
@@ -384,13 +383,13 @@ theme_override_font_sizes/normal_font_size = 25
 fit_content = true
 vertical_alignment = 1
 
-[node name="Console" type="LineEdit" parent="DevMenu/DebugConsole"]
+[node name="Console" type="LineEdit" parent="DevMenu/DebugConsole" unique_id=326787461]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_font_sizes/font_size = 38
 placeholder_text = "command"
 
-[node name="DebugVersion" parent="." instance=ExtResource("8_7ccm3")]
+[node name="DebugVersion" parent="." unique_id=695534665 instance=ExtResource("8_7ccm3")]
 
 [connection signal="pressed" from="DevMenu/VBoxLeft/Debug" to="DevMenu" method="ShowDebug"]
 [connection signal="pressed" from="DevMenu/VBoxLeft/DebugStats" to="DevMenu" method="ShowDebugStatsContainer"]

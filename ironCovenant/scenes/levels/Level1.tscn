@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://chiqilbow1i4n"]
 
 [ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="1_1pwbc"]
+[ext_resource type="PackedScene" uid="uid://cijrmjk5w2cok" path="res://assets/prototypeAssets/TestTrain.glb" id="2_j08sa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j08sa"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -38,3 +39,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1792663361]
 transform = Transform3D(30.831905, -2.9344974, 0.26992422, 2.6992426, 30.852488, 0.27095526, -2.934497, -2.4528177, 3.0852482, 0, 5, -13)
 mesh = SubResource("TextMesh_68ib6")
+
+[node name="TestTrain" parent="." unique_id=702523984 instance=ExtResource("2_j08sa")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.028315902, -5.188263)

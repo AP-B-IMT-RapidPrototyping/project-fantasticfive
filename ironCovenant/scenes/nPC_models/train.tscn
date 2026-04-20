@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://baroqmonwfls0"]
+
+[ext_resource type="PackedScene" uid="uid://cijrmjk5w2cok" path="res://assets/prototypeAssets/TestTrain.glb" id="1_8en2i"]
+[ext_resource type="PackedScene" uid="uid://dxqxd1d7qpmkw" path="res://assets/prototypeAssets/TrainSpotlight.glb" id="2_ie6wu"]
+[ext_resource type="Script" uid="uid://dft03ixo78jia" path="res://scripts/npc_logic/TrainSpotlight.cs" id="3_fjli7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjli7"]
+albedo_color = Color(1, 1, 0.72156864, 1)
+emission_enabled = true
+emission = Color(0.6763577, 0.5721143, 0.2080318, 1)
+emission_energy_multiplier = 5.42
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ie6wu"]
+size = Vector3(9.365921, 5.8896484, 2.590454)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fjli7"]
+size = Vector3(1.7633057, 0.42578125, 5.0443726)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ifw2"]
+size = Vector3(3.5461426, 1, 3.593872)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5kvja"]
+size = Vector3(0.8882446, 2.8304443, 3.583496)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t23a6"]
+size = Vector3(2.8775635, 1.253418, 2.1711426)
+
+[node name="Train" type="Node3D" unique_id=991101801]
+
+[node name="TestTrain" parent="." unique_id=1866137267 instance=ExtResource("1_8en2i")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+
+[node name="TrainSpotlight" parent="." unique_id=1474622944 instance=ExtResource("2_ie6wu")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 5.4124975, 0)
+script = ExtResource("3_fjli7")
+
+[node name="Sphere_001" parent="TrainSpotlight" index="0" unique_id=1728112780]
+surface_material_override/0 = SubResource("StandardMaterial3D_fjli7")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="TrainSpotlight" unique_id=538811013]
+transform = Transform3D(1, -5.4157963e-09, -5.6208074e-16, 5.270495e-09, 0.9731709, 0.23008366, -1.2460857e-09, -0.23008366, 0.9731709, 0, 2.1062603, -0.5526214)
+light_color = Color(1, 1, 0.8156863, 1)
+light_energy = 20.237
+light_volumetric_fog_energy = 7.96
+light_cull_mask = 4294967287
+shadow_enabled = true
+spot_range = 237.761
+spot_angle = 15.0
+
+[node name="CollisionBody" type="StaticBody3D" parent="." unique_id=1438616064]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionBody" unique_id=505178712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6514206, 2.4448242, 0.07159424)
+shape = SubResource("BoxShape3D_ie6wu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CollisionBody" unique_id=817534083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00018310547, 0.8010609, 0.0069885254)
+shape = SubResource("BoxShape3D_fjli7")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="CollisionBody" unique_id=345037161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008666992, 1.3287182, -0.0079956055)
+shape = SubResource("BoxShape3D_7ifw2")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="CollisionBody" unique_id=1751171380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008666992, 4.8393354, -0.0079956055)
+shape = SubResource("BoxShape3D_7ifw2")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="CollisionBody" unique_id=1086910889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5853994, 3.0965934, -0.0012207031)
+shape = SubResource("BoxShape3D_5kvja")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="CollisionBody" unique_id=2121907737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3639383, 3.0965934, -0.0012207031)
+shape = SubResource("BoxShape3D_5kvja")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="CollisionBody" unique_id=829437701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.52927, 0.85804725, 0.009643555)
+shape = SubResource("BoxShape3D_t23a6")
+
+[editable path="TrainSpotlight"]

@@ -125,7 +125,7 @@ func default_settings() -> void:
 	}
 	
 	boulders_glb_paths_array = [
-		"res://assets/forest_floor/boulders/Boulder_01_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/boulders/Boulder_01_flat.glb", 
 		"res://assets/forest_floor/boulders/Boulder_02_flat.glb", 
 		"res://assets/forest_floor/boulders/Boulder_03_flat.glb"
 	]

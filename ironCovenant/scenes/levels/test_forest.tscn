@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://br4chdqnmbynv"]
 
+[ext_resource type="Script" uid="uid://2to2gt0de23r" path="res://assets/forest_generator/forest_generator.gd" id="1_d1b5u"]
 [ext_resource type="PackedScene" uid="uid://csjn7l8tb538x" path="res://assets/NatureAssets/trees/spruce/Spruce_M_flat.glb" id="2_jxf4f"]
 [ext_resource type="PackedScene" uid="uid://clyv1pv63jwer" path="res://assets/NatureAssets/trees/cypress/Cypress_L_flat.glb" id="3_4tp0g"]
 [ext_resource type="PackedScene" uid="uid://gaiiy7k6s8m2" path="res://assets/NatureAssets/trees/birch/Birch_M_flat.glb" id="4_1o1u4"]
@@ -64,6 +65,7 @@ fog_density = 0.0224
 [sub_resource type="PlaneMesh" id="PlaneMesh_4tp0g"]
 
 [node name="TestForest" type="Node3D" unique_id=2095375635]
+script = ExtResource("1_d1b5u")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=966021062]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)

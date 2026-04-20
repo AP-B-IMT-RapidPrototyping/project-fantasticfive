@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyxg4wrv5uocs"]
+
+[ext_resource type="Script" uid="uid://cjuxuejf2uihb" path="res://scripts/ui_scripts/debug/VersionManager.cs" id="1_ktmss"]
+
+[node name="DebugVersion" type="CanvasLayer" node_paths=PackedStringArray("_killUi", "_versionLabel")]
+script = ExtResource("1_ktmss")
+_killUi = NodePath("KillUI")
+_versionLabel = NodePath("UI/VBoxContainer/Version")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -935.0
+offset_top = -141.5
+offset_right = -117.0
+offset_bottom = -48.5
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(1052, 190)
+
+[node name="Version" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "MAJOR.MINOR.PATCH-NAME"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="KillUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="KillUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05882353, 0.05882353, 0.05882353, 0.6313726)
+
+[node name="Warning" type="Label" parent="KillUI"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1020.5
+offset_right = 1020.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "You are playing on
+an old version of the game.
+
+Please update the game."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="KillUI"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 159.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 250
+alignment = 1
+
+[node name="ItchLink" type="LinkButton" parent="KillUI/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Itch.io"
+uri = "https://itch.io"
+
+[node name="SteamLink" type="LinkButton" parent="KillUI/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+disabled = true
+text = "Steam"

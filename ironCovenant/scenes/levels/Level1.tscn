@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://chiqilbow1i4n"]
+
+[ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="1_1pwbc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j08sa"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_x4si1"]
+sky_material = SubResource("ProceduralSkyMaterial_j08sa")
+
+[sub_resource type="Environment" id="Environment_fh0io"]
+background_mode = 2
+sky = SubResource("Sky_x4si1")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="TextMesh" id="TextMesh_68ib6"]
+text = "GAMEEEEE"
+
+[node name="Level1" type="Node3D" unique_id=820707932]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=139565321]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=939770281]
+environment = SubResource("Environment_fh0io")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1060475541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="Player" parent="." unique_id=1004373502 instance=ExtResource("1_1pwbc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1792663361]
+transform = Transform3D(30.831905, -2.9344974, 0.26992422, 2.6992426, 30.852488, 0.27095526, -2.934497, -2.4528177, 3.0852482, 0, 5, -13)
+mesh = SubResource("TextMesh_68ib6")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bouejiq08gd8q"
+path="res://.godot/imported/strange woosh.mp3-98e061f15b3c84e80f1aef006641d538.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/strange woosh.mp3"
+dest_files=["res://.godot/imported/strange woosh.mp3-98e061f15b3c84e80f1aef006641d538.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

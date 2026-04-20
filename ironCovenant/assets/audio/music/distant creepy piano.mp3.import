@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dujgh4hfrsvwv"
+path="res://.godot/imported/distant creepy piano.mp3-e7dca83c64e4999903645f26475c9c22.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/distant creepy piano.mp3"
+dest_files=["res://.godot/imported/distant creepy piano.mp3-e7dca83c64e4999903645f26475c9c22.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

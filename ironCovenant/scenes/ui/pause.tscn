@@ -1,0 +1,457 @@
+[gd_scene load_steps=13 format=3 uid="uid://dbcgrbfqo74bt"]
+
+[ext_resource type="Script" uid="uid://btxepl4hl30jo" path="res://scripts/ui_scripts/Pause.cs" id="1_k23cl"]
+[ext_resource type="FontFile" uid="uid://don5aq1ipae25" path="res://assets/fonts/VenrynSans-Regular.ttf" id="2_k23cl"]
+
+[sub_resource type="Animation" id="Animation_k23cl"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/OptionsContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(367, 66)]
+}
+
+[sub_resource type="Animation" id="Animation_qgos8"]
+resource_name = "show"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI:visible")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.005, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/OptionsContainer:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.005, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-550, 66), Vector2(367, 66)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qgos8"]
+_data = {
+&"RESET": SubResource("Animation_k23cl"),
+&"show": SubResource("Animation_qgos8")
+}
+
+[sub_resource type="Animation" id="Animation_5834a"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/OptionsContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(367, 66)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AskQuit/AskQuitContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-550, 66)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AskQuit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4x8ym"]
+resource_name = "show"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/OptionsContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(367, 66), Vector2(1284, 66)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AskQuit/AskQuitContainer:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-550, 66), Vector2(367, 66)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AskQuit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.005, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.345, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eq7dk"]
+_data = {
+&"RESET": SubResource("Animation_5834a"),
+&"show": SubResource("Animation_4x8ym")
+}
+
+[sub_resource type="Animation" id="Animation_jq7is"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FullBackground:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FullBackground:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_arkwq"]
+resource_name = "fade"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FullBackground:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FullBackground:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0.05882353, 0.05882353, 0.05882353, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eq7dk"]
+resource_name = "half_fade"
+length = 0.35
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.59607846)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.005, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hi21p"]
+_data = {
+&"RESET": SubResource("Animation_jq7is"),
+&"fade": SubResource("Animation_arkwq"),
+&"half_fade": SubResource("Animation_eq7dk")
+}
+
+[node name="Pause" type="Control" node_paths=PackedStringArray("_pauseAnimation", "_showQuitOptionsAnimation", "_fadeAnimation")]
+process_mode = 3
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k23cl")
+_pauseAnimation = NodePath("PauseAnimation")
+_showQuitOptionsAnimation = NodePath("ShowQuitOptionsAnimation")
+_fadeAnimation = NodePath("Fade")
+
+[node name="PauseAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qgos8")
+}
+
+[node name="ShowQuitOptionsAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_eq7dk")
+}
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hi21p")
+}
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="FullBackground" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="UI" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -294.0
+offset_right = 273.0
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="Title" type="Label" parent="UI/OptionsContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k23cl")
+theme_override_font_sizes/font_size = 64
+text = "GAME NAME HERE"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/OptionsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Resume" type="Button" parent="UI/OptionsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k23cl")
+theme_override_font_sizes/font_size = 64
+text = "Resume"
+
+[node name="Settings" type="Button" parent="UI/OptionsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k23cl")
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+
+[node name="Quit" type="Button" parent="UI/OptionsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k23cl")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
+[node name="AskQuit" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AskQuitContainer" type="VBoxContainer" parent="AskQuit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -570.0
+offset_top = 46.0
+offset_right = -23.99878
+offset_bottom = 634.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="Title" type="Label" parent="AskQuit/AskQuitContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k23cl")
+theme_override_font_sizes/font_size = 64
+text = "Quit game?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AskQuit/AskQuitContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Cancel" type="Button" parent="AskQuit/AskQuitContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k23cl")
+theme_override_font_sizes/font_size = 64
+text = "Cancel"
+
+[node name="MainMenu" type="Button" parent="AskQuit/AskQuitContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k23cl")
+theme_override_font_sizes/font_size = 64
+text = "Main Menu	"
+
+[node name="Desktop" type="Button" parent="AskQuit/AskQuitContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k23cl")
+theme_override_font_sizes/font_size = 64
+text = "Exit to Desktop"
+
+[connection signal="pressed" from="UI/OptionsContainer/VBoxContainer/Resume" to="." method="OnResumePressed"]
+[connection signal="pressed" from="UI/OptionsContainer/VBoxContainer/Settings" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="UI/OptionsContainer/VBoxContainer/Quit" to="." method="OnQuitPressed"]
+[connection signal="pressed" from="AskQuit/AskQuitContainer/VBoxContainer/Cancel" to="." method="OnCancelPressed"]
+[connection signal="pressed" from="AskQuit/AskQuitContainer/VBoxContainer/MainMenu" to="." method="OnMainMenuPressed"]
+[connection signal="pressed" from="AskQuit/AskQuitContainer/VBoxContainer/Desktop" to="." method="OnDesktopPressed"]

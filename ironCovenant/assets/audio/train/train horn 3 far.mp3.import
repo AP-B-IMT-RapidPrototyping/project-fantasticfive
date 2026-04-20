@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjj5td2wqi3oj"
+path="res://.godot/imported/train horn 3 far.mp3-231737fa526342b9e9c533757b540c31.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/train/train horn 3 far.mp3"
+dest_files=["res://.godot/imported/train horn 3 far.mp3-231737fa526342b9e9c533757b540c31.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

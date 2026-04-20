@@ -1,0 +1,399 @@
+[gd_scene load_steps=15 format=3 uid="uid://cljofefpq0wr2"]
+
+[ext_resource type="Script" uid="uid://c7yxai3p1a3pr" path="res://scripts/npc_logic/player/Player.cs" id="1_o7mkg"]
+[ext_resource type="Script" uid="uid://cklsqql0h031y" path="res://scripts/npc_logic/player/PlayerFootstep.cs" id="2_b4nt1"]
+[ext_resource type="PackedScene" uid="uid://dbcgrbfqo74bt" path="res://scenes/ui/pause.tscn" id="2_cp7s5"]
+[ext_resource type="Script" uid="uid://c40ebwns2rmwx" path="res://scripts/npc_logic/player/PlayerHead.cs" id="3_cp7s5"]
+[ext_resource type="Script" uid="uid://evma3bdsnls3" path="res://scripts/npc_logic/player/debug/DebugPlayer.cs" id="4_qvykc"]
+[ext_resource type="Script" uid="uid://cc2rojun03uvi" path="res://scripts/npc_logic/player/debug/DebugMenu.cs" id="5_d7324"]
+[ext_resource type="Script" uid="uid://dblxn85ca6knp" path="res://scripts/npc_logic/player/debug/DebugConsole.cs" id="7_35tf2"]
+[ext_resource type="PackedScene" uid="uid://dyxg4wrv5uocs" path="res://scenes/ui/debug/version_manager.tscn" id="8_7ccm3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4nt1"]
+radius = 0.4
+height = 1.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fninx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qvykc"]
+material = SubResource("StandardMaterial3D_fninx")
+radius = 0.4
+height = 1.75
+radial_segments = 16
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cp7s5"]
+albedo_color = Color(0.037521772, 0.2753775, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7324"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35tf2"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_playerHead", "_playerCamera") groups=["player"]]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_o7mkg")
+_playerHead = NodePath("PlayerHead")
+_playerCamera = NodePath("PlayerHead/PlayerCamera")
+_noclipSprintSpeedDEBUG = 250.0
+
+[node name="Pause" parent="." instance=ExtResource("2_cp7s5")]
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_b4nt1")
+
+[node name="PlayerModel" type="MeshInstance3D" parent="."]
+layers = 16
+mesh = SubResource("CapsuleMesh_qvykc")
+
+[node name="PlayerHead" type="Node3D" parent="." node_paths=PackedStringArray("_player", "_playerCamera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("3_cp7s5")
+_player = NodePath("..")
+_playerCamera = NodePath("PlayerCamera")
+
+[node name="PlayerFace" type="CSGBox3D" parent="PlayerHead"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+layers = 8
+size = Vector3(0.9, 0.4, 0.5)
+material = SubResource("StandardMaterial3D_cp7s5")
+
+[node name="EyeR" type="CSGSphere3D" parent="PlayerHead/PlayerFace"]
+transform = Transform3D(1, 0, 0, 0, 0.9, 0, 0, 0, 1, 0.2, 0, -0.24999999)
+operation = 2
+radius = 0.1
+radial_segments = 6
+rings = 4
+smooth_faces = false
+material = SubResource("StandardMaterial3D_d7324")
+
+[node name="Pupil" type="CSGSphere3D" parent="PlayerHead/PlayerFace/EyeR"]
+transform = Transform3D(0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0.099999994)
+operation = 2
+radius = 0.1
+radial_segments = 6
+rings = 4
+smooth_faces = false
+material = SubResource("StandardMaterial3D_35tf2")
+
+[node name="EyeL" type="CSGSphere3D" parent="PlayerHead/PlayerFace"]
+transform = Transform3D(1, 0, 0, 0, 0.9, 0, 0, 0, 1, -0.2, 0, -0.24999999)
+operation = 2
+radius = 0.1
+radial_segments = 6
+rings = 4
+smooth_faces = false
+material = SubResource("StandardMaterial3D_d7324")
+
+[node name="Pupil" type="CSGSphere3D" parent="PlayerHead/PlayerFace/EyeL"]
+transform = Transform3D(0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0.099999994)
+operation = 2
+radius = 0.1
+radial_segments = 6
+rings = 4
+smooth_faces = false
+material = SubResource("StandardMaterial3D_35tf2")
+
+[node name="PlayerCamera" type="Camera3D" parent="PlayerHead"]
+cull_mask = 1048567
+fov = 90.0
+
+[node name="PlayerHand" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="PlayerHand"]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.19999999, 0, 0, 0, 0.78, 0.3, 0, -0.4)
+
+[node name="FootstepSound" type="Node3D" parent="." node_paths=PackedStringArray("_player", "_footRaycast", "_footstepPlayer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+script = ExtResource("2_b4nt1")
+_player = NodePath("..")
+_footRaycast = NodePath("FootRayCast")
+_footstepPlayer = NodePath("FootstepPlayer")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="FootstepSound"]
+volume_db = -5.0
+max_db = -2.0
+bus = &"Gameplay"
+area_mask = 8
+
+[node name="FootRayCast" type="RayCast3D" parent="FootstepSound"]
+target_position = Vector3(0, -0.4, 0)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="HUD/UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.69803923)
+
+[node name="DEBUGTRANSFORM" type="RemoteTransform3D" parent="."]
+transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, 1.694, 1.119, -2.469)
+remote_path = NodePath("../DebugStats/CamToPlayer/SubViewport/Camera3D")
+
+[node name="DebugStats" type="Control" parent="." node_paths=PackedStringArray("_player", "_playerHead", "_playerCamera", "_moveStateLabel", "_actionStateLabel", "_speedXLabel", "_speedZLabel", "_speedYLabel", "_headOffsetLabel", "_fovLabel")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_qvykc")
+_player = NodePath("..")
+_playerHead = NodePath("../PlayerHead")
+_playerCamera = NodePath("../PlayerHead/PlayerCamera")
+_moveStateLabel = NodePath("DebugStatsContainer/VBoxContainer/PlayerMoveState")
+_actionStateLabel = NodePath("DebugStatsContainer/VBoxContainer/PlayerActionState")
+_speedXLabel = NodePath("DebugStatsContainer/VBoxContainer/SpeedX")
+_speedZLabel = NodePath("DebugStatsContainer/VBoxContainer/SpeedZ")
+_speedYLabel = NodePath("DebugStatsContainer/VBoxContainer/SpeedY")
+_headOffsetLabel = NodePath("DebugStatsContainer/VBoxContainer/Head")
+_fovLabel = NodePath("DebugStatsContainer/VBoxContainer/Fov")
+
+[node name="DebugStatsContainer" type="ColorRect" parent="DebugStats"]
+visible = false
+layout_mode = 0
+offset_right = 330.0
+offset_bottom = 395.0
+mouse_filter = 2
+color = Color(0.05882353, 0.05882353, 0.05882353, 0.2509804)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugStats/DebugStatsContainer"]
+layout_mode = 1
+offset_right = 154.0
+offset_bottom = 395.0
+
+[node name="PlayerMoveState" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Move: "
+
+[node name="PlayerActionState" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Action: "
+
+[node name="SpeedX" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Speed X:"
+
+[node name="SpeedZ" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Speed Z:"
+
+[node name="SpeedY" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Speed Y:"
+
+[node name="Head" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Cam: X, Z"
+
+[node name="Fov" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Fov: "
+
+[node name="CamToPlayer" type="SubViewportContainer" parent="DebugStats"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.47998
+offset_bottom = 170.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(170, 0)
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="DebugStats/CamToPlayer"]
+handle_input_locally = false
+size = Vector2i(170, 170)
+render_target_update_mode = 0
+
+[node name="Camera3D" type="Camera3D" parent="DebugStats/CamToPlayer/SubViewport"]
+transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, 1.694, 1.119, -2.469)
+cull_mask = 1048574
+fov = 32.0
+
+[node name="DevMenu" type="Control" parent="." node_paths=PackedStringArray("_pauseMenu", "_playerHead", "_debug", "_debugStatsContainer", "_camToPlayer", "_cin")]
+process_mode = 3
+visible = false
+z_index = 5
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_d7324")
+_pauseMenu = NodePath("../Pause")
+_playerHead = NodePath("../PlayerHead")
+_debug = NodePath("../DebugStats")
+_debugStatsContainer = NodePath("../DebugStats/DebugStatsContainer")
+_camToPlayer = NodePath("../DebugStats/CamToPlayer")
+_cin = NodePath("DebugConsole/Console")
+
+[node name="ColorRectTitle" type="ColorRect" parent="DevMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.05882353, 0.05882353, 0.05882353, 0.32941177)
+
+[node name="VBoxCenter" type="VBoxContainer" parent="DevMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -117.5
+offset_right = 117.50012
+offset_bottom = 187.0
+grow_horizontal = 2
+
+[node name="DevTitle" type="RichTextLabel" parent="DevMenu/VBoxCenter"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[wave amp=25][rainbow]DEV MENU"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DebugControls" type="Label" parent="DevMenu/VBoxCenter"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Escape - Close
+F1 - Show"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxLeft" type="VBoxContainer" parent="DevMenu"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -490.0
+offset_right = -249.99951
+offset_bottom = 292.0
+grow_horizontal = 0
+
+[node name="Title" type="Label" parent="DevMenu/VBoxLeft"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "Toggle"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Debug" type="CheckButton" parent="DevMenu/VBoxLeft"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "DEBUG STATS"
+
+[node name="DebugStats" type="CheckButton" parent="DevMenu/VBoxLeft"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "DEBUG STATS"
+
+[node name="CamToPlayer" type="CheckButton" parent="DevMenu/VBoxLeft"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "CamToPlayer"
+
+[node name="CheckButton3" type="CheckButton" parent="DevMenu/VBoxLeft"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+disabled = true
+text = "TEST"
+
+[node name="VBoxRight" type="VBoxContainer" parent="DevMenu"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -234.0
+offset_bottom = 172.0
+grow_horizontal = 0
+
+[node name="Title" type="Label" parent="DevMenu/VBoxRight"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "Events"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShakeExplode" type="Button" parent="DevMenu/VBoxRight"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "shake_explode"
+
+[node name="ShakeEarthquake" type="Button" parent="DevMenu/VBoxRight"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "shake_earthq"
+
+[node name="DebugConsole" type="VBoxContainer" parent="DevMenu"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -68.0
+offset_right = -502.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("7_35tf2")
+
+[node name="CommandOutput" type="RichTextLabel" parent="DevMenu/DebugConsole"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(1, 1, 1, 0.5921569)
+theme_override_font_sizes/normal_font_size = 25
+fit_content = true
+vertical_alignment = 1
+
+[node name="Console" type="LineEdit" parent="DevMenu/DebugConsole"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_font_sizes/font_size = 38
+placeholder_text = "command"
+
+[node name="DebugVersion" parent="." instance=ExtResource("8_7ccm3")]
+
+[connection signal="pressed" from="DevMenu/VBoxLeft/Debug" to="DevMenu" method="ShowDebug"]
+[connection signal="pressed" from="DevMenu/VBoxLeft/DebugStats" to="DevMenu" method="ShowDebugStatsContainer"]
+[connection signal="pressed" from="DevMenu/VBoxLeft/CamToPlayer" to="DevMenu" method="ShowCamToPlayer"]
+[connection signal="pressed" from="DevMenu/VBoxRight/ShakeExplode" to="DevMenu" method="ShakeExplosion"]
+[connection signal="pressed" from="DevMenu/VBoxRight/ShakeEarthquake" to="DevMenu" method="ShakeEarthquake"]

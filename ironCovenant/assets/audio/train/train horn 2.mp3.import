@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2jq7p6qt6ndn"
+path="res://.godot/imported/train horn 2.mp3-7cad7f90faf38645fcddd960b1ac0256.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/train/train horn 2.mp3"
+dest_files=["res://.godot/imported/train horn 2.mp3-7cad7f90faf38645fcddd960b1ac0256.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -34,6 +34,9 @@ public partial class Player : CharacterBody3D
 
     private float _maxFallSpeed = 190.0f;
 
+    [ExportGroup("Other Settings")]
+    [Export] private bool Hello = false; //! i am useless, please delete me
+
 
     // State Machine & States
     // Movement States

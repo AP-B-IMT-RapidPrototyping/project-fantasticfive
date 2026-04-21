@@ -13,6 +13,7 @@ public partial class MenuOptions : Node3D
     private Color color;
 
     [Export] private AnimationPlayer _animCamSwitch;
+    [Export] private AnimationPlayer _animSpotlight;
 
     [Export] private Control _playOptions;
     [Export] private AudioStreamPlayer _hoverUI;
@@ -22,7 +23,7 @@ public partial class MenuOptions : Node3D
     {
         Input.MouseMode = Input.MouseModeEnum.Visible;
 
-        color = new Color(0.7f, 0.7f, 0.7f);
+        color = new Color(0.497f, 0.497f, 0.497f);
 
         // Play button
         var playMaterial = _buttonPlay.GetActiveMaterial(0);
@@ -97,6 +98,7 @@ public partial class MenuOptions : Node3D
         {
             _clickUI.Play();
             _animCamSwitch.Play("settings");
+            _animSpotlight.Play("spotlight_settings");
         }
     }
 
@@ -153,6 +155,8 @@ public partial class MenuOptions : Node3D
         {
             _clickUI.Play();
             _animCamSwitch.PlayBackwards("settings");
+            _animSpotlight.PlayBackwards("spotlight_settings");
+            _animSpotlight.AnimationSetNext("spotlight_settings", "spotlight_idle");
         }
     }
 

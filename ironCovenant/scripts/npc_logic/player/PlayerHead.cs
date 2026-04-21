@@ -453,7 +453,7 @@ public partial class PlayerHead : Node3D
 
 
 
-    public override void _Process(double delta)
+    public override void _PhysicsProcess(double delta)
     {
         if (_player == null)
             return;

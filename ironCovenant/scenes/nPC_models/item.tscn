@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bixm2ahxxcaqh"]
+
+[node name="Item" type="RigidBody3D" unique_id=2090863349]
+collision_layer = 6
+collision_mask = 15

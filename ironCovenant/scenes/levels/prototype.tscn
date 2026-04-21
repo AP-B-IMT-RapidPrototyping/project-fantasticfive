@@ -42,6 +42,10 @@ albedo_color = Color(0, 1, 0, 1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_76ncn"]
 viewport_path = NodePath("Mirror/Sprite3D/MirrorScreen")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_a1d61"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_corbn"]
+
 [sub_resource type="Animation" id="Animation_corbn"]
 length = 0.001
 tracks/0/type = "value"
@@ -501,17 +505,23 @@ texture = SubResource("ViewportTexture_76ncn")
 
 [node name="Entities" type="Node3D" parent="." unique_id=1883356266]
 
-[node name="enemy" type="CSGBox3D" parent="Entities" unique_id=869452621 groups=["entity"]]
+[node name="enemy" type="CSGBox3D" parent="Entities" unique_id=869452621 groups=["enemy", "entity"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -3)
+layers = 6
+use_collision = true
+collision_layer = 20
+collision_mask = 29
 
-[node name="enemy1" type="CSGBox3D" parent="Entities" unique_id=856093864 groups=["entity"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, -5)
+[node name="item" type="RigidBody3D" parent="Entities" unique_id=772047137 groups=["entity", "item"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 1)
+collision_layer = 6
+collision_mask = 15
 
-[node name="enemy2" type="CSGBox3D" parent="Entities" unique_id=617799912 groups=["entity"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -7)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/item" unique_id=1590745582]
+shape = SubResource("SphereShape3D_a1d61")
 
-[node name="enemy3" type="CSGBox3D" parent="Entities" unique_id=1814323539 groups=["entity"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -8)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/item" unique_id=448282600]
+mesh = SubResource("SphereMesh_corbn")
 
 [node name="MovePlatforms" type="Node3D" parent="." unique_id=1230095590]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -14)

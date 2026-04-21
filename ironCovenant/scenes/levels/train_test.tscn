@@ -70,7 +70,7 @@ volumetric_fog_albedo = Color(0.5176471, 0.5529412, 0.60784316, 1)
 
 [node name="Train" parent="." unique_id=991101801 instance=ExtResource("1_rjfet")]
 
-[node name="TrainSpotlight" parent="Train" index="1" unique_id=1605978719 node_paths=PackedStringArray("player")]
+[node name="TrainSpotlight" parent="Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player")]
 player = NodePath("../../Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1224874835]

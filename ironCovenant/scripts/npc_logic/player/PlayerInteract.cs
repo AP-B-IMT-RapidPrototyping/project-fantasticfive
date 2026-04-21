@@ -3,12 +3,13 @@ using System;
 
 public partial class PlayerInteract : Node3D
 {
-    [Export] private ColorRect _crosshair;
-    private bool _crosshairIsBig;
-
+    [Export] private InventorySystem _inventory;
     [Export] private RayCast3D _interactRay;
 
     public bool _isHoldingItem;
+
+    [Export] private ColorRect _crosshair;
+    private bool _crosshairIsBig;
 
 
 
@@ -52,7 +53,7 @@ public partial class PlayerInteract : Node3D
                 if (collider != null && collider.IsInGroup("item"))
                 {
                     GD.Print($"Item: {collider.Name}");
-                    // do something...
+                    bool abc = _inventory.AddItem(collider.Name, 1);
                 }
             }
         }

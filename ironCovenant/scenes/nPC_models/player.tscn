@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dbcgrbfqo74bt" path="res://scenes/ui/pause.tscn" id="2_cp7s5"]
 [ext_resource type="Script" uid="uid://c40ebwns2rmwx" path="res://scripts/npc_logic/player/PlayerHead.cs" id="3_cp7s5"]
 [ext_resource type="Script" uid="uid://k8eb8eoacfvw" path="res://scripts/npc_logic/player/PlayerInteract.cs" id="4_50dpb"]
-[ext_resource type="Script" uid="uid://evma3bdsnls3" path="res://scripts/npc_logic/player/debug/DebugPlayer.cs" id="4_qvykc"]
-[ext_resource type="Script" uid="uid://cc2rojun03uvi" path="res://scripts/npc_logic/player/debug/DebugMenu.cs" id="5_d7324"]
-[ext_resource type="Script" uid="uid://dblxn85ca6knp" path="res://scripts/npc_logic/player/debug/DebugConsole.cs" id="7_35tf2"]
+[ext_resource type="Script" uid="uid://evma3bdsnls3" path="res://scripts/npc_logic/player/player_debug/DebugPlayer.cs" id="4_qvykc"]
+[ext_resource type="Script" uid="uid://cc2rojun03uvi" path="res://scripts/npc_logic/player/player_debug/DebugMenu.cs" id="5_d7324"]
+[ext_resource type="Script" uid="uid://chw2phh0x5dhj" path="res://scripts/npc_logic/player/playerdata/InventorySystem.cs" id="5_jgevp"]
+[ext_resource type="Script" uid="uid://dblxn85ca6knp" path="res://scripts/npc_logic/player/player_debug/DebugConsole.cs" id="7_35tf2"]
 [ext_resource type="PackedScene" uid="uid://dyxg4wrv5uocs" path="res://scenes/ui/debug/version_manager.tscn" id="8_7ccm3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4nt1"]
@@ -100,11 +101,15 @@ material = SubResource("StandardMaterial3D_35tf2")
 cull_mask = 1048567
 fov = 90.0
 
-[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_crosshair", "_interactRay")]
+[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_inventory", "_interactRay", "_crosshair")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 script = ExtResource("4_50dpb")
-_crosshair = NodePath("../../HUD/UI/Crosshair")
+_inventory = NodePath("Inventory")
 _interactRay = NodePath("InteractRay")
+_crosshair = NodePath("../../HUD/UI/Crosshair")
+
+[node name="Inventory" type="Node" parent="PlayerHead/PlayerInteract" unique_id=1762061631]
+script = ExtResource("5_jgevp")
 
 [node name="fakearm" type="CSGBox3D" parent="PlayerHead/PlayerInteract" unique_id=2026619168]
 transform = Transform3D(0.19999999, 0, 0, 0, 0.19999999, 0, 0, 0, 0.78, 0.3, 0, -0.4)

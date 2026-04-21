@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://baroqmonwfls0"]
 
-[ext_resource type="PackedScene" uid="uid://cijrmjk5w2cok" path="res://assets/prototypeAssets/TestTrain.glb" id="1_8en2i"]
+[ext_resource type="PackedScene" uid="uid://b7skovo332j47" path="res://assets/prototypeAssets/TestTrain.glb" id="1_8en2i"]
 [ext_resource type="PackedScene" uid="uid://dxqxd1d7qpmkw" path="res://assets/prototypeAssets/TrainSpotlight.glb" id="2_ie6wu"]
 [ext_resource type="Script" uid="uid://dft03ixo78jia" path="res://scripts/npc_logic/TrainSpotlight.cs" id="3_fjli7"]
 
@@ -27,8 +27,8 @@ size = Vector3(2.8775635, 1.253418, 2.1711426)
 
 [node name="Train" type="Node3D" unique_id=991101801]
 
-[node name="TestTrain" parent="." unique_id=1866137267 instance=ExtResource("1_8en2i")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+[node name="TestTrain" parent="." unique_id=2112701764 instance=ExtResource("1_8en2i")]
+transform = Transform3D(-3.934025e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.934025e-08, 2.3930235, 0, 0)
 
 [node name="TrainSpotlight" parent="." unique_id=1474622944 instance=ExtResource("2_ie6wu")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 5.4124975, 0)

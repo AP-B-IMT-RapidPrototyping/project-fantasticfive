@@ -197,10 +197,50 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(0.037735563, 0.04671275, 0.07367646, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Environment/Train:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(30.854347, -1.6723156, -4.0354223)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Environment/Train/TrainSpotlight:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.41446328, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_11obs"]
+resource_name = "appear"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Environment/Train:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0083333105, 1.575, 3),
+"transitions": PackedFloat32Array(1.2311441, 0.3789293, 1.8660657),
+"update": 0,
+"values": [Vector3(30.854347, -1.6723156, -4.0354223), Vector3(13.222076, -1.6723156, -11.711554), Vector3(6.4420815, -1.6723156, -14.663194)]
+}
 
 [sub_resource type="Animation" id="Animation_geflf"]
 resource_name = "play"
-length = 13.0
+length = 15.0
 step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -275,10 +315,35 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(0.05882353, 0.05882353, 0.05882353, 1), Color(0.05882353, 0.05882353, 0.05882353, 1), Color(0.039215688, 0.047058824, 0.07450981, 0)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Environment/Train:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(10.5, 12.075, 15),
+"transitions": PackedFloat32Array(1, 0.3789293, 1.8660657),
+"update": 0,
+"values": [Vector3(23.201773, -1.6723156, -7.3669367), Vector3(13.222076, -1.6723156, -11.711554), Vector3(6.4420815, -1.6723156, -14.663194)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Environment/Train/TrainSpotlight:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(10.5, 14.075),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.1506782, 0), Vector3(0, -0.41446328, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fkd6t"]
 _data = {
 &"RESET": SubResource("Animation_fkd6t"),
+&"appear": SubResource("Animation_11obs"),
 &"play": SubResource("Animation_geflf")
 }
 
@@ -504,9 +569,10 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.04
 volumetric_fog_albedo = Color(0.5176471, 0.5529412, 0.60784316, 1)
 
-[node name="Main Menu" type="Node3D" unique_id=1685015896 node_paths=PackedStringArray("_animIntro")]
+[node name="Main Menu" type="Node3D" unique_id=1685015896 node_paths=PackedStringArray("_animIntro", "_animWheels")]
 script = ExtResource("1_keln3")
 _animIntro = NodePath("AnimFade")
+_animWheels = NodePath("Environment/Train/TestTrain/AnimationPlayer")
 
 [node name="MenuCamera" type="Camera3D" parent="." unique_id=1322988244]
 fov = 45.0
@@ -4323,7 +4389,7 @@ transform = Transform3D(-0.82068974, 0, -0.57137406, 0, 1, 0, 0.57137406, 0, -0.
 transform = Transform3D(1.3583497, 12.671419, 3.886783e-08, 0, -5.662805e-07, 0.9090911, 6.385053, -2.6957047, -8.268695e-09, 12.501585, 0, 0)
 
 [node name="Train" parent="Environment" unique_id=991101801 instance=ExtResource("54_7248k")]
-transform = Transform3D(-0.89541686, 0, 0.4452291, 0, 1, 0, -0.4452291, 0, -0.89541686, 6.4420815, -1.6723156, -14.663194)
+transform = Transform3D(-0.89541686, 0, 0.4452291, 0, 1, 0, -0.4452291, 0, -0.89541686, 30.854347, -1.6723156, -4.0354223)
 
 [node name="TrainSpotlight" parent="Environment/Train" index="1" unique_id=1474622944]
 transform = Transform3D(0.82379925, 0, -0.3624288, 0, 0.89999974, 0, 0.3624288, 0, 0.82379925, 0, 5.4124975, 0)
@@ -4364,4 +4430,5 @@ shadow_enabled = true
 [connection signal="pressed" from="PlayOptionsControl/VBoxContainer2/Back" to="PlayOptionsControl" method="OnBackPressed"]
 
 [editable path="Environment/Train"]
+[editable path="Environment/Train/TestTrain"]
 [editable path="Environment/Train/TrainSpotlight"]

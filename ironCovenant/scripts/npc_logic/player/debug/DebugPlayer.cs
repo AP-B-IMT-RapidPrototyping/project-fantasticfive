@@ -7,6 +7,7 @@ public partial class DebugPlayer : Control
     [Export] private Node3D _playerHead;
     [Export] private Camera3D _playerCamera;
 
+    [Export] private Label _fpsLabel;
     [Export] private Label _moveStateLabel;
     [Export] private Label _actionStateLabel;
     [Export] private Label _speedXLabel;
@@ -27,6 +28,32 @@ public partial class DebugPlayer : Control
     }
 
 
+
+    private void UpdateFpsLabel()
+    {
+        if (_fpsLabel != null)
+        {
+            var fps = Engine.GetFramesPerSecond();
+
+            switch (fps)
+            {
+                case >= 120:
+                    _fpsLabel.AddThemeColorOverride("font_color", new Color(1, 1, 1, 1)); // white
+                    break;
+                case >= 60:
+                    _fpsLabel.AddThemeColorOverride("font_color", new Color(0, 1, 0)); // green
+                    break;
+                case >= 30:
+                    _fpsLabel.AddThemeColorOverride("font_color", new Color(1, 1, 0)); // yellow
+                    break;
+                default:
+                    _fpsLabel.AddThemeColorOverride("font_color", new Color(1, 0, 0)); // red
+                    break;
+            }
+
+            _fpsLabel.Text = $"FPS: {fps}";
+        }
+    }
 
     private void UpdateMoveStateLabel()
     {
@@ -100,6 +127,7 @@ public partial class DebugPlayer : Control
 
     public override void _Process(double delta)
     {
+        UpdateFpsLabel();
         UpdateMoveStateLabel();
         UpdateActionStateLabel();
         UpdateSpeedXLabel();

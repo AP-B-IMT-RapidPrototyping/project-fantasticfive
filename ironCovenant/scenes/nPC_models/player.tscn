@@ -151,7 +151,7 @@ color = Color(1, 1, 1, 0.69803923)
 transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, 1.694, 1.119, -2.469)
 remote_path = NodePath("../DebugStats/CamToPlayer/SubViewport/Camera3D")
 
-[node name="DebugStats" type="Control" parent="." unique_id=4397430 node_paths=PackedStringArray("_player", "_playerHead", "_playerCamera", "_moveStateLabel", "_actionStateLabel", "_speedXLabel", "_speedZLabel", "_speedYLabel", "_headOffsetLabel", "_fovLabel")]
+[node name="DebugStats" type="Control" parent="." unique_id=4397430 node_paths=PackedStringArray("_player", "_playerHead", "_playerCamera", "_fpsLabel", "_moveStateLabel", "_actionStateLabel", "_speedXLabel", "_speedZLabel", "_speedYLabel", "_headOffsetLabel", "_fovLabel")]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -164,6 +164,7 @@ script = ExtResource("4_qvykc")
 _player = NodePath("..")
 _playerHead = NodePath("../PlayerHead")
 _playerCamera = NodePath("../PlayerHead/PlayerCamera")
+_fpsLabel = NodePath("DebugStatsContainer/VBoxContainer/FPS")
 _moveStateLabel = NodePath("DebugStatsContainer/VBoxContainer/PlayerMoveState")
 _actionStateLabel = NodePath("DebugStatsContainer/VBoxContainer/PlayerActionState")
 _speedXLabel = NodePath("DebugStatsContainer/VBoxContainer/SpeedX")
@@ -176,7 +177,7 @@ _fovLabel = NodePath("DebugStatsContainer/VBoxContainer/Fov")
 visible = false
 layout_mode = 0
 offset_right = 330.0
-offset_bottom = 395.0
+offset_bottom = 452.0
 mouse_filter = 2
 color = Color(0.05882353, 0.05882353, 0.05882353, 0.2509804)
 
@@ -184,6 +185,11 @@ color = Color(0.05882353, 0.05882353, 0.05882353, 0.2509804)
 layout_mode = 1
 offset_right = 154.0
 offset_bottom = 395.0
+
+[node name="FPS" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer" unique_id=272989093]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "FPS:"
 
 [node name="PlayerMoveState" type="Label" parent="DebugStats/DebugStatsContainer/VBoxContainer" unique_id=1045710712]
 layout_mode = 2

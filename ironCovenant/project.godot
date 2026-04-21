@@ -44,6 +44,15 @@ folder_colors={
 "res://scripts/": "blue"
 }
 
+[global_group]
+
+entity=""
+sound_grass=""
+sound_concrete=""
+sound_tile=""
+sound_wood=""
+scene_teleporter_area=""
+
 [gui]
 
 theme/custom_font="uid://don5aq1ipae25"

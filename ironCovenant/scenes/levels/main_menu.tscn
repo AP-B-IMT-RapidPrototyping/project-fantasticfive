@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://qlqyvcvdnl0j" path="res://scripts/scene_scripts/scripts_main_menu/MenuCamera.cs" id="2_keln3"]
 [ext_resource type="AudioStream" uid="uid://bkyh8ig8pwob4" path="res://assets/audio/UI/UI click.mp3" id="4_geflf"]
 [ext_resource type="Script" uid="uid://cohhtiof7mhb" path="res://scripts/scene_scripts/scripts_main_menu/MenuPlayOptions.cs" id="6_crctu"]
-[ext_resource type="PackedScene" uid="uid://dif0oxo5cq6q7" path="res://scenes/levels/prototype.tscn" id="7_crctu"]
 [ext_resource type="PackedScene" uid="uid://chiqilbow1i4n" path="res://scenes/levels/Level1.tscn" id="7_sn5u3"]
+[ext_resource type="PackedScene" uid="uid://br4chdqnmbynv" path="res://scenes/levels/test_forest.tscn" id="8_7248k"]
 [ext_resource type="PackedScene" uid="uid://csjn7l8tb538x" path="res://assets/NatureAssets/trees/spruce/Spruce_M_flat.glb" id="9_dyrhw"]
 [ext_resource type="PackedScene" uid="uid://clyv1pv63jwer" path="res://assets/NatureAssets/trees/cypress/Cypress_L_flat.glb" id="10_w6rom"]
 [ext_resource type="PackedScene" uid="uid://gaiiy7k6s8m2" path="res://assets/NatureAssets/trees/birch/Birch_M_flat.glb" id="11_7248k"]
@@ -716,7 +716,7 @@ mouse_filter = 2
 script = ExtResource("6_crctu")
 _animCamSwitch = NodePath("../AnimCamSwitch")
 _gameScene = ExtResource("7_sn5u3")
-_newGameScene = ExtResource("7_crctu")
+_newGameScene = ExtResource("8_7248k")
 
 [node name="Background" type="ColorRect" parent="PlayOptionsControl" unique_id=421278735]
 layout_mode = 1

@@ -38,7 +38,6 @@
 [ext_resource type="PackedScene" uid="uid://dih6r7th5xqfr" path="res://assets/NatureAssets/forest_floor/rocks/Rock_06_flat.glb" id="36_d6c5t"]
 [ext_resource type="PackedScene" uid="uid://bf2oqd8r1l7wg" path="res://assets/NatureAssets/forest_floor/rocks/Rock_01_flat.glb" id="37_igjdg"]
 [ext_resource type="PackedScene" uid="uid://bmeng4trq5nfy" path="res://assets/NatureAssets/forest_floor/rocks/Rock_02_flat.glb" id="38_vmfdo"]
-[ext_resource type="PackedScene" uid="uid://dlqx46ex1xteg" path="res://assets/NatureAssets/forest_floor/rocks/Rock_05_flat.glb" id="39_nsnyu"]
 [ext_resource type="PackedScene" uid="uid://dc5qrar80kvrd" path="res://assets/NatureAssets/forest_floor/rocks/Rock_08_flat.glb" id="40_rmixh"]
 [ext_resource type="PackedScene" uid="uid://cpadqcq7hf1p4" path="res://assets/NatureAssets/forest_floor/shrooms/Mushroom_Brown_L_flat.glb" id="41_6c2pp"]
 [ext_resource type="PackedScene" uid="uid://cgmlx3vbj01le" path="res://assets/NatureAssets/forest_floor/shrooms/Mushroom_Red_L_flat.glb" id="42_77bw0"]
@@ -52,24 +51,28 @@
 [ext_resource type="PackedScene" uid="uid://24gnodun6nsg" path="res://assets/Village/House1.glb" id="49_dpjnn"]
 [ext_resource type="PackedScene" uid="uid://diqlem0jq6mxq" path="res://assets/Village/House2.glb" id="50_gk2nh"]
 [ext_resource type="PackedScene" uid="uid://bvplewxffmidp" path="res://assets/Village/House3.glb" id="51_tei60"]
+[ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="53_atbjx"]
 [ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="53_guqey"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4tp0g"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_4tp0g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_atbjx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_1o1u4"]
-sky_material = SubResource("ProceduralSkyMaterial_4tp0g")
+[sub_resource type="Sky" id="Sky_5lmob"]
+sky_material = SubResource("ProceduralSkyMaterial_atbjx")
 
-[sub_resource type="Environment" id="Environment_5t5ik"]
+[sub_resource type="Environment" id="Environment_wp7kj"]
 background_mode = 2
-sky = SubResource("Sky_1o1u4")
+sky = SubResource("Sky_5lmob")
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 fog_density = 0.0224
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_4tp0g"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.04
+volumetric_fog_albedo = Color(0.5176471, 0.5529412, 0.60784316, 1)
 
 [node name="TestForest" type="Node3D" unique_id=2095375635]
 script = ExtResource("1_d1b5u")
@@ -77,9 +80,6 @@ script = ExtResource("1_d1b5u")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=966021062]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1954522669]
-environment = SubResource("Environment_5t5ik")
 
 [node name="Forest" type="Node3D" parent="." unique_id=1906540079]
 
@@ -1119,9 +1119,6 @@ transform = Transform3D(0.6427671, 0, -0.76606166, 0, 1, 0, 0.76606166, 0, 0.642
 [node name="@Node3D@22970" parent="Forest/GeneratedForestFloor" unique_id=1643207706 instance=ExtResource("29_l1s88")]
 transform = Transform3D(0.99941444, 0, -0.034217007, 0, 1, 0, 0.034217007, 0, 0.99941444, -84.867455, 0, 91.08518)
 
-[node name="@Node3D@22971" parent="Forest/GeneratedForestFloor" unique_id=698302980 instance=ExtResource("28_t360c")]
-transform = Transform3D(-0.18459839, 0, -0.982814, 0, 1, 0, 0.982814, 0, -0.18459839, 2.722983, 0, 8.397355)
-
 [node name="@Node3D@22972" parent="Forest/GeneratedForestFloor" unique_id=1873000387 instance=ExtResource("27_1byws")]
 transform = Transform3D(0.97325087, 0, 0.22974497, 0, 1, 0, -0.22974497, 0, 0.97325087, 39.04274, 0, 80.33634)
 
@@ -1680,9 +1677,6 @@ transform = Transform3D(-0.36392418, 0, 0.93142855, 0, 1, 0, -0.93142855, 0, -0.
 [node name="@Node3D@23162" parent="Forest/GeneratedForestFloor" unique_id=1841108282 instance=ExtResource("27_1byws")]
 transform = Transform3D(0.34655917, 0, 0.9380281, 0, 1, 0, -0.9380281, 0, 0.34655917, 67.80207, 0, -34.359505)
 
-[node name="@Node3D@23163" parent="Forest/GeneratedForestFloor" unique_id=938133641 instance=ExtResource("27_1byws")]
-transform = Transform3D(0.8328092, 0, -0.55356014, 0, 1, 0, 0.55356014, 0, 0.8328092, -0.74692065, 0, 4.583328)
-
 [node name="@Node3D@23164" parent="Forest/GeneratedForestFloor" unique_id=782196989 instance=ExtResource("29_l1s88")]
 transform = Transform3D(-0.98344356, 0, -0.18121473, 0, 1, 0, 0.18121473, 0, -0.98344356, -86.990974, 0, -48.700207)
 
@@ -2066,9 +2060,6 @@ transform = Transform3D(-0.83365595, 0, -0.5522842, 0, 1, 0, 0.5522842, 0, -0.83
 
 [node name="@Node3D@23292" parent="Forest/GeneratedForestFloor" unique_id=63335741 instance=ExtResource("29_l1s88")]
 transform = Transform3D(0.99443775, 0, -0.10532579, 0, 1, 0, 0.10532579, 0, 0.99443775, -7.2501774, 0, 52.515194)
-
-[node name="@Node3D@23293" parent="Forest/GeneratedForestFloor" unique_id=2130101586 instance=ExtResource("29_l1s88")]
-transform = Transform3D(0.97430956, 0, 0.22521307, 0, 1, 0, -0.22521307, 0, 0.97430956, 3.5166698, 0, 10.003147)
 
 [node name="@Node3D@23294" parent="Forest/GeneratedForestFloor" unique_id=941275598 instance=ExtResource("27_1byws")]
 transform = Transform3D(-0.22009149, 0, -0.97547925, 0, 1, 0, 0.97547925, 0, -0.22009149, -19.466625, 0, -20.539568)
@@ -3459,9 +3450,6 @@ transform = Transform3D(-0.9993881, 0, 0.034977842, 0, 1, 0, -0.034977842, 0, -0
 [node name="@Node3D@23759" parent="Forest/GeneratedForestFloor" unique_id=786723661 instance=ExtResource("34_l0mfd")]
 transform = Transform3D(0.91969746, 0, -0.39262775, 0, 1, 0, 0.39262775, 0, 0.91969746, -70.73927, 0, 49.24715)
 
-[node name="Rock_05_flat" parent="Forest/GeneratedForestFloor" unique_id=1933784363 instance=ExtResource("39_nsnyu")]
-transform = Transform3D(-0.633006, 0, 0.7741469, 0, 1, 0, -0.7741469, 0, -0.633006, 2.4184856, 0, 10.222446)
-
 [node name="@Node3D@23760" parent="Forest/GeneratedForestFloor" unique_id=936614125 instance=ExtResource("40_rmixh")]
 transform = Transform3D(-0.59601897, 0, -0.80297035, 0, 1, 0, 0.80297035, 0, -0.59601897, -70.82538, 0, -65.25396)
 
@@ -3668,3 +3656,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5614276, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(100, 1, 100)
+
+[node name="Train" parent="." unique_id=991101801 instance=ExtResource("53_atbjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.026026249, 11.434833)
+
+[node name="TrainSpotlight" parent="Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player", "anim")]
+player = NodePath("../../Player")
+anim = NodePath("../TestTrain/AnimationPlayer")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=989351135]
+environment = SubResource("Environment_wp7kj")
+
+[editable path="Train"]
+[editable path="Train/TestTrain"]
+[editable path="Train/TrainSpotlight"]

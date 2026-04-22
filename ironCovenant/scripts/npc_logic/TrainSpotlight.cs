@@ -5,12 +5,14 @@ using System.Runtime.CompilerServices;
 public partial class TrainSpotlight : Node3D
 {
 	[Export] private Player player;
+	[Export] AnimationPlayer anim;
 	public override void _Ready()
 	{
 		if (player == null)
 		{
 			GD.Print("No player found");
 		}
+		anim.Play("move");
 	}
 
 	

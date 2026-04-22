@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dbcgrbfqo74bt" path="res://scenes/ui/pause.tscn" id="2_cp7s5"]
 [ext_resource type="Script" uid="uid://c40ebwns2rmwx" path="res://scripts/npc_logic/player/PlayerHead.cs" id="3_cp7s5"]
 [ext_resource type="Script" uid="uid://k8eb8eoacfvw" path="res://scripts/npc_logic/player/PlayerInteract.cs" id="4_50dpb"]
-[ext_resource type="Script" uid="uid://evma3bdsnls3" path="res://scripts/npc_logic/player/debug/DebugPlayer.cs" id="4_qvykc"]
-[ext_resource type="Script" uid="uid://cc2rojun03uvi" path="res://scripts/npc_logic/player/debug/DebugMenu.cs" id="5_d7324"]
-[ext_resource type="Script" uid="uid://dblxn85ca6knp" path="res://scripts/npc_logic/player/debug/DebugConsole.cs" id="7_35tf2"]
+[ext_resource type="Script" uid="uid://evma3bdsnls3" path="res://scripts/npc_logic/player/player_debug/DebugPlayer.cs" id="4_qvykc"]
+[ext_resource type="Script" uid="uid://cc2rojun03uvi" path="res://scripts/npc_logic/player/player_debug/DebugMenu.cs" id="5_d7324"]
+[ext_resource type="Script" uid="uid://chw2phh0x5dhj" path="res://scripts/npc_logic/player/playerdata/InventorySystem.cs" id="5_jgevp"]
+[ext_resource type="Script" uid="uid://dblxn85ca6knp" path="res://scripts/npc_logic/player/player_debug/DebugConsole.cs" id="7_35tf2"]
 [ext_resource type="PackedScene" uid="uid://dyxg4wrv5uocs" path="res://scenes/ui/debug/version_manager.tscn" id="8_7ccm3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4nt1"]
@@ -100,11 +101,23 @@ material = SubResource("StandardMaterial3D_35tf2")
 cull_mask = 1048567
 fov = 90.0
 
-[node name="PlayerInteract" type="Node3D" parent="." unique_id=1575503551]
+[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_inventory", "_interactRay", "_crosshair")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 script = ExtResource("4_50dpb")
+_inventory = NodePath("Inventory")
+_interactRay = NodePath("InteractRay")
+_crosshair = NodePath("../../HUD/UI/Crosshair")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="PlayerInteract" unique_id=2026619168]
+[node name="Inventory" type="Node" parent="PlayerHead/PlayerInteract" unique_id=1762061631]
+script = ExtResource("5_jgevp")
+
+[node name="fakearm" type="CSGBox3D" parent="PlayerHead/PlayerInteract" unique_id=2026619168]
 transform = Transform3D(0.19999999, 0, 0, 0, 0.19999999, 0, 0, 0, 0.78, 0.3, 0, -0.4)
+
+[node name="InteractRay" type="RayCast3D" parent="PlayerHead/PlayerInteract" unique_id=1289993461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+target_position = Vector3(0, 0, -2)
+collision_mask = 6
 
 [node name="FootstepSound" type="Node3D" parent="." unique_id=257852073 node_paths=PackedStringArray("_player", "_footRaycast", "_footstepPlayer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
@@ -132,7 +145,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="HUD/UI" unique_id=1408433612]
+[node name="Crosshair" type="ColorRect" parent="HUD/UI" unique_id=1408433612]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -145,6 +158,7 @@ offset_right = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(1, 1)
 color = Color(1, 1, 1, 0.69803923)
 
 [node name="DEBUGTRANSFORM" type="RemoteTransform3D" parent="." unique_id=684393037]

@@ -94,7 +94,7 @@ public partial class Player : CharacterBody3D
     // ================================== //
     // MOVEMENT STATE MACHINE
     // ================================== //
-    private void SwitchMoveState(PlayerMoveState newMoveState)
+    public void SwitchMoveState(PlayerMoveState newMoveState)
     {
         if (_currentMoveState == newMoveState)
             return;
@@ -296,7 +296,7 @@ public partial class Player : CharacterBody3D
     // ================================== //
     // ACTION STATE MACHINE
     // ================================== //
-    private void SwitchActionState(PlayerActionState newActionState)
+    public void SwitchActionState(PlayerActionState newActionState)
     {
         if (_currentActionState == newActionState)
             return;

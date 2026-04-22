@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bp3f80rnbjptf"]
 
+[ext_resource type="Script" uid="uid://dnxbh0s0vut1y" path="res://scripts/scene_scripts/TrainTest.cs" id="1_1jg03"]
 [ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="1_rjfet"]
 [ext_resource type="PackedScene" uid="uid://qqffm0qtsruj" path="res://scenes/levels/snow.tscn" id="2_tu30y"]
 [ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="3_h1e65"]
@@ -52,12 +53,12 @@
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_1o1u4"]
+[sub_resource type="Sky" id="Sky_5lmob"]
 sky_material = SubResource("ProceduralSkyMaterial_tu30y")
 
 [sub_resource type="Environment" id="Environment_h1e65"]
 background_mode = 2
-sky = SubResource("Sky_1o1u4")
+sky = SubResource("Sky_5lmob")
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
@@ -66,7 +67,9 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.04
 volumetric_fog_albedo = Color(0.5176471, 0.5529412, 0.60784316, 1)
 
-[node name="Train_test" type="Node3D" unique_id=1744198296]
+[node name="Train_test" type="Node3D" unique_id=1744198296 node_paths=PackedStringArray("anim")]
+script = ExtResource("1_1jg03")
+anim = NodePath("Train/TestTrain/AnimationPlayer")
 
 [node name="Train" parent="." unique_id=991101801 instance=ExtResource("1_rjfet")]
 
@@ -3684,4 +3687,5 @@ transform = Transform3D(-0.67691326, 0, 0.73606277, 0, 1, 0, -0.73606277, 0, -0.
 transform = Transform3D(-0.82068974, 0, -0.57137406, 0, 1, 0, 0.57137406, 0, -0.82068974, 90.7157, 0, -88.75174)
 
 [editable path="Train"]
+[editable path="Train/TestTrain"]
 [editable path="Train/TrainSpotlight"]

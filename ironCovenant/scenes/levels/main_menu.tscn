@@ -2010,7 +2010,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [20.0]
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_71iry"]
@@ -2027,7 +2027,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 1.13, 1.28, 1.41, 1.7, 9.966666),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [20.0, 20.0, 10.0, 20.0, 0.0, 20.0, 20.0]
+"values": [1.0, 1.0, 0.5, 1.0, 0.0, 1.0, 1.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -5904,132 +5904,216 @@ transform = Transform3D(1.3583497, 12.671419, 3.886783e-08, 0, -5.662805e-07, 0.
 [node name="Train" parent="Environment" unique_id=991101801 instance=ExtResource("54_7248k")]
 transform = Transform3D(-0.89541686, 0, 0.4452291, 0, 1, 0, -0.4452291, 0, -0.89541686, 30.854347, -1.6723156, -4.0354223)
 
-[node name="Cube_004" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="0"]
+[node name="Cube_004" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="0" unique_id=1284477779]
 transform = Transform3D(0.70315903, 0, 0, 0, 0.20013857, 0, 0, 0, 1, -2.1045096, 0.7651082, 2.7192068)
 mesh = SubResource("ArrayMesh_rowp1")
 
-[node name="Cube_006" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="1"]
+[node name="Cube_006" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="1" unique_id=607049856]
 transform = Transform3D(0.095644765, 0, 0, 0, 0.52925783, 0, 0, 0, 0.095644765, -1.6308196, 1.3550147, 3.5613782)
 mesh = SubResource("ArrayMesh_jqort")
 
-[node name="Cylinder" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="2"]
+[node name="Cylinder" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="2" unique_id=748616844]
 mesh = SubResource("ArrayMesh_wujpe")
 
-[node name="Cube_002" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="3"]
+[node name="Cube_002" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="3" unique_id=1255096676]
 mesh = SubResource("ArrayMesh_eh07v")
 
-[node name="Cube_003" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="4"]
+[node name="Cube_003" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="4" unique_id=2145142540]
 mesh = SubResource("ArrayMesh_3jda1")
 
-[node name="Cube_005" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="5"]
+[node name="Cube_005" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="5" unique_id=2092756744]
 mesh = SubResource("ArrayMesh_pi6vx")
 
-[node name="Cylinder_009" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="6"]
+[node name="Cylinder_009" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="6" unique_id=2077673343]
 mesh = SubResource("ArrayMesh_32dnm")
 
-[node name="Cylinder_010" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="7"]
+[node name="Cylinder_010" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="7" unique_id=1087278792]
 mesh = SubResource("ArrayMesh_axeug")
 
-[node name="Cube_007" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="8"]
+[node name="Cube_007" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="8" unique_id=1732015786]
 mesh = SubResource("ArrayMesh_7swx1")
 
-[node name="Cube" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="9"]
+[node name="Cube" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="9" unique_id=979308798]
 mesh = SubResource("ArrayMesh_7wsa0")
 
-[node name="Cube_008" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="10"]
+[node name="Cube_008" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="10" unique_id=899211184]
 mesh = SubResource("ArrayMesh_43nfl")
 
-[node name="Cube_009" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="11"]
+[node name="Cube_009" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="11" unique_id=1894721055]
 mesh = SubResource("ArrayMesh_die44")
 
-[node name="Cube_010" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="12"]
+[node name="Cube_010" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="12" unique_id=1956366547]
 mesh = SubResource("ArrayMesh_1mnhe")
 
-[node name="Cylinder_011" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="13"]
+[node name="Cylinder_011" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="13" unique_id=342432806]
 mesh = SubResource("ArrayMesh_cebyu")
 
-[node name="Cube_001" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="15"]
+[node name="Cube_001" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="15" unique_id=1418164197]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_dudru")
 
-[node name="Cube_011" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="17"]
+[node name="Cube_011" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="17" unique_id=429126368]
 mesh = SubResource("ArrayMesh_326wg")
 
-[node name="Cube_013" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="18"]
+[node name="Cube_013" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="18" unique_id=1640079420]
 mesh = SubResource("ArrayMesh_sgp4l")
 
-[node name="Cylinder_002" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone1_L" index="0"]
+[node name="Skeleton3D" parent="Environment/Train/TestTrain/Armature" parent_id_path=PackedInt32Array(991101801, 1189408230, 581710876) index="0" unique_id=638639078]
+bones/0/rotation = Quaternion(-0.5027114, 0.50327003, -0.49653924, 0.49744284)
+bones/2/rotation = Quaternion(-0.5027114, 0.50327, -0.49653926, 0.49744284)
+bones/4/rotation = Quaternion(-0.5027114, 0.50327003, -0.49653926, 0.4974428)
+bones/5/rotation = Quaternion(0.5027114, -0.50327003, 0.49653926, -0.49744275)
+bones/7/rotation = Quaternion(0.000391379, 0.7034799, 0.7107148, -0.00063651864)
+bones/8/rotation = Quaternion(0.47253606, 0.52603275, 0.47253585, 0.5260315)
+bones/8/scale = Vector3(1, 1.0000002, 1.0000569)
+bones/9/rotation = Quaternion(-3.6438297e-07, 4.997346e-07, 0.7439472, 0.6682385)
+bones/11/scale = Vector3(0.99045956, 0.9904592, 0.99046)
+bones/12/scale = Vector3(1.0096323, 1.0096323, 1.0096323)
+bones/14/rotation = Quaternion(0.0047152666, -0.0047169616, -0.70709103, 0.7070911)
+bones/17/rotation = Quaternion(-0.50271136, 0.50327, -0.4965394, 0.49744278)
+bones/19/rotation = Quaternion(-0.50271136, 0.5032699, -0.49653938, 0.49744278)
+bones/21/rotation = Quaternion(-0.50271136, 0.50326985, -0.49653947, 0.49744278)
+bones/22/rotation = Quaternion(-0.50271136, 0.5032698, -0.49653953, 0.49744287)
+bones/24/rotation = Quaternion(-0.00040576374, -0.6881313, -0.72558594, 0.0006278438)
+bones/25/rotation = Quaternion(0.47253606, -0.52603275, -0.47253585, 0.5260315)
+bones/25/scale = Vector3(1, 1.0000002, 1.0000569)
+bones/26/rotation = Quaternion(-3.6438286e-07, -4.997345e-07, -0.7439472, 0.6682385)
+bones/28/scale = Vector3(0.9904417, 0.99044144, 0.99044186)
+bones/29/scale = Vector3(1.0096507, 1.0096506, 1.0096507)
+bones/31/rotation = Quaternion(0.004714243, 0.004715939, 0.7070911, 0.70709103)
+
+[node name="Bone1_L" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="0" unique_id=1980966049]
+transform = Transform3D(0.0003363962, -0.9999278, -0.01199943, -0.99999887, -0.00035388666, 0.0014598453, -0.0014639599, 0.011998891, -0.99992704, -1.2470682, 0.86191785, -2.34591)
+
+[node name="Cylinder_002" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone1_L" index="0" unique_id=1547018569]
 mesh = SubResource("ArrayMesh_8wuup")
 
-[node name="Cylinder_013" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone_L" index="0"]
+[node name="Bone_L" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="1" unique_id=1521723799]
+transform = Transform3D(0.0003362298, -0.01199943, 0.9999279, -0.99999887, 0.0014601351, 0.00035372376, -0.0014642477, -0.99992704, -0.011998892, -1.2429328, 0.8614147, -2.001299)
+
+[node name="Cylinder_013" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone_L" index="0" unique_id=656784721]
 mesh = SubResource("ArrayMesh_01dhd")
 
-[node name="Cylinder_014" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone5_L" index="0"]
+[node name="Bone5_L" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="2" unique_id=897510993]
+transform = Transform3D(0.0003362894, -0.011999281, 0.9999279, -0.9999988, 0.0014600755, 0.00035375357, -0.0014641583, -0.999927, -0.011998773, -1.2529215, 0.8614147, -4.227758)
+
+[node name="Cylinder_014" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone5_L" index="0" unique_id=1042746561]
 transform = Transform3D(0.000336051, -0.86325777, -0.5047633, -0.011999309, 0.5047237, -0.8631974, 0.99992794, 0.006346892, -0.010188879, -1.3899734, -4.0992002, 1.2042881)
 mesh = SubResource("ArrayMesh_rr57x")
 
-[node name="Cylinder_016" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone9_L" index="0"]
+[node name="Bone9_L" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=1549154261]
+transform = Transform3D(0.0003361702, -0.011999426, 0.9999278, -0.99999887, 0.0014600751, 0.00035369393, -0.0014642179, -0.99992675, -0.011998891, -1.2495898, 0.8614147, 0.2831316)
+
+[node name="Cylinder_016" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone9_L" index="0" unique_id=522172200]
 mesh = SubResource("ArrayMesh_ujeh1")
 
-[node name="Cylinder_018" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone17_L" index="0"]
+[node name="Bone17_L" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="4" unique_id=1566231172]
+transform = Transform3D(8.392999e-08, -0.0017679557, -0.9999984, 1.0000001, 7.416471e-06, 3.1271156e-08, 7.480383e-06, -0.9999983, 0.0017681895, -1.2458432, 0.8619526, 2.110691)
+
+[node name="Cylinder_018" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone17_L" index="0" unique_id=1370008506]
 mesh = SubResource("ArrayMesh_r7exb")
 
-[node name="Cylinder_015" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone10_L" index="0"]
+[node name="Bone10_L" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="5" unique_id=1320459079]
+transform = Transform3D(0.000336051, -0.011999488, 0.999928, -0.9999989, 0.0014599562, 0.00035363436, -0.0014641583, -0.999927, -0.011999011, -1.1087595, 0.8614147, 2.5095906)
+
+[node name="Cylinder_015" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone10_L" index="0" unique_id=651884388]
 mesh = SubResource("ArrayMesh_q1lg8")
 
-[node name="Cube_016" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone12_L" index="0"]
+[node name="Bone12_L" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="6" unique_id=1265903806]
+transform = Transform3D(3.1001753e-07, 1.2920812e-06, 1.000057, -7.610768e-05, -1.0000001, 1.2101995e-06, 1.0000004, -7.606298e-05, -3.397421e-07, -1.5582026, 2.136727, -2.3458114)
+
+[node name="Cube_016" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone12_L" index="0" unique_id=1270648578]
 mesh = SubResource("ArrayMesh_5cagl")
 
-[node name="Cylinder_003" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone11_L" index="0"]
+[node name="Bone11_L" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="7" unique_id=627118718]
+transform = Transform3D(-1.1920929e-06, 1.4007095e-06, 1.0000569, 0.9942764, 0.10683908, 9.537285e-07, -0.10683915, 0.9942766, -1.5498089e-06, -1.5582062, 1.853946, -4.9774604)
+
+[node name="Cylinder_003" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone11_L" index="0" unique_id=1263764908]
 mesh = SubResource("ArrayMesh_vujt4")
 
-[node name="Cylinder_001" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone15_L" index="0"]
+[node name="Bone15_L" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="8" unique_id=901295364]
+transform = Transform3D(-1.0000005, -4.5539593e-08, 2.412745e-06, 2.5221998e-06, 0.013341049, 0.9999111, -9.127464e-08, 0.9999108, -0.013341082, -1.4917051, 0.8239464, -5.1918287)
+
+[node name="Cylinder_001" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone15_L" index="0" unique_id=1166151499]
 mesh = SubResource("ArrayMesh_16775")
 
-[node name="Cube_014" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone3_L" index="0"]
+[node name="Bone3_L" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="9" unique_id=81787166]
+transform = Transform3D(1.4006631e-06, -1.4584543e-08, 1.0000006, -2.430759e-07, -1.0000001, -1.2450948e-07, 0.99999976, -2.0582365e-07, -1.4147406e-06, -1.6340791, 1.0094073, -5.191828)
+
+[node name="Cube_014" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone3_L" index="0" unique_id=466966655]
 mesh = SubResource("ArrayMesh_wv0gy")
 
-[node name="Cylinder_004" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone_R" index="0"]
+[node name="Bone_R" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="10" unique_id=1720902496]
+transform = Transform3D(0.00033599138, -0.011999132, 0.9999279, -0.9999988, 0.0014598967, 0.00035348535, -0.0014640093, -0.99992704, -0.011998653, 1.2429328, 0.8614147, -2.001299)
+
+[node name="Cylinder_004" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone_R" index="0" unique_id=1909761765]
 transform = Transform3D(2.384186e-07, 0.77972436, 0.62612283, -5.960465e-08, 0.6261229, -0.77972436, 1.0000001, -1.4858094e-07, -1.9575451e-07, 0.5813935, -2.0998132, 1.2429339)
 mesh = SubResource("ArrayMesh_jpujw")
 
-[node name="Cylinder_005" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone5_R" index="0"]
+[node name="Bone5_R" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="11" unique_id=1085568132]
+transform = Transform3D(0.000336051, -0.011999102, 0.9999279, -0.9999988, 0.0014598371, 0.00035357475, -0.0014639795, -0.99992704, -0.011998653, 1.2529215, 0.8614147, -4.227758)
+
+[node name="Cylinder_005" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone5_R" index="0" unique_id=510844406]
 transform = Transform3D(1.192093e-07, 0.77972436, 0.62612283, -1.192093e-07, 0.6261229, -0.7797243, 1.0000001, -1.831072e-08, -1.6759004e-07, 1.9754304, -3.8358366, 1.2529219)
 mesh = SubResource("ArrayMesh_ibq82")
 
-[node name="Cylinder_007" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone9_R" index="0"]
+[node name="Bone9_R" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=347443193]
+transform = Transform3D(0.00033599138, -0.01199895, 0.9999279, -0.99999887, 0.0014596579, 0.00035354492, -0.0014638305, -0.99992675, -0.011998533, 1.2495898, 0.8614147, 0.2831316)
+
+[node name="Cylinder_007" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone9_R" index="0" unique_id=311640156]
 transform = Transform3D(3.5762793e-07, 0.7797245, 0.626123, -2.9802326e-08, 0.626123, -0.7797245, 1.0000001, -2.6019129e-07, -2.4715663e-07, -0.848941, -0.31858698, 1.2495906)
 mesh = SubResource("ArrayMesh_sdxnt")
 
-[node name="Cylinder_019" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone17_R" index="0"]
+[node name="Bone17_R" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="13" unique_id=855650321]
+transform = Transform3D(-3.679179e-07, 0.04096456, -0.99916065, 1, 7.4281124e-06, -7.827475e-08, 7.4525597e-06, -0.9991604, -0.04096434, 0.97167623, 0.8619525, 2.110691)
+
+[node name="Cylinder_019" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone17_R" index="0" unique_id=26336134]
 transform = Transform3D(4.7683716e-07, 0.99999994, 0.00026464422, -0.0017619431, 0.00026464462, -0.99999845, 0.99999845, -1.05483595e-08, -0.0017619432, -1.1127678, 2.1948137, 1.2449169)
 mesh = SubResource("ArrayMesh_f67s8")
 
-[node name="Cylinder_006" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone10_R" index="0"]
+[node name="Bone10_R" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="14" unique_id=1501471982]
+transform = Transform3D(0.0003361106, -0.011998743, 0.99992794, -0.9999988, 0.0014596581, 0.00035366416, -0.0014638305, -0.9999269, -0.011998296, 1.1087595, 0.8614147, 2.5095906)
+
+[node name="Cylinder_006" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone10_R" index="0" unique_id=1626913549]
 transform = Transform3D(2.3841858e-07, 0.7797245, 0.62612295, 0, 0.62612295, -0.7797244, 1, -1.859008e-07, -1.4927934e-07, -2.2429774, 1.4174374, 1.1087607)
 mesh = SubResource("ArrayMesh_yeg5l")
 
-[node name="Cube_015" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone12_R" index="0"]
+[node name="Bone12_R" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="15" unique_id=1329544300]
+transform = Transform3D(3.1001775e-07, -1.2920812e-06, -1.000057, 7.610768e-05, -1.0000001, 1.2101995e-06, -1.0000004, -7.606298e-05, -3.3974243e-07, 1.5582026, 2.136727, -2.3458114)
+
+[node name="Cube_015" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone12_R" index="0" unique_id=1584375464]
 transform = Transform3D(-2.9204618e-06, -0.08398618, -0.99646693, 2.309549e-07, -0.99646705, 0.08398617, 0.99994326, -1.5140374e-08, -2.929707e-06, -2.171538, 2.5388513, 1.5581293)
 mesh = SubResource("ArrayMesh_qd0vo")
 
-[node name="Cylinder_017" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone11_R" index="0"]
+[node name="Bone11_R" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="16" unique_id=2065642580]
+transform = Transform3D(-1.1920929e-06, -1.4007095e-06, -1.0000569, -0.9942764, 0.10683908, 9.537285e-07, 0.10683915, 0.9942766, -1.5498089e-06, 1.5582062, 1.853946, -4.9774604)
+
+[node name="Cylinder_017" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone11_R" index="0" unique_id=661706735]
 transform = Transform3D(-3.635677e-06, -0.9824591, 0.18647677, 1.7880378e-06, 0.18647677, 0.9824591, 0.9999434, -3.9055526e-06, -1.0787659e-06, 2.7495883, 4.5444546, 1.5581331)
 mesh = SubResource("ArrayMesh_k6g0b")
 
-[node name="Cylinder_012" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone16_R" index="0"]
+[node name="Bone16_R" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="17" unique_id=678930221]
+transform = Transform3D(-7.4268186e-08, -1.0000002, 3.0428964e-08, -0.013340524, 3.0681804e-09, 0.99991095, -0.9999108, 6.941427e-08, -0.013340524, 1.4917057, 0.8619182, -2.3459115)
+
+[node name="Cylinder_012" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone16_R" index="0" unique_id=554550279]
 transform = Transform3D(-1.788089e-07, -0.09137113, -0.99581766, 0.99997187, 2.0907755e-06, -3.7140427e-07, -2.1159053e-06, 0.99581707, -0.091371186, -2.162103, 1.4916509, -1.280102)
 mesh = SubResource("ArrayMesh_31k1w")
 
-[node name="Cylinder_008" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone15_R" index="0"]
+[node name="Bone15_R" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="18" unique_id=1171431358]
+transform = Transform3D(-1.0000005, 1.9348259e-07, -2.3686164e-06, -2.3941727e-06, 0.013338397, 0.99991095, 2.2061236e-07, 0.9999109, -0.013338395, 1.4917052, 0.8239549, -5.1918306)
+
+[node name="Cylinder_008" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone15_R" index="0" unique_id=1036844985]
 transform = Transform3D(0.9999719, -2.4382493e-07, 1.8254524e-07, -1.5949973e-07, 0.0913662, 0.99581826, 2.5947617e-07, 0.9958178, -0.09136625, 1.4916528, 5.0082774, -1.2800934)
 mesh = SubResource("ArrayMesh_r8y6k")
 
-[node name="Cube_012" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone3_R" index="0"]
+[node name="Bone3_R" parent="Environment/Train/TestTrain/Armature/Skeleton3D" index="19" unique_id=323628337]
+transform = Transform3D(1.4321503e-06, -3.1455556e-08, -1.0000004, 3.4979697e-10, -1, 3.5171297e-09, -0.9999999, 5.80908e-10, -1.4046124e-06, 1.6340792, 1.0085237, -5.1918297)
+
+[node name="Cube_012" parent="Environment/Train/TestTrain/Armature/Skeleton3D/Bone3_R" index="0" unique_id=122433997]
 transform = Transform3D(-1.4900745e-06, 1.15828016e-07, -1.0000011, -2.3339308e-07, -1.0000002, -1.1582776e-07, 0.9999721, -2.3339948e-07, -1.4901177e-06, -5.104292, 1.0017245, 1.6340168)
 mesh = SubResource("ArrayMesh_kwir4")
 
-[node name="AnimationPlayer" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 2112701764) index="20"]
+[node name="AnimationPlayer" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="20" unique_id=1607206083]
 libraries/ = SubResource("AnimationLibrary_bmt4a")
 
 [node name="TrainSpotlight" parent="Environment/Train" index="1" unique_id=1474622944]
@@ -6038,7 +6122,6 @@ script = null
 
 [node name="SpotLight3D" parent="Environment/Train/TrainSpotlight" index="4" unique_id=538811013]
 transform = Transform3D(0.9945232, 0.09784569, 0.036740154, -0.103673875, 0.8790109, 0.46539402, 0.013241801, -0.46665415, 0.88434076, 4.7683716e-07, 2.1062603, -0.55262184)
-light_energy = 20.0
 
 [node name="AnimSpotlight" type="AnimationPlayer" parent="Environment/Train" unique_id=694261204]
 libraries/ = SubResource("AnimationLibrary_a2bth")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://chiqilbow1i4n"]
 
 [ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="1_1pwbc"]
+[ext_resource type="Script" uid="uid://c4mvb8p38xvwp" path="res://scripts/scene_scripts/Level1.cs" id="1_fh0io"]
 [ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="2_j08sa"]
 [ext_resource type="PackedScene" uid="uid://qqffm0qtsruj" path="res://scenes/levels/snow.tscn" id="3_x4si1"]
 
@@ -26,7 +27,9 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.04
 volumetric_fog_albedo = Color(0.5176471, 0.5529412, 0.60784316, 1)
 
-[node name="Level1" type="Node3D" unique_id=820707932]
+[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight")]
+script = ExtResource("1_fh0io")
+spotlight = NodePath("Train/TrainSpotlight")
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1060475541]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 5.6663513)
@@ -42,6 +45,10 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 
 [node name="TrainSpotlight" parent="Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player")]
 player = NodePath("../../Player")
+
+[node name="ShaderRect" parent="Train/CanvasLayer" parent_id_path=PackedInt32Array(991101801, 1079546955) index="0" unique_id=727015593]
+modulate = Color(1, 1, 1, 0.3019608)
+self_modulate = Color(1, 1, 1, 0.2)
 
 [node name="TempEnvironment" type="Node3D" parent="." unique_id=1323152187]
 

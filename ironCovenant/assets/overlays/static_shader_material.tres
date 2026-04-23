@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b8ct2p0p6vird"]
+
+[ext_resource type="Shader" uid="uid://cdptso1vvymb1" path="res://shaders/static.gdshader" id="1_rkns4"]
+
+[resource]
+shader = ExtResource("1_rkns4")
+shader_parameter/amount = 40.0
+shader_parameter/intensity = 1.0

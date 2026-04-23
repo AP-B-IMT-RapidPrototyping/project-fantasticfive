@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bfvvf30mwiuus" path="res://assets/prototypeAssets/TestTrain.glb" id="1_8en2i"]
 [ext_resource type="PackedScene" uid="uid://dxqxd1d7qpmkw" path="res://assets/prototypeAssets/TrainSpotlight.glb" id="2_ie6wu"]
 [ext_resource type="Script" uid="uid://dft03ixo78jia" path="res://scripts/npc_logic/TrainSpotlight.cs" id="3_fjli7"]
+[ext_resource type="Material" uid="uid://b8ct2p0p6vird" path="res://assets/overlays/static_shader_material.tres" id="5_5kvja"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjli7"]
 albedo_color = Color(1, 1, 0.72156864, 1)
@@ -37,11 +38,15 @@ size = Vector3(4.1359253, 1.253418, 2.1711426)
 [node name="TestTrain" parent="." unique_id=1189408230 instance=ExtResource("1_8en2i")]
 transform = Transform3D(-3.934025e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.934025e-08, 2.4002118, 0.007462263, 0.002560854)
 
-[node name="TrainSpotlight" parent="." unique_id=1474622944 node_paths=PackedStringArray("visionTimer", "shapeCast") instance=ExtResource("2_ie6wu")]
+[node name="TrainSpotlight" parent="." unique_id=1474622944 node_paths=PackedStringArray("visionTimer", "bufferTimer", "radiationTick", "shapeCast", "_shaderRect") instance=ExtResource("2_ie6wu")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 5.4124975, 0)
 script = ExtResource("3_fjli7")
 visionTimer = NodePath("../VisionTimer")
+bufferTimer = NodePath("../BufferTimer")
+radiationTick = NodePath("../RadiationTick")
 shapeCast = NodePath("ShapeCast3D")
+_shader = ExtResource("5_5kvja")
+_shaderRect = NodePath("../CanvasLayer/ShaderRect")
 
 [node name="Sphere_001" parent="TrainSpotlight" index="0" unique_id=1728112780]
 surface_material_override/0 = SubResource("StandardMaterial3D_fjli7")
@@ -93,6 +98,24 @@ shape = SubResource("BoxShape3D_0ni18")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="TrainCollision" unique_id=829437701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.158451, 0.85804725, 0.009643555)
 shape = SubResource("BoxShape3D_t23a6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1079546955]
+
+[node name="ShaderRect" type="ColorRect" parent="CanvasLayer" unique_id=727015593]
+visible = false
+material = ExtResource("5_5kvja")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BufferTimer" type="Timer" parent="." unique_id=895068191]
+wait_time = 3.0
+one_shot = true
+
+[node name="RadiationTick" type="Timer" parent="." unique_id=755055228]
+wait_time = 5.0
 
 [connection signal="child_entered_tree" from="TrainSpotlight" to="TrainSpotlight" method="_on_child_entered_tree"]
 

@@ -126,71 +126,71 @@ func default_settings() -> void:
 	
 	boulders_glb_paths_array = [
 		"res://assets/NatureAssets/forest_floor/boulders/Boulder_01_flat.glb", 
-		"res://assets/forest_floor/boulders/Boulder_02_flat.glb", 
-		"res://assets/forest_floor/boulders/Boulder_03_flat.glb"
+		"res://assets/NatureAssets/forest_floor/boulders/Boulder_02_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/boulders/Boulder_03_flat.glb"
 	]
 		
 	bushes_glb_paths_array = [
-		"res://assets/forest_floor/bushes/Bush_Clumps_L_flat.glb", 
-		"res://assets/forest_floor/bushes/Bush_Clumps_M_flat.glb", 
-		"res://assets/forest_floor/bushes/Bush_Clumps_S_flat.glb", 
-		"res://assets/forest_floor/bushes/Bush_L_flat.glb", 
-		"res://assets/forest_floor/bushes/Bush_M_flat.glb", 
-		"res://assets/forest_floor/bushes/Bush_S_flat.glb", 
-		"res://assets/forest_floor/bushes/Bush_with_Flowers_flat.glb"
+		"res://assets/NatureAssets/forest_floor/bushes/Bush_Clumps_L_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/bushes/Bush_Clumps_M_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/bushes/Bush_Clumps_S_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/bushes/Bush_L_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/bushes/Bush_M_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/bushes/Bush_S_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/bushes/Bush_with_Flowers_flat.glb"
 	]
 	
 	
 	grass_glb_paths_array = [
-		"res://assets/forest_floor/grass/Grass_L_flat.glb", 
-		"res://assets/forest_floor/grass/Grass_M_flat.glb", 
-		"res://assets/forest_floor/grass/Grass_S_flat.glb"
+		"res://assets/NatureAssets/forest_floor/grass/Grass_L_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/grass/Grass_M_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/grass/Grass_S_flat.glb"
 	]
 	
 	logs_and_stumps_glb_paths_array = [
-		"res://assets/forest_floor/logs_and_stumps/Fallen_Log_flat.glb", 
-		"res://assets/forest_floor/logs_and_stumps/Tree_Stump_flat.glb"
+		"res://assets/NatureAssets/forest_floor/logs_and_stumps/Fallen_Log_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/logs_and_stumps/Tree_Stump_flat.glb"
 	]
 	
 	rocks_glb_paths_array = [
-		"res://assets/forest_floor/rocks/Rock_01_flat.glb", 
-		"res://assets/forest_floor/rocks/Rock_02_flat.glb", 
-		"res://assets/forest_floor/rocks/Rock_03_flat.glb", 
-		"res://assets/forest_floor/rocks/Rock_04_flat.glb", 
-		"res://assets/forest_floor/rocks/Rock_05_flat.glb", 
-		"res://assets/forest_floor/rocks/Rock_06_flat.glb", 
-		"res://assets/forest_floor/rocks/Rock_07_flat.glb", 
-		"res://assets/forest_floor/rocks/Rock_08_flat.glb", 
-		"res://assets/forest_floor/rocks/Rock_09_flat.glb", 
-		"res://assets/forest_floor/rocks/Rock_10_flat.glb"
+		"res://assets/NatureAssets/forest_floor/rocks/Rock_01_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/rocks/Rock_02_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/rocks/Rock_03_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/rocks/Rock_04_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/rocks/Rock_05_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/rocks/Rock_06_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/rocks/Rock_07_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/rocks/Rock_08_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/rocks/Rock_09_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/rocks/Rock_10_flat.glb"
 	]
 	
 	shrooms_glb_paths_array = [
-		"res://assets/forest_floor/shrooms/Mushroom_Brown_L_flat.glb", 
-		"res://assets/forest_floor/shrooms/Mushroom_Brown_M_flat.glb", 
-		"res://assets/forest_floor/shrooms/Mushroom_Brown_S_flat.glb", 
-		"res://assets/forest_floor/shrooms/Mushroom_Red_L_flat.glb", 
-		"res://assets/forest_floor/shrooms/Mushroom_Red_S_flat.glb"
+		"res://assets/NatureAssets/forest_floor/shrooms/Mushroom_Brown_L_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/shrooms/Mushroom_Brown_M_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/shrooms/Mushroom_Brown_S_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/shrooms/Mushroom_Red_L_flat.glb", 
+		"res://assets/NatureAssets/forest_floor/shrooms/Mushroom_Red_S_flat.glb"
 	]
 	
 	tree_glb_paths_array = [
-		"res://assets/trees/birch/Birch_H_flat.glb", 
-		"res://assets/trees/birch/Birch_L_flat.glb", 
-		"res://assets/trees/birch/Birch_M_flat.glb", 
-		"res://assets/trees/birch/Birch_S_flat.glb", 
-		"res://assets/trees/cypress/Cypress_L_flat.glb", 
-		"res://assets/trees/cypress/Cypress_M_flat.glb", 
-		"res://assets/trees/cypress/Cypress_S_flat.glb", 
-		"res://assets/trees/other/Elm_flat.glb", 
-		"res://assets/trees/other/Maple_flat.glb", 
-		"res://assets/trees/other/Maple_flat_red.glb", 
-		"res://assets/trees/other/Mistletoe_Tree_flat.glb", 
-		"res://assets/trees/other/Windswept_Tree_flat.glb", 
-		"res://assets/trees/pine/Pine_H_flat.glb", 
-		"res://assets/trees/pine/Pine_L_flat.glb", 
-		"res://assets/trees/pine/Pine_M_flat.glb", 
-		"res://assets/trees/pine/Pine_S_flat.glb", 
-		"res://assets/trees/spruce/Spruce_L_flat.glb", 
-		"res://assets/trees/spruce/Spruce_M_flat.glb", 
-		"res://assets/trees/spruce/Spruce_S_flat.glb"
+		"res://assets/NatureAssets/trees/birch/Birch_H_flat.glb", 
+		"res://assets/NatureAssets/trees/birch/Birch_L_flat.glb", 
+		"res://assets/NatureAssets/trees/birch/Birch_M_flat.glb", 
+		"res://assets/NatureAssets/trees/birch/Birch_S_flat.glb", 
+		"res://assets/NatureAssets/trees/cypress/Cypress_L_flat.glb", 
+		"res://assets/NatureAssets/trees/cypress/Cypress_M_flat.glb", 
+		"res://assets/NatureAssets/trees/cypress/Cypress_S_flat.glb", 
+		"res://assets/NatureAssets/trees/other/Elm_flat.glb", 
+		"res://assets/NatureAssets/trees/other/Maple_flat.glb", 
+		"res://assets/NatureAssets/trees/other/Maple_flat_red.glb", 
+		"res://assets/NatureAssets/trees/other/Mistletoe_Tree_flat.glb", 
+		"res://assets/NatureAssets/trees/other/Windswept_Tree_flat.glb", 
+		"res://assets/NatureAssets/trees/pine/Pine_H_flat.glb", 
+		"res://assets/NatureAssets/trees/pine/Pine_L_flat.glb", 
+		"res://assets/NatureAssets/trees/pine/Pine_M_flat.glb", 
+		"res://assets/NatureAssets/trees/pine/Pine_S_flat.glb", 
+		"res://assets/NatureAssets/trees/spruce/Spruce_L_flat.glb", 
+		"res://assets/NatureAssets/trees/spruce/Spruce_M_flat.glb", 
+		"res://assets/NatureAssets/trees/spruce/Spruce_S_flat.glb"
 	]

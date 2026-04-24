@@ -14,7 +14,7 @@ emission_energy_multiplier = 5.42
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fjli7"]
 height = 150.0
-radius = 1.0
+radius = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ie6wu"]
 size = Vector3(9.365921, 4.4750977, 3.6776428)
@@ -47,17 +47,17 @@ _anim = NodePath("TestTrain/AnimationPlayer")
 [node name="TestTrain" parent="." unique_id=1189408230 instance=ExtResource("1_8en2i")]
 transform = Transform3D(-3.934025e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.934025e-08, 2.4002118, 0.007462263, 0.002560854)
 
-[node name="Cube_022" parent="TestTrain" index="19"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.053884476, 3.1759558, 5.154736)
+[node name="Cube_022" parent="TestTrain" index="19" unique_id=19566567]
+transform = Transform3D(1, 0, 0, 0, 0.42511714, 0.9051384, 0, -0.9051384, 0.42511714, 0.053884476, 3.1759558, 5.154736)
 
-[node name="Skeleton3D" parent="TestTrain/Armature" index="0"]
+[node name="Skeleton3D" parent="TestTrain/Armature" parent_id_path=PackedInt32Array(1189408230, 1206309873) index="0" unique_id=1944155157]
 bones/4/rotation = Quaternion(-0.4999193, 0.5000804, -0.49991986, 0.5000804)
 bones/21/rotation = Quaternion(-0.4999193, -0.5000804, 0.49991986, 0.5000804)
 
-[node name="Bone9_L" parent="TestTrain/Armature/Skeleton3D" index="3"]
+[node name="Bone9_L" parent="TestTrain/Armature/Skeleton3D" index="3" unique_id=345152887]
 transform = Transform3D(-7.1525574e-07, 5.364417e-07, 1, -1, 0.000321567, -5.3644175e-07, -0.00032165647, -0.9999998, 4.7683713e-07, -1.2495898, 0.8614147, 0.2831316)
 
-[node name="Bone9_R" parent="TestTrain/Armature/Skeleton3D" index="12"]
+[node name="Bone9_R" parent="TestTrain/Armature/Skeleton3D" index="12" unique_id=827443494]
 transform = Transform3D(-7.1525574e-07, -5.364417e-07, -1, 1, 0.000321567, -5.3644175e-07, 0.00032165647, -0.9999998, 4.7683713e-07, 1.2495898, 0.8614147, 0.2831316)
 
 [node name="TrainSpotlight" parent="." unique_id=1474622944 node_paths=PackedStringArray("visionTimer", "bufferTimer", "radiationTick", "shapeCast", "_shaderRect") instance=ExtResource("2_ie6wu")]

@@ -57,6 +57,12 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vp86x"]
 albedo_color = Color(0.11127845, 0.15021288, 0.10676446, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6qbjw"]
+size = Vector3(8.825745, 4.4229736, 4.7604065)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o6odm"]
+size = Vector3(146.79556, 0.6203003, 3.0523682)
+
 [sub_resource type="FogMaterial" id="FogMaterial_6ex7q"]
 density = 0.4418
 emission = Color(0.16078432, 0.1882353, 0.2, 1)
@@ -106,6 +112,23 @@ emission_energy_multiplier = 8.35
 backlight_enabled = true
 backlight = Color(0.94369775, 0.9436977, 0.94369763, 1)
 grow_amount = 0.702
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qbjw"]
+emission_enabled = true
+emission = Color(0.7397895, 1.9372628e-06, 9.62615e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o6odm"]
+material = SubResource("StandardMaterial3D_6qbjw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ufjk"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_f2qns"]
+material = SubResource("StandardMaterial3D_6ufjk")
+text = "IN CASE OF 
+EMERGENCY"
+font_size = 34
 
 [node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight")]
 script = ExtResource("1_fh0io")
@@ -160,6 +183,18 @@ modulate = Color(1, 1, 1, 0.3019608)
 self_modulate = Color(1, 1, 1, 0.2)
 
 [node name="Environment" type="Node3D" parent="." unique_id=1323152187]
+
+[node name="Collisions" type="StaticBody3D" parent="Environment" unique_id=461218541]
+collision_layer = 3
+collision_mask = 3
+
+[node name="ElectricalBuildingCol" type="CollisionShape3D" parent="Environment/Collisions" unique_id=1589828533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.021202, 1.7114868, 32.92438)
+shape = SubResource("BoxShape3D_6qbjw")
+
+[node name="RailsCollision" type="CollisionShape3D" parent="Environment/Collisions" unique_id=1820280975 groups=["sound_wood"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5550346, -0.24729443, -45.221565)
+shape = SubResource("BoxShape3D_o6odm")
 
 [node name="ElectricalBuilding" parent="Environment" unique_id=945331046 instance=ExtResource("5_yfpbl")]
 transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.4969112e-08, -9.571945, 0, 32.908962)
@@ -1091,9 +1126,6 @@ transform = Transform3D(0.8028141, 0, 0.59622943, 0, 1, 0, -0.59622943, 0, 0.802
 [node name="_Node3D_94713" parent="Environment/Forest/GeneratedForestFloor" unique_id=613660310 instance=ExtResource("30_6qbjw")]
 transform = Transform3D(-0.78324825, 0, -0.62170905, 0, 1, 0, 0.62170905, 0, -0.78324825, -69.83763, 0, -7.118693)
 
-[node name="_Node3D_94714" parent="Environment/Forest/GeneratedForestFloor" unique_id=1283197858 instance=ExtResource("30_6qbjw")]
-transform = Transform3D(-0.89848, 0, -0.43901446, 0, 1, 0, 0.43901446, 0, -0.89848, -11.087147, 0, 74.01918)
-
 [node name="_Node3D_94715" parent="Environment/Forest/GeneratedForestFloor" unique_id=648359188 instance=ExtResource("32_6ufjk")]
 transform = Transform3D(0.9848018, 0, 0.17368178, 0, 1, 0, -0.17368178, 0, 0.9848018, 40.002586, 0, 40.35845)
 
@@ -1307,9 +1339,6 @@ transform = Transform3D(0.7691025, 0, -0.63912547, 0, 1, 0, 0.63912547, 0, 0.769
 [node name="_Node3D_94786" parent="Environment/Forest/GeneratedForestFloor" unique_id=1168524746 instance=ExtResource("31_o6odm")]
 transform = Transform3D(0.9999841, 0, -0.005637133, 0, 1, 0, 0.005637133, 0, 0.9999841, 49.011417, 0, -60.417366)
 
-[node name="_Node3D_94787" parent="Environment/Forest/GeneratedForestFloor" unique_id=1371562999 instance=ExtResource("32_6ufjk")]
-transform = Transform3D(0.20154239, 0, -0.9794798, 0, 1, 0, 0.9794798, 0, 0.20154239, -5.419203, 0, 71.539024)
-
 [node name="_Node3D_94788" parent="Environment/Forest/GeneratedForestFloor" unique_id=1379820993 instance=ExtResource("32_6ufjk")]
 transform = Transform3D(-0.27121744, 0, 0.9625181, 0, 1, 0, -0.9625181, 0, -0.27121744, -30.532854, 0, 88.30608)
 
@@ -1399,9 +1428,6 @@ transform = Transform3D(-0.8082798, 0, -0.5887985, 0, 1, 0, 0.5887985, 0, -0.808
 
 [node name="_Node3D_94817" parent="Environment/Forest/GeneratedForestFloor" unique_id=1585013653 instance=ExtResource("31_o6odm")]
 transform = Transform3D(-0.263024, 0, -0.9647893, 0, 1, 0, 0.9647893, 0, -0.263024, 43.428688, 0, 79.64674)
-
-[node name="_Node3D_94818" parent="Environment/Forest/GeneratedForestFloor" unique_id=1549318621 instance=ExtResource("31_o6odm")]
-transform = Transform3D(-0.98038954, 0, 0.19706935, 0, 1, 0, -0.19706935, 0, -0.98038954, -7.4173074, 0, 65.461685)
 
 [node name="_Node3D_94819" parent="Environment/Forest/GeneratedForestFloor" unique_id=222876836 instance=ExtResource("31_o6odm")]
 transform = Transform3D(0.99753267, 0, -0.07020407, 0, 1, 0, 0.07020407, 0, 0.99753267, 49.777946, 0, -23.897003)
@@ -1762,9 +1788,6 @@ transform = Transform3D(0.9330446, 0, 0.35976073, 0, 1, 0, -0.35976073, 0, 0.933
 
 [node name="_Node3D_94941" parent="Environment/Forest/GeneratedForestFloor" unique_id=1734635270 instance=ExtResource("30_6qbjw")]
 transform = Transform3D(-0.9839349, 0, -0.17852773, 0, 1, 0, 0.17852773, 0, -0.9839349, -89.45683, 0, 12.17049)
-
-[node name="_Node3D_94942" parent="Environment/Forest/GeneratedForestFloor" unique_id=1505157710 instance=ExtResource("31_o6odm")]
-transform = Transform3D(0.9972625, 0, -0.07394312, 0, 1, 0, 0.07394312, 0, 0.9972625, -0.6435768, 0, 70.56492)
 
 [node name="_Node3D_94943" parent="Environment/Forest/GeneratedForestFloor" unique_id=2041629036 instance=ExtResource("32_6ufjk")]
 transform = Transform3D(-0.83812624, 0, -0.5454763, 0, 1, 0, 0.5454763, 0, -0.83812624, -44.460987, 0, -14.109482)
@@ -2281,9 +2304,6 @@ transform = Transform3D(-0.67815167, 0, -0.73492193, 0, 1, 0, 0.73492193, 0, -0.
 
 [node name="_Node3D_95118" parent="Environment/Forest/GeneratedForestFloor" unique_id=933947309 instance=ExtResource("31_o6odm")]
 transform = Transform3D(-0.92871475, 0, 0.37079495, 0, 1, 0, -0.37079495, 0, -0.92871475, 91.75886, 0, 76.61092)
-
-[node name="_Node3D_95119" parent="Environment/Forest/GeneratedForestFloor" unique_id=765294278 instance=ExtResource("31_o6odm")]
-transform = Transform3D(0.94361126, 0, -0.33105555, 0, 1, 0, 0.33105555, 0, 0.94361126, -9.796914, 0, 70.312996)
 
 [node name="_Node3D_95120" parent="Environment/Forest/GeneratedForestFloor" unique_id=567038630 instance=ExtResource("30_6qbjw")]
 transform = Transform3D(0.18699777, 0, 0.98236036, 0, 1, 0, -0.98236036, 0, 0.18699777, -65.90824, 0, 29.145674)
@@ -2861,14 +2881,8 @@ transform = Transform3D(0.24038604, 0, 0.9706774, 0, 1, 0, -0.9706774, 0, 0.2403
 [node name="_Node3D_95315" parent="Environment/Forest/GeneratedForestFloor" unique_id=1409119634 instance=ExtResource("32_6ufjk")]
 transform = Transform3D(0.8404029, 0, 0.54196215, 0, 1, 0, -0.54196215, 0, 0.8404029, 99.76836, 0, 70.94482)
 
-[node name="_Node3D_95316" parent="Environment/Forest/GeneratedForestFloor" unique_id=1044385566 instance=ExtResource("32_6ufjk")]
-transform = Transform3D(-0.14834115, 0, 0.98893625, 0, 1, 0, -0.98893625, 0, -0.14834115, -15.159501, 0, 75.3343)
-
 [node name="_Node3D_95317" parent="Environment/Forest/GeneratedForestFloor" unique_id=701129244 instance=ExtResource("31_o6odm")]
 transform = Transform3D(0.92353415, 0, 0.3835162, 0, 1, 0, -0.3835162, 0, 0.92353415, -95.58857, 0, 54.75959)
-
-[node name="_Node3D_95318" parent="Environment/Forest/GeneratedForestFloor" unique_id=79759196 instance=ExtResource("31_o6odm")]
-transform = Transform3D(0.70289606, 0, 0.71129256, 0, 1, 0, -0.71129256, 0, 0.70289606, -3.884987, 0, 73.70037)
 
 [node name="_Node3D_95319" parent="Environment/Forest/GeneratedForestFloor" unique_id=369906669 instance=ExtResource("31_o6odm")]
 transform = Transform3D(0.17072418, 0, -0.98531884, 0, 1, 0, 0.98531884, 0, 0.17072418, -58.92615, 0, 16.648607)
@@ -2905,9 +2919,6 @@ transform = Transform3D(-0.35693187, 0, 0.93413043, 0, 1, 0, -0.93413043, 0, -0.
 
 [node name="_Node3D_95330" parent="Environment/Forest/GeneratedForestFloor" unique_id=801855143 instance=ExtResource("30_6qbjw")]
 transform = Transform3D(-0.9603868, 0, -0.27867028, 0, 1, 0, 0.27867028, 0, -0.9603868, -29.545218, 0, 4.2875066)
-
-[node name="_Node3D_95331" parent="Environment/Forest/GeneratedForestFloor" unique_id=1745173919 instance=ExtResource("30_6qbjw")]
-transform = Transform3D(0.6164987, 0, 0.7873559, 0, 1, 0, -0.7873559, 0, 0.6164987, -9.980761, 0, 65.5169)
 
 [node name="_Node3D_95332" parent="Environment/Forest/GeneratedForestFloor" unique_id=1143991534 instance=ExtResource("31_o6odm")]
 transform = Transform3D(0.0980962, 0, -0.9951769, 0, 1, 0, 0.9951769, 0, 0.0980962, 79.500145, 0, -29.687681)
@@ -2983,9 +2994,6 @@ transform = Transform3D(-0.56833404, 0, -0.8227979, 0, 1, 0, 0.8227979, 0, -0.56
 
 [node name="_Node3D_95356" parent="Environment/Forest/GeneratedForestFloor" unique_id=1133225836 instance=ExtResource("32_6ufjk")]
 transform = Transform3D(0.17962658, 0, 0.98373485, 0, 1, 0, -0.98373485, 0, 0.17962658, -37.325386, 0, -10.2923)
-
-[node name="_Node3D_95357" parent="Environment/Forest/GeneratedForestFloor" unique_id=447158597 instance=ExtResource("32_6ufjk")]
-transform = Transform3D(-0.9485504, 0, 0.31662622, 0, 1, 0, -0.31662622, 0, -0.9485504, -10.31013, 0, 75.4383)
 
 [node name="_Node3D_95358" parent="Environment/Forest/GeneratedForestFloor" unique_id=116163933 instance=ExtResource("31_o6odm")]
 transform = Transform3D(0.045670547, 0, 0.99895656, 0, 1, 0, -0.99895656, 0, 0.045670547, 32.68141, 0, 39.664894)
@@ -3076,9 +3084,6 @@ transform = Transform3D(-0.9281517, 0, 0.37220204, 0, 1, 0, -0.37220204, 0, -0.9
 
 [node name="_Node3D_95387" parent="Environment/Forest/GeneratedForestFloor" unique_id=1397387487 instance=ExtResource("30_6qbjw")]
 transform = Transform3D(-0.37843522, 0, -0.92562777, 0, 1, 0, 0.92562777, 0, -0.37843522, -14.878831, 0, -96.10051)
-
-[node name="_Node3D_95388" parent="Environment/Forest/GeneratedForestFloor" unique_id=266632669 instance=ExtResource("32_6ufjk")]
-transform = Transform3D(-0.71377313, 0, -0.700377, 0, 1, 0, 0.700377, 0, -0.71377313, -2.1269598, 0, 70.51456)
 
 [node name="_Node3D_95389" parent="Environment/Forest/GeneratedForestFloor" unique_id=1500291951 instance=ExtResource("30_6qbjw")]
 transform = Transform3D(0.13999532, 0, 0.9901522, 0, 1, 0, -0.9901522, 0, 0.13999532, -48.750374, 0, -83.78254)
@@ -3770,9 +3775,6 @@ transform = Transform3D(-0.7168351, 0, 0.6972428, 0, 1, 0, -0.6972428, 0, -0.716
 [node name="_Node3D_95605" parent="Environment/Forest/GeneratedForestFloor" unique_id=219083358 instance=ExtResource("44_eve8w")]
 transform = Transform3D(0.7167899, 0, 0.6972892, 0, 1, 0, -0.6972892, 0, 0.7167899, -44.78941, 0, 25.501104)
 
-[node name="_Node3D_95606" parent="Environment/Forest/GeneratedForestFloor" unique_id=1387456809 instance=ExtResource("48_42pq3")]
-transform = Transform3D(-0.96256584, 0, 0.271048, 0, 1, 0, -0.271048, 0, -0.96256584, -2.934334, 0, 71.30881)
-
 [node name="_Node3D_95607" parent="Environment/Forest/GeneratedForestFloor" unique_id=409348698 instance=ExtResource("48_42pq3")]
 transform = Transform3D(-0.7210005, 0, -0.6929346, 0, 1, 0, 0.6929346, 0, -0.7210005, -2.1140134, 0, 6.9590487)
 
@@ -3961,6 +3963,27 @@ light_volumetric_fog_energy = 8.174
 shadow_enabled = true
 spot_range = 20.91964
 spot_angle = 90.0
+
+[node name="Axe stuff" type="Node3D" parent="." unique_id=721326152]
+
+[node name="Axe" parent="Axe stuff" unique_id=683688022 instance=ExtResource("3_68ib6")]
+transform = Transform3D(0.19768658, 0.65330166, 0.730833, -0.1705843, 0.75709766, -0.63063776, -0.9653087, 0, 0.26111108, -7.6315036, 1.0676359, 77.34919)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axe stuff" unique_id=750415844]
+transform = Transform3D(0.669197, 0, 0, 0, 0.25205672, 0, 0, 0, 0.17817444, -7.5771265, 1.889008, 77.41729)
+mesh = SubResource("BoxMesh_o6odm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axe stuff/MeshInstance3D" unique_id=1728603470]
+transform = Transform3D(-0.45679852, 0, 8.74228e-08, 0, 1, 0, -3.9934594e-08, 0, -1.0000001, 0, 0, -0.49650574)
+mesh = SubResource("TextMesh_f2qns")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Axe stuff" unique_id=928920908]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.169056, 3.10658, 76.01473)
+light_color = Color(0.67481464, 0.67481464, 0.6748146, 1)
+light_energy = 0.2
+light_volumetric_fog_energy = 6.27
+spot_range = 67.829
+spot_angle = 87.86
 
 [editable path="Player"]
 [editable path="Train"]

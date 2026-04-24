@@ -24,9 +24,9 @@ public partial class Axe : Node3D
 				delayTimer.Start();
 				if (!_anim.IsPlaying())
 				{
-					_anim.Play("attack");
+					_anim.Play("attack2");
 				}
-				if (_anim.CurrentAnimation == "attack")
+				if (_anim.CurrentAnimation == "attack2")
 				{
 					foreach (Node3D node in hitArea.GetOverlappingBodies())
 					{

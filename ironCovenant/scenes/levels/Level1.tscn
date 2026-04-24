@@ -41,8 +41,14 @@ size = Vector3(100, 1, 181.55035)
 [node name="Player" parent="." unique_id=1004373502 instance=ExtResource("1_1pwbc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 27.769161)
 
-[node name="Axe" parent="Player" unique_id=51536094 instance=ExtResource("3_68ib6")]
-transform = Transform3D(-0.9723455, 0, 0.23354709, 0, 1, 0, -0.23354709, 0, -0.9723455, 0.31861556, -0.07159042, -0.68741226)
+[node name="fakearm" parent="Player/PlayerHead/PlayerInteract" parent_id_path=PackedInt32Array(1004373502, 1575503551) index="1" unique_id=2026619168]
+visible = false
+
+[node name="Axe" parent="Player/PlayerHead/PlayerInteract" parent_id_path=PackedInt32Array(1004373502, 1575503551) index="3" unique_id=51536094 instance=ExtResource("3_68ib6")]
+transform = Transform3D(-0.9723455, 0, 0.23354709, 0, 1, 0, -0.23354709, 0, -0.9723455, 0.5887619, -0.07159042, -0.6965275)
+
+[node name="Camera3D" parent="Player/DebugStats/CamToPlayer/SubViewport" parent_id_path=PackedInt32Array(1004373502, 28746108) index="0" unique_id=527580327]
+transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, 1.694, 2.119, 25.300161)
 
 [node name="Train" parent="." unique_id=991101801 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)
@@ -90,6 +96,7 @@ transform = Transform3D(0.72077346, 14.446041, 3.956317e-08, -6.6804044e-15, -6.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2429895, 22.245165)
 use_collision = true
 
+[editable path="Player"]
 [editable path="Train"]
 [editable path="Train/TestTrain"]
 [editable path="Train/TrainSpotlight"]

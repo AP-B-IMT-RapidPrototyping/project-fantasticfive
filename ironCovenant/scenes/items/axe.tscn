@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://y4mp6odykx4d" path="res://scripts/items_scripts/Axe.cs" id="1_asnwc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_asnwc"]
-size = Vector3(0.50556946, 0.783371, 0.5753021)
+size = Vector3(0.891346, 0.49345016, 0.65483856)
 
 [sub_resource type="Animation" id="Animation_f40fb"]
 length = 0.001
@@ -72,10 +72,10 @@ tracks/0/path = NodePath("AxeModel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.33569834, 0.4, 1),
+"times": PackedFloat32Array(0, 0.13333334, 0.3039236, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0.14713776, 0), Vector3(-0.041387618, 0.14713776, 0.004035546), Vector3(0.07285658, 0.14713776, 0.14614062), Vector3(0.0984166, 0.14713776, 0.06840919), Vector3(0, 0.14713776, 0)]
+"values": [Vector3(0, 0.14713776, 0), Vector3(-0.09603931, 0.14713776, 0.0040345374), Vector3(0.18246697, 0.14713776, 0.25306675), Vector3(0.43976536, 0.14713776, 0.12944733), Vector3(0, 0.14713776, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -84,10 +84,10 @@ tracks/1/path = NodePath("AxeModel:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.33569834, 0.4, 1),
+"times": PackedFloat32Array(0, 0.13333334, 0.3039236, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.19138138, 0.51798517, 0.10537523), Vector3(-0.29577506, -0.10606383, 0.2394652), Vector3(0.42377836, 1.5462406, 1.5129013), Vector3(0.5847651, 1.9159131, 1.7978086), Vector3(0.19138138, 0.51798517, 0.10537523)]
+"values": [Vector3(0.19138138, 0.51798517, 0.10537523), Vector3(-0.24217097, -0.20111568, 0.5941588), Vector3(0.16426295, 1.3407499, 1.1678755), Vector3(0.5847649, 2.4519386, 1.7978086), Vector3(0.19138138, 0.51798517, 0.10537523)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_53w00"]
@@ -104,12 +104,12 @@ hitArea = NodePath("hitArea")
 delayTimer = NodePath("attackDelayTimer")
 
 [node name="AxeModel" parent="." unique_id=1324180815 instance=ExtResource("1_6pa1j")]
-transform = Transform3D(0.87390524, 0.0022763687, 0.48609036, 0.10325997, 0.976297, -0.19021508, -0.47500178, 0.21642387, 0.85295534, 0, 0.14713776, 0)
+transform = Transform3D(0.87390536, 0.002276369, 0.4860904, 0.10325998, 0.97629714, -0.1902151, -0.47500184, 0.21642388, 0.8529554, 0, 0.14713776, 0)
 
 [node name="hitArea" type="Area3D" parent="." unique_id=1044825076]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hitArea" unique_id=1338230866]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18350983, 0.29949188, 0.34680104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38996154, 0.23615837, 0.38656926)
 shape = SubResource("BoxShape3D_asnwc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1126081804]

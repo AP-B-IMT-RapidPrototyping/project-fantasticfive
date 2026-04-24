@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://ci0x70abg3hay"]
+
+[ext_resource type="PackedScene" uid="uid://brt80fj4sqtj8" path="res://assets/prototypeAssets/Axe.glb" id="1_6pa1j"]
+[ext_resource type="Script" uid="uid://y4mp6odykx4d" path="res://scripts/items_scripts/Axe.cs" id="1_asnwc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_asnwc"]
+size = Vector3(0.50556946, 0.783371, 0.65670776)
+
+[sub_resource type="Animation" id="Animation_f40fb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AxeModel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.14713776, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AxeModel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.19138138, 0.51798517, 0.10537523)]
+}
+
+[sub_resource type="Animation" id="Animation_7lpfp"]
+resource_name = "attack"
+length = 0.7
+step = 0.033
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AxeModel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.3, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.14713776, 0), Vector3(0.018995274, 0.11206147, 0.018502034), Vector3(0.099416375, 0.051475137, 0.25472707), Vector3(0, 0.14713776, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AxeModel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.3, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.19138138, 0.51798517, 0.10537523), Vector3(0.10694573, 0.5559339, 0.123204984), Vector3(1.0342221, 1.4722621, 1.2061496), Vector3(0.19138138, 0.51798517, 0.10537523)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_53w00"]
+_data = {
+&"RESET": SubResource("Animation_f40fb"),
+&"attack": SubResource("Animation_7lpfp")
+}
+
+[node name="Axe" type="Node3D" unique_id=51536094 node_paths=PackedStringArray("_anim", "hitArea", "delayTimer") groups=["item"]]
+script = ExtResource("1_asnwc")
+_anim = NodePath("AnimationPlayer")
+hitArea = NodePath("hitArea")
+delayTimer = NodePath("attackDelayTimer")
+
+[node name="AxeModel" parent="." unique_id=1324180815 instance=ExtResource("1_6pa1j")]
+transform = Transform3D(0.8739056, 0.0022763691, 0.48609054, 0.10326001, 0.97629726, -0.19021516, -0.475002, 0.21642391, 0.85295564, 0, 0.14713776, 0)
+
+[node name="hitArea" type="Area3D" parent="." unique_id=1044825076]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitArea" unique_id=1338230866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18350983, 0.29949188, 0.38750386)
+shape = SubResource("BoxShape3D_asnwc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1126081804]
+libraries/ = SubResource("AnimationLibrary_53w00")
+
+[node name="attackDelayTimer" type="Timer" parent="." unique_id=779587061]
+wait_time = 0.7
+one_shot = true

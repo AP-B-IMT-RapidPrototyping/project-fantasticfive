@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://baroqmonwfls0"]
 
-[ext_resource type="PackedScene" uid="uid://bfvvf30mwiuus" path="res://assets/prototypeAssets/TestTrain.glb" id="1_8en2i"]
+[ext_resource type="Script" uid="uid://coyxdyp1xfeqo" path="res://scripts/npc_logic/Train.cs" id="1_5kvja"]
+[ext_resource type="PackedScene" uid="uid://7yon1jjkywot" path="res://assets/prototypeAssets/TestTrain.glb" id="1_8en2i"]
 [ext_resource type="PackedScene" uid="uid://dxqxd1d7qpmkw" path="res://assets/prototypeAssets/TrainSpotlight.glb" id="2_ie6wu"]
 [ext_resource type="Script" uid="uid://dft03ixo78jia" path="res://scripts/npc_logic/TrainSpotlight.cs" id="3_fjli7"]
 [ext_resource type="Material" uid="uid://b8ct2p0p6vird" path="res://assets/overlays/static_shader_material.tres" id="5_5kvja"]
@@ -21,8 +22,11 @@ size = Vector3(9.365921, 4.4750977, 3.6776428)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fjli7"]
 size = Vector3(1.7633057, 0.42578125, 5.0443726)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_31nt6"]
+size = Vector3(1.7633057, 0.42578125, 1.2355652)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ifw2"]
-size = Vector3(3.8843994, 0.28125, 3.593872)
+size = Vector3(5.698395, 0.64160156, 3.593872)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5kvja"]
 size = Vector3(0.4371643, 2.8304443, 3.583496)
@@ -33,10 +37,28 @@ size = Vector3(0.810379, 2.8304443, 3.583496)
 [sub_resource type="BoxShape3D" id="BoxShape3D_t23a6"]
 size = Vector3(4.1359253, 1.253418, 2.1711426)
 
-[node name="Train" type="Node3D" unique_id=991101801]
+[sub_resource type="BoxShape3D" id="BoxShape3D_aqclw"]
+size = Vector3(1.2861328, 1.201294, 1.8397522)
+
+[node name="Train" type="Node3D" unique_id=991101801 node_paths=PackedStringArray("_anim")]
+script = ExtResource("1_5kvja")
+_anim = NodePath("TestTrain/AnimationPlayer")
 
 [node name="TestTrain" parent="." unique_id=1189408230 instance=ExtResource("1_8en2i")]
 transform = Transform3D(-3.934025e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.934025e-08, 2.4002118, 0.007462263, 0.002560854)
+
+[node name="Cube_022" parent="TestTrain" index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.053884476, 3.1759558, 5.154736)
+
+[node name="Skeleton3D" parent="TestTrain/Armature" index="0"]
+bones/4/rotation = Quaternion(-0.4999193, 0.5000804, -0.49991986, 0.5000804)
+bones/21/rotation = Quaternion(-0.4999193, -0.5000804, 0.49991986, 0.5000804)
+
+[node name="Bone9_L" parent="TestTrain/Armature/Skeleton3D" index="3"]
+transform = Transform3D(-7.1525574e-07, 5.364417e-07, 1, -1, 0.000321567, -5.3644175e-07, -0.00032165647, -0.9999998, 4.7683713e-07, -1.2495898, 0.8614147, 0.2831316)
+
+[node name="Bone9_R" parent="TestTrain/Armature/Skeleton3D" index="12"]
+transform = Transform3D(-7.1525574e-07, -5.364417e-07, -1, 1, 0.000321567, -5.3644175e-07, 0.00032165647, -0.9999998, 4.7683713e-07, 1.2495898, 0.8614147, 0.2831316)
 
 [node name="TrainSpotlight" parent="." unique_id=1474622944 node_paths=PackedStringArray("visionTimer", "bufferTimer", "radiationTick", "shapeCast", "_shaderRect") instance=ExtResource("2_ie6wu")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 5.4124975, 0)
@@ -79,8 +101,12 @@ shape = SubResource("BoxShape3D_ie6wu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53123295, 0.6730511, 0.0069885254)
 shape = SubResource("BoxShape3D_fjli7")
 
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="TrainCollision" unique_id=448824702]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1604905, 0.6730511, 0.0069886087)
+shape = SubResource("BoxShape3D_31nt6")
+
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="TrainCollision" unique_id=345037161]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17779541, 1.3287182, -0.0079956055)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0847931, 1.508894, -0.0079956055)
 shape = SubResource("BoxShape3D_7ifw2")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="TrainCollision" unique_id=1751171380]
@@ -98,6 +124,10 @@ shape = SubResource("BoxShape3D_0ni18")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="TrainCollision" unique_id=829437701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.158451, 0.85804725, 0.009643555)
 shape = SubResource("BoxShape3D_t23a6")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="TrainCollision" unique_id=281727232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8839045, 2.4515667, 0.048843384)
+shape = SubResource("BoxShape3D_aqclw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1079546955]
 
@@ -119,4 +149,5 @@ wait_time = 5.0
 
 [connection signal="child_entered_tree" from="TrainSpotlight" to="TrainSpotlight" method="_on_child_entered_tree"]
 
+[editable path="TestTrain"]
 [editable path="TrainSpotlight"]

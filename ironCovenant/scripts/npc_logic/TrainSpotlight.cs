@@ -116,5 +116,12 @@ public partial class TrainSpotlight : Node3D
 	{
 		intensity += 0.01;
 		_shader.SetShaderParameter("intensity", intensity);
+
+		GD.Print($"Intensity is now = {intensity}");
+
+		if (intensity >= 1.10)
+		{
+			GD.Print("Player died");
+		}
 	}
 }

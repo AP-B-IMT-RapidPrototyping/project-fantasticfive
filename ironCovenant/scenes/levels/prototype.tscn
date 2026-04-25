@@ -186,10 +186,13 @@ points = PackedVector3Array(0, -5, -10, -0.980814, -5, -9.953015, 0, -3.0001957,
 [sub_resource type="BoxMesh" id="BoxMesh_pyrxr"]
 size = Vector3(5, 1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1qj2g"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_js0vw"]
 size = Vector3(5, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_odond"]
+size = Vector3(3, 1, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1qj2g"]
 size = Vector3(3, 1, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdskk"]
@@ -544,7 +547,7 @@ transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 1
 mesh = SubResource("BoxMesh_pyrxr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MovePlatforms/Rotate2" unique_id=551288949]
-shape = SubResource("BoxShape3D_1qj2g")
+shape = SubResource("BoxShape3D_js0vw")
 
 [node name="UpDownSlow" type="AnimatableBody3D" parent="MovePlatforms" unique_id=901065922]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 1, -8)

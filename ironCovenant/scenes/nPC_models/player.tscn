@@ -8,8 +8,9 @@
 [ext_resource type="Script" uid="uid://evma3bdsnls3" path="res://scripts/npc_logic/player/player_debug/DebugPlayer.cs" id="4_qvykc"]
 [ext_resource type="Script" uid="uid://cc2rojun03uvi" path="res://scripts/npc_logic/player/player_debug/DebugMenu.cs" id="5_d7324"]
 [ext_resource type="Script" uid="uid://chw2phh0x5dhj" path="res://scripts/npc_logic/player/playerdata/InventorySystem.cs" id="5_jgevp"]
+[ext_resource type="PackedScene" uid="uid://prf03ox8chpp" path="res://scenes/ui/inventory_slot.tscn" id="7_6icxk"]
 [ext_resource type="Script" uid="uid://dblxn85ca6knp" path="res://scripts/npc_logic/player/player_debug/DebugConsole.cs" id="7_35tf2"]
-[ext_resource type="PackedScene" uid="uid://dyxg4wrv5uocs" path="res://scenes/ui/debug/version_manager.tscn" id="8_7ccm3"]
+[ext_resource type="Script" uid="uid://cc7it8t7d0ndw" path="res://scripts/npc_logic/player/playerui/InventoryUi.cs" id="7_jgevp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4nt1"]
 radius = 0.4
@@ -32,6 +33,92 @@ albedo_color = Color(0.037521772, 0.2753775, 1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35tf2"]
 albedo_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_50dpb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(566, 720)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InventoryContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(80, 340)]
+}
+
+[sub_resource type="Animation" id="Animation_jgevp"]
+resource_name = "show"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.005, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:size")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.005, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 720), Vector2(566, 720)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InventoryContainer:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.005, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-185, 340), Vector2(80, 340)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6icxk"]
+_data = {
+&"RESET": SubResource("Animation_50dpb"),
+&"show": SubResource("Animation_jgevp")
+}
+
 [node name="Player" type="CharacterBody3D" unique_id=746536559 node_paths=PackedStringArray("_playerHead", "_playerCamera") groups=["player"]]
 collision_layer = 8
 collision_mask = 9
@@ -41,6 +128,7 @@ _playerCamera = NodePath("PlayerHead/PlayerCamera")
 _noclipSprintSpeedDEBUG = 250.0
 
 [node name="Pause" parent="." unique_id=1074082978 instance=ExtResource("2_cp7s5")]
+visible = false
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1006931496]
 shape = SubResource("CapsuleShape3D_b4nt1")
@@ -101,23 +189,24 @@ material = SubResource("StandardMaterial3D_35tf2")
 cull_mask = 1048567
 fov = 90.0
 
-[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_inventory", "_interactRay", "_crosshair")]
+[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_inventory", "_interactRay", "_playerHand", "_crosshair")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 script = ExtResource("4_50dpb")
 _inventory = NodePath("Inventory")
 _interactRay = NodePath("InteractRay")
-_crosshair = NodePath("../../HUD/UI/Crosshair")
+_playerHand = NodePath("Hand")
+_crosshair = NodePath("../../HUD/HUD/Crosshair")
 
 [node name="Inventory" type="Node" parent="PlayerHead/PlayerInteract" unique_id=1762061631]
 script = ExtResource("5_jgevp")
-
-[node name="fakearm" type="CSGBox3D" parent="PlayerHead/PlayerInteract" unique_id=2026619168]
-transform = Transform3D(0.19999999, 0, 0, 0, 0.19999999, 0, 0, 0, 0.78, 0.3, 0, -0.4)
 
 [node name="InteractRay" type="RayCast3D" parent="PlayerHead/PlayerInteract" unique_id=1289993461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 0, -2)
 collision_mask = 6
+
+[node name="Hand" type="Marker3D" parent="PlayerHead/PlayerInteract" unique_id=1975491519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
 
 [node name="FootstepSound" type="Node3D" parent="." unique_id=257852073 node_paths=PackedStringArray("_player", "_footRaycast", "_footstepPlayer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
@@ -136,7 +225,7 @@ target_position = Vector3(0, -0.4, 0)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1698097815]
 
-[node name="UI" type="Control" parent="HUD" unique_id=1487373396]
+[node name="HUD" type="Control" parent="HUD" unique_id=1487373396]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -145,7 +234,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Crosshair" type="ColorRect" parent="HUD/UI" unique_id=1408433612]
+[node name="Crosshair" type="ColorRect" parent="HUD/HUD" unique_id=1408433612]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -160,6 +249,47 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1, 1)
 color = Color(1, 1, 1, 0.69803923)
+
+[node name="InventoryUI" type="Control" parent="HUD" unique_id=802560802 node_paths=PackedStringArray("_playerHead", "_playerInteract", "_inventory", "_itemContainer", "_inventoryAnim")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_jgevp")
+_playerHead = NodePath("../../PlayerHead")
+_playerInteract = NodePath("../../PlayerHead/PlayerInteract")
+_inventory = NodePath("../../PlayerHead/PlayerInteract/Inventory")
+_itemContainer = NodePath("InventoryContainer")
+_itemSlot = ExtResource("7_6icxk")
+_inventoryAnim = NodePath("InventoryAnim")
+
+[node name="InventoryAnim" type="AnimationPlayer" parent="HUD/InventoryUI" unique_id=166959901]
+libraries/ = SubResource("AnimationLibrary_6icxk")
+
+[node name="ColorRect" type="ColorRect" parent="HUD/InventoryUI" unique_id=817586162]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -714.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 360)
+color = Color(0.05882353, 0.05882353, 0.05882353, 0.32941177)
+
+[node name="InventoryContainer" type="VBoxContainer" parent="HUD/InventoryUI" unique_id=1651047698]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 340.0
+offset_right = 300.0
+offset_bottom = 315.0
+grow_vertical = 2
+theme_override_constants/separation = 120
 
 [node name="DEBUGTRANSFORM" type="RemoteTransform3D" parent="." unique_id=684393037]
 transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, 1.694, 1.119, -2.469)
@@ -410,8 +540,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_font_sizes/font_size = 38
 placeholder_text = "command"
-
-[node name="DebugVersion" parent="." unique_id=695534665 instance=ExtResource("8_7ccm3")]
 
 [connection signal="pressed" from="DevMenu/VBoxLeft/Debug" to="DevMenu" method="ShowDebug"]
 [connection signal="pressed" from="DevMenu/VBoxLeft/DebugStats" to="DevMenu" method="ShowDebugStatsContainer"]

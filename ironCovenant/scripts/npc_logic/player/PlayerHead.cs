@@ -43,7 +43,7 @@ public partial class PlayerHead : Node3D
     private float _maxPitch = Mathf.DegToRad(89f);
     private float _minPitch = Mathf.DegToRad(-89f);
 
-    private bool _cameraLocked = false;
+    public bool _cameraLocked = false;
 
 
     // Camera FOV Settings

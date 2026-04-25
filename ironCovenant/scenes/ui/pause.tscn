@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbcgrbfqo74bt"]
+[gd_scene format=3 uid="uid://dbcgrbfqo74bt"]
 
-[ext_resource type="Script" uid="uid://btxepl4hl30jo" path="res://scripts/ui_scripts/Pause.cs" id="1_k23cl"]
+[ext_resource type="Script" uid="uid://btxepl4hl30jo" path="res://scripts/ui_script/Pause.cs" id="1_k23cl"]
 [ext_resource type="FontFile" uid="uid://don5aq1ipae25" path="res://assets/fonts/VenrynSans-Regular.ttf" id="2_k23cl"]
 
 [sub_resource type="Animation" id="Animation_k23cl"]
@@ -293,9 +293,9 @@ _data = {
 &"half_fade": SubResource("Animation_eq7dk")
 }
 
-[node name="Pause" type="Control" node_paths=PackedStringArray("_pauseAnimation", "_showQuitOptionsAnimation", "_fadeAnimation")]
+[node name="Pause" type="Control" unique_id=728975185 node_paths=PackedStringArray("_pauseAnimation", "_showQuitOptionsAnimation", "_fadeAnimation")]
 process_mode = 3
-z_index = 1
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -307,22 +307,16 @@ _pauseAnimation = NodePath("PauseAnimation")
 _showQuitOptionsAnimation = NodePath("ShowQuitOptionsAnimation")
 _fadeAnimation = NodePath("Fade")
 
-[node name="PauseAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_qgos8")
-}
+[node name="PauseAnimation" type="AnimationPlayer" parent="." unique_id=1386231890]
+libraries/ = SubResource("AnimationLibrary_qgos8")
 
-[node name="ShowQuitOptionsAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_eq7dk")
-}
+[node name="ShowQuitOptionsAnimation" type="AnimationPlayer" parent="." unique_id=1235702356]
+libraries/ = SubResource("AnimationLibrary_eq7dk")
 
-[node name="Fade" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_hi21p")
-}
+[node name="Fade" type="AnimationPlayer" parent="." unique_id=565768591]
+libraries/ = SubResource("AnimationLibrary_hi21p")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=892670415]
 visible = false
 z_index = -10
 layout_mode = 1
@@ -334,7 +328,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="FullBackground" type="ColorRect" parent="."]
+[node name="FullBackground" type="ColorRect" parent="." unique_id=813601173]
 visible = false
 z_index = 1
 layout_mode = 1
@@ -346,7 +340,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=1058389556]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -355,7 +349,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="OptionsContainer" type="VBoxContainer" parent="UI"]
+[node name="OptionsContainer" type="VBoxContainer" parent="UI" unique_id=16706490]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -370,42 +364,42 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 64
 
-[node name="Title" type="Label" parent="UI/OptionsContainer"]
+[node name="Title" type="Label" parent="UI/OptionsContainer" unique_id=402323940]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k23cl")
 theme_override_font_sizes/font_size = 64
 text = "GAME NAME HERE"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/OptionsContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/OptionsContainer" unique_id=426686027]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="Resume" type="Button" parent="UI/OptionsContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="UI/OptionsContainer/VBoxContainer" unique_id=1329975181]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k23cl")
 theme_override_font_sizes/font_size = 64
 text = "Resume"
 
-[node name="Settings" type="Button" parent="UI/OptionsContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="UI/OptionsContainer/VBoxContainer" unique_id=1434874345]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k23cl")
 theme_override_font_sizes/font_size = 64
 text = "Settings"
 
-[node name="Quit" type="Button" parent="UI/OptionsContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="UI/OptionsContainer/VBoxContainer" unique_id=1132437306]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k23cl")
 theme_override_font_sizes/font_size = 64
 text = "Quit"
 
-[node name="AskQuit" type="Control" parent="."]
+[node name="AskQuit" type="Control" parent="." unique_id=131047595]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AskQuitContainer" type="VBoxContainer" parent="AskQuit"]
+[node name="AskQuitContainer" type="VBoxContainer" parent="AskQuit" unique_id=1154702561]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -420,30 +414,30 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 64
 
-[node name="Title" type="Label" parent="AskQuit/AskQuitContainer"]
+[node name="Title" type="Label" parent="AskQuit/AskQuitContainer" unique_id=1829665712]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k23cl")
 theme_override_font_sizes/font_size = 64
 text = "Quit game?"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AskQuit/AskQuitContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AskQuit/AskQuitContainer" unique_id=66191363]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="Cancel" type="Button" parent="AskQuit/AskQuitContainer/VBoxContainer"]
+[node name="Cancel" type="Button" parent="AskQuit/AskQuitContainer/VBoxContainer" unique_id=780461550]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k23cl")
 theme_override_font_sizes/font_size = 64
 text = "Cancel"
 
-[node name="MainMenu" type="Button" parent="AskQuit/AskQuitContainer/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="AskQuit/AskQuitContainer/VBoxContainer" unique_id=553989447]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k23cl")
 theme_override_font_sizes/font_size = 64
 text = "Main Menu	"
 
-[node name="Desktop" type="Button" parent="AskQuit/AskQuitContainer/VBoxContainer"]
+[node name="Desktop" type="Button" parent="AskQuit/AskQuitContainer/VBoxContainer" unique_id=1919353418]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k23cl")
 theme_override_font_sizes/font_size = 64

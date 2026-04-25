@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bixm2ahxxcaqh"]
+
+[ext_resource type="Script" uid="uid://bg7wbgnnd56bw" path="res://scripts/npc_logic/items/TestItem.cs" id="1_qis4g"]
+[ext_resource type="Resource" uid="uid://c0avpr7m7pta8" path="res://Resources/Items/TestItem.tres" id="2_x3lqr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qxqjr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymrvr"]
+albedo_color = Color(0, 0.4392157, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ntli4"]
+material = SubResource("StandardMaterial3D_ymrvr")
+
+[node name="Test Item" type="RigidBody3D" unique_id=2090863349 groups=["entity", "item"]]
+collision_layer = 6
+collision_mask = 15
+script = ExtResource("1_qis4g")
+Item = ExtResource("2_x3lqr")
+
+[node name="ItemCollision" type="CollisionShape3D" parent="." unique_id=958697842]
+shape = SubResource("BoxShape3D_qxqjr")
+
+[node name="ITEMMESH" type="MeshInstance3D" parent="." unique_id=1871597819]
+mesh = SubResource("BoxMesh_ntli4")

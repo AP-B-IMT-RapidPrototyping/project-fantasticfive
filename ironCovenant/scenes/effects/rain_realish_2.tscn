@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bj5btt6vtsvkr"]
+
+[ext_resource type="Material" uid="uid://c3ev2xmxjpya" path="res://scenes/Weather/Rain/personal_realish_rain_particle_process_material.tres" id="1_jk31d"]
+[ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://scenes/Weather/Rain/realish_rain_particle_process_material.tres" id="2_sgd6k"]
+
+[node name="Rain_Realish2" type="GPUParticles3D" unique_id=582694632]
+amount = 1000
+preprocess = 1.0
+randomness = 0.85
+visibility_aabb = AABB(-4, -12, -4, 8, 12, 8)
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = ExtResource("1_jk31d")
+draw_pass_1 = ExtResource("2_sgd6k")

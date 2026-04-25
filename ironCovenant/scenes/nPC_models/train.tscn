@@ -133,6 +133,8 @@ shape = SubResource("BoxShape3D_aqclw")
 
 [node name="ShaderRect" type="ColorRect" parent="CanvasLayer" unique_id=727015593]
 visible = false
+modulate = Color(1, 1, 1, 0.22352941)
+self_modulate = Color(1, 1, 1, 0.23137255)
 material = ExtResource("5_5kvja")
 anchors_preset = 15
 anchor_right = 1.0

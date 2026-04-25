@@ -16,7 +16,7 @@ public partial class TrainSpotlight : Node3D
 	[Export] private ColorRect _shaderRect;
 
 	private double intensity = 0;
-	private double baseIntensity = 1;
+	private double baseIntensity = .9;
 	private bool beingRadiated = false;
 	public bool canRadiate = false;
 

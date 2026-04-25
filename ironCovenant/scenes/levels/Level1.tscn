@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="1_1pwbc"]
 [ext_resource type="Script" uid="uid://c4mvb8p38xvwp" path="res://scripts/scene_scripts/Level1.cs" id="1_fh0io"]
 [ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="2_j08sa"]
-[ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/items/axe.tscn" id="3_68ib6"]
 [ext_resource type="PackedScene" uid="uid://qqffm0qtsruj" path="res://scenes/levels/snow.tscn" id="3_x4si1"]
 [ext_resource type="PackedScene" uid="uid://cfo4exy1pdxjn" path="res://assets/prototypeAssets/ElectricalBuilding.glb" id="5_yfpbl"]
 [ext_resource type="PackedScene" uid="uid://df1hwu3m53oh6" path="res://assets/NatureAssets/trees/other/Maple_flat.glb" id="6_6ex7q"]
@@ -49,10 +48,11 @@
 [ext_resource type="PackedScene" uid="uid://dssaysv0llmia" path="res://assets/NatureAssets/forest_floor/shrooms/Mushroom_Brown_M_flat.glb" id="46_r2570"]
 [ext_resource type="PackedScene" uid="uid://cgmlx3vbj01le" path="res://assets/NatureAssets/forest_floor/shrooms/Mushroom_Red_L_flat.glb" id="47_iqcit"]
 [ext_resource type="PackedScene" uid="uid://c3wwtxlx2blt5" path="res://assets/NatureAssets/forest_floor/shrooms/Mushroom_Red_S_flat.glb" id="48_42pq3"]
-[ext_resource type="AudioStream" uid="uid://cha764pkdhydh" path="res://assets/audio/ambience/jci-21-wind-blowing-sfx-12809.mp3" id="49_g32qb"]
 [ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="50_6qbjw"]
 [ext_resource type="PackedScene" uid="uid://cmti4xlx4ywj8" path="res://assets/prototypeAssets/station.glb" id="50_pnxi5"]
+[ext_resource type="AudioStream" uid="uid://df3306omo7qfn" path="res://assets/audio/ambience/wind-blowing-loop.mp3" id="51_6qbjw"]
 [ext_resource type="PackedScene" uid="uid://weyxyaqx4qjw" path="res://assets/prototypeAssets/street.glb" id="51_vaqq6"]
+[ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/nPC_models/items/axe.tscn" id="54_o6odm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vp86x"]
 albedo_color = Color(0.11127845, 0.15021288, 0.10676446, 1)
@@ -148,16 +148,13 @@ size = Vector3(160.28748, 1, 241.69409)
 material = SubResource("StandardMaterial3D_vp86x")
 
 [node name="Player" parent="." unique_id=1004373502 instance=ExtResource("1_1pwbc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 27.769161)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 40.547752)
 
-[node name="fakearm" parent="Player/PlayerHead/PlayerInteract" parent_id_path=PackedInt32Array(1004373502, 1575503551) index="1" unique_id=2026619168]
-visible = false
-
-[node name="Axe" parent="Player/PlayerHead/PlayerInteract" parent_id_path=PackedInt32Array(1004373502, 1575503551) index="3" unique_id=51536094 instance=ExtResource("3_68ib6")]
-transform = Transform3D(-0.9723455, 0, 0.23354709, 0, 1, 0, -0.23354709, 0, -0.9723455, 0.5887619, -0.07159042, -0.6965275)
+[node name="Pause" parent="Player" index="0" unique_id=1074082978]
+visible = true
 
 [node name="Camera3D" parent="Player/DebugStats/CamToPlayer/SubViewport" parent_id_path=PackedInt32Array(1004373502, 28746108) index="0" unique_id=527580327]
-transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, 1.694, 2.119, 25.300161)
+transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, 1.694, 2.119, 38.07875)
 
 [node name="Train" parent="." unique_id=991101801 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)
@@ -3945,7 +3942,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.2
 shape = SubResource("BoxShape3D_ijfg6")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=668168672]
-stream = ExtResource("49_g32qb")
+stream = ExtResource("51_6qbjw")
 volume_db = -9.701
 parameters/looping = true
 
@@ -3966,9 +3963,6 @@ spot_angle = 90.0
 
 [node name="Axe stuff" type="Node3D" parent="." unique_id=721326152]
 
-[node name="Axe" parent="Axe stuff" unique_id=683688022 instance=ExtResource("3_68ib6")]
-transform = Transform3D(0.19768658, 0.65330166, 0.730833, -0.1705843, 0.75709766, -0.63063776, -0.9653087, 0, 0.26111108, -7.6315036, 1.0676359, 77.34919)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axe stuff" unique_id=750415844]
 transform = Transform3D(0.669197, 0, 0, 0, 0.25205672, 0, 0, 0, 0.17817444, -7.5771265, 1.889008, 77.41729)
 mesh = SubResource("BoxMesh_o6odm")
@@ -3984,6 +3978,9 @@ light_energy = 0.2
 light_volumetric_fog_energy = 6.27
 spot_range = 67.829
 spot_angle = 87.86
+
+[node name="Axe" parent="." unique_id=378020981 instance=ExtResource("54_o6odm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5503826, -29.026264)
 
 [editable path="Player"]
 [editable path="Train"]

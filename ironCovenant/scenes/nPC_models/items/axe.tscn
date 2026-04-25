@@ -101,7 +101,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_f40fb"]
 size = Vector3(0.15198517, 0.9739075, 0.40579224)
 
-[node name="Axe" type="StaticBody3D" unique_id=378020981 node_paths=PackedStringArray("_anim", "hitArea", "delayTimer") groups=["item"]]
+[node name="Axe" type="RigidBody3D" unique_id=167397360 node_paths=PackedStringArray("_anim", "hitArea", "delayTimer") groups=["item"]]
 collision_layer = 6
 collision_mask = 15
 script = ExtResource("1_asnwc")

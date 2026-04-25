@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Axe : StaticBody3D, IInteractable
+public partial class Axe : RigidBody3D, IInteractable
 {
 	[Export] public ItemData Item { get; set; }
 	public int Amount { get; set; } = 1;

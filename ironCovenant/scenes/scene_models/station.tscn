@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cpy5md08fdolh"]
 
 [ext_resource type="PackedScene" uid="uid://cmti4xlx4ywj8" path="res://assets/prototypeAssets/station.glb" id="1_g0hgb"]
+[ext_resource type="Texture2D" uid="uid://ho4hv7p7saag" path="res://assets/prototypeAssets/Graffity_Graffity.png" id="2_4q2or"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4q2or"]
 disable_fog = true
@@ -73,6 +74,13 @@ size = Vector3(6.124578, 0.3043213, 1.8720155)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qdrek"]
 size = Vector3(2.0063672, 3.9252625, 0.38109666)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vt7o"]
+transparency = 1
+albedo_texture = ExtResource("2_4q2or")
+
+[sub_resource type="QuadMesh" id="QuadMesh_mglh0"]
+material = SubResource("StandardMaterial3D_3vt7o")
 
 [node name="Station_scene" type="StaticBody3D" unique_id=599469948]
 
@@ -190,5 +198,9 @@ shape = SubResource("BoxShape3D_g4y2a")
 [node name="CollisionShape3D14" type="CollisionShape3D" parent="." unique_id=174014111]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.044543356, 2.0099363, -13.541056)
 shape = SubResource("BoxShape3D_qdrek")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=213498680]
+transform = Transform3D(6.356525e-08, -2.5739052, 8.7422784e-08, -1.4542032, -1.12508985e-07, 0, 5.55705e-15, -2.2501793e-07, -1, 5.9100194, 1.5297043, 6.180588)
+mesh = SubResource("QuadMesh_mglh0")
 
 [editable path="station"]

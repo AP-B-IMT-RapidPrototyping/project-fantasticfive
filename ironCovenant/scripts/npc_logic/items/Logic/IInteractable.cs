@@ -8,4 +8,6 @@ public interface IInteractable
 
     void OnDropped();
     void OnEquipped();
+    void Use();
+    void AltUse();
 }

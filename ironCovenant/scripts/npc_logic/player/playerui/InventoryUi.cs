@@ -46,7 +46,7 @@ public partial class InventoryUi : Control
     }
 
 
-    private void UpdateInventoryUI() // removes current items and gets items from inventory and adds as child
+    private void UpdateInventoryUI() // removes current children and gets items from inventory and adds as child
     {
         foreach (Node child in _itemContainer.GetChildren())
         {
@@ -61,15 +61,14 @@ public partial class InventoryUi : Control
             var slot = _itemSlot.Instantiate<InventorySlot>();
             _itemContainer.AddChild(slot);
 
+            // slot = InventorySlot.cs (handles buttons) 
             slot.Create(data, amount, () =>
             {
                 _playerInteract.DropItem(data);
-                GD.Print("DROPPED");
             },
             () =>
             {
                 _playerInteract.EquipItem(data);
-                GD.Print("EQUIPPED!");
             });
         }
     }

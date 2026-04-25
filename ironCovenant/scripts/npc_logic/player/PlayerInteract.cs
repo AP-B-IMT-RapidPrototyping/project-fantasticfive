@@ -8,10 +8,11 @@ public partial class PlayerInteract : Node3D
     [Export] private RayCast3D _interactRay;
     [Export] private Marker3D _playerHand;
 
-    public bool _isHoldingItem;
-
     [Export] private ColorRect _crosshair;
     private bool _crosshairIsBig;
+
+    private Node3D _heldItemNode = null;
+    private ItemData _heldItemData = null;
 
 
 
@@ -36,8 +37,6 @@ public partial class PlayerInteract : Node3D
             }
         } */
 
-    //! Do we use the player action state machine or just a bool?
-    //! Can we interact multiple times? can we drop stuff? how do we drop? D:
     private void Interact()
     {
         if (Input.IsActionJustPressed("interact"))
@@ -68,6 +67,13 @@ public partial class PlayerInteract : Node3D
 
     public void DropItem(ItemData item)
     {
+        if (_heldItemNode != null && _heldItemData == item)
+        {
+            _heldItemNode.QueueFree();
+            _heldItemNode = null;
+            _heldItemData = null;
+        }
+
         if (item == null || !_inventory.GetItems().ContainsKey(item)) return;
 
         if (item != null && !string.IsNullOrEmpty(item.ItemScene))
@@ -75,6 +81,7 @@ public partial class PlayerInteract : Node3D
             var scene = GD.Load<PackedScene>(item.ItemScene);
             var worldItem = scene.Instantiate<Node3D>();
 
+            // spawn the dropped item
             GetTree().CurrentScene.AddChild(worldItem);
             worldItem.GlobalPosition = _playerHand.GlobalPosition;
 
@@ -93,7 +100,63 @@ public partial class PlayerInteract : Node3D
 
     public void EquipItem(ItemData item)
     {
-        GD.Print($"Equipped {item.DisplayName}");
+        if (_heldItemNode != null)
+        {
+            _heldItemNode.QueueFree();
+        }
+
+        if (item != null && !string.IsNullOrEmpty(item.ItemScene))
+        {
+            var scene = GD.Load<PackedScene>(item.ItemScene);
+            _heldItemNode = scene.Instantiate<Node3D>();
+            _heldItemData = item;
+
+            _playerHand.AddChild(_heldItemNode);
+
+            if (_heldItemNode is IInteractable interactable)
+            {
+                interactable.OnEquipped();
+            }
+            GD.Print($"Equipped {item.DisplayName}");
+        }
+        else
+        {
+            GD.Print($"Item to equip is null or empty! {item.DisplayName}");
+        }
+    }
+
+
+
+    // No unhandled input. i know, maybe call funcs from elsewhere?
+    private void OnUsePressed()
+    {
+        if (Input.IsActionJustPressed("mouse1"))
+        {
+            if (_heldItemNode is IInteractable interactable)
+            {
+                interactable.Use();
+            }
+        }
+
+        if (Input.IsActionJustPressed("mouse2"))
+        {
+            if (_heldItemNode is IInteractable interactable)
+            {
+                interactable.AltUse();
+            }
+        }
+    }
+
+    private void OnDropPressed()
+    {
+        if (Input.IsActionJustPressed("drop"))
+        {
+            if (_heldItemData != null)
+            {
+                GD.Print($"Dropped equipped item {_heldItemData.DisplayName}");
+                DropItem(_heldItemData);
+            }
+        }
     }
 
 
@@ -103,5 +166,9 @@ public partial class PlayerInteract : Node3D
     {
         Interact();
         /* HandleInteractUI(); */
+
+        if (_heldItemNode == null) return;
+        OnUsePressed();
+        OnDropPressed();
     }
 }

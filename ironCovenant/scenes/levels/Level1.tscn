@@ -40,12 +40,12 @@ ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0, 0, 0, 1)
 energy_multiplier = 0.0
 
-[sub_resource type="Sky" id="Sky_5lmob"]
+[sub_resource type="Sky" id="Sky_6owa4"]
 sky_material = SubResource("ProceduralSkyMaterial_j08sa")
 
 [sub_resource type="Environment" id="Environment_x4si1"]
 background_mode = 2
-sky = SubResource("Sky_5lmob")
+sky = SubResource("Sky_6owa4")
 tonemap_mode = 3
 sdfgi_energy = 0.39
 glow_enabled = true
@@ -337,13 +337,13 @@ size = Vector3(160.28748, 1, 241.69409)
 material = SubResource("StandardMaterial3D_vp86x")
 
 [node name="Player" parent="." unique_id=1004373502 instance=ExtResource("1_1pwbc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1022882, 1, 41.129456)
+transform = Transform3D(-0.9999198, 0, 0.012670744, 0, 1, 0, -0.012670744, 0, -0.9999198, 0.7306967, 2.7864094, -45.010315)
 
 [node name="Pause" parent="Player" index="0" unique_id=1074082978]
 visible = true
 
 [node name="Camera3D" parent="Player/DebugStats/CamToPlayer/SubViewport" parent_id_path=PackedInt32Array(1004373502, 28746108) index="0" unique_id=527580327]
-transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, -2.4082882, 2.119, 38.660454)
+transform = Transform3D(0.81486475, 0.19730139, -0.54503906, 0, 0.94028807, 0.34037957, 0.57965106, -0.2773633, 0.7662077, -0.9944515, 3.9054093, -42.562977)
 
 [node name="Train" parent="." unique_id=615132714 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)

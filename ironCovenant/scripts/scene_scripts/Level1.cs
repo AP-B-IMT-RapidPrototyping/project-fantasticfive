@@ -18,7 +18,7 @@ public partial class Level1 : Node3D
 	[Export] private AnimationPlayer chaseAnim;
 	[Export] private AnimationPlayer trainAnim;
 
-	private bool chaseCanStart = true;
+	private bool chaseCanStart = false;
 
     public override void _Ready()
     {

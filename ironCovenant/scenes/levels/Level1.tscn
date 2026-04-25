@@ -348,14 +348,14 @@ transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34
 [node name="Train" parent="." unique_id=615132714 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)
 
-[node name="Skeleton3D" parent="Train/TestTrain/Armature" parent_id_path=PackedInt32Array(615132714, 1189408230, 1316773928) index="0" unique_id=921717970]
+[node name="Skeleton3D" parent="Train/TestTrain/Armature" parent_id_path=PackedInt32Array(615132714, 1189408230, 638347045) index="0" unique_id=109920202]
 bones/4/rotation = Quaternion(-0.49991927, 0.5000804, -0.49991983, 0.5000804)
 bones/21/rotation = Quaternion(-0.49991927, -0.5000804, 0.49991983, 0.5000804)
 
-[node name="Bone9_L" parent="Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=593331796]
+[node name="Bone9_L" parent="Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=2141362132]
 transform = Transform3D(-5.9604645e-07, 5.66244e-07, 0.99999994, -1, 0.0003216862, -5.6624407e-07, -0.00032171607, -0.9999998, 5.3644175e-07, -1.2495898, 0.8614147, 0.2831316)
 
-[node name="Bone9_R" parent="Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=60272669]
+[node name="Bone9_R" parent="Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=69373672]
 transform = Transform3D(-5.9604645e-07, -5.66244e-07, -0.99999994, 1, 0.0003216862, -5.6624407e-07, 0.00032171607, -0.9999998, 5.3644175e-07, 1.2495898, 0.8614147, 0.2831316)
 
 [node name="TrainSpotlight" parent="Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player")]

@@ -3,21 +3,24 @@ using Godot;
 
 public partial class InventorySystem : Node
 {
-    private Dictionary<string, int> _inventory = new();
+    [Signal] public delegate void InventoryUpdatedEventHandler();
 
-    [Export] private int _invMaxSlots = 3;
+    private Dictionary<ItemData, int> _inventory = new();
+    public Dictionary<ItemData, int> GetItems() => _inventory;
+
+    [Export] private int _invMaxSlots = 6;
     [Export] private int _invMaxStack = 10;
 
 
 
 
-    public bool AddItem(string item, int amount)
+    public bool AddItem(ItemData item, int amount = 1)
     {
         if (_inventory.ContainsKey(item))
         {
             if (_inventory[item] + amount > _invMaxStack)
             {
-                GD.Print($"Inventory: Can't add {item}. Stack limited reached ({amount}/{_inventory[item]})");
+                GD.Print($"Inventory: Can't add {item.DisplayName}. Stack limited reached ({amount}/{_inventory[item]})");
                 return false;
             }
 
@@ -27,35 +30,38 @@ public partial class InventorySystem : Node
         {
             if (_inventory.Count >= _invMaxSlots)
             {
-                GD.Print($"Inventory: Can't add {item}. Slot limited reached ({_inventory.Count}/{_invMaxSlots})");
+                GD.Print($"Inventory: Can't add {item.DisplayName}. Slot limited reached ({_inventory.Count}/{_invMaxSlots})");
                 return false;
             }
 
             _inventory.Add(item, amount);
         }
 
-        GD.Print($"Inventory: Added {item} ({amount}). Total: {_inventory[item]}");
+        GD.Print($"Inventory: Added {item.DisplayName} ({amount}). Total: {_inventory[item]}");
+        EmitSignal(SignalName.InventoryUpdated);
         return true;
     }
 
-    public bool RemoveItem(string item, int amount)
+    public ItemData RemoveItem(ItemData item, int amount = 1)
     {
-        if (!_inventory.ContainsKey(item))
-            return false;
+        if (item == null || !_inventory.ContainsKey(item)) return null;
 
         if (_inventory[item] >= amount)
         {
             _inventory[item] -= amount;
-            GD.Print($"Inventory: Removed {item} ({amount}). Total: {_inventory[item]}");
+
+            GD.Print($"Inventory: Removed {item.DisplayName} ({amount}). Total: {_inventory[item]}");
 
             if (_inventory[item] <= 0)
             {
+                GD.Print($"Inventory: Removed {item.DisplayName} (ALL). Total: {_inventory[item]}");
                 _inventory.Remove(item);
-                GD.Print($"Inventory: Removed {item} (ALL). Total: {_inventory[item]}");
             }
-            return true;
+
+            EmitSignal(SignalName.InventoryUpdated);
+            return item;
         }
 
-        return false;
+        return null;
     }
 }

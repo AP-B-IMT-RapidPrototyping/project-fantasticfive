@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cba8f8yol756t"]
+
+[ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="1_uw6xe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oblk4"]
+albedo_color = Color(0.11127845, 0.15021288, 0.10676446, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uw6xe"]
+sky_top_color = Color(0.045755774, 0.06657307, 0.09292682, 1)
+sky_horizon_color = Color(0.06512584, 0.07988768, 0.22412953, 1)
+sky_energy_multiplier = 1.85
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+energy_multiplier = 0.0
+
+[sub_resource type="Sky" id="Sky_5lmob"]
+sky_material = SubResource("ProceduralSkyMaterial_uw6xe")
+
+[sub_resource type="Environment" id="Environment_oblk4"]
+background_mode = 2
+sky = SubResource("Sky_5lmob")
+tonemap_mode = 3
+sdfgi_energy = 0.39
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.16062155, 0.18914679, 0.20182067, 1)
+fog_light_energy = 0.67
+fog_density = 0.2343
+volumetric_fog_enabled = true
+volumetric_fog_emission = Color(0.20653868, 0.24313423, 0.25286314, 1)
+volumetric_fog_emission_energy = 0.3
+
+[node name="Level2" type="Node3D" unique_id=646259433]
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=595687775 groups=["sound_grass"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.340027, -0.5, 19.522675)
+use_collision = true
+collision_mask = 0
+size = Vector3(160.28748, 1, 241.69409)
+material = SubResource("StandardMaterial3D_oblk4")
+
+[node name="Player" parent="." unique_id=746536559 instance=ExtResource("1_uw6xe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2097955, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=629910560]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.49706316, 0.585892, 0.6700323, 1)
+light_energy = 0.316
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1286778488]
+environment = SubResource("Environment_oblk4")

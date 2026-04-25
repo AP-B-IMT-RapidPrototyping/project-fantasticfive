@@ -13,14 +13,17 @@ public partial class Level1 : Node3D
 	[Export] private Player player;
 	[Export] private Marker3D cubeMarker;
 	[Export] private Timer startRunTimer;
+	[Export] private Timer trainWheelsTimer;
 	[Export] private MeshInstance3D evilCube;
 	[Export] private AnimationPlayer chaseAnim;
+	[Export] private AnimationPlayer trainAnim;
 
 	private bool chaseCanStart = true;
 
     public override void _Ready()
     {
         startRunTimer.Timeout += StartRun;
+		trainWheelsTimer.Timeout += StartWheels;
     }
 
 	private void on_body_entered_spotlightArea(Node3D body)
@@ -50,6 +53,7 @@ public partial class Level1 : Node3D
 			playerHead.haveToLookAt = true;
 			player.canMove = false;
 			startRunTimer.Start();
+			trainWheelsTimer.Start();
 		}
 	}
 
@@ -57,5 +61,11 @@ public partial class Level1 : Node3D
 	{
 		playerHead.haveToLookAt = false;
 		player.canMove = true;
+	}
+
+	private void StartWheels()
+	{
+		GD.Print("wheels started");
+		trainAnim.Play("move");
 	}
 }

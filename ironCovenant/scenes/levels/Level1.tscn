@@ -86,6 +86,9 @@ size = Vector3(6.8309326, 3.083685, 9.281921)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6owa4"]
 size = Vector3(160.3588, 10.119293, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5pya"]
+size = Vector3(10.048828, 8.548828, 12.865723)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6owa4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_n5pya"]
@@ -201,7 +204,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_n5pya"]
 resource_name = "chase_scene"
-length = 20.0
+length = 25.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -209,10 +212,10 @@ tracks/0/path = NodePath("ChaseStuff/EvilCube:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(3, 15, 17.039999),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(3, 15, 17.039999, 21.02),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-1.6586013, 12.622536, 48.710667), Vector3(-1.6586013, 12.622536, -16.596104), Vector3(-7.148563, 12.622536, -23.16256)]
+"values": [Vector3(-1.6586013, 12.622536, 48.710667), Vector3(-1.6586013, 12.622536, -16.596104), Vector3(-7.148563, 12.622536, -23.16256), Vector3(-21.70199, 12.622536, -31.260319)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -257,10 +260,10 @@ tracks/4/path = NodePath("ChaseStuff/EvilCube:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(15.0199995, 17.039999),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(15.0199995, 17.039999, 21.02),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.16784838, 0.040020395, 1.2383824e-09), Vector3(-0.16784836, 0.595454, 1.2383825e-09)]
+"values": [Vector3(-0.16784838, 0.040020395, 1.2383824e-09), Vector3(-0.16784836, 0.595454, 1.2383825e-09), Vector3(-0.16784835, 0.827513, 1.2383824e-09)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -293,10 +296,10 @@ tracks/7/path = NodePath("Train:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(11, 20),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(11, 20, 24.066668),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, -45.130936), Vector3(-23.687437, 0, -45.130936)]
+"values": [Vector3(0, 0, -45.130936), Vector3(-23.687437, 0, -45.130936), Vector3(-54.303368, 0, -45.130936)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kypp1"]
@@ -305,7 +308,7 @@ _data = {
 &"chase_scene": SubResource("Animation_n5pya")
 }
 
-[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "invSystem", "trainNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "evilCube", "chaseAnim")]
+[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "invSystem", "trainNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "evilCube", "chaseAnim", "trainAnim")]
 script = ExtResource("1_fh0io")
 spotlight = NodePath("Train/TrainSpotlight")
 invSystem = NodePath("Player/PlayerHead/PlayerInteract/Inventory")
@@ -315,8 +318,10 @@ playerHead = NodePath("Player/PlayerHead")
 player = NodePath("Player")
 cubeMarker = NodePath("ChaseStuff/CubeMarker")
 startRunTimer = NodePath("ChaseStuff/StartRunTimer")
+trainWheelsTimer = NodePath("ChaseStuff/TrainWheels")
 evilCube = NodePath("ChaseStuff/EvilCube")
 chaseAnim = NodePath("ChaseAnim")
+trainAnim = NodePath("Train/TestTrain/AnimationPlayer")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1279296464]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -340,17 +345,17 @@ visible = true
 [node name="Camera3D" parent="Player/DebugStats/CamToPlayer/SubViewport" parent_id_path=PackedInt32Array(1004373502, 28746108) index="0" unique_id=527580327]
 transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, -2.4082882, 2.119, 38.660454)
 
-[node name="Train" parent="." unique_id=991101801 instance=ExtResource("2_j08sa")]
+[node name="Train" parent="." unique_id=615132714 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)
 
-[node name="Skeleton3D" parent="Train/TestTrain/Armature" parent_id_path=PackedInt32Array(991101801, 1189408230, 1206309873) index="0" unique_id=1944155157]
+[node name="Skeleton3D" parent="Train/TestTrain/Armature" parent_id_path=PackedInt32Array(615132714, 1189408230, 1316773928) index="0" unique_id=921717970]
 bones/4/rotation = Quaternion(-0.49991927, 0.5000804, -0.49991983, 0.5000804)
 bones/21/rotation = Quaternion(-0.49991927, -0.5000804, 0.49991983, 0.5000804)
 
-[node name="Bone9_L" parent="Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=345152887]
+[node name="Bone9_L" parent="Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=593331796]
 transform = Transform3D(-5.9604645e-07, 5.66244e-07, 0.99999994, -1, 0.0003216862, -5.6624407e-07, -0.00032171607, -0.9999998, 5.3644175e-07, -1.2495898, 0.8614147, 0.2831316)
 
-[node name="Bone9_R" parent="Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=827443494]
+[node name="Bone9_R" parent="Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=60272669]
 transform = Transform3D(-5.9604645e-07, -5.66244e-07, -0.99999994, 1, 0.0003216862, -5.6624407e-07, 0.00032171607, -0.9999998, 5.3644175e-07, 1.2495898, 0.8614147, 0.2831316)
 
 [node name="TrainSpotlight" parent="Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player")]
@@ -359,7 +364,7 @@ player = NodePath("../../Player")
 [node name="SpotLight3D" parent="Train/TrainSpotlight" index="4" unique_id=538811013]
 light_volumetric_fog_energy = 1.103
 
-[node name="ShaderRect" parent="Train/CanvasLayer" parent_id_path=PackedInt32Array(991101801, 1079546955) index="0" unique_id=727015593]
+[node name="ShaderRect" parent="Train/CanvasLayer" parent_id_path=PackedInt32Array(615132714, 1079546955) index="0" unique_id=727015593]
 modulate = Color(1, 1, 1, 0.3019608)
 self_modulate = Color(1, 1, 1, 0.2)
 
@@ -537,6 +542,14 @@ collision_mask = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.687668, 4.5596466, 24.113451)
 shape = SubResource("BoxShape3D_6owa4")
 
+[node name="Level2" type="Area3D" parent="Areas" unique_id=776598750 groups=["scene_teleporter_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.479485, 0, -44.263977)
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/Level2" unique_id=1584571180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.524414, 3.774414, -1.5212402)
+shape = SubResource("BoxShape3D_n5pya")
+
 [node name="Station_scene" parent="." unique_id=1383928026 instance=ExtResource("12_6owa4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3376875, -0.07207966, 71.21851)
 
@@ -550,7 +563,8 @@ wait_time = 4.0
 one_shot = true
 
 [node name="EvilCube" type="MeshInstance3D" parent="ChaseStuff" unique_id=760599901]
-transform = Transform3D(18.528536, -1.5233462, 11.541338, 2.7325905e-08, 16.028852, 3.486625, -12.552781, -2.2485354, 17.035595, -1.6586013, 12.622536, 48.710667)
+transform = Transform3D(18.528536, -1.523346, 11.541338, 2.7325905e-08, 16.02885, 3.486625, -12.552781, -2.2485352, 17.035595, -1.6586013, 12.622536, 48.710667)
+visible = false
 mesh = SubResource("BoxMesh_n5pya")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ChaseStuff/EvilCube" unique_id=1552486780]

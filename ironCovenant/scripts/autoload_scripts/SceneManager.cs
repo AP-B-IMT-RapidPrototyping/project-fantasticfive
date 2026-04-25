@@ -120,17 +120,17 @@ public partial class SceneManager : CanvasLayer
         switch ((TransitionType)transition_type)
         {
             case TransitionType.Fade:
-                _sceneManager.Call("transition_fade", 0);
-                await ToSignal(GetTree().CreateTimer(1f), SceneTreeTimer.SignalName.Timeout);
+                _sceneManager.Call("TransitionFade", 1);
+                await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);
 
                 ChangeScene(target_scene);
 
-                await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);
-                _sceneManager.Call("transition_fade", 1);
+                await ToSignal(GetTree().CreateTimer(1f), SceneTreeTimer.SignalName.Timeout);
+                _sceneManager.Call("TransitionFade", 0);
                 break;
 
             case TransitionType.Instant:
-                _sceneManager.Call("transition_instant");
+                _sceneManager.Call("TransitionInstant");
                 CallDeferred(nameof(ChangeScene), target_scene);
                 break;
 

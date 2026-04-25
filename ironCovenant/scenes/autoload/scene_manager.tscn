@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4shvxaem8lyo"]
+[gd_scene format=3 uid="uid://c4shvxaem8lyo"]
 
 [ext_resource type="Script" uid="uid://smem7qfy7ffd" path="res://scripts/scene_scripts/scene_manager/SceneTransition.cs" id="1_p0tc3"]
 
@@ -40,10 +40,11 @@ _data = {
 &"fade": SubResource("Animation_iaffs")
 }
 
-[node name="SceneManager" type="CanvasLayer"]
+[node name="SceneManager" type="CanvasLayer" unique_id=258168759 node_paths=PackedStringArray("_sceneSwitcherAnimation")]
 script = ExtResource("1_p0tc3")
+_sceneSwitcherAnimation = NodePath("SceneSwitcher")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=687858911]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -53,7 +54,5 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 
-[node name="SceneSwitcher" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_sj5rt")
-}
+[node name="SceneSwitcher" type="AnimationPlayer" parent="." unique_id=2088220564]
+libraries/ = SubResource("AnimationLibrary_sj5rt")

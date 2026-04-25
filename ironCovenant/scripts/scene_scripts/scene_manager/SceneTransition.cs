@@ -11,6 +11,7 @@ public partial class SceneTransition : CanvasLayer
         if (backwards)
         {
             _sceneSwitcherAnimation.Play("fade");
+            GD.Print("Fade in");
             await ToSignal(_sceneSwitcherAnimation, AnimationPlayer.SignalName.AnimationFinished);
             GD.Print("Fade done.");
         }

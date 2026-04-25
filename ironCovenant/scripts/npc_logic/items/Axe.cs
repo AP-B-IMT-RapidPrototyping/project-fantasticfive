@@ -24,12 +24,14 @@ public partial class Axe : RigidBody3D, IInteractable
 
 	public void OnDropped()
 	{
+		Freeze = false;
 		CollisionLayer = _collisionLayer;
 		CollisionMask = _collisionMask;
 	}
 
 	public void OnEquipped()
 	{
+		Freeze = true;
 		CollisionLayer = 0;
 		CollisionMask = 0;
 	}

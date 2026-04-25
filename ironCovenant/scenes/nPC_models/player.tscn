@@ -189,11 +189,12 @@ material = SubResource("StandardMaterial3D_35tf2")
 cull_mask = 1048567
 fov = 90.0
 
-[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_inventory", "_interactRay", "_crosshair")]
+[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_inventory", "_interactRay", "_playerHand", "_crosshair")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 script = ExtResource("4_50dpb")
 _inventory = NodePath("Inventory")
 _interactRay = NodePath("InteractRay")
+_playerHand = NodePath("Hand")
 _crosshair = NodePath("../../HUD/HUD/Crosshair")
 
 [node name="Inventory" type="Node" parent="PlayerHead/PlayerInteract" unique_id=1762061631]
@@ -205,7 +206,7 @@ target_position = Vector3(0, 0, -2)
 collision_mask = 6
 
 [node name="Hand" type="Marker3D" parent="PlayerHead/PlayerInteract" unique_id=1975491519]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42388734, 0, -0.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49846908, 0, -0.6371041)
 
 [node name="FootstepSound" type="Node3D" parent="." unique_id=257852073 node_paths=PackedStringArray("_player", "_footRaycast", "_footstepPlayer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)

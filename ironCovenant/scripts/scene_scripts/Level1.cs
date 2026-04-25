@@ -1,18 +1,39 @@
 using Godot;
+using Godot.Collections;
 using System;
+using System.Collections.Generic;
 
 public partial class Level1 : Node3D
 {
 	[Export] private TrainSpotlight spotlight;
+	[Export] private InventorySystem invSystem;
+	[Export] private ItemData axe;
+	[Export] private AudioStreamPlayer3D trainNoise;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	private bool chaseCanStart = false;
+
+
+	private void on_body_entered_spotlightArea(Node3D body)
 	{
-		spotlight.canRadiate = true;
+		if (body is Player)
+		{
+			var items = invSystem.GetItems();
+			if (items.ContainsKey(axe))
+			{
+				spotlight.canRadiate = true;
+				spotlight.StartRadiation();
+				trainNoise.Play();
+				chaseCanStart = true;
+			}
+		}
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	private void on_body_entered_chaseArea(Node3D body)
 	{
+		if (body is Player && chaseCanStart)
+		{
+			//start chase
+			GD.Print("start chase");
+		}
 	}
 }

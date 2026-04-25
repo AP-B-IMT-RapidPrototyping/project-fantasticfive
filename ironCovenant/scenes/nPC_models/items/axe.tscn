@@ -99,9 +99,10 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f40fb"]
-size = Vector3(0.15198517, 0.9739075, 0.40579224)
+size = Vector3(0.15198517, 0.9739075, 0.46266174)
 
-[node name="Axe" type="RigidBody3D" unique_id=167397360 node_paths=PackedStringArray("_anim", "hitArea", "delayTimer") groups=["item"]]
+[node name="Axe" type="RigidBody3D" unique_id=167397360 node_paths=PackedStringArray("_anim", "hitArea", "delayTimer") groups=["entity", "item"]]
+transform = Transform3D(-0.9642436, 0, 0.26501754, 0, 1, 0, -0.26501754, 0, -0.9642436, 0, 0, 0)
 collision_layer = 6
 collision_mask = 15
 script = ExtResource("1_asnwc")
@@ -127,5 +128,5 @@ wait_time = 0.7
 one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1851272803]
-transform = Transform3D(0.8882407, -0.45937833, 0, 0.45937833, 0.8882407, 0, 0, 0, 1, -0.07482775, 0.14452209, -0.019180298)
+transform = Transform3D(0.9469619, -0.0576929, 0.31612486, 0.039202187, 0.99714434, 0.06454787, -0.31894606, -0.048731603, 0.94651926, 0.013283182, 0.14635749, 0.04572531)
 shape = SubResource("BoxShape3D_f40fb")

@@ -15,8 +15,8 @@ public partial class TrainSpotlight : Node3D
 	[Export] private ShaderMaterial _shader;
 	[Export] private ColorRect _shaderRect;
 
-	private double intensity = 0;
-	private double baseIntensity = .9;
+	public double intensity = 0;
+	private double baseIntensity = .97;
 	private bool beingRadiated = false;
 	public bool canRadiate = false;
 
@@ -95,8 +95,9 @@ public partial class TrainSpotlight : Node3D
 		}
 	}
 
-	private void StartRadiation()
+	public void StartRadiation()
 	{
+		beingRadiated = true;
 		radiationTick.Start();
 		intensity = baseIntensity;
 		_shader.SetShaderParameter("intensity", intensity);

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://52coofs4q1q4"]
+
+[ext_resource type="Script" uid="uid://ku6bs8x6g4aq" path="res://scripts/npc_logic/items/Logic/ItemData.cs" id="1_oqa22"]
+
+[resource]
+script = ExtResource("1_oqa22")
+ItemID = "weapon_axe"
+DisplayName = "Axe"
+ItemScene = "uid://ci0x70abg3hay"
+metadata/_custom_type_script = "uid://ku6bs8x6g4aq"

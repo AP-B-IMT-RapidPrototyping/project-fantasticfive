@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ci0x70abg3hay"]
 
 [ext_resource type="PackedScene" uid="uid://brt80fj4sqtj8" path="res://assets/prototypeAssets/Axe.glb" id="1_6pa1j"]
-[ext_resource type="Script" uid="uid://y4mp6odykx4d" path="res://scripts/items_scripts/Axe.cs" id="1_asnwc"]
+[ext_resource type="Script" uid="uid://y4mp6odykx4d" path="res://scripts/npc_logic/items/Axe.cs" id="1_asnwc"]
+[ext_resource type="Resource" uid="uid://52coofs4q1q4" path="res://Resources/Items/Axe.tres" id="2_exhyt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_asnwc"]
 size = Vector3(0.891346, 0.49345016, 0.65483856)
@@ -100,8 +101,11 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_f40fb"]
 size = Vector3(0.15198517, 0.9739075, 0.40579224)
 
-[node name="Axe" type="Node3D" unique_id=51536094 node_paths=PackedStringArray("_anim", "hitArea", "delayTimer") groups=["item"]]
+[node name="Axe" type="StaticBody3D" unique_id=378020981 node_paths=PackedStringArray("_anim", "hitArea", "delayTimer") groups=["item"]]
+collision_layer = 6
+collision_mask = 15
 script = ExtResource("1_asnwc")
+Item = ExtResource("2_exhyt")
 _anim = NodePath("AnimationPlayer")
 hitArea = NodePath("hitArea")
 delayTimer = NodePath("attackDelayTimer")
@@ -122,10 +126,6 @@ libraries/ = SubResource("AnimationLibrary_53w00")
 wait_time = 0.7
 one_shot = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1076380680]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1851272803]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1851272803]
 transform = Transform3D(0.8882407, -0.45937833, 0, 0.45937833, 0.8882407, 0, 0, 0, 1, -0.07482775, 0.14452209, -0.019180298)
 shape = SubResource("BoxShape3D_f40fb")

@@ -86,12 +86,237 @@ size = Vector3(6.8309326, 3.083685, 9.281921)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6owa4"]
 size = Vector3(160.3588, 10.119293, 1)
 
-[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "invSystem", "trainNoise")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6owa4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_n5pya"]
+material = SubResource("StandardMaterial3D_6owa4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kypp1"]
+disable_fog = true
+emission_enabled = true
+emission = Color(0.7313316, 0.7313315, 0.73133147, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_ukjja"]
+material = SubResource("StandardMaterial3D_kypp1")
+text = "RUN"
+
+[sub_resource type="Animation" id="Animation_6owa4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChaseStuff/EvilCube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.6586013, 12.622536, 48.710667)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Environment/Forest/GeneratedTrees/_Node3D_94549:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.745161, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment/Forest/GeneratedTrees/_Node3D_94491:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5184739, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Environment/Forest/GeneratedTrees/Pine_H_flat:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.1675944, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChaseStuff/EvilCube:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.16784836, 0.595454, 1.2383825e-09)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Environment/Forest/GeneratedTrees/_Node3D_94434:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.6338595, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Environment/Forest/GeneratedTrees/_Node3D_94488:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.9036074, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Train:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -45.130936)]
+}
+
+[sub_resource type="Animation" id="Animation_n5pya"]
+resource_name = "chase_scene"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChaseStuff/EvilCube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3, 15, 17.039999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.6586013, 12.622536, 48.710667), Vector3(-1.6586013, 12.622536, -16.596104), Vector3(-7.148563, 12.622536, -23.16256)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Environment/Forest/GeneratedTrees/_Node3D_94549:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.68, 4.82),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -2.745161, 0), Vector3(1.168617, -1.7354786, 1.3921249)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment/Forest/GeneratedTrees/_Node3D_94491:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6.14, 7.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5184739, 0), Vector3(-1.0523224, 1.5706128, -1.570585)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Environment/Forest/GeneratedTrees/Pine_H_flat:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(9.7, 10.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.1675944, 0), Vector3(-0.4029822, 1.5571079, -1.5359036)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChaseStuff/EvilCube:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(15.0199995, 17.039999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.16784838, 0.040020395, 1.2383824e-09), Vector3(-0.16784836, 0.595454, 1.2383825e-09)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Environment/Forest/GeneratedTrees/_Node3D_94434:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(7.31, 8.57),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.6338595, 0), Vector3(0.06299127, -1.5738095, 1.5229666)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Environment/Forest/GeneratedTrees/_Node3D_94488:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(11.11, 12.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.9036074, 0), Vector3(-0.66663605, 1.5412954, -1.5231092)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Train:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(11, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -45.130936), Vector3(-23.687437, 0, -45.130936)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kypp1"]
+_data = {
+&"RESET": SubResource("Animation_6owa4"),
+&"chase_scene": SubResource("Animation_n5pya")
+}
+
+[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "invSystem", "trainNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "evilCube", "chaseAnim")]
 script = ExtResource("1_fh0io")
 spotlight = NodePath("Train/TrainSpotlight")
 invSystem = NodePath("Player/PlayerHead/PlayerInteract/Inventory")
 axe = ExtResource("2_6owa4")
 trainNoise = NodePath("Train noise")
+playerHead = NodePath("Player/PlayerHead")
+player = NodePath("Player")
+cubeMarker = NodePath("ChaseStuff/CubeMarker")
+startRunTimer = NodePath("ChaseStuff/StartRunTimer")
+evilCube = NodePath("ChaseStuff/EvilCube")
+chaseAnim = NodePath("ChaseAnim")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1279296464]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -107,13 +332,13 @@ size = Vector3(160.28748, 1, 241.69409)
 material = SubResource("StandardMaterial3D_vp86x")
 
 [node name="Player" parent="." unique_id=1004373502 instance=ExtResource("1_1pwbc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -38.312233)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1022882, 1, 41.129456)
 
 [node name="Pause" parent="Player" index="0" unique_id=1074082978]
 visible = true
 
 [node name="Camera3D" parent="Player/DebugStats/CamToPlayer/SubViewport" parent_id_path=PackedInt32Array(1004373502, 28746108) index="0" unique_id=527580327]
-transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, 1.694, 2.119, -40.781235)
+transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, -2.4082882, 2.119, 38.660454)
 
 [node name="Train" parent="." unique_id=991101801 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)
@@ -156,6 +381,21 @@ shape = SubResource("BoxShape3D_o6odm")
 transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.4969112e-08, -9.571945, 0, 32.908962)
 
 [node name="Forest" parent="Environment" unique_id=947826763 instance=ExtResource("5_lha2r")]
+
+[node name="Pine_H_flat" parent="Environment/Forest/GeneratedTrees" parent_id_path=PackedInt32Array(947826763, 260590966) index="9" unique_id=508255443]
+transform = Transform3D(0.32219535, 0, 0.75531185, 0, 0.8211613, 0, -0.75531185, 0, 0.32219535, -12.708952, 0, 1.5349274)
+
+[node name="_Node3D_94434" parent="Environment/Forest/GeneratedTrees" parent_id_path=PackedInt32Array(947826763, 260590966) index="13" unique_id=734078661]
+transform = Transform3D(-0.063220374, 0, -1.001163, 0, 1.0031574, 0, 1.0011631, 0, -0.06322037, 5.566977, 0, 13.618601)
+
+[node name="_Node3D_94488" parent="Environment/Forest/GeneratedTrees" parent_id_path=PackedInt32Array(947826763, 260590966) index="77" unique_id=1283551629]
+transform = Transform3D(0.70045245, 0, 0.8892503, 0, 1.1319891, 0, -0.8892503, 0, 0.70045245, 5.909217, 0, -8.027831)
+
+[node name="_Node3D_94491" parent="Environment/Forest/GeneratedTrees" parent_id_path=PackedInt32Array(947826763, 260590966) index="80" unique_id=1992915990]
+transform = Transform3D(0.7162812, 0, 0.40866515, 0, 0.8246612, 0, -0.4086651, 0, 0.7162813, -11.204272, 0, 20.38819)
+
+[node name="_Node3D_94549" parent="Environment/Forest/GeneratedTrees" parent_id_path=PackedInt32Array(947826763, 260590966) index="138" unique_id=2105054858]
+transform = Transform3D(-1.0269125, 0, -0.42985854, 0, 1.1132512, 0, 0.42985865, 0, -1.0269122, 2.70899, 0, 32.711227)
 
 [node name="FogVolume" type="FogVolume" parent="Environment" unique_id=845514182]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.75473, 12.966003, 0.31781006)
@@ -300,6 +540,30 @@ shape = SubResource("BoxShape3D_6owa4")
 [node name="Station_scene" parent="." unique_id=1383928026 instance=ExtResource("12_6owa4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3376875, -0.07207966, 71.21851)
 
+[node name="ChaseStuff" type="Node3D" parent="." unique_id=1692850496]
+
+[node name="CubeMarker" type="Marker3D" parent="ChaseStuff" unique_id=1456157780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.681546, 46.380035)
+
+[node name="StartRunTimer" type="Timer" parent="ChaseStuff" unique_id=1280967832]
+wait_time = 4.0
+one_shot = true
+
+[node name="EvilCube" type="MeshInstance3D" parent="ChaseStuff" unique_id=760599901]
+transform = Transform3D(18.528536, -1.5233462, 11.541338, 2.7325905e-08, 16.028852, 3.486625, -12.552781, -2.2485354, 17.035595, -1.6586013, 12.622536, 48.710667)
+mesh = SubResource("BoxMesh_n5pya")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ChaseStuff/EvilCube" unique_id=1552486780]
+transform = Transform3D(-2.4984963, -0.086226895, 0.008993857, -0.08615808, 2.4984448, 0.01862526, -0.009630665, 0.01830411, -2.4999142, -0.022166736, 0.09667176, -0.44442388)
+mesh = SubResource("TextMesh_ukjja")
+
+[node name="TrainWheels" type="Timer" parent="ChaseStuff" unique_id=770023546]
+wait_time = 11.0
+one_shot = true
+
+[node name="ChaseAnim" type="AnimationPlayer" parent="." unique_id=171144838]
+libraries/ = SubResource("AnimationLibrary_kypp1")
+
 [connection signal="body_entered" from="Areas/SpotlightArea" to="." method="on_body_entered_spotlightArea"]
 [connection signal="body_entered" from="Areas/ChaseArea" to="." method="on_body_entered_chaseArea"]
 
@@ -307,3 +571,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3376875, -0.07207966, 71.
 [editable path="Train"]
 [editable path="Train/TestTrain"]
 [editable path="Train/TrainSpotlight"]
+[editable path="Environment/Forest"]

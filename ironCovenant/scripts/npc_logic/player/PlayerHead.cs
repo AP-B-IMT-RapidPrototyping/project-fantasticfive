@@ -126,6 +126,8 @@ public partial class PlayerHead : Node3D
     private Vector3 _shakeRot;
     private Vector3 _shakePos;
 
+    private Marker3D _lookAtNode;
+    public bool haveToLookAt = false;
 
 
 
@@ -199,10 +201,52 @@ public partial class PlayerHead : Node3D
         _playerCamera.Fov = Mathf.Lerp(_playerCamera.Fov, fovTarget, speed * delta);
     }
 
+
     private void CalculateRotation(float delta)
     {
         if (_cameraLocked)
             return;
+
+        if (haveToLookAt)
+        {
+            Vector3 lookPos = _lookAtNode.GlobalPosition;
+
+            // Use player origin for yaw
+            Vector3 toTargetFromPlayer = lookPos - _player.GlobalPosition;
+
+            if (toTargetFromPlayer.LengthSquared() > 0.001f)
+            {
+                Vector3 dir = toTargetFromPlayer.Normalized();
+
+                // Player yaw
+                float targetYaw = Mathf.Atan2(-dir.X, -dir.Z);
+
+                _smoothYaw = Mathf.LerpAngle(
+                    _smoothYaw,
+                    targetYaw,
+                    _cameraSmooth * delta / 10f
+                );
+
+                // Use camera/head origin for pitch
+                Vector3 toTargetFromHead = lookPos - GlobalPosition;
+
+                // Convert target direction into player's local space
+                Vector3 localDir = _player.GlobalTransform.Basis.Inverse() * toTargetFromHead.Normalized();
+
+                float horizontalLength = new Vector2(localDir.X, localDir.Z).Length();
+
+                // Head pitch
+                float targetPitch = Mathf.Atan2(localDir.Y, -localDir.Z);
+
+                _smoothPitch = Mathf.LerpAngle(
+                    _smoothPitch,
+                    targetPitch,
+                    _cameraSmooth * delta / 10f
+                );
+            }
+
+            return;
+        }
 
         _smoothYaw = Mathf.LerpAngle(_smoothYaw, _yaw, _cameraSmooth * delta);
         _smoothPitch = Mathf.Lerp(_smoothPitch, _pitch, _cameraSmooth * delta);
@@ -426,6 +470,10 @@ public partial class PlayerHead : Node3D
     }
 
     //! NEW FUNCTION ON THIS LINE
+    public void CameraLookAt(Marker3D node)
+    {
+        _lookAtNode = node;
+    }
 
 
 

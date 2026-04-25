@@ -35,7 +35,7 @@ public partial class Player : CharacterBody3D
     private float _maxFallSpeed = 190.0f;
 
     [ExportGroup("Other Settings")]
-    [Export] private bool Hello = false; //! i am useless, please delete me
+    [Export] public bool canMove = true; //! i am useless, please delete me
 
 
     // State Machine & States
@@ -140,6 +140,7 @@ public partial class Player : CharacterBody3D
 
     private void ExecuteMoveState(float delta, bool onFloor, Vector2 inputDir)
     {
+
         switch (_currentMoveState)
         {
             case PlayerMoveState.Idle:
@@ -158,12 +159,20 @@ public partial class Player : CharacterBody3D
                 HandleNoclip(delta, inputDir);
                 break;
         }
+
+
     }
 
     private void HandleGround(float delta, bool onFloor, Vector2 inputDir)
     {
         HandleGravity(delta, onFloor);
-        HandleMovement(delta, onFloor, inputDir);
+        if (canMove) {
+            HandleMovement(delta, onFloor, inputDir);
+        } else
+        {
+            Vector2 v = new Vector2(0,0);
+            HandleMovement(delta, onFloor, v);
+        }
         HandleJump(delta, onFloor);
         MoveAndSlide();
     }

@@ -40,7 +40,7 @@ size = Vector3(4.1359253, 1.253418, 2.1711426)
 [sub_resource type="BoxShape3D" id="BoxShape3D_aqclw"]
 size = Vector3(1.2861328, 1.201294, 1.8397522)
 
-[node name="Train" type="Node3D" unique_id=991101801 node_paths=PackedStringArray("_anim")]
+[node name="Train" type="AnimatableBody3D" unique_id=615132714 node_paths=PackedStringArray("_anim")]
 script = ExtResource("1_5kvja")
 _anim = NodePath("TestTrain/AnimationPlayer")
 
@@ -91,44 +91,6 @@ collision_mask = 9
 [node name="VisionTimer" type="Timer" parent="." unique_id=640714585]
 autostart = true
 
-[node name="TrainCollision" type="StaticBody3D" parent="." unique_id=1438616064]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainCollision" unique_id=505178712]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6514206, 1.7375488, -0.011856079)
-shape = SubResource("BoxShape3D_ie6wu")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="TrainCollision" unique_id=817534083]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53123295, 0.6730511, 0.0069885254)
-shape = SubResource("BoxShape3D_fjli7")
-
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="TrainCollision" unique_id=448824702]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1604905, 0.6730511, 0.0069886087)
-shape = SubResource("BoxShape3D_31nt6")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="TrainCollision" unique_id=345037161]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0847931, 1.508894, -0.0079956055)
-shape = SubResource("BoxShape3D_7ifw2")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="TrainCollision" unique_id=1751171380]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008666992, 4.4799604, -0.0079956055)
-shape = SubResource("BoxShape3D_7ifw2")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="TrainCollision" unique_id=1086910889]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0224643, 3.0965934, -0.0012207031)
-shape = SubResource("BoxShape3D_5kvja")
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="TrainCollision" unique_id=2121907737]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.177331, 3.0965934, -0.0012207031)
-shape = SubResource("BoxShape3D_0ni18")
-
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="TrainCollision" unique_id=829437701]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.158451, 0.85804725, 0.009643555)
-shape = SubResource("BoxShape3D_t23a6")
-
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="TrainCollision" unique_id=281727232]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8839045, 2.4515667, 0.048843384)
-shape = SubResource("BoxShape3D_aqclw")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1079546955]
 
 [node name="ShaderRect" type="ColorRect" parent="CanvasLayer" unique_id=727015593]
@@ -148,6 +110,42 @@ one_shot = true
 
 [node name="RadiationTick" type="Timer" parent="." unique_id=755055228]
 wait_time = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=505178712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6514206, 1.7375488, -0.011856079)
+shape = SubResource("BoxShape3D_ie6wu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=817534083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53123295, 0.6730511, 0.0069885254)
+shape = SubResource("BoxShape3D_fjli7")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="." unique_id=448824702]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1604905, 0.6730511, 0.0069886087)
+shape = SubResource("BoxShape3D_31nt6")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=345037161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0847931, 1.508894, -0.0079956055)
+shape = SubResource("BoxShape3D_7ifw2")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1751171380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008666992, 4.4799604, -0.0079956055)
+shape = SubResource("BoxShape3D_7ifw2")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=1086910889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0224643, 3.0965934, -0.0012207031)
+shape = SubResource("BoxShape3D_5kvja")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." unique_id=2121907737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.177331, 3.0965934, -0.0012207031)
+shape = SubResource("BoxShape3D_0ni18")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="." unique_id=829437701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.158451, 0.85804725, 0.009643555)
+shape = SubResource("BoxShape3D_t23a6")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="." unique_id=281727232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8839045, 2.4515667, 0.048843384)
+shape = SubResource("BoxShape3D_aqclw")
 
 [connection signal="child_entered_tree" from="TrainSpotlight" to="TrainSpotlight" method="_on_child_entered_tree"]
 

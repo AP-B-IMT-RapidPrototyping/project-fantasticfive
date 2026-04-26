@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bc6wu0woh52l8"]
+
+[ext_resource type="Script" uid="uid://whfb83w25xp1" path="res://scripts/enemy_scripts/Enemy.cs" id="1_7vve7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dk35r"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7vve7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dk35r"]
+albedo_color = Color(0.22027358, 0.48638326, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hinqn"]
+
+[node name="EnemyBase" type="Node3D" unique_id=493020299]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=2127011422]
+script = ExtResource("1_7vve7")
+Speed = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1631703344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_dk35r")
+
+[node name="body" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D" unique_id=1853429728]
+mesh = SubResource("CapsuleMesh_7vve7")
+
+[node name="eyes" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D" unique_id=1414675518]
+transform = Transform3D(1, 0, 0, 0, 0.22600132, 0, 0, 0, 0.39974523, 0, 0.5239999, -0.3314128)
+material_overlay = SubResource("StandardMaterial3D_dk35r")
+mesh = SubResource("BoxMesh_hinqn")

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://53ojkwfplxat"]
+
+[ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="1_rlj4e"]
+[ext_resource type="PackedScene" uid="uid://bc6wu0woh52l8" path="res://scenes/levels/enemyBase.tscn" id="2_gxyjh"]
+[ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/nPC_models/items/axe.tscn" id="3_x6gbo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlj4e"]
+albedo_color = Color(0.12388598, 7.4795185e-05, 0.4080863, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rlj4e"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_gxyjh"]
+sky_material = SubResource("ProceduralSkyMaterial_rlj4e")
+
+[sub_resource type="Environment" id="Environment_x6gbo"]
+background_mode = 2
+sky = SubResource("Sky_gxyjh")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TestEnemy" type="Node3D" unique_id=1045614083]
+
+[node name="Player" parent="." unique_id=746536559 instance=ExtResource("1_rlj4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.907782, 0.875, -0.9018583)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1298452503]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D" unique_id=135471225]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="Node3D" unique_id=558931860 groups=["sound_grass"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.340027, -0.5, 19.522675)
+use_collision = true
+collision_mask = 0
+size = Vector3(160.28748, 1, 241.69409)
+material = SubResource("StandardMaterial3D_rlj4e")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D" unique_id=2052888826]
+environment = SubResource("Environment_x6gbo")
+
+[node name="EnemyBase" parent="." unique_id=493020299 instance=ExtResource("2_gxyjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.788326, 0, -0.9098339)
+
+[node name="Axe" parent="." unique_id=167397360 instance=ExtResource("3_x6gbo")]
+transform = Transform3D(-0.9642436, 0, 0.26501754, 0, 1, 0, -0.26501754, 0, -0.9642436, -10.203775, 0.4355303, -4.505704)
+damage = 100

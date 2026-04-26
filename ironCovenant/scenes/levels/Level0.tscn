@@ -5,19 +5,26 @@
 [ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="2_wnydg"]
 [ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="3_0l7rd"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0l7rd"]
-sky_top_color = Color(0.22563493, 0.27607924, 0.34328637, 1)
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qcr8a"]
+sky_top_color = Color(0.25348392, 0.18677208, 0.1765042, 1)
+sky_horizon_color = Color(0.2023797, 0.1863308, 0.18863353, 1)
+ground_horizon_color = Color(0.35079926, 0.35799748, 0.37240785, 1)
 
-[sub_resource type="Sky" id="Sky_qcr8a"]
-sky_material = SubResource("ProceduralSkyMaterial_0l7rd")
+[sub_resource type="Sky" id="Sky_rbe81"]
+sky_material = SubResource("ProceduralSkyMaterial_qcr8a")
 
-[sub_resource type="Environment" id="Environment_rbe81"]
+[sub_resource type="Environment" id="Environment_in5bs"]
 background_mode = 2
-sky = SubResource("Sky_qcr8a")
-tonemap_mode = 2
+sky = SubResource("Sky_rbe81")
+tonemap_mode = 3
 glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.018938428, 0.17257309, 0.21943754, 1)
+fog_density = 0.04
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(0.34236604, 0.28194448, 0.27524903, 1)
+volumetric_fog_length = 47.21
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_byulw"]
 albedo_color = Color(0.78685665, 0.99999994, 0.7661625, 1)
@@ -25,6 +32,12 @@ albedo_texture = ExtResource("1_xh834")
 uv1_scale = Vector3(1, -1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_in5bs"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_ax2ff"]
+density = 0.02
+albedo = Color(0, 0, 0, 1)
+emission = Color(0.54656905, 0.54656905, 0.54656905, 1)
+height_falloff = 14.236988
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnydg"]
 
@@ -101,6 +114,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0.20943952, 1.2391838, 0.034906585)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_rbe81"]
 resource_name = "play"
@@ -129,6 +154,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-0.20943952, -2.7925267, 0), Vector3(-0.20943952, -2.9914944, 0), Vector3(0.0095227, 0.35342667, 0), Vector3(0.022612665, 0.4319665, 0), Vector3(-0.64061123, -1.6667982, 0), Vector3(-0.11963209, -1.6491117, 0.020454278)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0005, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Player:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_in5bs"]
@@ -211,11 +260,23 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector3(3, 1, 0.001)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TrainCutscene:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_in5bs"]
 resource_name = "play"
-length = 8.0
-step = 0.1
+length = 10.0
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -271,10 +332,10 @@ tracks/4/path = NodePath("Camera3D/BlackBarTop:size")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(6.3, 8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(6.3, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(3, 1, 0.001), Vector3(3, 0.82, 0.001)]
+"values": [Vector3(3, 1, 0.001), Vector3(3, 0.82, 0.001), Vector3(3, 0.82, 0.001)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -283,10 +344,22 @@ tracks/5/path = NodePath("Camera3D/BlackBarBottom:size")
 tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(6.3, 8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(6.3, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(3, 1, 0.001), Vector3(3, 0.82, 0.001)]
+"values": [Vector3(3, 1, 0.001), Vector3(3, 0.82, 0.001), Vector3(3, 0.82, 0.001)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TrainCutscene:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.0005),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e2o36"]
@@ -295,20 +368,264 @@ _data = {
 &"play": SubResource("Animation_in5bs")
 }
 
+[sub_resource type="Animation" id="Animation_bbvxl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [60.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/BlackBarTop:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3, 1, 0.001)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/BlackBarBottom:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3, 1, 0.001)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Train:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0030416967, 1.1606967, 0.034773856)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(38.76986, 1.3964998, 4.031459)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Player:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.090757124, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Player:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(7.276113, 1.024884, 52.596516)]
+}
+
+[sub_resource type="Animation" id="Animation_e2o36"]
+resource_name = "play"
+length = 3.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:fov")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [80.0, 60.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/BlackBarTop:size")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3, 0.82, 0.001), Vector3(3, 0.335, 0.001)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/BlackBarBottom:size")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3, 0.82, 0.001), Vector3(3, 0.335, 0.001)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Train:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TrainCutscene:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Player:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Player:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(69.634, 1, -17.032)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera3D:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.4, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(38.675, 1, 4), Vector3(38.76986, 1.3964998, 4.031459)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Camera3D:rotation")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.4, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.20943952, -5.0265484, 0.034906585), Vector3(0.0034906585, -5.0090947, 0.034906585)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Player:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.3962634, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ue060"]
+_data = {
+&"RESET": SubResource("Animation_bbvxl"),
+&"play": SubResource("Animation_e2o36")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_qcr8a"]
 size = Vector3(1, 9, 21)
 
-[node name="Level0" type="Node3D" unique_id=1218683510 node_paths=PackedStringArray("_cutsceneIntroAnim", "_cutsceneAnim", "_cutsceneCamera")]
+[node name="Level0" type="Node3D" unique_id=1218683510 node_paths=PackedStringArray("_cutsceneIntroAnim", "_cutsceneAnim", "_cutsceneOutroAnim", "_cutsceneCamera")]
 script = ExtResource("1_qcr8a")
 _cutsceneIntroAnim = NodePath("Cutscene/CutsceneIntroAnim")
 _cutsceneAnim = NodePath("Cutscene/CutsceneAnim")
+_cutsceneOutroAnim = NodePath("Cutscene/CutsceneOutroAnim")
 _cutsceneCamera = NodePath("Cutscene/Camera3D")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1484911157]
-environment = SubResource("Environment_rbe81")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=749329540]
+environment = SubResource("Environment_in5bs")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=588111555]
 transform = Transform3D(0.55250084, -0.06555136, 0.8309308, -0.25015032, 0.9379078, 0.24032015, -0.7950896, -0.34063467, 0.50179714, 0, 20, 0)
+visible = false
 shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=442463934]
@@ -323,8 +640,13 @@ use_collision = true
 size = Vector3(81, 1, 150)
 material = SubResource("StandardMaterial3D_in5bs")
 
+[node name="FogVolume" type="FogVolume" parent="." unique_id=1012925600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.247, 1.5, -20.614)
+size = Vector3(96, 5, 95)
+material = SubResource("FogMaterial_ax2ff")
+
 [node name="Player" parent="." unique_id=746536559 instance=ExtResource("2_wnydg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 50)
+transform = Transform3D(0.99588454, 0, 0.09063258, 0, 0.99999994, 0, -0.09063259, 0, 0.9958844, 7.276113, 1.024884, 52.596516)
 
 [node name="Buildings" type="Node3D" parent="." unique_id=822769759]
 
@@ -422,6 +744,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -21)
 
 [node name="TrainCutscene" parent="Cutscene" unique_id=163513889 instance=ExtResource("3_0l7rd")]
 transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, -54.640434, 0, -5.188058)
+visible = false
 
 [node name="Cube2" type="MeshInstance3D" parent="Cutscene/TrainCutscene/TestTrain" parent_id_path=PackedInt32Array(163513889, 1189408230) index="10" unique_id=1865229309]
 mesh = SubResource("ArrayMesh_in5bs")
@@ -436,7 +759,8 @@ visible = false
 visible = false
 
 [node name="Camera3D" type="Camera3D" parent="Cutscene" unique_id=780881902]
-transform = Transform3D(0.33223048, 0.18510245, 0.92485666, 0.034136854, 0.9775517, -0.20791169, -0.9425802, 0.10064631, 0.31845367, 38.675, 1, 4)
+transform = Transform3D(0.39855665, -0.011073774, 0.91707695, 0.034766693, 0.9993908, -0.0030416925, -0.91648465, 0.03309601, 0.39869887, 38.76986, 1.3964998, 4.031459)
+visible = false
 fov = 60.0
 
 [node name="BlackBarTop" type="CSGBox3D" parent="Cutscene/Camera3D" unique_id=2071080746]
@@ -456,6 +780,9 @@ libraries/ = SubResource("AnimationLibrary_in5bs")
 [node name="CutsceneAnim" type="AnimationPlayer" parent="Cutscene" unique_id=1917741911]
 libraries/ = SubResource("AnimationLibrary_e2o36")
 
+[node name="CutsceneOutroAnim" type="AnimationPlayer" parent="Cutscene" unique_id=735481338]
+libraries/ = SubResource("AnimationLibrary_ue060")
+
 [node name="CutsceneTrigger" type="Area3D" parent="." unique_id=1340538295]
 transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, 44.749584, 0.7, -20.264496)
 collision_mask = 8
@@ -465,6 +792,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 shape = SubResource("BoxShape3D_qcr8a")
 
 [connection signal="animation_finished" from="Cutscene/CutsceneIntroAnim" to="." method="OnIntroFinished"]
+[connection signal="animation_finished" from="Cutscene/CutsceneAnim" to="." method="OnCutsceneFinished"]
+[connection signal="animation_finished" from="Cutscene/CutsceneOutroAnim" to="." method="OnOutroFinished"]
 [connection signal="body_entered" from="CutsceneTrigger" to="." method="OnCutsceneTrigger"]
 
 [editable path="Train"]

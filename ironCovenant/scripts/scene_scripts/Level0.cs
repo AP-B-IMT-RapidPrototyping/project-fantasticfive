@@ -7,6 +7,7 @@ public partial class Level0 : Node3D
 {
     [Export] private AnimationPlayer _cutsceneIntroAnim;
     [Export] private AnimationPlayer _cutsceneAnim;
+    [Export] private AnimationPlayer _cutsceneOutroAnim;
 
     [Export] private Camera3D _cutsceneCamera;
 
@@ -28,8 +29,13 @@ public partial class Level0 : Node3D
         _cutsceneAnim.Play("play");
     }
 
-    private void OnCutsceneFinished(StoreName anim)
+    private void OnCutsceneFinished(StringName anim)
     {
-        _cutsceneCamera.Current = false; // fix camera switching back to player
+        _cutsceneOutroAnim.Play("play");
+    }
+
+    private void OnOutroFinished(StringName anim)
+    {
+        _cutsceneCamera.Current = false; // fix camera switching back to player       
     }
 }

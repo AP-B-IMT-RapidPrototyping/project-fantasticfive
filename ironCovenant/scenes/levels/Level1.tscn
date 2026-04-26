@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cfo4exy1pdxjn" path="res://assets/prototypeAssets/ElectricalBuilding.glb" id="5_yfpbl"]
 [ext_resource type="AudioStream" uid="uid://dmemm84lktc2j" path="res://assets/audio/train/train horn 4.mp3" id="10_6owa4"]
 [ext_resource type="PackedScene" uid="uid://cpy5md08fdolh" path="res://scenes/scene_models/station.tscn" id="12_6owa4"]
+[ext_resource type="PackedScene" uid="uid://dcut5pgck8nre" path="res://assets/prototypeAssets/DefaultEnemy.glb" id="12_n5pya"]
+[ext_resource type="AudioStream" uid="uid://b5ft1cj4fqov6" path="res://assets/audio/ambience/shut_up_ghost-smooth-cold-wind-looped-135538 (1).mp3" id="13_n5pya"]
 [ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="50_6qbjw"]
 [ext_resource type="PackedScene" uid="uid://weyxyaqx4qjw" path="res://assets/prototypeAssets/street.glb" id="51_vaqq6"]
 [ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/nPC_models/items/axe.tscn" id="54_o6odm"]
@@ -652,7 +654,7 @@ collision_mask = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5643349, 2.9067383, 3.5144882)
 shape = SubResource("BoxShape3D_kypp1")
 
-[node name="Station_scene" parent="." unique_id=1383928026 instance=ExtResource("12_6owa4")]
+[node name="Station_scene" parent="." unique_id=599469948 instance=ExtResource("12_6owa4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3376875, -0.07207966, 71.21851)
 
 [node name="ChaseStuff" type="Node3D" parent="." unique_id=1692850496]
@@ -665,7 +667,7 @@ wait_time = 4.0
 one_shot = true
 
 [node name="EvilCube" type="MeshInstance3D" parent="ChaseStuff" unique_id=760599901]
-transform = Transform3D(18.528536, -1.523346, 11.541339, 2.7325905e-08, 16.02885, 3.4866252, -12.552781, -2.2485352, 17.035597, -1.6586013, 12.622536, 48.710667)
+transform = Transform3D(18.528534, -1.523346, 11.541338, 2.7325902e-08, 16.02885, 3.486625, -12.55278, -2.2485352, 17.035595, -1.6586013, 12.622536, 48.710667)
 visible = false
 mesh = SubResource("BoxMesh_n5pya")
 
@@ -683,6 +685,79 @@ one_shot = true
 [node name="ChaseAnim" type="AnimationPlayer" parent="." unique_id=171144838]
 libraries/ = SubResource("AnimationLibrary_kypp1")
 
+[node name="DefaultEnemy" parent="." unique_id=335160947 instance=ExtResource("12_n5pya")]
+transform = Transform3D(-0.7985515, 0, 0.60192645, 0, 1, 0, -0.60192645, 0, -0.7985515, 0, 0, 44.770184)
+
+[node name="Skeleton3D" parent="DefaultEnemy/Armature" parent_id_path=PackedInt32Array(335160947, 401106746) index="0" unique_id=891174931]
+bones/0/position = Vector3(-0.085840665, -0.12444876, 1.1931057e-05)
+bones/0/rotation = Quaternion(0, 0, -0.067629576, 0.9977105)
+bones/2/rotation = Quaternion(0.4236736, -0.02928718, 0.031132026, 0.9048059)
+bones/3/rotation = Quaternion(-0.025367172, -0.0068987785, -0.26233226, 0.96461946)
+bones/5/rotation = Quaternion(-0.5402362, 0.12804054, 0.040946826, 0.83070683)
+bones/6/rotation = Quaternion(0.031261783, 0.014406156, -0.4182746, 0.90766823)
+bones/9/position = Vector3(-0.085840665, -0.12444876, 1.1931057e-05)
+bones/10/rotation = Quaternion(-0.0011427603, -0.22460231, 0.044154495, 0.97344905)
+bones/12/rotation = Quaternion(2.348527e-08, 2.766436e-08, 0.44464976, 0.8957045)
+bones/13/rotation = Quaternion(0.008033536, 0.006403933, -0.8079093, 0.5892173)
+bones/14/position = Vector3(-0.085840665, -0.12444876, 1.1931057e-05)
+bones/15/rotation = Quaternion(0.03897424, 0.10439214, -0.060038257, 0.991957)
+bones/17/rotation = Quaternion(-3.3201196e-08, 2.8490605e-08, -0.40069667, 0.9162108)
+bones/18/rotation = Quaternion(-0.051665463, 0.0011876727, 0.8619351, 0.5043781)
+bones/19/position = Vector3(-0.17971055, -1.0299678, 0.22378422)
+bones/20/position = Vector3(0.004859209, -1.0117029, -0.16221164)
+bones/20/rotation = Quaternion(-0.51225066, -0.48744154, 0.51225066, -0.48744163)
+bones/21/position = Vector3(-0.04649034, -0.023198992, 0.41061825)
+bones/22/position = Vector3(0.06331672, -0.19961756, -0.33217072)
+
+[node name="Bone_003" parent="DefaultEnemy/Armature/Skeleton3D" index="0" unique_id=2125589235]
+transform = Transform3D(0.93189424, 0.34154686, -0.122142404, 0.1772302, -0.72253394, -0.6682322, -0.3164847, 0.60107446, -0.7338577, -0.086383, 0.061189324, 0.3404159)
+
+[node name="Bone_002" parent="DefaultEnemy/Armature/Skeleton3D" index="1" unique_id=499139645]
+transform = Transform3D(0.97652, -0.18362862, -0.112646654, -0.21310842, -0.7469131, -0.62984586, 0.03152047, 0.639063, -0.7685083, -0.028481528, 0.2967047, 0.1389075)
+
+[node name="Bone_006" parent="DefaultEnemy/Armature/Skeleton3D" index="2" unique_id=1315446077]
+transform = Transform3D(0.8323732, 0.49932104, 0.2404855, 0.376874, -0.8281113, 0.414967, 0.4063505, -0.25477472, -0.8774788, -0.108803615, 0.08583647, -0.24434878)
+
+[node name="Bone_005" parent="DefaultEnemy/Armature/Skeleton3D" index="3" unique_id=1145348895]
+transform = Transform3D(0.92036307, -0.32419568, 0.21869841, -0.38469172, -0.8511055, 0.35725576, 0.07031464, -0.41293645, -0.9080415, -0.028481528, 0.2967047, -0.14204036)
+
+[node name="Bone_008" parent="DefaultEnemy/Armature/Skeleton3D" index="4" unique_id=33008001]
+transform = Transform3D(-0.083586544, 0.99650055, -4.7406303e-08, -0.9965006, -0.083586544, -4.8213565e-07, -4.8441103e-07, 6.940354e-09, 1, -0.0075224414, 0.4505946, 1.1931057e-05)
+
+[node name="Bone" parent="DefaultEnemy/Armature/Skeleton3D" index="5" unique_id=2017349005]
+transform = Transform3D(0.9908525, 0.13494948, 0, -0.13494948, 0.9908525, 0, 0, 0, 1, -0.085840665, -0.12444876, 1.1931057e-05)
+
+[node name="Bone_013" parent="DefaultEnemy/Armature/Skeleton3D" index="6" unique_id=958413715]
+transform = Transform3D(0.0058396533, 0.9964086, -0.084471524, 0.99998075, -0.0059909583, -0.0015378632, -0.0020384192, -0.0844609, -0.99642473, 0.0048582405, -1.011727, -0.16221395)
+
+[node name="Bone_012" parent="DefaultEnemy/Armature/Skeleton3D" index="7" unique_id=1375822357]
+transform = Transform3D(0.9474265, -0.30835202, -0.085451, -0.31120718, -0.950086, -0.022059225, -0.074383765, 0.047492467, -0.99609816, 0.16998976, -0.50292814, -0.18764755)
+
+[node name="Bone_010" parent="DefaultEnemy/Armature/Skeleton3D" index="8" unique_id=1174735108]
+transform = Transform3D(0.89520836, -0.08545096, -0.43737867, 0.43717685, -0.02205924, 0.899105, -0.08647762, -0.99609816, 0.017609563, -0.085840665, -0.12444876, -0.11703915)
+
+[node name="Bone_018" parent="DefaultEnemy/Armature/Skeleton3D" index="9" unique_id=351721962]
+transform = Transform3D(0.052974097, 0.99592495, -0.07298968, -0.99841446, 0.051429603, -0.02288013, -0.019033015, 0.07408602, 0.99707013, -0.17971103, -1.0299699, 0.2237847)
+
+[node name="Bone_017" parent="DefaultEnemy/Armature/Skeleton3D" index="10" unique_id=1950235222]
+transform = Transform3D(-0.8853861, -0.447101, -0.12724778, 0.44238353, -0.89448273, 0.06478648, -0.14278708, 0.0010687552, 0.9897528, 0.06307389, -0.5442477, 0.22320434)
+
+[node name="Bone_015" parent="DefaultEnemy/Armature/Skeleton3D" index="11" unique_id=464672765]
+transform = Transform3D(-0.97099537, -0.12724794, -0.20242514, -0.21178491, 0.0647865, 0.97516656, -0.11097353, 0.9897528, -0.08985659, -0.085840665, -0.12444876, 0.106311314)
+
+[node name="AnimationPlayer" parent="DefaultEnemy" index="2" unique_id=353786023]
+autoplay = &"Idle"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1699745015]
+stream = ExtResource("13_n5pya")
+autoplay = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=893814568 groups=["enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9474704, 47.536865)
+use_collision = true
+collision_layer = 16
+collision_mask = 16
+
 [connection signal="body_entered" from="Areas/SpotlightArea" to="." method="on_body_entered_spotlightArea"]
 [connection signal="body_entered" from="Areas/ChaseArea" to="." method="on_body_entered_chaseArea"]
 [connection signal="body_entered" from="Areas/station" to="." method="on_body_entered_station"]
@@ -693,3 +768,4 @@ libraries/ = SubResource("AnimationLibrary_kypp1")
 [editable path="Train/TestTrain"]
 [editable path="Train/TrainSpotlight"]
 [editable path="Environment/Forest"]
+[editable path="DefaultEnemy"]

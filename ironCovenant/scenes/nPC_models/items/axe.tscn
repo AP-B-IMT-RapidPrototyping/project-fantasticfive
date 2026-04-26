@@ -115,6 +115,8 @@ delayTimer = NodePath("attackDelayTimer")
 transform = Transform3D(0.87390536, 0.002276369, 0.4860904, 0.10325998, 0.97629714, -0.1902151, -0.47500184, 0.21642388, 0.8529554, 0, 0.14713776, 0)
 
 [node name="hitArea" type="Area3D" parent="." unique_id=1044825076]
+collision_layer = 6
+collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hitArea" unique_id=1338230866]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38996154, 0.23615837, 0.38656926)

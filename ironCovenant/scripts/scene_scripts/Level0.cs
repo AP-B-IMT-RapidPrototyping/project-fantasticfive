@@ -30,6 +30,6 @@ public partial class Level0 : Node3D
 
     private void OnCutsceneFinished(StoreName anim)
     {
-        _cutsceneCamera.Current = false;
+        _cutsceneCamera.Current = false; // fix camera switching back to player
     }
 }

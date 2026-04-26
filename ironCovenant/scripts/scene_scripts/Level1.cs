@@ -14,6 +14,7 @@ public partial class Level1 : Node3D
 	[Export] private Marker3D cubeMarker;
 	[Export] private Timer startRunTimer;
 	[Export] private Timer trainWheelsTimer;
+	[Export] private Timer bufferTimer;
 	[Export] private MeshInstance3D evilCube;
 	[Export] private AnimationPlayer chaseAnim;
 	[Export] private AnimationPlayer trainAnim;
@@ -23,7 +24,8 @@ public partial class Level1 : Node3D
 
     public override void _Ready()
     {
-        startRunTimer.Timeout += StartRun;
+        startRunTimer.Timeout += StopLook;
+		bufferTimer.Timeout += StartRun;
 		trainWheelsTimer.Timeout += StartWheels;
     }
 
@@ -58,9 +60,14 @@ public partial class Level1 : Node3D
 		}
 	}
 
-	private void StartRun()
+	private void StopLook()
 	{
 		playerHead.haveToLookAt = false;
+		bufferTimer.Start();
+	}
+
+	private void StartRun()
+	{
 		player.canMove = true;
 	}
 

@@ -4,12 +4,13 @@ using System;
 public partial class Enemy : CharacterBody3D
 {
     [Export] public float VisionRange = 15f;
-    [Export] public float VisionAngle = 90f; // NIEUW
+    [Export] public float VisionAngle = 90f;
     [Export] public float AttackRange = 5f;
     [Export] public float FireRate = 1f;
     [Export] public float Speed = 5f;
     [Export] public int MaxHealth = 100;
     [Export] public float Gravity = 9.8f;
+    [Export] public float AttackRangePercent = 10; 
 
     private int _currentHealth;
     private Node3D _player;
@@ -36,7 +37,6 @@ public partial class Enemy : CharacterBody3D
         float distance = GlobalPosition.DistanceTo(_player.GlobalPosition);
         bool canSee = CanSeePlayer(distance);
 
-        // 👇 AANGEPAST
         _currentState = canSee ? State.Walking : State.Idle;
 
         Vector3 velocity = Velocity;
@@ -62,23 +62,35 @@ public partial class Enemy : CharacterBody3D
                 direction.Y = 0;
                 direction = direction.Normalized();
 
-                float speedMultiplier = (distance <= AttackRange) ? 0.7f : 1f;
+                float targetDistance = AttackRange * (1f - (AttackRangePercent / 100f));
+                GD.Print($"dis: {distance} tardis: {targetDistance}");
 
-                velocity.X = direction.X * Speed * speedMultiplier;
-                velocity.Z = direction.Z * Speed * speedMultiplier;
+                if (distance > targetDistance)
+                {
+                    // te ver
+                    velocity.X = direction.X * Speed;
+                    velocity.Z = direction.Z * Speed;
+                }
+                else
+                {
+                    // in range
+                    velocity.X = 0;
+                    velocity.Z = 0;
+                }
 
-                LookAt(new Vector3(_player.GlobalPosition.X, GlobalPosition.Y, _player.GlobalPosition.Z), Vector3.Up);
+                LookAt(
+                    new Vector3(_player.GlobalPosition.X, GlobalPosition.Y, _player.GlobalPosition.Z),
+                    Vector3.Up
+                );
                 break;
         }
 
-        // 👇 AANGEPAST
         HandleAttack((float)delta, distance, canSee);
 
         Velocity = velocity;
         MoveAndSlide();
     }
 
-    // 👇 NIEUW
     private bool CanSeePlayer(float distance)
     {
         if (distance > VisionRange)
@@ -93,7 +105,6 @@ public partial class Enemy : CharacterBody3D
         return dot > threshold;
     }
 
-    // 👇 AANGEPAST
     private void HandleAttack(float delta, float distance, bool canSee)
     {
         if (!canSee || distance > AttackRange)

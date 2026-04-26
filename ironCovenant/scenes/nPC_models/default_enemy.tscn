@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://c60ymnv5l4qkj"]
+
+[ext_resource type="Script" uid="uid://whfb83w25xp1" path="res://scripts/enemy_scripts/Enemy.cs" id="1_ngpqn"]
+[ext_resource type="PackedScene" uid="uid://dcut5pgck8nre" path="res://assets/prototypeAssets/DefaultEnemy.glb" id="2_lgru4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lgru4"]
+
+[node name="defaultEnemy" type="CharacterBody3D" unique_id=1435184889 node_paths=PackedStringArray("anim") groups=["enemy"]]
+collision_layer = 16
+collision_mask = 9
+script = ExtResource("1_ngpqn")
+AttackRange = 1.0
+Speed = 3.0
+anim = NodePath("DefaultEnemy/AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1123618996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_lgru4")
+
+[node name="DefaultEnemy" parent="." unique_id=335160947 instance=ExtResource("2_lgru4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Skeleton3D" parent="DefaultEnemy/Armature" parent_id_path=PackedInt32Array(335160947, 401106746) index="0" unique_id=891174931]
+bones/0/position = Vector3(-0.085840665, -0.08602151, 1.1931057e-05)
+bones/0/rotation = Quaternion(0, 0, -0.030166628, 0.999545)
+bones/2/rotation = Quaternion(0.5184073, -0.041668665, -0.003882165, 0.85410917)
+bones/3/rotation = Quaternion(-0.024996132, -0.008141172, -0.30957586, 0.95051134)
+bones/5/rotation = Quaternion(-0.5484448, 0.11730749, 0.027664047, 0.8274551)
+bones/6/rotation = Quaternion(0.031809513, 0.013152629, -0.3818793, 0.923571)
+bones/8/rotation = Quaternion(2.5138726e-07, 8.679987e-08, -0.68860173, 0.72513974)
+bones/9/position = Vector3(-0.085840665, -0.08602151, 1.1931057e-05)
+bones/10/rotation = Quaternion(0.042243134, -0.01523579, 0.050715134, 0.9977031)
+bones/12/rotation = Quaternion(2.46179e-08, 2.2594925e-08, 0.4055808, 0.9140593)
+bones/13/rotation = Quaternion(0.018962529, 0.013195764, -0.73973465, 0.6725021)
+bones/14/position = Vector3(-0.085840665, -0.08602151, 1.1931057e-05)
+bones/15/rotation = Quaternion(0.049615756, 0.09943351, -0.06285081, 0.99181706)
+bones/17/rotation = Quaternion(-2.3791817e-08, 3.919785e-08, -0.22219509, 0.9750022)
+bones/18/rotation = Quaternion(-0.044113085, -0.019557102, 0.7238079, 0.68831223)
+bones/19/position = Vector3(0.0023230463, -1.0437539, 0.27213708)
+bones/20/position = Vector3(-0.33569485, -0.95602494, -0.22115101)
+bones/20/rotation = Quaternion(-0.51225066, -0.48744154, 0.51225066, -0.48744163)
+bones/21/position = Vector3(-0.028390286, -0.02951911, 0.3292925)
+bones/22/position = Vector3(0.06331672, -0.16119033, -0.33217078)
+
+[node name="Bone_003" parent="DefaultEnemy/Armature/Skeleton3D" index="0" unique_id=2125589235]
+transform = Transform3D(0.85033, 0.5151875, -0.10733457, 0.40195695, -0.7674847, -0.49939743, -0.33966097, 0.38150868, -0.8596984, -0.088564165, 0.060117185, 0.28473532)
+
+[node name="Bone_002" parent="DefaultEnemy/Armature/Skeleton3D" index="1" unique_id=499139645]
+transform = Transform3D(0.99063385, -0.08992809, -0.102749914, -0.12712651, -0.8820586, -0.4536645, -0.049834266, 0.46247762, -0.8852293, -0.060208194, 0.33824646, 0.1389075)
+
+[node name="Bone_006" parent="DefaultEnemy/Armature/Skeleton3D" index="2" unique_id=1315446077]
+transform = Transform3D(0.82853127, 0.52257025, 0.20113748, 0.4087234, -0.80993676, 0.42065156, 0.38272864, -0.26631337, -0.8846445, -0.11681622, 0.117995545, -0.24037215)
+
+[node name="Bone_005" parent="DefaultEnemy/Armature/Skeleton3D" index="3" unique_id=1145348895]
+transform = Transform3D(0.9556429, -0.22848113, 0.18585795, -0.28262296, -0.8889758, 0.36034203, 0.08289187, -0.396886, -0.91411734, -0.060208194, 0.33824646, -0.14204036)
+
+[node name="Bone_008" parent="DefaultEnemy/Armature/Skeleton3D" index="4" unique_id=33008001]
+transform = Transform3D(-0.0086640045, 0.9999625, -1.1137118e-08, -0.99996257, -0.008664012, -4.8433276e-07, -4.844111e-07, 6.9404393e-09, 1, -0.05084206, 0.49327442, 1.1931057e-05)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="DefaultEnemy/Armature/Skeleton3D/Bone_008/Head" parent_id_path=PackedInt32Array(335160947, 200753478) index="0" unique_id=129235052]
+transform = Transform3D(0.99636316, 0.060195863, 0.060305636, 0.060195874, 0.0036367245, -0.99818003, -0.06030562, 0.99818003, -4.4172797e-08, -0.0073307753, 0.12133553, 5.3141775e-09)
+light_color = Color(0, 1, 1, 1)
+light_energy = 1.952
+light_volumetric_fog_energy = 9.151
+spot_range = 15.0
+spot_angle = 21.400291
+spot_angle_attenuation = 2.6390157
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="DefaultEnemy/Armature/Skeleton3D/Bone_008/Head" parent_id_path=PackedInt32Array(335160947, 200753478) index="1" unique_id=90361369]
+transform = Transform3D(0.99636316, 0.060195837, -0.060305648, 0.060195886, 0.0036367269, 0.99818003, 0.0603056, -0.99818003, -4.136068e-08, -0.004746318, 0.22882584, 0.0026632505)
+light_color = Color(0, 1, 1, 1)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 1.0211117
+spot_angle = 21.400291
+
+[node name="Bone" parent="DefaultEnemy/Armature/Skeleton3D" index="5" unique_id=2017349005]
+transform = Transform3D(0.99818, 0.060305797, 0, -0.060305797, 0.99818, 0, 0, 0, 1, -0.085840665, -0.08602151, 1.1931057e-05)
+
+[node name="Bone_013" parent="DefaultEnemy/Armature/Skeleton3D" index="6" unique_id=958413715]
+transform = Transform3D(0.53380525, 0.8415086, -0.08315736, 0.84337395, -0.52267206, 0.12463543, 0.061417736, -0.13666378, -0.9887117, -0.3356948, -0.9560251, -0.22115105)
+
+[node name="Bone_012" parent="DefaultEnemy/Armature/Skeleton3D" index="7" unique_id=1375822357]
+transform = Transform3D(0.78794897, -0.60715175, -0.102484524, -0.60149723, -0.79457784, 0.08274687, -0.13167185, -0.0035561505, -0.991287, -0.01054728, -0.5305054, -0.21924663)
+
+[node name="Bone_010" parent="DefaultEnemy/Armature/Skeleton3D" index="8" unique_id=1174735108]
+transform = Transform3D(0.9943917, -0.10248449, -0.026116854, 0.034686316, 0.08274683, 0.9959668, -0.09991006, -0.991287, 0.08583757, -0.085840665, -0.08602151, -0.11703915)
+
+[node name="Bone_018" parent="DefaultEnemy/Armature/Skeleton3D" index="9" unique_id=351721962]
+transform = Transform3D(-0.04862014, 0.99767643, -0.047726467, -0.9978994, -0.04647188, 0.045134515, 0.042811748, 0.049820654, 0.99784017, 0.002322998, -1.0437536, 0.2721371)
+
+[node name="Bone_017" parent="DefaultEnemy/Armature/Skeleton3D" index="10" unique_id=1950235222]
+transform = Transform3D(-0.9856812, -0.10164415, -0.1345398, 0.09058618, -0.9921753, 0.085920535, -0.14222038, 0.07250285, 0.9871761, 0.057517834, -0.50498223, 0.23276657)
+
+[node name="Bone_015" parent="DefaultEnemy/Armature/Skeleton3D" index="11" unique_id=464672765]
+transform = Transform3D(-0.9723255, -0.13453995, -0.19100294, -0.20347649, 0.08592055, 0.9753025, -0.11480607, 0.9871761, -0.110918455, -0.085840665, -0.08602151, 0.106311314)
+
+[editable path="DefaultEnemy"]

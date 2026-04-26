@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="2_j08sa"]
 [ext_resource type="PackedScene" uid="uid://db87juw48ece6" path="res://scenes/levels/forest1.tscn" id="5_lha2r"]
 [ext_resource type="PackedScene" uid="uid://cfo4exy1pdxjn" path="res://assets/prototypeAssets/ElectricalBuilding.glb" id="5_yfpbl"]
+[ext_resource type="PackedScene" uid="uid://cgkopowgndqix" path="res://assets/prototypeAssets/Flashlight.glb" id="9_ukjja"]
 [ext_resource type="AudioStream" uid="uid://dmemm84lktc2j" path="res://assets/audio/train/train horn 4.mp3" id="10_6owa4"]
 [ext_resource type="PackedScene" uid="uid://cpy5md08fdolh" path="res://scenes/scene_models/station.tscn" id="12_6owa4"]
-[ext_resource type="PackedScene" uid="uid://dcut5pgck8nre" path="res://assets/prototypeAssets/DefaultEnemy.glb" id="12_n5pya"]
+[ext_resource type="AudioStream" uid="uid://d23chlj4ryte1" path="res://assets/audio/sfx/universfield-horror-2-142320.mp3" id="12_n5pya"]
 [ext_resource type="AudioStream" uid="uid://b5ft1cj4fqov6" path="res://assets/audio/ambience/shut_up_ghost-smooth-cold-wind-looped-135538 (1).mp3" id="13_n5pya"]
+[ext_resource type="PackedScene" uid="uid://c60ymnv5l4qkj" path="res://scenes/nPC_models/default_enemy.tscn" id="14_kypp1"]
 [ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="50_6qbjw"]
 [ext_resource type="PackedScene" uid="uid://weyxyaqx4qjw" path="res://assets/prototypeAssets/street.glb" id="51_vaqq6"]
 [ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/nPC_models/items/axe.tscn" id="54_o6odm"]
@@ -114,6 +116,9 @@ emission = Color(0.7313316, 0.7313315, 0.73133147, 1)
 [sub_resource type="TextMesh" id="TextMesh_ukjja"]
 material = SubResource("StandardMaterial3D_kypp1")
 text = "RUN"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ukjja"]
+size = Vector3(6.186386, 1, 1)
 
 [sub_resource type="Animation" id="Animation_6owa4"]
 length = 0.001
@@ -392,12 +397,13 @@ _data = {
 &"chase_scene": SubResource("Animation_n5pya")
 }
 
-[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "invSystem", "trainNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "evilCube", "chaseAnim", "trainAnim")]
+[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "invSystem", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy")]
 script = ExtResource("1_fh0io")
 spotlight = NodePath("Train/TrainSpotlight")
 invSystem = NodePath("Player/PlayerHead/PlayerInteract/Inventory")
 axe = ExtResource("2_6owa4")
 trainNoise = NodePath("Train noise")
+evilCubeNoise = NodePath("ChaseStuff/EvilCube/CubeNoise")
 playerHead = NodePath("Player/PlayerHead")
 player = NodePath("Player")
 cubeMarker = NodePath("ChaseStuff/CubeMarker")
@@ -407,9 +413,11 @@ bufferTimer = NodePath("ChaseStuff/BufferTimer")
 evilCube = NodePath("ChaseStuff/EvilCube")
 chaseAnim = NodePath("ChaseAnim")
 trainAnim = NodePath("Train/TestTrain/AnimationPlayer")
+defaultEnemy = NodePath("defaultEnemy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1279296464]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
 light_color = Color(0.49706316, 0.585892, 0.6700323, 1)
 light_energy = 0.316
 shadow_enabled = true
@@ -422,7 +430,7 @@ size = Vector3(160.28748, 1, 241.69409)
 material = SubResource("StandardMaterial3D_vp86x")
 
 [node name="Player" parent="." unique_id=1004373502 instance=ExtResource("1_1pwbc")]
-transform = Transform3D(-0.9999198, 0, 0.012670744, 0, 1, 0, -0.012670744, 0, -0.9999198, 0.7306967, 2.7864094, -44.594597)
+transform = Transform3D(-0.9999198, 0, 0.012670744, 0, 1, 0, -0.012670744, 0, -0.9999198, 0.7053714, 2.8600297, -44.724056)
 
 [node name="Pause" parent="Player" index="0" unique_id=1074082978]
 visible = true
@@ -442,7 +450,7 @@ size = Vector3(3, 1, 0.001)
 material = SubResource("StandardMaterial3D_lha2r")
 
 [node name="Camera3D" parent="Player/DebugStats/CamToPlayer/SubViewport" parent_id_path=PackedInt32Array(1004373502, 28746108) index="0" unique_id=527580327]
-transform = Transform3D(0.81486475, 0.19730139, -0.54503906, 0, 0.94028807, 0.34037957, 0.57965106, -0.2773633, 0.7662077, -0.9944515, 3.9054093, -42.14726)
+transform = Transform3D(0.81486475, 0.19730139, -0.54503906, 0, 0.94028807, 0.34037957, 0.57965106, -0.2773633, 0.7662077, -1.0197768, 3.9790297, -42.27672)
 
 [node name="Train" parent="." unique_id=615132714 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)
@@ -485,6 +493,9 @@ shape = SubResource("BoxShape3D_o6odm")
 transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.4969112e-08, -9.571945, 0, 32.908962)
 
 [node name="Forest" parent="Environment" unique_id=947826763 instance=ExtResource("5_lha2r")]
+
+[node name="_Node3D_95067" parent="Environment/Forest/GeneratedForestFloor" parent_id_path=PackedInt32Array(947826763, 1364767117) index="500" unique_id=565659059]
+transform = Transform3D(-0.98363584, 0, 0.18016796, 0, 1, 0, -0.18016796, 0, -0.98363584, -13.937569, 0, 27.808985)
 
 [node name="Pine_H_flat" parent="Environment/Forest/GeneratedTrees" parent_id_path=PackedInt32Array(947826763, 260590966) index="9" unique_id=508255443]
 transform = Transform3D(0.32219535, 0, 0.75531185, 0, 0.8211613, 0, -0.75531185, 0, 0.32219535, -12.708952, 0, 1.5349274)
@@ -574,6 +585,32 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.
 [node name="Rails3" parent="Environment/Rails" unique_id=1872918709 instance=ExtResource("50_6qbjw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -53.19617, 0, -45.212723)
 
+[node name="OmniLight3D" type="SpotLight3D" parent="Environment" unique_id=1973944564]
+transform = Transform3D(-0.99998665, -1.16413774e-10, 0.005166182, -0.002059845, 0.917074, -0.39871177, -0.0047377707, -0.3987171, -0.91706175, -8.561071, -0.05306995, 28.752827)
+light_color = Color(0.58426315, 0.6660448, 0.77786994, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 1.245
+shadow_enabled = true
+
+[node name="OmniLight3D3" type="SpotLight3D" parent="Environment" unique_id=1564172142]
+transform = Transform3D(-0.99998665, -1.16413774e-10, 0.005166182, -0.002059845, 0.917074, -0.39871177, -0.0047377707, -0.3987171, -0.91706175, -8.561071, -0.05306995, 28.752827)
+light_color = Color(0.58426315, 0.6660448, 0.77786994, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 1.245
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="SpotLight3D" parent="Environment" unique_id=940803661]
+transform = Transform3D(0.99508363, -0.07890747, -0.05985204, 0.06496797, 0.9762089, -0.20687042, 0.07475172, 0.20196488, 0.976536, -8.696838, -0.05306995, 28.89379)
+visible = false
+light_color = Color(0.58426315, 0.6660448, 0.77786994, 1)
+light_energy = 16.0
+shadow_enabled = true
+spot_angle = 28.7073
+
+[node name="Flashlight" parent="Environment" unique_id=1740832839 instance=ExtResource("9_ukjja")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.656543, 0, 28.125969)
+visible = false
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1089515206]
 environment = SubResource("Environment_x4si1")
 
@@ -609,6 +646,12 @@ mesh = SubResource("BoxMesh_o6odm")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axe stuff/MeshInstance3D" unique_id=1728603470]
 transform = Transform3D(-0.45679852, 0, 8.74228e-08, 0, 1, 0, -3.9934594e-08, 0, -1.0000001, 0, 0, -0.49650574)
 mesh = SubResource("TextMesh_f2qns")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Axe stuff/MeshInstance3D" unique_id=1759437286]
+transform = Transform3D(1, 0, 0, 0, -0.9995607, 0.029636724, 0, -0.029636724, -0.9995607, 0, -1.6076388, -7.223175)
+light_color = Color(1, 0, 0, 1)
+light_volumetric_fog_energy = 6.778
+shadow_enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Axe stuff" unique_id=928920908]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.169056, 3.10658, 76.01473)
@@ -667,13 +710,34 @@ wait_time = 4.0
 one_shot = true
 
 [node name="EvilCube" type="MeshInstance3D" parent="ChaseStuff" unique_id=760599901]
-transform = Transform3D(18.528534, -1.523346, 11.541338, 2.7325902e-08, 16.02885, 3.486625, -12.55278, -2.2485352, 17.035595, -1.6586013, 12.622536, 48.710667)
+transform = Transform3D(18.528522, -1.523346, 11.541338, 2.7325884e-08, 16.02885, 3.486625, -12.552772, -2.2485352, 17.035595, -1.6586013, 12.622536, 48.710667)
 visible = false
 mesh = SubResource("BoxMesh_n5pya")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ChaseStuff/EvilCube" unique_id=1552486780]
 transform = Transform3D(-2.4984963, -0.086226895, 0.008993857, -0.08615808, 2.4984448, 0.01862526, -0.009630665, 0.01830411, -2.4999142, -0.022166736, 0.09667176, -0.44442388)
 mesh = SubResource("TextMesh_ukjja")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ChaseStuff/EvilCube" unique_id=1612545353]
+transform = Transform3D(0.99874336, 0.03675157, 0.034074433, -0.0414687, 0.22419845, 0.9736608, 0.028144136, -0.9738503, 0.22544074, 0.04442136, -0.46841404, -0.33217955)
+light_color = Color(1, 0.17254902, 0, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 2.04
+spot_range = 14.523173
+spot_angle = 78.89875
+
+[node name="DeathArea" type="Area3D" parent="ChaseStuff/EvilCube" unique_id=163700135]
+transform = Transform3D(1, 4.656613e-10, 0, 0, 1.0000002, 0, 0, -5.9604645e-08, 1.0000002, -0.0011999458, -0.2694248, -0.0029685497)
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChaseStuff/EvilCube/DeathArea" unique_id=170789905]
+transform = Transform3D(1, 0, 3.7252903e-09, 0, 1, 1.4901161e-08, 0, -1.4901161e-08, 0.9999999, -0.5439378, -2.3841858e-07, 4.7683716e-07)
+shape = SubResource("BoxShape3D_ukjja")
+
+[node name="CubeNoise" type="AudioStreamPlayer3D" parent="ChaseStuff/EvilCube" unique_id=1588255847]
+transform = Transform3D(0.04468211, -2.910383e-11, 1.1641532e-10, 5.820766e-11, 0.06151075, -9.313226e-10, -1.1641532e-10, -9.313226e-10, 0.047914926, -1.4901161e-08, 0, 2.3841858e-07)
+stream = ExtResource("12_n5pya")
+pitch_scale = 0.7
 
 [node name="TrainWheels" type="Timer" parent="ChaseStuff" unique_id=770023546]
 wait_time = 11.0
@@ -685,87 +749,24 @@ one_shot = true
 [node name="ChaseAnim" type="AnimationPlayer" parent="." unique_id=171144838]
 libraries/ = SubResource("AnimationLibrary_kypp1")
 
-[node name="DefaultEnemy" parent="." unique_id=335160947 instance=ExtResource("12_n5pya")]
-transform = Transform3D(-0.7985515, 0, 0.60192645, 0, 1, 0, -0.60192645, 0, -0.7985515, 0, 0, 44.770184)
-
-[node name="Skeleton3D" parent="DefaultEnemy/Armature" parent_id_path=PackedInt32Array(335160947, 401106746) index="0" unique_id=891174931]
-bones/0/position = Vector3(-0.085840665, -0.12444876, 1.1931057e-05)
-bones/0/rotation = Quaternion(0, 0, -0.067629576, 0.9977105)
-bones/2/rotation = Quaternion(0.4236736, -0.02928718, 0.031132026, 0.9048059)
-bones/3/rotation = Quaternion(-0.025367172, -0.0068987785, -0.26233226, 0.96461946)
-bones/5/rotation = Quaternion(-0.5402362, 0.12804054, 0.040946826, 0.83070683)
-bones/6/rotation = Quaternion(0.031261783, 0.014406156, -0.4182746, 0.90766823)
-bones/9/position = Vector3(-0.085840665, -0.12444876, 1.1931057e-05)
-bones/10/rotation = Quaternion(-0.0011427603, -0.22460231, 0.044154495, 0.97344905)
-bones/12/rotation = Quaternion(2.348527e-08, 2.766436e-08, 0.44464976, 0.8957045)
-bones/13/rotation = Quaternion(0.008033536, 0.006403933, -0.8079093, 0.5892173)
-bones/14/position = Vector3(-0.085840665, -0.12444876, 1.1931057e-05)
-bones/15/rotation = Quaternion(0.03897424, 0.10439214, -0.060038257, 0.991957)
-bones/17/rotation = Quaternion(-3.3201196e-08, 2.8490605e-08, -0.40069667, 0.9162108)
-bones/18/rotation = Quaternion(-0.051665463, 0.0011876727, 0.8619351, 0.5043781)
-bones/19/position = Vector3(-0.17971055, -1.0299678, 0.22378422)
-bones/20/position = Vector3(0.004859209, -1.0117029, -0.16221164)
-bones/20/rotation = Quaternion(-0.51225066, -0.48744154, 0.51225066, -0.48744163)
-bones/21/position = Vector3(-0.04649034, -0.023198992, 0.41061825)
-bones/22/position = Vector3(0.06331672, -0.19961756, -0.33217072)
-
-[node name="Bone_003" parent="DefaultEnemy/Armature/Skeleton3D" index="0" unique_id=2125589235]
-transform = Transform3D(0.93189424, 0.34154686, -0.122142404, 0.1772302, -0.72253394, -0.6682322, -0.3164847, 0.60107446, -0.7338577, -0.086383, 0.061189324, 0.3404159)
-
-[node name="Bone_002" parent="DefaultEnemy/Armature/Skeleton3D" index="1" unique_id=499139645]
-transform = Transform3D(0.97652, -0.18362862, -0.112646654, -0.21310842, -0.7469131, -0.62984586, 0.03152047, 0.639063, -0.7685083, -0.028481528, 0.2967047, 0.1389075)
-
-[node name="Bone_006" parent="DefaultEnemy/Armature/Skeleton3D" index="2" unique_id=1315446077]
-transform = Transform3D(0.8323732, 0.49932104, 0.2404855, 0.376874, -0.8281113, 0.414967, 0.4063505, -0.25477472, -0.8774788, -0.108803615, 0.08583647, -0.24434878)
-
-[node name="Bone_005" parent="DefaultEnemy/Armature/Skeleton3D" index="3" unique_id=1145348895]
-transform = Transform3D(0.92036307, -0.32419568, 0.21869841, -0.38469172, -0.8511055, 0.35725576, 0.07031464, -0.41293645, -0.9080415, -0.028481528, 0.2967047, -0.14204036)
-
-[node name="Bone_008" parent="DefaultEnemy/Armature/Skeleton3D" index="4" unique_id=33008001]
-transform = Transform3D(-0.083586544, 0.99650055, -4.7406303e-08, -0.9965006, -0.083586544, -4.8213565e-07, -4.8441103e-07, 6.940354e-09, 1, -0.0075224414, 0.4505946, 1.1931057e-05)
-
-[node name="Bone" parent="DefaultEnemy/Armature/Skeleton3D" index="5" unique_id=2017349005]
-transform = Transform3D(0.9908525, 0.13494948, 0, -0.13494948, 0.9908525, 0, 0, 0, 1, -0.085840665, -0.12444876, 1.1931057e-05)
-
-[node name="Bone_013" parent="DefaultEnemy/Armature/Skeleton3D" index="6" unique_id=958413715]
-transform = Transform3D(0.0058396533, 0.9964086, -0.084471524, 0.99998075, -0.0059909583, -0.0015378632, -0.0020384192, -0.0844609, -0.99642473, 0.0048582405, -1.011727, -0.16221395)
-
-[node name="Bone_012" parent="DefaultEnemy/Armature/Skeleton3D" index="7" unique_id=1375822357]
-transform = Transform3D(0.9474265, -0.30835202, -0.085451, -0.31120718, -0.950086, -0.022059225, -0.074383765, 0.047492467, -0.99609816, 0.16998976, -0.50292814, -0.18764755)
-
-[node name="Bone_010" parent="DefaultEnemy/Armature/Skeleton3D" index="8" unique_id=1174735108]
-transform = Transform3D(0.89520836, -0.08545096, -0.43737867, 0.43717685, -0.02205924, 0.899105, -0.08647762, -0.99609816, 0.017609563, -0.085840665, -0.12444876, -0.11703915)
-
-[node name="Bone_018" parent="DefaultEnemy/Armature/Skeleton3D" index="9" unique_id=351721962]
-transform = Transform3D(0.052974097, 0.99592495, -0.07298968, -0.99841446, 0.051429603, -0.02288013, -0.019033015, 0.07408602, 0.99707013, -0.17971103, -1.0299699, 0.2237847)
-
-[node name="Bone_017" parent="DefaultEnemy/Armature/Skeleton3D" index="10" unique_id=1950235222]
-transform = Transform3D(-0.8853861, -0.447101, -0.12724778, 0.44238353, -0.89448273, 0.06478648, -0.14278708, 0.0010687552, 0.9897528, 0.06307389, -0.5442477, 0.22320434)
-
-[node name="Bone_015" parent="DefaultEnemy/Armature/Skeleton3D" index="11" unique_id=464672765]
-transform = Transform3D(-0.97099537, -0.12724794, -0.20242514, -0.21178491, 0.0647865, 0.97516656, -0.11097353, 0.9897528, -0.08985659, -0.085840665, -0.12444876, 0.106311314)
-
-[node name="AnimationPlayer" parent="DefaultEnemy" index="2" unique_id=353786023]
-autoplay = &"Idle"
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1699745015]
 stream = ExtResource("13_n5pya")
-autoplay = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=893814568 groups=["enemy"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9474704, 47.536865)
-use_collision = true
-collision_layer = 16
-collision_mask = 16
+[node name="defaultEnemy" parent="." unique_id=1435184889 instance=ExtResource("14_kypp1")]
+transform = Transform3D(-0.06484574, 0, 0.99789524, 0, 1, 0, -0.99789524, 0, -0.06484574, 66.0612, 0.28068304, 46.773438)
+visible = false
+AttackRange = 2.0
 
 [connection signal="body_entered" from="Areas/SpotlightArea" to="." method="on_body_entered_spotlightArea"]
 [connection signal="body_entered" from="Areas/ChaseArea" to="." method="on_body_entered_chaseArea"]
 [connection signal="body_entered" from="Areas/station" to="." method="on_body_entered_station"]
 [connection signal="body_exited" from="Areas/station" to="." method="on_body_exit_station"]
+[connection signal="body_entered" from="ChaseStuff/EvilCube/DeathArea" to="." method="on_body_entered_deathArea"]
 
 [editable path="Player"]
 [editable path="Train"]
 [editable path="Train/TestTrain"]
 [editable path="Train/TrainSpotlight"]
 [editable path="Environment/Forest"]
-[editable path="DefaultEnemy"]
+[editable path="defaultEnemy"]
+[editable path="defaultEnemy/DefaultEnemy"]

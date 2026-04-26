@@ -34,8 +34,10 @@ public partial class Player : CharacterBody3D
 
     private float _maxFallSpeed = 190.0f;
 
+    private int health = 100;
+
     [ExportGroup("Other Settings")]
-    [Export] public bool canMove = true; //! i am useless, please delete me
+    [Export] public bool canMove = true; 
 
 
     // State Machine & States
@@ -342,5 +344,15 @@ public partial class Player : CharacterBody3D
         UpdateMoveState(onFloor, inputDir);
         ExecuteMoveState((float)delta, onFloor, inputDir);
         ExecuteActionState((float)delta);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            health = 100;
+            GetTree().ReloadCurrentScene();
+        }
     }
 }

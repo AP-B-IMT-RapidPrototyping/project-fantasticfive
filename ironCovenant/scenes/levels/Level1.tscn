@@ -666,6 +666,7 @@ one_shot = true
 
 [node name="EvilCube" type="MeshInstance3D" parent="ChaseStuff" unique_id=760599901]
 transform = Transform3D(18.528536, -1.523346, 11.541339, 2.7325905e-08, 16.02885, 3.4866252, -12.552781, -2.2485352, 17.035597, -1.6586013, 12.622536, 48.710667)
+visible = false
 mesh = SubResource("BoxMesh_n5pya")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ChaseStuff/EvilCube" unique_id=1552486780]

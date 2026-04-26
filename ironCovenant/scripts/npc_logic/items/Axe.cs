@@ -51,6 +51,7 @@ public partial class Axe : RigidBody3D, IInteractable
 
 	private void Attack()
 	{
+		GD.Print("attack");
 		if (delayTimer.TimeLeft == 0)
 		{
 			delayTimer.Start();
@@ -62,6 +63,7 @@ public partial class Axe : RigidBody3D, IInteractable
 			{
 				foreach (Node3D node in hitArea.GetOverlappingBodies())
 				{
+					GD.Print($"hit node: {node}");
 					if (node.IsInGroup("enemy"))
 					{
 						GD.Print("enemy hit");

@@ -67,10 +67,10 @@ public partial class Axe : RigidBody3D, IInteractable
 					if (node.IsInGroup("enemy"))
 					{
 						GD.Print("enemy hit");
-						// if (node is Enemy enemy)
-						// {
-						// 	enemy.TakeDamage(damage);
-						// }
+						if (node is Enemy enemy)
+						{
+							enemy.TakeDamage(damage);
+						}
 					}
 				}
 			}

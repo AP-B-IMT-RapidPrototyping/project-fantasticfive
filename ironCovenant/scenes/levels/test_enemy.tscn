@@ -45,5 +45,5 @@ environment = SubResource("Environment_x6gbo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.788326, 0, -0.9098339)
 
 [node name="Axe" parent="." unique_id=167397360 instance=ExtResource("3_x6gbo")]
-transform = Transform3D(-0.9642436, 0, 0.26501754, 0, 1, 0, -0.26501754, 0, -0.9642436, -10.203775, 0.4355303, -4.505704)
+transform = Transform3D(-0.9642436, 0, 0.26501754, 0, 1, 0, -0.26501754, 0, -0.9642436, -2.0245218, 0.4355303, -3.0385933)
 damage = 100

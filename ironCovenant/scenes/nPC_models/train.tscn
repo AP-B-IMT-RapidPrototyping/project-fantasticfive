@@ -47,17 +47,17 @@ _anim = NodePath("TestTrain/AnimationPlayer")
 [node name="TestTrain" parent="." unique_id=1189408230 instance=ExtResource("1_8en2i")]
 transform = Transform3D(-3.934025e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.934025e-08, 2.4002118, 0.007462263, 0.002560854)
 
-[node name="Cube_022" parent="TestTrain" index="19" unique_id=19566567]
+[node name="Cube_022" parent="TestTrain" index="19" unique_id=275129926]
 transform = Transform3D(1, 0, 0, 0, 0.42511714, 0.9051384, 0, -0.9051384, 0.42511714, 0.053884476, 3.1759558, 5.154736)
 
-[node name="Skeleton3D" parent="TestTrain/Armature" parent_id_path=PackedInt32Array(1189408230, 1206309873) index="0" unique_id=1944155157]
+[node name="Skeleton3D" parent="TestTrain/Armature" parent_id_path=PackedInt32Array(1189408230, 1316773928) index="0" unique_id=921717970]
 bones/4/rotation = Quaternion(-0.4999193, 0.5000804, -0.49991986, 0.5000804)
 bones/21/rotation = Quaternion(-0.4999193, -0.5000804, 0.49991986, 0.5000804)
 
-[node name="Bone9_L" parent="TestTrain/Armature/Skeleton3D" index="3" unique_id=345152887]
+[node name="Bone9_L" parent="TestTrain/Armature/Skeleton3D" index="3" unique_id=593331796]
 transform = Transform3D(-7.1525574e-07, 5.364417e-07, 1, -1, 0.000321567, -5.3644175e-07, -0.00032165647, -0.9999998, 4.7683713e-07, -1.2495898, 0.8614147, 0.2831316)
 
-[node name="Bone9_R" parent="TestTrain/Armature/Skeleton3D" index="12" unique_id=827443494]
+[node name="Bone9_R" parent="TestTrain/Armature/Skeleton3D" index="12" unique_id=60272669]
 transform = Transform3D(-7.1525574e-07, -5.364417e-07, -1, 1, 0.000321567, -5.3644175e-07, 0.00032165647, -0.9999998, 4.7683713e-07, 1.2495898, 0.8614147, 0.2831316)
 
 [node name="TrainSpotlight" parent="." unique_id=1474622944 node_paths=PackedStringArray("visionTimer", "bufferTimer", "radiationTick", "shapeCast", "_shaderRect") instance=ExtResource("2_ie6wu")]
@@ -92,11 +92,13 @@ collision_mask = 9
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1079546955]
+layer = -1
 
 [node name="ShaderRect" type="ColorRect" parent="CanvasLayer" unique_id=727015593]
 visible = false
 modulate = Color(1, 1, 1, 0.22352941)
 self_modulate = Color(1, 1, 1, 0.23137255)
+z_index = -3
 material = ExtResource("5_5kvja")
 anchors_preset = 15
 anchor_right = 1.0

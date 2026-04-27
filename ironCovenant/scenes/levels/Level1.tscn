@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://d23chlj4ryte1" path="res://assets/audio/sfx/universfield-horror-2-142320.mp3" id="12_n5pya"]
 [ext_resource type="AudioStream" uid="uid://b5ft1cj4fqov6" path="res://assets/audio/ambience/shut_up_ghost-smooth-cold-wind-looped-135538 (1).mp3" id="13_n5pya"]
 [ext_resource type="PackedScene" uid="uid://c60ymnv5l4qkj" path="res://scenes/nPC_models/default_enemy.tscn" id="14_kypp1"]
+[ext_resource type="PackedScene" uid="uid://sgckfgsygatv" path="res://assets/prototypeAssets/CeilingLights.glb" id="16_p5s5a"]
 [ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="50_6qbjw"]
 [ext_resource type="PackedScene" uid="uid://weyxyaqx4qjw" path="res://assets/prototypeAssets/street.glb" id="51_vaqq6"]
 [ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/nPC_models/items/axe.tscn" id="54_o6odm"]
@@ -398,6 +399,50 @@ _data = {
 &"chase_scene": SubResource("Animation_n5pya")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njy47"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5s5a"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_njy47"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_j7nyf"]
+resource_name = "flicker"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.31, 0.52, 0.67, 0.93),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 2.364, 0.455, 1.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xbvxr"]
+_data = {
+&"RESET": SubResource("Animation_njy47"),
+&"flicker": SubResource("Animation_j7nyf")
+}
+
 [node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "invSystem", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy")]
 script = ExtResource("1_fh0io")
 spotlight = NodePath("Train/TrainSpotlight")
@@ -719,7 +764,7 @@ wait_time = 4.0
 one_shot = true
 
 [node name="EvilCube" type="MeshInstance3D" parent="ChaseStuff" unique_id=760599901]
-transform = Transform3D(18.528522, -1.523346, 11.541338, 2.7325884e-08, 16.02885, 3.486625, -12.552772, -2.2485352, 17.035595, -1.6586013, 12.622536, 48.710667)
+transform = Transform3D(18.528522, -1.523346, 11.541339, 2.7325884e-08, 16.02885, 3.4866252, -12.552772, -2.2485352, 17.035597, -1.6586013, 12.622536, 48.710667)
 visible = false
 mesh = SubResource("BoxMesh_n5pya")
 
@@ -766,6 +811,34 @@ transform = Transform3D(-0.06484574, 0, 0.99789524, 0, 1, 0, -0.99789524, 0, -0.
 visible = false
 AttackRange = 2.0
 
+[node name="CeilingLights" parent="." unique_id=116336728 instance=ExtResource("16_p5s5a")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.366889, 2.8712888, 69.54774)
+
+[node name="Cube" parent="CeilingLights" index="0" unique_id=1763625376]
+material_override = SubResource("StandardMaterial3D_njy47")
+
+[node name="Cube_001" parent="CeilingLights" index="1" unique_id=1892938662]
+material_override = SubResource("StandardMaterial3D_p5s5a")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CeilingLights" unique_id=1287182832]
+transform = Transform3D(-1, 4.371139e-08, -4.371139e-08, -4.3711385e-08, 4.371139e-08, 1, 4.3711395e-08, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CeilingLights" unique_id=935650445]
+libraries/ = SubResource("AnimationLibrary_xbvxr")
+autoplay = &"flicker"
+
+[node name="CeilingLights2" parent="." unique_id=1742133937 instance=ExtResource("16_p5s5a")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.907755, 2.8712888, 69.54774)
+
+[node name="Cube" parent="CeilingLights2" index="0" unique_id=1763625376]
+material_override = SubResource("StandardMaterial3D_njy47")
+
+[node name="Cube_001" parent="CeilingLights2" index="1" unique_id=1892938662]
+material_override = SubResource("StandardMaterial3D_p5s5a")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CeilingLights2" unique_id=136456023]
+transform = Transform3D(-1, 4.371139e-08, -4.371139e-08, -4.3711385e-08, 4.371139e-08, 1, 4.3711395e-08, 1, -4.371139e-08, 0, 0, 0)
+
 [connection signal="body_entered" from="Areas/SpotlightArea" to="." method="on_body_entered_spotlightArea"]
 [connection signal="body_entered" from="Areas/ChaseArea" to="." method="on_body_entered_chaseArea"]
 [connection signal="body_entered" from="Areas/station" to="." method="on_body_entered_station"]
@@ -781,3 +854,5 @@ AttackRange = 2.0
 [editable path="Environment/Floodlight2"]
 [editable path="defaultEnemy"]
 [editable path="defaultEnemy/DefaultEnemy"]
+[editable path="CeilingLights"]
+[editable path="CeilingLights2"]

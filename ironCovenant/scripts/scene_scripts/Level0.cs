@@ -18,7 +18,6 @@ public partial class Level0 : Node3D
     {
         if (body.IsInGroup("player"))
         {
-            GD.Print("yes " + body.Name);
             _cutsceneCamera.Current = true;
             _cutsceneIntroAnim.Play("play");
         }

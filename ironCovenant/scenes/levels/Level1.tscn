@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="2_j08sa"]
 [ext_resource type="PackedScene" uid="uid://db87juw48ece6" path="res://scenes/levels/forest1.tscn" id="5_lha2r"]
 [ext_resource type="PackedScene" uid="uid://cfo4exy1pdxjn" path="res://assets/prototypeAssets/ElectricalBuilding.glb" id="5_yfpbl"]
-[ext_resource type="PackedScene" uid="uid://cgkopowgndqix" path="res://assets/prototypeAssets/Flashlight.glb" id="9_ukjja"]
+[ext_resource type="PackedScene" uid="uid://cpevna01njwcm" path="res://assets/prototypeAssets/Floodlight.glb" id="9_ukjja"]
 [ext_resource type="AudioStream" uid="uid://dmemm84lktc2j" path="res://assets/audio/train/train horn 4.mp3" id="10_6owa4"]
 [ext_resource type="PackedScene" uid="uid://cpy5md08fdolh" path="res://scenes/scene_models/station.tscn" id="12_6owa4"]
 [ext_resource type="AudioStream" uid="uid://d23chlj4ryte1" path="res://assets/audio/sfx/universfield-horror-2-142320.mp3" id="12_n5pya"]
@@ -586,31 +586,40 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.
 [node name="Rails3" parent="Environment/Rails" unique_id=1872918709 instance=ExtResource("50_6qbjw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -53.19617, 0, -45.212723)
 
-[node name="OmniLight3D" type="SpotLight3D" parent="Environment" unique_id=1973944564]
-transform = Transform3D(-0.99998665, -1.16413774e-10, 0.005166182, -0.002059845, 0.917074, -0.39871177, -0.0047377707, -0.3987171, -0.91706175, -8.561071, -0.05306995, 28.752827)
-light_color = Color(0.58426315, 0.6660448, 0.77786994, 1)
-light_energy = 16.0
-light_volumetric_fog_energy = 1.245
-shadow_enabled = true
+[node name="Floodlight" parent="Environment" unique_id=1877886289 instance=ExtResource("9_ukjja")]
+transform = Transform3D(0.15610832, 0, -0.68237114, 0, 0.7000001, 0, 0.68237114, 0, 0.15610832, -9.554846, 1.1749083, 27.770037)
 
-[node name="OmniLight3D3" type="SpotLight3D" parent="Environment" unique_id=1564172142]
-transform = Transform3D(-0.99998665, -1.16413774e-10, 0.005166182, -0.002059845, 0.917074, -0.39871177, -0.0047377707, -0.3987171, -0.91706175, -8.561071, -0.05306995, 28.752827)
-light_color = Color(0.58426315, 0.6660448, 0.77786994, 1)
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment/Floodlight" unique_id=919836153]
+transform = Transform3D(0.010367164, 0, 0.99994624, 0, 1, 0, -0.99994624, 0, 0.010367164, 0.2782402, 1.2541224, 0)
 light_energy = 16.0
-light_volumetric_fog_energy = 1.245
+light_volumetric_fog_energy = 0.0
 shadow_enabled = true
+spot_angle = 39.17886
 
-[node name="OmniLight3D2" type="SpotLight3D" parent="Environment" unique_id=940803661]
-transform = Transform3D(0.99508363, -0.07890747, -0.05985204, 0.06496797, 0.9762089, -0.20687042, 0.07475172, 0.20196488, 0.976536, -8.696838, -0.05306995, 28.89379)
-visible = false
-light_color = Color(0.58426315, 0.6660448, 0.77786994, 1)
+[node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Floodlight" unique_id=996442460]
+transform = Transform3D(-0.010366894, 0, -0.99994624, 0, 1, 0, 0.99994624, 0, -0.010366894, 0.063798904, 1.2541224, -0.006427765)
+light_energy = 25.46
+shadow_enabled = true
+spot_angle = 39.17886
+
+[node name="Floodlight2" parent="Environment" unique_id=1074300691 instance=ExtResource("9_ukjja")]
+transform = Transform3D(-0.20349151, 0, 0.6697696, 0, 0.70000005, 0, -0.6697696, 0, -0.20349151, -3.0888424, 1.1749083, 77.01668)
+
+[node name="Cube" parent="Environment/Floodlight2" index="3" unique_id=861849066]
+transform = Transform3D(0.12806384, 0.012045763, -0.0010967404, -0.012093428, 0.12773407, -0.00918761, 0.00022870675, 0.009250008, 0.12830056, 0.0051498413, 1.2377564, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment/Floodlight2/Cube" index="0" unique_id=1198016125]
+transform = Transform3D(0.0102605, 0.14303862, 0.9896639, -0.0014828943, 0.98971707, -0.14303093, -0.9999463, 1.8626451e-09, 0.010367104, 2.1194458, -0.1777649, 6.1035156e-05)
 light_energy = 16.0
+light_volumetric_fog_energy = 0.0
 shadow_enabled = true
-spot_angle = 28.7073
+spot_angle = 39.17886
 
-[node name="Flashlight" parent="Environment" unique_id=1740832839 instance=ExtResource("9_ukjja")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.656543, 0, 28.125969)
-visible = false
+[node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Floodlight2/Cube" index="1" unique_id=83240430]
+transform = Transform3D(-0.010260354, 0.1430386, -0.9896639, 0.001482865, 0.98971707, 0.14303091, 0.9999463, 9.778887e-09, -0.010366955, 0.4694214, 0.06071472, -0.049957275)
+light_energy = 3.238
+shadow_enabled = true
+spot_angle = 39.17886
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1089515206]
 environment = SubResource("Environment_x4si1")
@@ -665,12 +674,6 @@ spot_angle = 87.86
 [node name="Axe" parent="Axe stuff" unique_id=167397360 instance=ExtResource("54_o6odm")]
 transform = Transform3D(0.07246399, 0.81024, 0.5816013, -0.41608354, 0.55452496, -0.72067785, -0.9064345, -0.18977152, 0.37731057, -7.6987157, 1.3172954, 77.376434)
 freeze = true
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="Axe stuff" unique_id=432286958]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1021473, 1.3185757, 76.98715)
-light_energy = 1.705
-light_volumetric_fog_energy = 3.476
-shadow_enabled = true
 
 [node name="Areas" type="Node3D" parent="." unique_id=1612190971]
 
@@ -776,5 +779,6 @@ AttackRange = 2.0
 [editable path="Train/TestTrain"]
 [editable path="Train/TrainSpotlight"]
 [editable path="Environment/Forest"]
+[editable path="Environment/Floodlight2"]
 [editable path="defaultEnemy"]
 [editable path="defaultEnemy/DefaultEnemy"]

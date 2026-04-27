@@ -110,7 +110,6 @@ Item = ExtResource("2_exhyt")
 _anim = NodePath("AnimationPlayer")
 hitArea = NodePath("hitArea")
 delayTimer = NodePath("attackDelayTimer")
-damage = 100
 
 [node name="AxeModel" parent="." unique_id=1324180815 instance=ExtResource("1_6pa1j")]
 transform = Transform3D(0.87390536, 0.002276369, 0.4860904, 0.10325998, 0.97629714, -0.1902151, -0.47500184, 0.21642388, 0.8529554, 0, 0.14713776, 0)

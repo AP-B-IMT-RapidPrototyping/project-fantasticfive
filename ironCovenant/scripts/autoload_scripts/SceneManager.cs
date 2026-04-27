@@ -43,7 +43,7 @@ public partial class SceneManager : CanvasLayer
         RegisterAreas();
     }
 
-    private void RegisterAreas()
+    public void RegisterAreas()
     {
         _areaAmount = 0;
         GD.Print("Loading all scenes...");

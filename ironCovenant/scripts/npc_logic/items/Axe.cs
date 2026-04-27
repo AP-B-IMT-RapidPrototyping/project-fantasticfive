@@ -13,7 +13,7 @@ public partial class Axe : RigidBody3D, IInteractable
 	[Export] private Area3D hitArea;
 	[Export] private Timer delayTimer;
 
-	[Export] private int damage;
+	[Export] private int damage = 50;
 
 	public override void _Ready()
 	{

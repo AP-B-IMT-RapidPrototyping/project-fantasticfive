@@ -12,8 +12,11 @@ public partial class Enemy : CharacterBody3D
     [Export] public float Gravity = 9.8f;
     [Export] public float AttackRangePercent = 10; 
 
+
+    [Export] private AnimationPlayer anim;
+
     private int _currentHealth;
-    private Node3D _player;
+    private Player _player;
     private float _fireCooldown = 0f;
 
     private enum State
@@ -27,12 +30,17 @@ public partial class Enemy : CharacterBody3D
     public override void _Ready()
     {
         _currentHealth = MaxHealth;
-        _player = GetTree().GetFirstNodeInGroup("player") as Node3D;
+        _player = GetTree().GetFirstNodeInGroup("player") as Player;
+
+        
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        if (_player == null) return;
+        if (_player == null) 
+        {
+            GD.Print("Player not found");
+        }
 
         float distance = GlobalPosition.DistanceTo(_player.GlobalPosition);
         bool canSee = CanSeePlayer(distance);
@@ -53,35 +61,41 @@ public partial class Enemy : CharacterBody3D
         switch (_currentState)
         {
             case State.Idle:
+                anim.Play("Idle");
                 velocity.X = 0;
                 velocity.Z = 0;
                 break;
 
             case State.Walking:
-                Vector3 direction = (_player.GlobalPosition - GlobalPosition);
-                direction.Y = 0;
-                direction = direction.Normalized();
-
-                float targetDistance = AttackRange * (1f - (AttackRangePercent / 100f));
-                GD.Print($"dis: {distance} tardis: {targetDistance}");
-
-                if (distance > targetDistance)
+                if (!(anim.CurrentAnimation == "Action"))
                 {
-                    // te ver
-                    velocity.X = direction.X * Speed;
-                    velocity.Z = direction.Z * Speed;
-                }
-                else
-                {
-                    // in range
-                    velocity.X = 0;
-                    velocity.Z = 0;
-                }
+                    anim.Play("walk");
 
+                    Vector3 direction = (_player.GlobalPosition - GlobalPosition);
+                    direction.Y = 0;
+                    direction = direction.Normalized();
+
+                    float targetDistance = AttackRange * (1f - (AttackRangePercent / 100f));
+                    //GD.Print($"dis: {distance} tardis: {targetDistance}");
+
+                    if (distance > targetDistance)
+                    {
+                        // te ver
+                        velocity.X = direction.X * Speed;
+                        velocity.Z = direction.Z * Speed;
+                    }
+                    else
+                    {
+                        // in range
+                        velocity.X = 0;
+                        velocity.Z = 0;
+                    }
+                }
                 LookAt(
                     new Vector3(_player.GlobalPosition.X, GlobalPosition.Y, _player.GlobalPosition.Z),
                     Vector3.Up
                 );
+
                 break;
         }
 
@@ -121,7 +135,21 @@ public partial class Enemy : CharacterBody3D
 
     private void Attack()
     {
+        anim.Play("Action");
         GD.Print("Enemy attacks!");
+
+        float distance = GlobalPosition.DistanceTo(_player.GlobalPosition);
+
+        Vector3 direction = (_player.GlobalPosition - GlobalPosition);
+        direction.Y = 0;
+        direction = direction.Normalized();
+
+        float targetDistance = AttackRange * (1f - (AttackRangePercent / 100f));
+
+        if (distance <= targetDistance)
+        {
+            _player.TakeDamage(25);
+        }
     }
 
     public void TakeDamage(int dmg)

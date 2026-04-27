@@ -430,6 +430,12 @@ collision_mask = 0
 size = Vector3(160.28748, 1, 241.69409)
 material = SubResource("StandardMaterial3D_vp86x")
 
+[node name="SpotLight3D2" type="SpotLight3D" parent="Floor" unique_id=83240430]
+transform = Transform3D(0.95977587, 5.185823e-08, 0.28076732, -0.06898359, 0.9693469, 0.23581354, -0.2721609, -0.2456965, 0.93035567, -7.446155, 2.543114, 57.450935)
+light_energy = 3.238
+shadow_enabled = true
+spot_angle = 39.17886
+
 [node name="Player" parent="." unique_id=1004373502 instance=ExtResource("1_1pwbc")]
 transform = Transform3D(-0.9999198, 0, 0.012670744, 0, 1, 0, -0.012670744, 0, -0.9999198, 0.7053714, 2.8600297, -44.724056)
 
@@ -612,12 +618,6 @@ transform = Transform3D(0.12806384, 0.012045763, -0.0010967404, -0.012093428, 0.
 transform = Transform3D(0.0102605, 0.14303862, 0.9896639, -0.0014828943, 0.98971707, -0.14303093, -0.9999463, 1.8626451e-09, 0.010367104, 2.1194458, -0.1777649, 6.1035156e-05)
 light_energy = 16.0
 light_volumetric_fog_energy = 0.0
-shadow_enabled = true
-spot_angle = 39.17886
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Floodlight2/Cube" index="1" unique_id=83240430]
-transform = Transform3D(-0.010260354, 0.1430386, -0.9896639, 0.001482865, 0.98971707, 0.14303091, 0.9999463, 9.778887e-09, -0.010366955, 0.4694214, 0.06071472, -0.049957275)
-light_energy = 3.238
 shadow_enabled = true
 spot_angle = 39.17886
 

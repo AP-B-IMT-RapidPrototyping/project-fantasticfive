@@ -88,7 +88,8 @@ emission = Color(1, 1, 1, 1)
 [sub_resource type="TextMesh" id="TextMesh_f2qns"]
 material = SubResource("StandardMaterial3D_6ufjk")
 text = "IN CASE OF 
-EMERGENCY"
+EMERGENCY
+PRESS E"
 font_size = 34
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lha2r"]
@@ -640,11 +641,11 @@ unit_size = 45.41
 [node name="Axe stuff" type="Node3D" parent="." unique_id=721326152]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axe stuff" unique_id=750415844]
-transform = Transform3D(0.669197, 0, 0, 0, 0.25205672, 0, 0, 0, 0.17817444, -7.5771265, 1.889008, 77.41729)
+transform = Transform3D(0.669197, 0, 0, 0, 0.40667582, 0, 0, 0, 0.17817444, -7.5771265, 1.9994495, 77.41729)
 mesh = SubResource("BoxMesh_o6odm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axe stuff/MeshInstance3D" unique_id=1728603470]
-transform = Transform3D(-0.45679852, 0, 8.74228e-08, 0, 1, 0, -3.9934594e-08, 0, -1.0000001, 0, 0, -0.49650574)
+transform = Transform3D(-0.45679852, 0, 8.74228e-08, 0, 0.65102583, 0, -3.9934598e-08, 0, -1.0000001, 0, 0, -0.49649048)
 mesh = SubResource("TextMesh_f2qns")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Axe stuff/MeshInstance3D" unique_id=1759437286]
@@ -664,6 +665,12 @@ spot_angle = 87.86
 [node name="Axe" parent="Axe stuff" unique_id=167397360 instance=ExtResource("54_o6odm")]
 transform = Transform3D(0.07246399, 0.81024, 0.5816013, -0.41608354, 0.55452496, -0.72067785, -0.9064345, -0.18977152, 0.37731057, -7.6987157, 1.3172954, 77.376434)
 freeze = true
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Axe stuff" unique_id=432286958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1021473, 1.3185757, 76.98715)
+light_energy = 1.705
+light_volumetric_fog_energy = 3.476
+shadow_enabled = true
 
 [node name="Areas" type="Node3D" parent="." unique_id=1612190971]
 
@@ -762,6 +769,7 @@ AttackRange = 2.0
 [connection signal="body_entered" from="Areas/station" to="." method="on_body_entered_station"]
 [connection signal="body_exited" from="Areas/station" to="." method="on_body_exit_station"]
 [connection signal="body_entered" from="ChaseStuff/EvilCube/DeathArea" to="." method="on_body_entered_deathArea"]
+[connection signal="EnemyDied" from="defaultEnemy" to="." method="On_Enemy_Died"]
 
 [editable path="Player"]
 [editable path="Train"]

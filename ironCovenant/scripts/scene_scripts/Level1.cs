@@ -36,6 +36,12 @@ public partial class Level1 : Node3D
         _sceneManager.Call("RegisterAreas");
     }
 
+	private void On_Enemy_Died()
+	{
+		trainNoise.Play();
+	}
+
+
 	private void on_body_entered_spotlightArea(Node3D body)
 	{
 		if (body is Player)

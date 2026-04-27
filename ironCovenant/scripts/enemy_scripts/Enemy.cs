@@ -3,6 +3,8 @@ using System;
 
 public partial class Enemy : CharacterBody3D
 {
+    [Signal] public delegate void EnemyDiedEventHandler();
+
     [Export] public float VisionRange = 15f;
     [Export] public float VisionAngle = 90f;
     [Export] public float AttackRange = 5f;
@@ -163,6 +165,7 @@ public partial class Enemy : CharacterBody3D
 
     private void Die()
     {
+        EmitSignal(SignalName.EnemyDied);
         QueueFree();
     }
 }

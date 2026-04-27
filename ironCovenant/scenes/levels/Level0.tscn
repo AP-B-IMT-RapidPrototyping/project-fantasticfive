@@ -589,7 +589,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0.4, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.20943952, -5.0265484, 0.034906585), Vector3(0.0034906585, -5.0090947, 0.034906585)]
+"values": [Vector3(0.20943952, -5.0265484, 0.034906585), Vector3(0, -5.0090947, 0)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -759,7 +759,7 @@ visible = false
 visible = false
 
 [node name="Camera3D" type="Camera3D" parent="Cutscene" unique_id=780881902]
-transform = Transform3D(0.39855665, -0.011073774, 0.91707695, 0.034766693, 0.9993908, -0.0030416925, -0.91648465, 0.03309601, 0.39869887, 38.76986, 1.3964998, 4.031459)
+transform = Transform3D(0.39855665, -0.011073773, 0.9170768, 0.034766693, 0.9993907, -0.003041692, -0.91648465, 0.033096008, 0.3986988, 38.76986, 1.3964998, 4.031459)
 visible = false
 fov = 60.0
 

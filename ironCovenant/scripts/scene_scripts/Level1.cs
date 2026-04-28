@@ -15,11 +15,12 @@ public partial class Level1 : Node3D
 	[Export] private Timer startRunTimer;
 	[Export] private Timer trainWheelsTimer;
 	[Export] private Timer bufferTimer;
+	[Export] private Timer deathTimer;
 	[Export] private MeshInstance3D evilCube;
 	[Export] private AnimationPlayer chaseAnim;
 	[Export] private AnimationPlayer trainAnim;
 	[Export] private Enemy defaultEnemy;
-
+	[Export] private CanvasLayer deathLayer;
 
 	private bool chaseCanStart = false;
 	private bool playerCanDie = false;
@@ -33,6 +34,8 @@ public partial class Level1 : Node3D
 		_sceneManager = GetNode("/root/SceneManager");
 
         _sceneManager.Call("RegisterAreas");
+
+		deathLayer.Visible = false;
     }
 
 	private void On_Enemy_Died()
@@ -82,13 +85,25 @@ public partial class Level1 : Node3D
 	{
 		if (body is Player && playerCanDie)
 		{
-			Vector3 respawnPos = new Vector3(-4.173f, 1.052f, 20.786f);
-			body.GlobalPosition = respawnPos;
-			playerHead._yaw = Mathf.DegToRad(0f);
-			chaseCanStart = true;
-			chaseAnim.Stop();
-			on_body_entered_chaseArea(body);
+			playerHead._cameraLocked = true;
+			chaseAnim.Pause();
+			deathLayer.Visible = true;
+			deathTimer.Timeout += DieAftermath;
+			deathTimer.Start();
 		}
+	}
+
+	private void DieAftermath()
+	{
+		deathTimer.Timeout -= DieAftermath;
+		playerHead._cameraLocked = false;
+		deathLayer.Visible = false;
+		Vector3 respawnPos = new Vector3(-4.173f, 1.052f, 20.786f);
+		player.GlobalPosition = respawnPos;
+		playerHead._yaw = Mathf.DegToRad(0f);
+		chaseCanStart = true;
+		chaseAnim.Stop();
+		on_body_entered_chaseArea(player);
 	}
 
 	private void StopLook()

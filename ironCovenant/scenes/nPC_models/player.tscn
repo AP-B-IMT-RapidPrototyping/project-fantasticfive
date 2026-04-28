@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://k8eb8eoacfvw" path="res://scripts/npc_logic/player/PlayerInteract.cs" id="4_50dpb"]
 [ext_resource type="Script" uid="uid://evma3bdsnls3" path="res://scripts/npc_logic/player/player_debug/DebugPlayer.cs" id="4_qvykc"]
 [ext_resource type="Script" uid="uid://cc2rojun03uvi" path="res://scripts/npc_logic/player/player_debug/DebugMenu.cs" id="5_d7324"]
-[ext_resource type="Script" uid="uid://chw2phh0x5dhj" path="res://scripts/npc_logic/player/playerdata/InventorySystem.cs" id="5_jgevp"]
 [ext_resource type="PackedScene" uid="uid://prf03ox8chpp" path="res://scenes/ui/inventory_slot.tscn" id="7_6icxk"]
 [ext_resource type="Script" uid="uid://dblxn85ca6knp" path="res://scripts/npc_logic/player/player_debug/DebugConsole.cs" id="7_35tf2"]
 [ext_resource type="Script" uid="uid://cc7it8t7d0ndw" path="res://scripts/npc_logic/player/playerui/InventoryUi.cs" id="7_jgevp"]
@@ -189,16 +188,12 @@ material = SubResource("StandardMaterial3D_35tf2")
 cull_mask = 1048567
 fov = 90.0
 
-[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_inventory", "_interactRay", "_playerHand", "_crosshair")]
+[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_interactRay", "_playerHand", "_crosshair")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 script = ExtResource("4_50dpb")
-_inventory = NodePath("Inventory")
 _interactRay = NodePath("InteractRay")
 _playerHand = NodePath("Hand")
 _crosshair = NodePath("../../HUD/HUD/Crosshair")
-
-[node name="Inventory" type="Node" parent="PlayerHead/PlayerInteract" unique_id=1762061631]
-script = ExtResource("5_jgevp")
 
 [node name="InteractRay" type="RayCast3D" parent="PlayerHead/PlayerInteract" unique_id=1289993461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -250,7 +245,7 @@ grow_vertical = 2
 pivot_offset = Vector2(1, 1)
 color = Color(1, 1, 1, 0.69803923)
 
-[node name="InventoryUI" type="Control" parent="HUD" unique_id=802560802 node_paths=PackedStringArray("_playerHead", "_playerInteract", "_inventory", "_itemContainer", "_inventoryAnim")]
+[node name="InventoryUI" type="Control" parent="HUD" unique_id=802560802 node_paths=PackedStringArray("_playerHead", "_playerInteract", "_itemContainer", "_inventoryAnim")]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -261,7 +256,6 @@ grow_vertical = 2
 script = ExtResource("7_jgevp")
 _playerHead = NodePath("../../PlayerHead")
 _playerInteract = NodePath("../../PlayerHead/PlayerInteract")
-_inventory = NodePath("../../PlayerHead/PlayerInteract/Inventory")
 _itemContainer = NodePath("InventoryContainer")
 _itemSlot = ExtResource("7_6icxk")
 _inventoryAnim = NodePath("InventoryAnim")

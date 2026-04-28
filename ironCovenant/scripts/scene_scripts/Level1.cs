@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public partial class Level1 : Node3D
 {
 	[Export] private TrainSpotlight spotlight;
-	[Export] private InventorySystem invSystem;
 	[Export] private ItemData axe;
 	[Export] private AudioStreamPlayer3D trainNoise;
 	[Export] private AudioStreamPlayer3D evilCubeNoise;
@@ -46,7 +45,7 @@ public partial class Level1 : Node3D
 	{
 		if (body is Player)
 		{
-			var items = invSystem.GetItems();
+			var items = InventorySystem.Inventory.GetItems();
 			if (items.ContainsKey(axe))
 			{
 				spotlight.canRadiate = true;

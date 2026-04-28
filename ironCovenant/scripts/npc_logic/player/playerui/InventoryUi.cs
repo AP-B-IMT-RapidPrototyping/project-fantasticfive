@@ -6,8 +6,6 @@ public partial class InventoryUi : Control
 {
     [Export] private PlayerHead _playerHead;
     [Export] private PlayerInteract _playerInteract;
-
-    [Export] private InventorySystem _inventory;
     [Export] private VBoxContainer _itemContainer; // location
     [Export] private PackedScene _itemSlot;
     private ItemData _selectedItem = null;
@@ -20,7 +18,8 @@ public partial class InventoryUi : Control
 
     public override void _Ready()
     {
-        _inventory.InventoryUpdated += () => CallDeferred(nameof(UpdateInventoryUI));
+        InventorySystem.Inventory.InventoryUpdated += () => CallDeferred(nameof(UpdateInventoryUI));
+        UpdateInventoryUI();
     }
 
 
@@ -53,7 +52,7 @@ public partial class InventoryUi : Control
             child.QueueFree();
         }
 
-        foreach (var item in _inventory.GetItems())
+        foreach (var item in InventorySystem.Inventory.GetItems())
         {
             ItemData data = item.Key;
             int amount = item.Value;

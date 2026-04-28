@@ -21,17 +21,14 @@ public partial class InventorySystem : Node
     {
         if (Inventory == null)
         {
-            GD.Print($"inv init: ID {GetHashCode}");
             Inventory = this;
         }
         else if (Inventory != this)
         {
-            GD.Print($"inv overwrite disabled: ID {GetHashCode}...");
             QueueFree();
         }
 
     }
-
 
     public bool AddItem(ItemData item, int amount = 1)
     {

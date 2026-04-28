@@ -38,6 +38,18 @@ public partial class Level1 : Node3D
 		deathLayer.Visible = false;
     }
 
+    public override void _Process(double delta)
+    {
+        if (chaseAnim.CurrentAnimation == "chase_scene")
+		{
+			if ((chaseAnim.CurrentAnimationPosition >= 4.7 && chaseAnim.CurrentAnimationPosition <= 4.8) || (chaseAnim.CurrentAnimationPosition >= 6.9 && chaseAnim.CurrentAnimationPosition <= 7) || (chaseAnim.CurrentAnimationPosition >= 8.5 && chaseAnim.CurrentAnimationPosition <= 8.6) || (chaseAnim.CurrentAnimationPosition >= 10.7 && chaseAnim.CurrentAnimationPosition <= 10.8) || (chaseAnim.CurrentAnimationPosition >= 12.1 && chaseAnim.CurrentAnimationPosition <= 12.2))
+			{
+				playerHead.EventShake(0.6f, .3f, 100f, 1.2f);
+			}
+		}
+    }
+
+
 	private void On_Enemy_Died()
 	{
 		trainNoise.Play();
@@ -52,7 +64,6 @@ public partial class Level1 : Node3D
 			if (items.ContainsKey(axe))
 			{
 				spotlight.canRadiate = true;
-				spotlight.StartRadiation();
 				trainNoise.Play();
 				chaseCanStart = true;
 				defaultEnemy.Visible = true;

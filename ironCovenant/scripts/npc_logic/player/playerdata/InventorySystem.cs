@@ -27,7 +27,6 @@ public partial class InventorySystem : Node
         {
             QueueFree();
         }
-
     }
 
     public bool AddItem(ItemData item, int amount = 1)

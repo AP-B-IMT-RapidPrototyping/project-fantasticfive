@@ -443,7 +443,7 @@ _data = {
 &"flicker": SubResource("Animation_j7nyf")
 }
 
-[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "invSystem", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy")]
+[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "invSystem", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "deathTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy", "deathLayer")]
 script = ExtResource("1_fh0io")
 spotlight = NodePath("Train/TrainSpotlight")
 invSystem = NodePath("Player/PlayerHead/PlayerInteract/Inventory")
@@ -456,10 +456,12 @@ cubeMarker = NodePath("ChaseStuff/CubeMarker")
 startRunTimer = NodePath("ChaseStuff/StartRunTimer")
 trainWheelsTimer = NodePath("ChaseStuff/TrainWheels")
 bufferTimer = NodePath("ChaseStuff/BufferTimer")
+deathTimer = NodePath("Player/DeathTimer")
 evilCube = NodePath("ChaseStuff/EvilCube")
 chaseAnim = NodePath("ChaseAnim")
 trainAnim = NodePath("Train/TestTrain/AnimationPlayer")
 defaultEnemy = NodePath("defaultEnemy")
+deathLayer = NodePath("Player/DeathLayer")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1279296464]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -764,7 +766,7 @@ wait_time = 4.0
 one_shot = true
 
 [node name="EvilCube" type="MeshInstance3D" parent="ChaseStuff" unique_id=760599901]
-transform = Transform3D(18.528522, -1.523346, 11.541339, 2.7325884e-08, 16.02885, 3.4866252, -12.552772, -2.2485352, 17.035597, -1.6586013, 12.622536, 48.710667)
+transform = Transform3D(18.528522, -1.523346, 11.54134, 2.7325884e-08, 16.02885, 3.4866254, -12.552772, -2.2485352, 17.035599, -1.6586013, 12.622536, 48.710667)
 visible = false
 mesh = SubResource("BoxMesh_n5pya")
 
@@ -838,6 +840,12 @@ material_override = SubResource("StandardMaterial3D_p5s5a")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CeilingLights2" unique_id=136456023]
 transform = Transform3D(-1, 4.371139e-08, -4.371139e-08, -4.3711385e-08, 4.371139e-08, 1, 4.3711395e-08, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1625461079]
+transform = Transform3D(-0.999994, -0.0034907162, -4.0613674e-08, -4.0669846e-08, 1.6020275e-08, 1, -0.0034907162, 0.999994, -1.6162144e-08, -14.314171, 3.0436428, 64.72302)
+light_energy = 3.095
+shadow_enabled = true
+spot_angle = 33.975185
 
 [connection signal="body_entered" from="Areas/SpotlightArea" to="." method="on_body_entered_spotlightArea"]
 [connection signal="body_entered" from="Areas/ChaseArea" to="." method="on_body_entered_chaseArea"]

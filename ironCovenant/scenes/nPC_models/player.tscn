@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dblxn85ca6knp" path="res://scripts/npc_logic/player/player_debug/DebugConsole.cs" id="7_35tf2"]
 [ext_resource type="Script" uid="uid://cc7it8t7d0ndw" path="res://scripts/npc_logic/player/playerui/InventoryUi.cs" id="7_jgevp"]
 [ext_resource type="FontFile" uid="uid://dja080asghmk4" path="res://assets/fonts/Cinzel-VariableFont_wght.ttf" id="12_ee5uu"]
+[ext_resource type="Texture2D" uid="uid://8kqsld5q2ycx" path="res://assets/overlays/bloodsplatter.png" id="12_h0ak3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4nt1"]
 radius = 0.4
@@ -32,6 +33,8 @@ albedo_color = Color(0.037521772, 0.2753775, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35tf2"]
 albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_32nx7"]
 
 [sub_resource type="Animation" id="Animation_50dpb"]
 length = 0.001
@@ -124,7 +127,68 @@ font = ExtResource("12_ee5uu")
 font_size = 120
 font_color = Color(1, 0, 0, 1)
 
-[node name="Player" type="CharacterBody3D" unique_id=746536559 node_paths=PackedStringArray("_playerHead", "_playerCamera", "deathLayer", "deathTimer") groups=["player"]]
+[sub_resource type="Animation" id="Animation_ghbhh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Damage/blood:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Damage/blood:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ysces"]
+resource_name = "take_damage"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Damage/blood:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Damage/blood:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojamd"]
+_data = {
+&"RESET": SubResource("Animation_ghbhh"),
+&"take_damage": SubResource("Animation_ysces")
+}
+
+[node name="Player" type="CharacterBody3D" unique_id=746536559 node_paths=PackedStringArray("_playerHead", "_playerCamera", "deathLayer", "deathTimer", "dmgAnim") groups=["player"]]
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_o7mkg")
@@ -133,6 +197,7 @@ _playerCamera = NodePath("PlayerHead/PlayerCamera")
 _noclipSprintSpeedDEBUG = 250.0
 deathLayer = NodePath("DeathLayer")
 deathTimer = NodePath("DeathTimer")
+dmgAnim = NodePath("DamageAnim")
 
 [node name="Pause" parent="." unique_id=1074082978 instance=ExtResource("2_cp7s5")]
 visible = false
@@ -225,6 +290,19 @@ area_mask = 8
 
 [node name="FootRayCast" type="RayCast3D" parent="FootstepSound" unique_id=998055940]
 target_position = Vector3(0, -0.4, 0)
+
+[node name="Damage" type="CanvasLayer" parent="." unique_id=1186656959]
+
+[node name="blood" type="TextureRect" parent="Damage" unique_id=125005786]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_32nx7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_h0ak3")
+expand_mode = 1
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1698097815]
 
@@ -573,6 +651,9 @@ color = Color(0.16470589, 0.16470589, 0.16470589, 0.4745098)
 process_mode = 3
 wait_time = 5.0
 one_shot = true
+
+[node name="DamageAnim" type="AnimationPlayer" parent="." unique_id=1754450732]
+libraries/ = SubResource("AnimationLibrary_ojamd")
 
 [connection signal="pressed" from="DevMenu/VBoxLeft/Debug" to="DevMenu" method="ShowDebug"]
 [connection signal="pressed" from="DevMenu/VBoxLeft/DebugStats" to="DevMenu" method="ShowDebugStatsContainer"]

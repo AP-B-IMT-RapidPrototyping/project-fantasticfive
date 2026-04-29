@@ -443,10 +443,9 @@ _data = {
 &"flicker": SubResource("Animation_j7nyf")
 }
 
-[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "invSystem", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "deathTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy", "deathLayer")]
+[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "deathTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy", "deathLayer")]
 script = ExtResource("1_fh0io")
 spotlight = NodePath("Train/TrainSpotlight")
-invSystem = NodePath("Player/PlayerHead/PlayerInteract/Inventory")
 axe = ExtResource("2_6owa4")
 trainNoise = NodePath("Train noise")
 evilCubeNoise = NodePath("ChaseStuff/EvilCube/CubeNoise")
@@ -504,6 +503,9 @@ material = SubResource("StandardMaterial3D_lha2r")
 
 [node name="Camera3D" parent="Player/DebugStats/CamToPlayer/SubViewport" parent_id_path=PackedInt32Array(1004373502, 28746108) index="0" unique_id=527580327]
 transform = Transform3D(0.81486475, 0.19730139, -0.54503906, 0, 0.94028807, 0.34037957, 0.57965106, -0.2773633, 0.7662077, -1.7640212, 3.9790297, -41.856403)
+
+[node name="blood" parent="Player/Damage" parent_id_path=PackedInt32Array(1004373502, 1186656959) index="0" unique_id=125005786]
+self_modulate = Color(1, 1, 1, 0)
 
 [node name="Train" parent="." unique_id=615132714 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)

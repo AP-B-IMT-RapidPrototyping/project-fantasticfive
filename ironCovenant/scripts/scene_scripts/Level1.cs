@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public partial class Level1 : Node3D
 {
+	[Export] private Train _train;
+
 	[Export] private TrainSpotlight spotlight;
 	[Export] private ItemData axe;
 	[Export] private AudioStreamPlayer3D trainNoise;
@@ -89,6 +91,10 @@ public partial class Level1 : Node3D
 			evilCubeNoise.Play();
 			startRunTimer.Start();
 			trainWheelsTimer.Start();
+
+			// train stuff
+			_train._canCloseDoors = true;
+			GD.Print("Level Done");
 		}
 	}
 

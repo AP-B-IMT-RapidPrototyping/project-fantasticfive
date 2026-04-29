@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 public partial class Level0 : Node3D
 {
-    [Export] private Train _train;
     [Export] private AnimationPlayer _cutsceneIntroAnim;
     [Export] private AnimationPlayer _cutsceneAnim;
     [Export] private AnimationPlayer _cutsceneOutroAnim;
-    [Export] private AnimationPlayer _cutsceneEnding;
 
     [Export] private Camera3D _cutsceneCamera;
 
@@ -37,16 +35,6 @@ public partial class Level0 : Node3D
 
     private void OnOutroFinished(StringName anim)
     {
-        _cutsceneCamera.Current = false; // fix camera switching back to player   
-        _train._canCloseDoors = true;
-        GD.Print("Level Done.");
-    }
-
-    public override void _PhysicsProcess(double delta)
-    {
-        if (_train._playerInTrain)
-        {
-            _cutsceneEnding.Play("play");
-        }   
+        _cutsceneCamera.Current = false; // fix camera switching back to player       
     }
 }

@@ -46,119 +46,6 @@ height_falloff = 14.236988
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcr8a"]
 
-[sub_resource type="Animation" id="Animation_oswwn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LightPole/SpotLight3D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LightPole4/SpotLight3D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LightPole3/SpotLight3D:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("LightPole2/SpotLight3D:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_ue060"]
-resource_name = "light"
-length = 21.0
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LightPole/SpotLight3D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.750294, 2.820245, 3.007517, 3.2377741, 3.3000004),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true, false, true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LightPole4/SpotLight3D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 16.267397, 16.337349, 16.52462, 16.857174, 17.328587, 19.83881, 19.90876, 20.096033, 20.428587, 20.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true, false, true, true, false, true, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LightPole3/SpotLight3D:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 12.957176, 13.263223, 13.450496, 13.680753, 14.057176),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true, false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("LightPole2/SpotLight3D:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 7.4880524, 7.5580034, 7.9571753, 8.223968, 8.286193),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true, false, true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_oswwn"]
-_data = {
-&"RESET": SubResource("Animation_oswwn"),
-&"light": SubResource("Animation_ue060")
-}
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qcr8a"]
-size = Vector3(6, 9, 54)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rbe81"]
 no_depth_test = true
 
@@ -240,18 +127,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CutsceneTrigger:collision_mask")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
 
 [sub_resource type="Animation" id="Animation_rbe81"]
 resource_name = "play"
@@ -304,18 +179,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CutsceneTrigger:collision_mask")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.06),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [8, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_in5bs"]
@@ -748,54 +611,124 @@ _data = {
 &"play": SubResource("Animation_e2o36")
 }
 
-[sub_resource type="Animation" id="Animation_c2uwi"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_qcr8a"]
+size = Vector3(1, 9, 54)
+
+[sub_resource type="Animation" id="Animation_oswwn"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Train:position")
+tracks/0/path = NodePath("LightPole/SpotLight3D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(53.865, 0, -19.41)]
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LightPole4/SpotLight3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightPole3/SpotLight3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LightPole2/SpotLight3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_n5l3n"]
-resource_name = "play"
-length = 14.0
-step = 0.5
+[sub_resource type="Animation" id="Animation_ue060"]
+resource_name = "light"
+length = 21.0
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Train:position")
-tracks/0/interp = 2
+tracks/0/path = NodePath("LightPole/SpotLight3D:visible")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 14),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(53.865, 0, -19.41), Vector3(154.48067, 0, -10.60727)]
+"times": PackedFloat32Array(0, 2.750294, 2.820245, 3.007517, 3.2377741, 3.3000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LightPole4/SpotLight3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 16.267397, 16.337349, 16.52462, 16.857174, 17.328587, 19.83881, 19.90876, 20.096033, 20.428587, 20.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, true, false, true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightPole3/SpotLight3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 12.957176, 13.263223, 13.450496, 13.680753, 14.057176),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LightPole2/SpotLight3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 7.4880524, 7.5580034, 7.9571753, 8.223968, 8.286193),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6se2n"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oswwn"]
 _data = {
-&"RESET": SubResource("Animation_c2uwi"),
-&"play": SubResource("Animation_n5l3n")
+&"RESET": SubResource("Animation_oswwn"),
+&"light": SubResource("Animation_ue060")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rbe81"]
-size = Vector3(1, 7, 10)
-
-[node name="Level0" type="Node3D" unique_id=1218683510 node_paths=PackedStringArray("_train", "_cutsceneIntroAnim", "_cutsceneAnim", "_cutsceneOutroAnim", "_cutsceneEnding", "_cutsceneCamera")]
+[node name="Level0" type="Node3D" unique_id=1218683510 node_paths=PackedStringArray("_cutsceneIntroAnim", "_cutsceneAnim", "_cutsceneOutroAnim", "_cutsceneCamera")]
 script = ExtResource("1_qcr8a")
-_train = NodePath("Train")
 _cutsceneIntroAnim = NodePath("Cutscene/CutsceneIntroAnim")
 _cutsceneAnim = NodePath("Cutscene/CutsceneAnim")
 _cutsceneOutroAnim = NodePath("Cutscene/CutsceneOutroAnim")
-_cutsceneEnding = NodePath("Ending/EndingAnim")
 _cutsceneCamera = NodePath("Cutscene/Camera3D")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=749329540]
@@ -813,9 +746,9 @@ size = Vector3(99, 1, 150)
 material = SubResource("StandardMaterial3D_byulw")
 
 [node name="Floor2OLD" type="CSGBox3D" parent="." unique_id=1522172306]
-transform = Transform3D(-3.3657766e-08, 0, 0.3234, 0, 0.7699999, 0, -0.7699999, 0, -1.4136262e-08, 62.118057, -0.4, -15.566999)
+transform = Transform3D(-3.3657766e-08, 0, 0.3234, 0, 0.7699999, 0, -0.7699999, 0, -1.4136262e-08, 54.518158, -0.4, -15.566999)
 use_collision = true
-size = Vector3(81, 1, 197)
+size = Vector3(81, 1, 150)
 material = SubResource("StandardMaterial3D_in5bs")
 
 [node name="FogVolume" type="FogVolume" parent="." unique_id=1012925600]
@@ -824,7 +757,7 @@ size = Vector3(96, 5, 95)
 material = SubResource("FogMaterial_ax2ff")
 
 [node name="Player" parent="." unique_id=746536559 instance=ExtResource("2_wnydg")]
-transform = Transform3D(0.99588454, 0, 0.09063257, 0, 0.99999994, 0, -0.09063259, 0, 0.9958843, 7.276113, 1.024884, 52.596516)
+transform = Transform3D(0.99588454, 0, 0.09063258, 0, 0.99999994, 0, -0.09063259, 0, 0.9958844, 7.276113, 1.024884, 52.596516)
 
 [node name="BuildingsOLD" type="Node3D" parent="." unique_id=822769759]
 transform = Transform3D(0.42000002, 0, 0, 0, 1, 0, 0, 0, 1, 14.0452795, 0, 0)
@@ -900,6 +833,95 @@ transform = Transform3D(0.86602557, 0, -0.5, 0, 1, 0, 0.5, 0, 0.86602557, -16.44
 use_collision = true
 size = Vector3(8, 3, 3)
 material = SubResource("StandardMaterial3D_qcr8a")
+
+[node name="Train" parent="." unique_id=615132714 instance=ExtResource("3_0l7rd")]
+transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, 53.865, 0, -19.41)
+visible = false
+
+[node name="Skeleton3D" parent="Train/TestTrain/Armature" parent_id_path=PackedInt32Array(615132714, 1189408230, 638347045) index="0" unique_id=109920202]
+bones/4/rotation = Quaternion(-0.49991927, 0.5000804, -0.49991983, 0.5000804)
+bones/21/rotation = Quaternion(-0.49991927, -0.5000804, 0.49991983, 0.5000804)
+
+[node name="Bone9_L" parent="Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=2141362132]
+transform = Transform3D(-5.9604645e-07, 5.66244e-07, 0.99999994, -1, 0.0003216862, -5.6624407e-07, -0.00032171607, -0.9999998, 5.3644175e-07, -1.2495898, 0.8614147, 0.2831316)
+
+[node name="Bone9_R" parent="Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=69373672]
+transform = Transform3D(-5.9604645e-07, -5.66244e-07, -0.99999994, 1, 0.0003216862, -5.6624407e-07, 0.00032171607, -0.9999998, 5.3644175e-07, 1.2495898, 0.8614147, 0.2831316)
+
+[node name="Sphere_001" parent="Train/TrainSpotlight" parent_id_path=PackedInt32Array(615132714, 1474622944) index="0" unique_id=66815037]
+visible = false
+
+[node name="SpotLight3D" parent="Train/TrainSpotlight" parent_id_path=PackedInt32Array(615132714, 1474622944) index="4" unique_id=538811013]
+visible = false
+
+[node name="ShapeCast3D" parent="Train/TrainSpotlight" parent_id_path=PackedInt32Array(615132714, 1474622944) index="5" unique_id=912961362]
+visible = false
+
+[node name="Rail" type="CSGBox3D" parent="." unique_id=1251590744]
+transform = Transform3D(0.9961947, 0, -0.08715573, 0, 1, 0, 0.08715573, 0, 0.9961947, 54.098934, -0.39999998, -19.46605)
+size = Vector3(191, 1, 3)
+
+[node name="Cutscene" type="Node3D" parent="." unique_id=1779865561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -21)
+
+[node name="TrainCutscene" parent="Cutscene" unique_id=163513889 instance=ExtResource("3_0l7rd")]
+transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, -54.640434, 0, -5.188058)
+visible = false
+
+[node name="Cube2" type="MeshInstance3D" parent="Cutscene/TrainCutscene/TestTrain" parent_id_path=PackedInt32Array(163513889, 1189408230) index="10" unique_id=1865229309]
+mesh = SubResource("ArrayMesh_in5bs")
+
+[node name="Skeleton3D" parent="Cutscene/TrainCutscene/TestTrain/Armature" parent_id_path=PackedInt32Array(163513889, 1189408230, 638347045) index="0" unique_id=109920202]
+bones/4/rotation = Quaternion(-0.49991927, 0.5000804, -0.49991983, 0.5000804)
+bones/21/rotation = Quaternion(-0.49991927, -0.5000804, 0.49991983, 0.5000804)
+
+[node name="Bone9_L" parent="Cutscene/TrainCutscene/TestTrain/Armature/Skeleton3D" index="3" unique_id=2141362132]
+transform = Transform3D(-5.9604645e-07, 5.66244e-07, 0.99999994, -1, 0.0003216862, -5.6624407e-07, -0.00032171607, -0.9999998, 5.3644175e-07, -1.2495898, 0.8614147, 0.2831316)
+
+[node name="Bone9_R" parent="Cutscene/TrainCutscene/TestTrain/Armature/Skeleton3D" index="12" unique_id=69373672]
+transform = Transform3D(-5.9604645e-07, -5.66244e-07, -0.99999994, 1, 0.0003216862, -5.6624407e-07, 0.00032171607, -0.9999998, 5.3644175e-07, 1.2495898, 0.8614147, 0.2831316)
+
+[node name="Sphere_001" parent="Cutscene/TrainCutscene/TrainSpotlight" parent_id_path=PackedInt32Array(163513889, 1474622944) index="0" unique_id=66815037]
+visible = false
+
+[node name="SpotLight3D" parent="Cutscene/TrainCutscene/TrainSpotlight" parent_id_path=PackedInt32Array(163513889, 1474622944) index="4" unique_id=538811013]
+visible = false
+
+[node name="ShapeCast3D" parent="Cutscene/TrainCutscene/TrainSpotlight" parent_id_path=PackedInt32Array(163513889, 1474622944) index="5" unique_id=912961362]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="Cutscene" unique_id=780881902]
+transform = Transform3D(0.39855665, -0.011073772, 0.9170767, 0.034766693, 0.9993906, -0.0030416916, -0.91648465, 0.033096004, 0.39869875, 38.76986, 1.3964998, 4.031459)
+visible = false
+fov = 60.0
+
+[node name="BlackBarTop" type="CSGBox3D" parent="Cutscene/Camera3D" unique_id=2071080746]
+transform = Transform3D(1.0000002, 1.3038516e-08, 2.0861626e-07, 0, 1.0000013, 2.5331974e-07, 0, -3.2782555e-07, 1.0000002, 0, 0.70000017, -0.6319998)
+size = Vector3(3, 1, 0.001)
+material = SubResource("StandardMaterial3D_1m2w4")
+
+[node name="BlackBarBottom" type="CSGBox3D" parent="Cutscene/Camera3D" unique_id=1912526413]
+transform = Transform3D(1.0000002, 1.3038516e-08, 2.0861626e-07, 0, 1.0000013, 2.5331974e-07, 0, -3.2782555e-07, 1.0000002, 0, -0.69999975, -0.63199985)
+layers = 8
+size = Vector3(3, 1, 0.001)
+material = SubResource("StandardMaterial3D_1m2w4")
+
+[node name="CutsceneIntroAnim" type="AnimationPlayer" parent="Cutscene" unique_id=485380376]
+libraries/ = SubResource("AnimationLibrary_in5bs")
+
+[node name="CutsceneAnim" type="AnimationPlayer" parent="Cutscene" unique_id=1917741911]
+libraries/ = SubResource("AnimationLibrary_e2o36")
+
+[node name="CutsceneOutroAnim" type="AnimationPlayer" parent="Cutscene" unique_id=735481338]
+libraries/ = SubResource("AnimationLibrary_ue060")
+
+[node name="CutsceneTrigger" type="Area3D" parent="." unique_id=1340538295]
+transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, 35.749584, 0.7, -20.264496)
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CutsceneTrigger" unique_id=716220667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9999998, 0)
+shape = SubResource("BoxShape3D_qcr8a")
 
 [node name="Lights" type="Node3D" parent="." unique_id=610966732]
 transform = Transform3D(0.42000002, 0, 0, 0, 1, 0, 0, 0, 1, 14.0452795, 0, 0)
@@ -995,211 +1017,10 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.371139e-08, -1
 libraries/ = SubResource("AnimationLibrary_oswwn")
 autoplay = &"light"
 
-[node name="Train" parent="." unique_id=615132714 instance=ExtResource("3_0l7rd")]
-transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, 53.865, 0, -19.41)
-visible = false
-
-[node name="Skeleton3D" parent="Train/TestTrain/Armature" parent_id_path=PackedInt32Array(615132714, 1189408230, 638347045) index="0" unique_id=109920202]
-bones/0/rotation = Quaternion(-0.5027114, 0.50327003, -0.4965393, 0.49744284)
-bones/2/rotation = Quaternion(-0.5027114, 0.5032699, -0.49653926, 0.49744284)
-bones/4/rotation = Quaternion(-0.5027114, 0.50327003, -0.4965393, 0.4974428)
-bones/5/rotation = Quaternion(0.5027114, -0.50327003, 0.49653926, -0.49744275)
-bones/7/rotation = Quaternion(0.000391379, 0.7034799, 0.7107148, -0.00063651864)
-bones/8/rotation = Quaternion(0.47253606, 0.52603275, 0.47253585, 0.5260315)
-bones/8/scale = Vector3(1, 1.0000002, 1.0000569)
-bones/9/rotation = Quaternion(-3.6438297e-07, 4.997346e-07, 0.7439472, 0.6682385)
-bones/11/scale = Vector3(0.99045956, 0.9904592, 0.99046)
-bones/12/scale = Vector3(1.0096323, 1.0096323, 1.0096323)
-bones/14/rotation = Quaternion(0.0047152666, -0.0047169616, -0.70709103, 0.7070911)
-bones/17/rotation = Quaternion(-0.5025423, -0.5034393, 0.4967063, 0.49727556)
-bones/19/rotation = Quaternion(-0.5025424, -0.50343937, 0.4967063, 0.49727553)
-bones/21/rotation = Quaternion(-0.5025424, -0.50343925, 0.49670634, 0.49727556)
-bones/22/rotation = Quaternion(-0.5025423, -0.50343925, 0.4967063, 0.49727556)
-bones/24/rotation = Quaternion(0.710715, -0.00040503585, 0.0006354048, 0.7034797)
-bones/25/rotation = Quaternion(0.47253576, -0.52603304, -0.4725356, 0.5260317)
-bones/25/scale = Vector3(1, 1.0000002, 1.0000569)
-bones/26/rotation = Quaternion(-3.643827e-07, -4.997347e-07, -0.7439475, 0.6682381)
-bones/28/scale = Vector3(0.990442, 0.99044174, 0.99044216)
-bones/29/scale = Vector3(1.0096505, 1.0096502, 1.0096503)
-bones/31/rotation = Quaternion(0.004714589, 0.004716284, 0.7070911, 0.70709103)
-bones/33/rotation = Quaternion(-0.50271136, 0.50326985, -0.49653938, 0.49744284)
-
-[node name="Bone1_L" parent="Train/TestTrain/Armature/Skeleton3D" index="0" unique_id=1750048173]
-transform = Transform3D(0.00033627698, -0.9999279, -0.0119993705, -0.9999989, -0.00035382705, 0.0014597261, -0.0014639003, 0.011998891, -0.99992704, -1.2470682, 0.8619178, -2.34591)
-
-[node name="Bone_L" parent="Train/TestTrain/Armature/Skeleton3D" index="1" unique_id=969836730]
-transform = Transform3D(0.0003361106, -0.0119993705, 0.99992794, -0.9999989, 0.0014600159, 0.00035366416, -0.0014641881, -0.99992704, -0.011998892, -1.2429328, 0.8614147, -2.001299)
-
-[node name="Bone5_L" parent="Train/TestTrain/Armature/Skeleton3D" index="2" unique_id=1632599002]
-transform = Transform3D(0.0003362894, -0.0119992215, 0.9999279, -0.9999988, 0.0014599563, 0.00035381317, -0.0014640987, -0.99992704, -0.011998773, -1.2529215, 0.8614147, -4.227758)
-
-[node name="Bone9_L" parent="Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=2141362132]
-transform = Transform3D(0.0003361106, -0.011999397, 0.9999279, -0.9999989, 0.0014600155, 0.00035366413, -0.0014641881, -0.99992675, -0.011998891, -1.2495898, 0.8614147, 0.2831316)
-
-[node name="Bone17_L" parent="Train/TestTrain/Armature/Skeleton3D" index="4" unique_id=951689149]
-transform = Transform3D(8.392999e-08, -0.0017679557, -0.9999984, 1.0000001, 7.416471e-06, 3.1271156e-08, 7.480383e-06, -0.9999983, 0.0017681895, -1.2458432, 0.8619526, 2.110691)
-
-[node name="Bone10_L" parent="Train/TestTrain/Armature/Skeleton3D" index="5" unique_id=233064514]
-transform = Transform3D(0.000336051, -0.011999488, 0.999928, -0.9999989, 0.0014599562, 0.00035363436, -0.0014641583, -0.999927, -0.011999011, -1.1087595, 0.8614147, 2.5095906)
-
-[node name="Bone12_L" parent="Train/TestTrain/Armature/Skeleton3D" index="6" unique_id=248272776]
-transform = Transform3D(3.1001753e-07, 1.2920812e-06, 1.000057, -7.610768e-05, -1.0000001, 1.2101995e-06, 1.0000004, -7.606298e-05, -3.397421e-07, -1.5582026, 2.136727, -2.3458114)
-
-[node name="Bone11_L" parent="Train/TestTrain/Armature/Skeleton3D" index="7" unique_id=1121571025]
-transform = Transform3D(-1.1920929e-06, 1.4007095e-06, 1.0000569, 0.9942764, 0.10683908, 9.537285e-07, -0.10683915, 0.9942766, -1.5498089e-06, -1.5582062, 1.853946, -4.9774604)
-
-[node name="Bone15_L" parent="Train/TestTrain/Armature/Skeleton3D" index="8" unique_id=337991754]
-transform = Transform3D(-1.0000005, -4.5539593e-08, 2.412745e-06, 2.5221998e-06, 0.013341049, 0.9999111, -9.127464e-08, 0.9999108, -0.013341082, -1.4917051, 0.8239464, -5.1918287)
-
-[node name="Bone3_L" parent="Train/TestTrain/Armature/Skeleton3D" index="9" unique_id=1513877467]
-transform = Transform3D(1.4006631e-06, -1.4584543e-08, 1.0000006, -2.430759e-07, -1.0000001, -1.2450948e-07, 0.99999976, -2.0582365e-07, -1.4147406e-06, -1.6340791, 1.0094073, -5.191828)
-
-[node name="Bone_R" parent="Train/TestTrain/Armature/Skeleton3D" index="10" unique_id=2127957907]
-transform = Transform3D(-0.00033664703, 0.011999281, -0.999928, 0.9999989, 0.0014681222, -0.00031894445, 0.0014642477, -0.9999271, -0.0119998455, 1.2429328, 0.8614147, -2.001299)
-
-[node name="Bone5_R" parent="Train/TestTrain/Armature/Skeleton3D" index="11" unique_id=223302151]
-transform = Transform3D(-0.00033664703, 0.01199943, -0.999928, 0.99999887, 0.0014681222, -0.00031897426, 0.0014642477, -0.99992704, -0.011999965, 1.2529215, 0.8614147, -4.227758)
-
-[node name="Bone9_R" parent="Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=69373672]
-transform = Transform3D(-0.00033640862, 0.011999248, -0.9999278, 0.9999988, 0.0014680622, -0.00031882522, 0.0014640987, -0.9999267, -0.011999725, 1.2495898, 0.8614147, 0.2831316)
-
-[node name="Bone17_R" parent="Train/TestTrain/Armature/Skeleton3D" index="13" unique_id=1390112126]
-transform = Transform3D(3.3023753e-08, 0.0017678356, -0.99999833, 0.9999998, -5.596783e-06, -4.6837158e-08, -5.5985292e-06, -0.99999815, -0.0017678617, 1.245843, 0.8620449, 2.1106913)
-
-[node name="Bone10_R" parent="Train/TestTrain/Armature/Skeleton3D" index="14" unique_id=1233967586]
-transform = Transform3D(-0.00033640862, 0.01199922, -0.99992794, 0.9999988, 0.001468122, -0.00031888485, 0.0014641881, -0.9999269, -0.011999726, 1.1087595, 0.8614147, 2.5095906)
-
-[node name="Bone12_R" parent="Train/TestTrain/Armature/Skeleton3D" index="15" unique_id=1595939014]
-transform = Transform3D(3.8202722e-07, -1.4042339e-06, -1.000057, 7.600337e-05, -1, 1.3890246e-06, -1.0000002, -7.6040626e-05, -3.3974254e-07, 1.5582024, 2.13673, -2.3458118)
-
-[node name="Bone11_R" parent="Train/TestTrain/Armature/Skeleton3D" index="16" unique_id=192784194]
-transform = Transform3D(-1.3113022e-06, -1.4603141e-06, -1.0000569, -0.9942763, 0.106840156, 1.1325526e-06, 0.10684013, 0.99427646, -1.5498089e-06, 1.5582062, 1.853946, -4.9774604)
-
-[node name="Bone16_R" parent="Train/TestTrain/Armature/Skeleton3D" index="17" unique_id=829768259]
-transform = Transform3D(-7.426788e-08, -1.0000001, 3.229161e-08, -0.013341501, 4.4647095e-09, 0.99991095, -0.99991083, 6.9412124e-08, -0.013341502, 1.4917057, 0.861921, -2.3459113)
-
-[node name="Bone15_R" parent="Train/TestTrain/Armature/Skeleton3D" index="18" unique_id=561540130]
-transform = Transform3D(-1.0000004, 1.9348226e-07, -2.3667535e-06, -2.392776e-06, 0.013339374, 0.99991095, 2.2061258e-07, 0.99991095, -0.013339373, 1.4917052, 0.8239549, -5.1918306)
-
-[node name="Bone3_R" parent="Train/TestTrain/Armature/Skeleton3D" index="19" unique_id=526759687]
-transform = Transform3D(1.4321504e-06, -3.1455556e-08, -1.0000002, 4.662123e-10, -1, 3.517016e-09, -0.99999994, 4.6449264e-10, -1.4046122e-06, 1.6340792, 1.0085237, -5.1918297)
-
-[node name="Bone_001" parent="Train/TestTrain/Armature/Skeleton3D" index="20" unique_id=763086580]
-transform = Transform3D(0.0003361702, -0.011998981, 0.9999279, -0.9999988, 0.001459837, 0.00035369396, -0.0014639795, -0.9999269, -0.011998534, -0.9105048, 0.6560104, -7.1018972)
-
-[node name="Sphere_001" parent="Train/TrainSpotlight" parent_id_path=PackedInt32Array(615132714, 1474622944) index="0" unique_id=66815037]
-visible = false
-
-[node name="SpotLight3D" parent="Train/TrainSpotlight" parent_id_path=PackedInt32Array(615132714, 1474622944) index="4" unique_id=538811013]
-visible = false
-
-[node name="ShapeCast3D" parent="Train/TrainSpotlight" parent_id_path=PackedInt32Array(615132714, 1474622944) index="5" unique_id=912961362]
-visible = false
-
-[node name="FrontLight" parent="Train/TrainFrontLight" parent_id_path=PackedInt32Array(615132714, 1662121363) index="0" unique_id=1738821236]
-light_energy = 2.0
-light_volumetric_fog_energy = 200.0
-light_size = 0.5
-light_specular = 0.0
-
-[node name="Rail" type="CSGBox3D" parent="." unique_id=1251590744]
-transform = Transform3D(0.9961947, 0, -0.08715573, 0, 1, 0, 0.08715573, 0, 0.9961947, 54.098934, -0.39999998, -19.46605)
-size = Vector3(191, 1, 3)
-
-[node name="Cutscene" type="Node3D" parent="." unique_id=1779865561]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -21)
-
-[node name="CutsceneTrigger" type="Area3D" parent="Cutscene" unique_id=1340538295]
-transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, 4.749584, 0.7, 0.73550415)
-collision_mask = 8
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscene/CutsceneTrigger" unique_id=716220667]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4999924, 3.9999998, 0)
-shape = SubResource("BoxShape3D_qcr8a")
-
-[node name="TrainCutscene" parent="Cutscene" unique_id=163513889 instance=ExtResource("3_0l7rd")]
-transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, -54.640434, 0, -5.188058)
-visible = false
-collision_layer = 0
-collision_mask = 9
-
-[node name="Cube2" type="MeshInstance3D" parent="Cutscene/TrainCutscene/TestTrain" parent_id_path=PackedInt32Array(163513889, 1189408230) index="10" unique_id=1865229309]
-mesh = SubResource("ArrayMesh_in5bs")
-
-[node name="Skeleton3D" parent="Cutscene/TrainCutscene/TestTrain/Armature" parent_id_path=PackedInt32Array(163513889, 1189408230, 638347045) index="0" unique_id=109920202]
-bones/4/rotation = Quaternion(-0.49991927, 0.5000804, -0.49991983, 0.5000804)
-bones/21/rotation = Quaternion(-0.49991927, -0.5000804, 0.49991983, 0.5000804)
-
-[node name="Bone9_L" parent="Cutscene/TrainCutscene/TestTrain/Armature/Skeleton3D" index="3" unique_id=2141362132]
-transform = Transform3D(-5.9604645e-07, 5.66244e-07, 0.99999994, -1, 0.0003216862, -5.6624407e-07, -0.00032171607, -0.9999998, 5.3644175e-07, -1.2495898, 0.8614147, 0.2831316)
-
-[node name="Bone9_R" parent="Cutscene/TrainCutscene/TestTrain/Armature/Skeleton3D" index="12" unique_id=69373672]
-transform = Transform3D(-5.9604645e-07, -5.66244e-07, -0.99999994, 1, 0.0003216862, -5.6624407e-07, 0.00032171607, -0.9999998, 5.3644175e-07, 1.2495898, 0.8614147, 0.2831316)
-
-[node name="Sphere_001" parent="Cutscene/TrainCutscene/TrainSpotlight" parent_id_path=PackedInt32Array(163513889, 1474622944) index="0" unique_id=66815037]
-visible = false
-
-[node name="SpotLight3D" parent="Cutscene/TrainCutscene/TrainSpotlight" parent_id_path=PackedInt32Array(163513889, 1474622944) index="4" unique_id=538811013]
-visible = false
-
-[node name="ShapeCast3D" parent="Cutscene/TrainCutscene/TrainSpotlight" parent_id_path=PackedInt32Array(163513889, 1474622944) index="5" unique_id=912961362]
-visible = false
-
-[node name="FrontLight2" type="SpotLight3D" parent="Cutscene/TrainCutscene/TrainFrontLight" parent_id_path=PackedInt32Array(163513889, 1662121363) index="0" unique_id=1512562891]
-transform = Transform3D(-2.9802322e-08, 0.34202018, -0.9396926, 1.0192994e-08, 0.9396926, 0.34202018, 1, -1.8626451e-09, -3.7252903e-08, -0.3321123, 0, -1.9073486e-06)
-light_energy = 2.0
-light_volumetric_fog_energy = 200.0
-light_size = 0.5
-light_specular = 0.0
-shadow_enabled = true
-spot_range = 30.0
-spot_angle = 29.012167
-
-[node name="FrontLight" parent="Cutscene/TrainCutscene/TrainFrontLight" parent_id_path=PackedInt32Array(163513889, 1662121363) index="1" unique_id=1738821236]
-visible = false
-
-[node name="Camera3D" type="Camera3D" parent="Cutscene" unique_id=780881902]
-transform = Transform3D(0.39855665, -0.01107377, 0.91707647, 0.034766693, 0.9993905, -0.003041691, -0.91648465, 0.033096, 0.39869866, 38.76986, 1.3964998, 4.031459)
-visible = false
-fov = 60.0
-
-[node name="BlackBarTop" type="CSGBox3D" parent="Cutscene/Camera3D" unique_id=2071080746]
-transform = Transform3D(1.0000002, 1.3038516e-08, 2.0861626e-07, 0, 1.0000013, 2.5331974e-07, 0, -3.2782555e-07, 1.0000002, 0, 0.70000017, -0.6319998)
-size = Vector3(3, 1, 0.001)
-material = SubResource("StandardMaterial3D_1m2w4")
-
-[node name="BlackBarBottom" type="CSGBox3D" parent="Cutscene/Camera3D" unique_id=1912526413]
-transform = Transform3D(1.0000002, 1.3038516e-08, 2.0861626e-07, 0, 1.0000013, 2.5331974e-07, 0, -3.2782555e-07, 1.0000002, 0, -0.69999975, -0.63199985)
-layers = 8
-size = Vector3(3, 1, 0.001)
-material = SubResource("StandardMaterial3D_1m2w4")
-
-[node name="CutsceneIntroAnim" type="AnimationPlayer" parent="Cutscene" unique_id=485380376]
-libraries/ = SubResource("AnimationLibrary_in5bs")
-
-[node name="CutsceneAnim" type="AnimationPlayer" parent="Cutscene" unique_id=1917741911]
-libraries/ = SubResource("AnimationLibrary_e2o36")
-
-[node name="CutsceneOutroAnim" type="AnimationPlayer" parent="Cutscene" unique_id=735481338]
-libraries/ = SubResource("AnimationLibrary_ue060")
-
-[node name="Ending" type="Node3D" parent="." unique_id=1425796774]
-
-[node name="EndingAnim" type="AnimationPlayer" parent="Ending" unique_id=1962937327]
-libraries/ = SubResource("AnimationLibrary_6se2n")
-
-[node name="Level1" type="Area3D" parent="." unique_id=132363086 groups=["scene_teleporter_area"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110, 0, -16)
-collision_mask = 8
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level1" unique_id=2020304803]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 1.5)
-shape = SubResource("BoxShape3D_rbe81")
-
-[connection signal="body_entered" from="Cutscene/CutsceneTrigger" to="." method="OnCutsceneTrigger"]
 [connection signal="animation_finished" from="Cutscene/CutsceneIntroAnim" to="." method="OnIntroFinished"]
 [connection signal="animation_finished" from="Cutscene/CutsceneAnim" to="." method="OnCutsceneFinished"]
 [connection signal="animation_finished" from="Cutscene/CutsceneOutroAnim" to="." method="OnOutroFinished"]
+[connection signal="body_entered" from="CutsceneTrigger" to="." method="OnCutsceneTrigger"]
 
 [editable path="Train"]
 [editable path="Train/TestTrain"]

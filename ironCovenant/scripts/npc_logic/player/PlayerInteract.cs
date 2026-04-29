@@ -114,12 +114,6 @@ public partial class PlayerInteract : Node3D
 
     public void EquipItem(ItemData item)
     {
-        if (!InventorySystem.Inventory.GetItems().ContainsKey(item))
-        {
-            GD.Print($"No such item ({item.DisplayName}) found to equip.");
-            return;
-        }
-
         if (_heldItemNode != null)
         {
             _heldItemNode.QueueFree();

@@ -1,36 +1,23 @@
 using Godot;
 using System;
 
-public partial class Train : AnimatableBody3D
+public partial class Train : Node3D
 {
-	[Export] private AnimationPlayer _chestAnim;
-	[Export] private AnimationPlayer _doorAnim;
-	public bool _canCloseDoors = false;
-	private bool _doorAlreadyClosed = false;
-	public bool _playerInTrain;
+	[Export] private AnimationPlayer _anim;
 
 
-
-
-	private void OnDoorBodyEntered(Node3D body)
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
 	{
-		if (_canCloseDoors && !_doorAlreadyClosed)
-		{
-			_doorAnim.Play("play");
-			_doorAlreadyClosed = true;
-		}
-
-		_playerInTrain = !_playerInTrain;
 	}
-
 
 	public void OpenBox()
 	{
-		_chestAnim.Play("openBox");
+		_anim.Play("openBox");
 	}
 
 	public void CloseBox()
 	{
-		_chestAnim.Play("closeBox");
+		_anim.Play("closeBox");
 	}
 }

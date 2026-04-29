@@ -14,6 +14,7 @@ public partial class DebugMenu : Control
     [Export] private Control _debug;
     [Export] private ColorRect _debugStatsContainer;
     [Export] private SubViewportContainer _camToPlayer;
+    [Export] private LineEdit _cin;
 
 
 
@@ -41,6 +42,7 @@ public partial class DebugMenu : Control
                 Input.MouseMode = Input.MouseModeEnum.Visible;
                 GetTree().Paused = true;
                 Visible = true;
+                _cin.GrabFocus();
             }
             else
             {

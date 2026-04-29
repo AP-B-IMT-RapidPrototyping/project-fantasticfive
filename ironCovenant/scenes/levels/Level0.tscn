@@ -813,9 +813,9 @@ size = Vector3(99, 1, 150)
 material = SubResource("StandardMaterial3D_byulw")
 
 [node name="Floor2OLD" type="CSGBox3D" parent="." unique_id=1522172306]
-transform = Transform3D(-3.3657766e-08, 0, 0.3234, 0, 0.7699999, 0, -0.7699999, 0, -1.4136262e-08, 54.518158, -0.4, -15.566999)
+transform = Transform3D(-3.3657766e-08, 0, 0.3234, 0, 0.7699999, 0, -0.7699999, 0, -1.4136262e-08, 62.118057, -0.4, -15.566999)
 use_collision = true
-size = Vector3(81, 1, 150)
+size = Vector3(81, 1, 197)
 material = SubResource("StandardMaterial3D_in5bs")
 
 [node name="FogVolume" type="FogVolume" parent="." unique_id=1012925600]
@@ -824,8 +824,7 @@ size = Vector3(96, 5, 95)
 material = SubResource("FogMaterial_ax2ff")
 
 [node name="Player" parent="." unique_id=746536559 instance=ExtResource("2_wnydg")]
-transform = Transform3D(0.99588454, 0, 0.09063257, 0, 0.99999994, 0, -0.09063259, 0, 0.99588436, 7.276113, 1.024884, 52.596516)
-visible = false
+transform = Transform3D(0.99588454, 0, 0.09063257, 0, 0.99999994, 0, -0.09063259, 0, 0.9958843, 7.276113, 1.024884, 52.596516)
 
 [node name="BuildingsOLD" type="Node3D" parent="." unique_id=822769759]
 transform = Transform3D(0.42000002, 0, 0, 0, 1, 0, 0, 0, 1, 14.0452795, 0, 0)
@@ -1144,6 +1143,19 @@ visible = false
 visible = false
 
 [node name="ShapeCast3D" parent="Cutscene/TrainCutscene/TrainSpotlight" parent_id_path=PackedInt32Array(163513889, 1474622944) index="5" unique_id=912961362]
+visible = false
+
+[node name="FrontLight2" type="SpotLight3D" parent="Cutscene/TrainCutscene/TrainFrontLight" parent_id_path=PackedInt32Array(163513889, 1662121363) index="0" unique_id=1512562891]
+transform = Transform3D(-2.9802322e-08, 0.34202018, -0.9396926, 1.0192994e-08, 0.9396926, 0.34202018, 1, -1.8626451e-09, -3.7252903e-08, -0.3321123, 0, -1.9073486e-06)
+light_energy = 2.0
+light_volumetric_fog_energy = 200.0
+light_size = 0.5
+light_specular = 0.0
+shadow_enabled = true
+spot_range = 30.0
+spot_angle = 29.012167
+
+[node name="FrontLight" parent="Cutscene/TrainCutscene/TrainFrontLight" parent_id_path=PackedInt32Array(163513889, 1662121363) index="1" unique_id=1738821236]
 visible = false
 
 [node name="Camera3D" type="Camera3D" parent="Cutscene" unique_id=780881902]

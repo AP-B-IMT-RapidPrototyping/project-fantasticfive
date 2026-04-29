@@ -21,7 +21,7 @@ public partial class Train : AnimatableBody3D
 		}
 
 		_playerInTrain = !_playerInTrain;
-	}	
+	}
 
 
 	public void OpenBox()

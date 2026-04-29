@@ -368,7 +368,7 @@ theme_override_constants/separation = 64
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k23cl")
 theme_override_font_sizes/font_size = 64
-text = "GAME NAME HERE"
+text = "Iron Covenant"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/OptionsContainer" unique_id=426686027]

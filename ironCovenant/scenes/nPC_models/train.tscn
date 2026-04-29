@@ -265,8 +265,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.599999, 2.7, 0)
 
 [node name="FrontLight" type="SpotLight3D" parent="TrainFrontLight" unique_id=1738821236]
 transform = Transform3D(-2.800502e-08, 0.3420202, -0.93969274, 1.0192994e-08, 0.93969274, 0.3420202, 1, 3.9815948e-16, -2.9802317e-08, -0.3321123, 0, 0)
-light_energy = 2.89
-light_volumetric_fog_energy = 100.0
+light_volumetric_fog_energy = 10.0
 shadow_enabled = true
 spot_range = 30.0
 spot_angle = 29.012167

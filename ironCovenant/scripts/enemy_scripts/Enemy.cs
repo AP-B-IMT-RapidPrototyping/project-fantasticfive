@@ -103,6 +103,8 @@ public partial class Enemy : CharacterBody3D
 
         HandleAttack((float)delta, distance, canSee);
 
+        
+
         Velocity = velocity;
         MoveAndSlide();
     }
@@ -137,7 +139,6 @@ public partial class Enemy : CharacterBody3D
 
     private void Attack()
     {
-        anim.Play("Action");
         GD.Print("Enemy attacks!");
 
         float distance = GlobalPosition.DistanceTo(_player.GlobalPosition);
@@ -148,10 +149,12 @@ public partial class Enemy : CharacterBody3D
 
         float targetDistance = AttackRange * (1f - (AttackRangePercent / 100f));
 
-        if (distance <= targetDistance)
-        {
-            _player.TakeDamage(25);
-        }
+        anim.Play("Action");
+
+
+        GD.Print("taking damage");
+        _player.TakeDamage(25);
+
     }
 
     public void TakeDamage(int dmg)

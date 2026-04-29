@@ -70,6 +70,9 @@ public partial class Player : CharacterBody3D
     [Export] private CanvasLayer deathLayer;
     [Export] private Timer deathTimer;
 
+    //damage stuff
+    [Export] private AnimationPlayer dmgAnim;
+
 
 
 
@@ -352,6 +355,7 @@ public partial class Player : CharacterBody3D
 
     public void TakeDamage(int damage)
     {
+        dmgAnim.Play("take_damage");
         health -= damage;
         if (health <= 0)
         {

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public partial class Level1 : Node3D
 {
 	[Export] private TrainSpotlight spotlight;
-	[Export] private InventorySystem invSystem;
 	[Export] private ItemData axe;
 	[Export] private AudioStreamPlayer3D trainNoise;
 	[Export] private AudioStreamPlayer3D evilCubeNoise;
@@ -16,11 +15,12 @@ public partial class Level1 : Node3D
 	[Export] private Timer startRunTimer;
 	[Export] private Timer trainWheelsTimer;
 	[Export] private Timer bufferTimer;
+	[Export] private Timer deathTimer;
 	[Export] private MeshInstance3D evilCube;
 	[Export] private AnimationPlayer chaseAnim;
 	[Export] private AnimationPlayer trainAnim;
 	[Export] private Enemy defaultEnemy;
-
+	[Export] private CanvasLayer deathLayer;
 
 	private bool chaseCanStart = false;
 	private bool playerCanDie = false;
@@ -34,7 +34,21 @@ public partial class Level1 : Node3D
 		_sceneManager = GetNode("/root/SceneManager");
 
         _sceneManager.Call("RegisterAreas");
+
+		deathLayer.Visible = false;
     }
+
+    public override void _Process(double delta)
+    {
+        if (chaseAnim.CurrentAnimation == "chase_scene")
+		{
+			if ((chaseAnim.CurrentAnimationPosition >= 4.7 && chaseAnim.CurrentAnimationPosition <= 4.8) || (chaseAnim.CurrentAnimationPosition >= 6.9 && chaseAnim.CurrentAnimationPosition <= 7) || (chaseAnim.CurrentAnimationPosition >= 8.5 && chaseAnim.CurrentAnimationPosition <= 8.6) || (chaseAnim.CurrentAnimationPosition >= 10.7 && chaseAnim.CurrentAnimationPosition <= 10.8) || (chaseAnim.CurrentAnimationPosition >= 12.1 && chaseAnim.CurrentAnimationPosition <= 12.2))
+			{
+				playerHead.EventShake(0.6f, .3f, 100f, 1.2f);
+			}
+		}
+    }
+
 
 	private void On_Enemy_Died()
 	{
@@ -46,11 +60,10 @@ public partial class Level1 : Node3D
 	{
 		if (body is Player)
 		{
-			var items = invSystem.GetItems();
+			var items = InventorySystem.Inventory.GetItems();
 			if (items.ContainsKey(axe))
 			{
 				spotlight.canRadiate = true;
-				spotlight.StartRadiation();
 				trainNoise.Play();
 				chaseCanStart = true;
 				defaultEnemy.Visible = true;
@@ -83,13 +96,25 @@ public partial class Level1 : Node3D
 	{
 		if (body is Player && playerCanDie)
 		{
-			Vector3 respawnPos = new Vector3(-4.173f, 1.052f, 20.786f);
-			body.GlobalPosition = respawnPos;
-			playerHead._yaw = Mathf.DegToRad(0f);
-			chaseCanStart = true;
-			chaseAnim.Stop();
-			on_body_entered_chaseArea(body);
+			playerHead._cameraLocked = true;
+			chaseAnim.Pause();
+			deathLayer.Visible = true;
+			deathTimer.Timeout += DieAftermath;
+			deathTimer.Start();
 		}
+	}
+
+	private void DieAftermath()
+	{
+		deathTimer.Timeout -= DieAftermath;
+		playerHead._cameraLocked = false;
+		deathLayer.Visible = false;
+		Vector3 respawnPos = new Vector3(-4.173f, 1.052f, 20.786f);
+		player.GlobalPosition = respawnPos;
+		playerHead._yaw = Mathf.DegToRad(0f);
+		chaseCanStart = true;
+		chaseAnim.Stop();
+		on_body_entered_chaseArea(player);
 	}
 
 	private void StopLook()

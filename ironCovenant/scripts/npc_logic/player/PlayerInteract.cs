@@ -4,7 +4,6 @@ using System.Diagnostics.Tracing;
 
 public partial class PlayerInteract : Node3D
 {
-    [Export] private InventorySystem _inventory;
     [Export] private RayCast3D _interactRay;
     [Export] private Marker3D _playerHand;
 
@@ -18,24 +17,24 @@ public partial class PlayerInteract : Node3D
 
 
     // System
-    /*     private void HandleInteractUI()
-        {
-            if (_interactRay.IsColliding())
+    /*         private void HandleInteractUI()
             {
-                var collider = _interactRay.GetCollider() as Node;
+                if (_interactRay.IsColliding())
+                {
+                    var collider = _interactRay.GetCollider() as Node;
 
-                if (collider.IsInGroup("item") && _crosshair.Scale != new Vector2(20, 20) && !_crosshairIsBig)
-                {
-                    _crosshair.Scale = new Vector2(20, 20);
-                    _crosshairIsBig = true;
+                    if (collider.IsInGroup("item") && _crosshair.Scale != new Vector2(20, 20) && !_crosshairIsBig)
+                    {
+                        _crosshair.Scale = new Vector2(20, 20);
+                        _crosshairIsBig = true;
+                    }
+                    else if (_crosshair.Scale == new Vector2(20, 20) && _crosshairIsBig)
+                    {
+                        _crosshair.Scale = new Vector2(1, 1);
+                        _crosshairIsBig = false;
+                    }
                 }
-                else if (_crosshair.Scale == new Vector2(20, 20) && _crosshairIsBig)
-                {
-                    _crosshair.Scale = new Vector2(1, 1);
-                    _crosshairIsBig = false;
-                }
-            }
-        } */
+            } */
 
     private void Interact()
     {
@@ -54,10 +53,15 @@ public partial class PlayerInteract : Node3D
                 if (collider != null && collider.IsInGroup("item") && collider is IInteractable interactableData)
                 {
                     GD.Print($"Item: {collider.Name}");
-                    bool interactSuccess = _inventory.AddItem(interactableData.Item, interactableData.Amount);
+                    bool interactSuccess = InventorySystem.Inventory.AddItem(interactableData.Item, interactableData.Amount);
 
                     if (interactSuccess)
                     {
+                        if (_heldItemNode == null) // auto equip yes
+                        {
+                            EquipItem(interactableData.Item);
+                        }
+
                         ((Node)interactableData).QueueFree();
                     }
                 }
@@ -74,7 +78,7 @@ public partial class PlayerInteract : Node3D
             _heldItemData = null;
         }
 
-        if (item == null || !_inventory.GetItems().ContainsKey(item)) return;
+        if (item == null || !InventorySystem.Inventory.GetItems().ContainsKey(item)) return;
 
         if (item != null && !string.IsNullOrEmpty(item.ItemScene))
         {
@@ -90,11 +94,21 @@ public partial class PlayerInteract : Node3D
                 itemScript.OnDropped();
             }
 
-            _inventory.RemoveItem(item, 1);
+            InventorySystem.Inventory.RemoveItem(item, 1);
         }
         else
         {
             GD.Print($"Item to drop is null or epmty! {item.DisplayName}");
+        }
+    }
+
+    public void HolsterItem(ItemData item)
+    {
+        if (_heldItemNode != null && _heldItemData == item)
+        {
+            _heldItemNode.QueueFree();
+            _heldItemNode = null;
+            _heldItemData = null;
         }
     }
 
@@ -159,6 +173,17 @@ public partial class PlayerInteract : Node3D
         }
     }
 
+    private void OnHolsterPressed()
+    {
+        if (Input.IsActionJustPressed("holster"))
+        {
+            if (_heldItemData != null)
+            {
+                HolsterItem(_heldItemData);
+            }
+        }
+    }
+
 
 
 
@@ -170,5 +195,6 @@ public partial class PlayerInteract : Node3D
         if (_heldItemNode == null) return;
         OnUsePressed();
         OnDropPressed();
+        OnHolsterPressed();
     }
 }

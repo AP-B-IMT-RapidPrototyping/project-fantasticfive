@@ -66,6 +66,13 @@ public partial class Player : CharacterBody3D
 
     private bool _alreadyJumped = false;
 
+    //death stuff
+    [Export] private CanvasLayer deathLayer;
+    [Export] private Timer deathTimer;
+
+    //damage stuff
+    [Export] private AnimationPlayer dmgAnim;
+
 
 
 
@@ -348,11 +355,29 @@ public partial class Player : CharacterBody3D
 
     public void TakeDamage(int damage)
     {
+        dmgAnim.Play("take_damage");
         health -= damage;
         if (health <= 0)
         {
             health = 100;
-            GetTree().ReloadCurrentScene();
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        GD.Print("Die");
+        deathLayer.Visible = true;
+        deathTimer.Timeout += Reload;
+        deathTimer.Start();
+        GetTree().Paused = true;
+    }
+
+    public void Reload()
+    {
+        GD.Print("Reload");
+        GetTree().Paused = false;
+        deathLayer.Visible = false;
+        GetTree().ReloadCurrentScene();
     }
 }

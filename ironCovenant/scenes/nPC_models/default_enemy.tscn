@@ -10,6 +10,7 @@ collision_layer = 16
 collision_mask = 9
 script = ExtResource("1_ngpqn")
 AttackRange = 1.0
+FireRate = 0.5
 Speed = 3.0
 anim = NodePath("DefaultEnemy/AnimationPlayer")
 

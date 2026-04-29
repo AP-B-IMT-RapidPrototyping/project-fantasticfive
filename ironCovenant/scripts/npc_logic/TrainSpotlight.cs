@@ -15,6 +15,8 @@ public partial class TrainSpotlight : Node3D
 	[Export] private ShaderMaterial _shader;
 	[Export] private ColorRect _shaderRect;
 
+	[Export] private AudioStreamPlayer geigerMeter;
+
 	public double intensity = 0;
 	private double baseIntensity = .97;
 	private bool beingRadiated = false;
@@ -87,6 +89,7 @@ public partial class TrainSpotlight : Node3D
 						if (!beingRadiated)
 						{
 							beingRadiated = true;
+							geigerMeter.Play();
 							bufferTimer.Start();
 						}
 					}
@@ -95,7 +98,7 @@ public partial class TrainSpotlight : Node3D
 		}
 	}
 
-	public void StartRadiation()
+	private void StartRadiation()
 	{
 		beingRadiated = true;
 		radiationTick.Start();
@@ -107,6 +110,7 @@ public partial class TrainSpotlight : Node3D
 
 	private void StopRadiation()
 	{
+		geigerMeter.Stop();
 		radiationTick.Stop();
 		bufferTimer.Stop();
 		_shaderRect.Visible = false;
@@ -120,9 +124,9 @@ public partial class TrainSpotlight : Node3D
 
 		GD.Print($"Intensity is now = {intensity}");
 
-		if (intensity >= 1.10)
+		if (intensity >= 1.03)
 		{
-			GD.Print("Player died");
+			player.Die();
 		}
 	}
 }

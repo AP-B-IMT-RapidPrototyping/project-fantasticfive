@@ -1,9 +1,12 @@
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using Godot;
 
 public partial class InventorySystem : Node
 {
     [Signal] public delegate void InventoryUpdatedEventHandler();
+
+    public static InventorySystem Inventory { get; private set; }
 
     private Dictionary<ItemData, int> _inventory = new();
     public Dictionary<ItemData, int> GetItems() => _inventory;
@@ -13,6 +16,18 @@ public partial class InventorySystem : Node
 
 
 
+
+    public override void _Ready()
+    {
+        if (Inventory == null)
+        {
+            Inventory = this;
+        }
+        else if (Inventory != this)
+        {
+            QueueFree();
+        }
+    }
 
     public bool AddItem(ItemData item, int amount = 1)
     {

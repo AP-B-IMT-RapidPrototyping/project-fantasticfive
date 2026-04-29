@@ -7,10 +7,11 @@
 [ext_resource type="Script" uid="uid://k8eb8eoacfvw" path="res://scripts/npc_logic/player/PlayerInteract.cs" id="4_50dpb"]
 [ext_resource type="Script" uid="uid://evma3bdsnls3" path="res://scripts/npc_logic/player/player_debug/DebugPlayer.cs" id="4_qvykc"]
 [ext_resource type="Script" uid="uid://cc2rojun03uvi" path="res://scripts/npc_logic/player/player_debug/DebugMenu.cs" id="5_d7324"]
-[ext_resource type="Script" uid="uid://chw2phh0x5dhj" path="res://scripts/npc_logic/player/playerdata/InventorySystem.cs" id="5_jgevp"]
 [ext_resource type="PackedScene" uid="uid://prf03ox8chpp" path="res://scenes/ui/inventory_slot.tscn" id="7_6icxk"]
 [ext_resource type="Script" uid="uid://dblxn85ca6knp" path="res://scripts/npc_logic/player/player_debug/DebugConsole.cs" id="7_35tf2"]
 [ext_resource type="Script" uid="uid://cc7it8t7d0ndw" path="res://scripts/npc_logic/player/playerui/InventoryUi.cs" id="7_jgevp"]
+[ext_resource type="FontFile" uid="uid://dja080asghmk4" path="res://assets/fonts/Cinzel-VariableFont_wght.ttf" id="12_ee5uu"]
+[ext_resource type="Texture2D" uid="uid://8kqsld5q2ycx" path="res://assets/overlays/bloodsplatter.png" id="12_h0ak3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4nt1"]
 radius = 0.4
@@ -32,6 +33,8 @@ albedo_color = Color(0.037521772, 0.2753775, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35tf2"]
 albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_32nx7"]
 
 [sub_resource type="Animation" id="Animation_50dpb"]
 length = 0.001
@@ -119,13 +122,82 @@ _data = {
 &"show": SubResource("Animation_jgevp")
 }
 
-[node name="Player" type="CharacterBody3D" unique_id=746536559 node_paths=PackedStringArray("_playerHead", "_playerCamera") groups=["player"]]
+[sub_resource type="LabelSettings" id="LabelSettings_h0ak3"]
+font = ExtResource("12_ee5uu")
+font_size = 120
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ghbhh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Damage/blood:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Damage/blood:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ysces"]
+resource_name = "take_damage"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Damage/blood:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Damage/blood:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojamd"]
+_data = {
+&"RESET": SubResource("Animation_ghbhh"),
+&"take_damage": SubResource("Animation_ysces")
+}
+
+[node name="Player" type="CharacterBody3D" unique_id=746536559 node_paths=PackedStringArray("_playerHead", "_playerCamera", "deathLayer", "deathTimer", "dmgAnim") groups=["player"]]
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_o7mkg")
 _playerHead = NodePath("PlayerHead")
 _playerCamera = NodePath("PlayerHead/PlayerCamera")
 _noclipSprintSpeedDEBUG = 250.0
+deathLayer = NodePath("DeathLayer")
+deathTimer = NodePath("DeathTimer")
+dmgAnim = NodePath("DamageAnim")
 
 [node name="Pause" parent="." unique_id=1074082978 instance=ExtResource("2_cp7s5")]
 visible = false
@@ -189,16 +261,12 @@ material = SubResource("StandardMaterial3D_35tf2")
 cull_mask = 1048567
 fov = 90.0
 
-[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_inventory", "_interactRay", "_playerHand", "_crosshair")]
+[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_interactRay", "_playerHand", "_crosshair")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 script = ExtResource("4_50dpb")
-_inventory = NodePath("Inventory")
 _interactRay = NodePath("InteractRay")
 _playerHand = NodePath("Hand")
 _crosshair = NodePath("../../HUD/HUD/Crosshair")
-
-[node name="Inventory" type="Node" parent="PlayerHead/PlayerInteract" unique_id=1762061631]
-script = ExtResource("5_jgevp")
 
 [node name="InteractRay" type="RayCast3D" parent="PlayerHead/PlayerInteract" unique_id=1289993461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -222,6 +290,19 @@ area_mask = 8
 
 [node name="FootRayCast" type="RayCast3D" parent="FootstepSound" unique_id=998055940]
 target_position = Vector3(0, -0.4, 0)
+
+[node name="Damage" type="CanvasLayer" parent="." unique_id=1186656959]
+
+[node name="blood" type="TextureRect" parent="Damage" unique_id=125005786]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_32nx7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_h0ak3")
+expand_mode = 1
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1698097815]
 
@@ -250,7 +331,7 @@ grow_vertical = 2
 pivot_offset = Vector2(1, 1)
 color = Color(1, 1, 1, 0.69803923)
 
-[node name="InventoryUI" type="Control" parent="HUD" unique_id=802560802 node_paths=PackedStringArray("_playerHead", "_playerInteract", "_inventory", "_itemContainer", "_inventoryAnim")]
+[node name="InventoryUI" type="Control" parent="HUD" unique_id=802560802 node_paths=PackedStringArray("_playerHead", "_playerInteract", "_itemContainer", "_inventoryAnim")]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -261,7 +342,6 @@ grow_vertical = 2
 script = ExtResource("7_jgevp")
 _playerHead = NodePath("../../PlayerHead")
 _playerInteract = NodePath("../../PlayerHead/PlayerInteract")
-_inventory = NodePath("../../PlayerHead/PlayerInteract/Inventory")
 _itemContainer = NodePath("InventoryContainer")
 _itemSlot = ExtResource("7_6icxk")
 _inventoryAnim = NodePath("InventoryAnim")
@@ -540,6 +620,40 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_font_sizes/font_size = 38
 placeholder_text = "command"
+
+[node name="DeathLayer" type="CanvasLayer" parent="." unique_id=318575002]
+visible = false
+
+[node name="Label" type="Label" parent="DeathLayer" unique_id=471374392]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = -39.5
+offset_right = 118.5
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_h0ak3")
+
+[node name="ColorRect" type="ColorRect" parent="DeathLayer" unique_id=510867090]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16470589, 0.16470589, 0.16470589, 0.4745098)
+
+[node name="DeathTimer" type="Timer" parent="." unique_id=619147026]
+process_mode = 3
+wait_time = 5.0
+one_shot = true
+
+[node name="DamageAnim" type="AnimationPlayer" parent="." unique_id=1754450732]
+libraries/ = SubResource("AnimationLibrary_ojamd")
 
 [connection signal="pressed" from="DevMenu/VBoxLeft/Debug" to="DevMenu" method="ShowDebug"]
 [connection signal="pressed" from="DevMenu/VBoxLeft/DebugStats" to="DevMenu" method="ShowDebugStatsContainer"]

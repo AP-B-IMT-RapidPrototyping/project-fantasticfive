@@ -336,7 +336,7 @@ tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/path = NodePath("Environment/Forest/GeneratedTrees/_Node3D_94488:rotation")
-tracks/6/interp = 1
+tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(11.11, 12.2),
@@ -443,10 +443,9 @@ _data = {
 &"flicker": SubResource("Animation_j7nyf")
 }
 
-[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "invSystem", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy")]
+[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("spotlight", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "deathTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy", "deathLayer")]
 script = ExtResource("1_fh0io")
 spotlight = NodePath("Train/TrainSpotlight")
-invSystem = NodePath("Player/PlayerHead/PlayerInteract/Inventory")
 axe = ExtResource("2_6owa4")
 trainNoise = NodePath("Train noise")
 evilCubeNoise = NodePath("ChaseStuff/EvilCube/CubeNoise")
@@ -456,10 +455,12 @@ cubeMarker = NodePath("ChaseStuff/CubeMarker")
 startRunTimer = NodePath("ChaseStuff/StartRunTimer")
 trainWheelsTimer = NodePath("ChaseStuff/TrainWheels")
 bufferTimer = NodePath("ChaseStuff/BufferTimer")
+deathTimer = NodePath("Player/DeathTimer")
 evilCube = NodePath("ChaseStuff/EvilCube")
 chaseAnim = NodePath("ChaseAnim")
 trainAnim = NodePath("Train/TestTrain/AnimationPlayer")
 defaultEnemy = NodePath("defaultEnemy")
+deathLayer = NodePath("Player/DeathLayer")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1279296464]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -481,7 +482,7 @@ shadow_enabled = true
 spot_angle = 39.17886
 
 [node name="Player" parent="." unique_id=1004373502 instance=ExtResource("1_1pwbc")]
-transform = Transform3D(-0.9999198, 0, 0.012670744, 0, 1, 0, -0.012670744, 0, -0.9999198, 0.7053714, 2.8600297, -44.724056)
+transform = Transform3D(-0.9999198, 0, 0.012670744, 0, 1, 0, -0.012670744, 0, -0.9999198, -0.038872957, 2.8600297, -44.30374)
 
 [node name="Pause" parent="Player" index="0" unique_id=1074082978]
 visible = true
@@ -501,7 +502,10 @@ size = Vector3(3, 1, 0.001)
 material = SubResource("StandardMaterial3D_lha2r")
 
 [node name="Camera3D" parent="Player/DebugStats/CamToPlayer/SubViewport" parent_id_path=PackedInt32Array(1004373502, 28746108) index="0" unique_id=527580327]
-transform = Transform3D(0.81486475, 0.19730139, -0.54503906, 0, 0.94028807, 0.34037957, 0.57965106, -0.2773633, 0.7662077, -1.0197768, 3.9790297, -42.27672)
+transform = Transform3D(0.81486475, 0.19730139, -0.54503906, 0, 0.94028807, 0.34037957, 0.57965106, -0.2773633, 0.7662077, -1.7640212, 3.9790297, -41.856403)
+
+[node name="blood" parent="Player/Damage" parent_id_path=PackedInt32Array(1004373502, 1186656959) index="0" unique_id=125005786]
+self_modulate = Color(1, 1, 1, 0)
 
 [node name="Train" parent="." unique_id=615132714 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)
@@ -764,7 +768,7 @@ wait_time = 4.0
 one_shot = true
 
 [node name="EvilCube" type="MeshInstance3D" parent="ChaseStuff" unique_id=760599901]
-transform = Transform3D(18.528522, -1.523346, 11.541339, 2.7325884e-08, 16.02885, 3.4866252, -12.552772, -2.2485352, 17.035597, -1.6586013, 12.622536, 48.710667)
+transform = Transform3D(18.528522, -1.523346, 11.54134, 2.7325884e-08, 16.02885, 3.4866254, -12.552772, -2.2485352, 17.035599, -1.6586013, 12.622536, 48.710667)
 visible = false
 mesh = SubResource("BoxMesh_n5pya")
 
@@ -838,6 +842,12 @@ material_override = SubResource("StandardMaterial3D_p5s5a")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CeilingLights2" unique_id=136456023]
 transform = Transform3D(-1, 4.371139e-08, -4.371139e-08, -4.3711385e-08, 4.371139e-08, 1, 4.3711395e-08, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1625461079]
+transform = Transform3D(-0.999994, -0.0034907162, -4.0613674e-08, -4.0669846e-08, 1.6020275e-08, 1, -0.0034907162, 0.999994, -1.6162144e-08, -14.314171, 3.0436428, 64.72302)
+light_energy = 3.095
+shadow_enabled = true
+spot_angle = 33.975185
 
 [connection signal="body_entered" from="Areas/SpotlightArea" to="." method="on_body_entered_spotlightArea"]
 [connection signal="body_entered" from="Areas/ChaseArea" to="." method="on_body_entered_chaseArea"]

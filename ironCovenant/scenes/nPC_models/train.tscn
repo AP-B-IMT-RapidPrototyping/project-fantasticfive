@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dxqxd1d7qpmkw" path="res://assets/prototypeAssets/TrainSpotlight.glb" id="2_ie6wu"]
 [ext_resource type="Script" uid="uid://dft03ixo78jia" path="res://scripts/npc_logic/TrainSpotlight.cs" id="3_fjli7"]
 [ext_resource type="Material" uid="uid://b8ct2p0p6vird" path="res://assets/overlays/static_shader_material.tres" id="5_5kvja"]
+[ext_resource type="AudioStream" uid="uid://drfskxbsppf4m" path="res://assets/audio/sfx/catch22music-090-344615.mp3" id="6_t23a6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjli7"]
 albedo_color = Color(1, 1, 0.72156864, 1)
@@ -60,7 +61,7 @@ transform = Transform3D(-7.1525574e-07, 5.364417e-07, 1, -1, 0.000321567, -5.364
 [node name="Bone9_R" parent="TestTrain/Armature/Skeleton3D" index="12" unique_id=60272669]
 transform = Transform3D(-7.1525574e-07, -5.364417e-07, -1, 1, 0.000321567, -5.3644175e-07, 0.00032165647, -0.9999998, 4.7683713e-07, 1.2495898, 0.8614147, 0.2831316)
 
-[node name="TrainSpotlight" parent="." unique_id=1474622944 node_paths=PackedStringArray("visionTimer", "bufferTimer", "radiationTick", "shapeCast", "_shaderRect") instance=ExtResource("2_ie6wu")]
+[node name="TrainSpotlight" parent="." unique_id=1474622944 node_paths=PackedStringArray("visionTimer", "bufferTimer", "radiationTick", "shapeCast", "_shaderRect", "geigerMeter") instance=ExtResource("2_ie6wu")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 5.4124975, 0)
 script = ExtResource("3_fjli7")
 visionTimer = NodePath("../VisionTimer")
@@ -69,6 +70,7 @@ radiationTick = NodePath("../RadiationTick")
 shapeCast = NodePath("ShapeCast3D")
 _shader = ExtResource("5_5kvja")
 _shaderRect = NodePath("../CanvasLayer/ShaderRect")
+geigerMeter = NodePath("../AudioStreamPlayer")
 
 [node name="Sphere_001" parent="TrainSpotlight" index="0" unique_id=1728112780]
 surface_material_override/0 = SubResource("StandardMaterial3D_fjli7")
@@ -107,11 +109,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BufferTimer" type="Timer" parent="." unique_id=895068191]
-wait_time = 3.0
+wait_time = 14.0
 one_shot = true
 
 [node name="RadiationTick" type="Timer" parent="." unique_id=755055228]
-wait_time = 5.0
+wait_time = 12.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=505178712]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6514206, 1.7375488, -0.011856079)
@@ -148,6 +150,10 @@ shape = SubResource("BoxShape3D_t23a6")
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="." unique_id=281727232]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8839045, 2.4515667, 0.048843384)
 shape = SubResource("BoxShape3D_aqclw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1451471150]
+stream = ExtResource("6_t23a6")
+volume_db = -5.493
 
 [connection signal="child_entered_tree" from="TrainSpotlight" to="TrainSpotlight" method="_on_child_entered_tree"]
 

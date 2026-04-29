@@ -18,7 +18,7 @@ public partial class InventoryUi : Control
 
     public override void _Ready()
     {
-        InventorySystem.Inventory.InventoryUpdated += () => CallDeferred(nameof(UpdateInventoryUI));
+        InventorySystem.Inventory.Connect(InventorySystem.SignalName.InventoryUpdated, Callable.From(UpdateInventoryUI));
         UpdateInventoryUI();
     }
 

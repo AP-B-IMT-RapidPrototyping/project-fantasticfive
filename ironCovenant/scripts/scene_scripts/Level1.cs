@@ -5,6 +5,10 @@ using System.Collections.Generic;
 
 public partial class Level1 : Node3D
 {
+	[Export] private Train _train;
+	[Export] private AnimationPlayer _introAnim;
+	[Export] private AnimationPlayer _introAnimDoor;
+
 	[Export] private TrainSpotlight spotlight;
 	[Export] private ItemData axe;
 	[Export] private AudioStreamPlayer3D trainNoise;
@@ -26,28 +30,37 @@ public partial class Level1 : Node3D
 	private bool playerCanDie = false;
 	private Node _sceneManager = null;
 
-    public override void _Ready()
-    {
-        startRunTimer.Timeout += StopLook;
+	public override void _Ready()
+	{
+		startRunTimer.Timeout += StopLook;
 		bufferTimer.Timeout += StartRun;
 		trainWheelsTimer.Timeout += StartWheels;
 		_sceneManager = GetNode("/root/SceneManager");
 
-        _sceneManager.Call("RegisterAreas");
+		_sceneManager.Call("RegisterAreas");
 
 		deathLayer.Visible = false;
-    }
+	}
 
-    public override void _Process(double delta)
-    {
-        if (chaseAnim.CurrentAnimation == "chase_scene")
+
+	// INTRO ANIMATIONS
+	private void OnIntroAnimFinished(StringName anim)
+	{
+		_introAnimDoor.PlayBackwards("play");
+	}
+	// NO MORE INTRO ANIMATIONS
+
+
+	public override void _Process(double delta)
+	{
+		if (chaseAnim.CurrentAnimation == "chase_scene")
 		{
 			if ((chaseAnim.CurrentAnimationPosition >= 4.7 && chaseAnim.CurrentAnimationPosition <= 4.8) || (chaseAnim.CurrentAnimationPosition >= 6.9 && chaseAnim.CurrentAnimationPosition <= 7) || (chaseAnim.CurrentAnimationPosition >= 8.5 && chaseAnim.CurrentAnimationPosition <= 8.6) || (chaseAnim.CurrentAnimationPosition >= 10.7 && chaseAnim.CurrentAnimationPosition <= 10.8) || (chaseAnim.CurrentAnimationPosition >= 12.1 && chaseAnim.CurrentAnimationPosition <= 12.2))
 			{
 				playerHead.EventShake(0.6f, .3f, 100f, 1.2f);
 			}
 		}
-    }
+	}
 
 
 	private void On_Enemy_Died()
@@ -89,6 +102,10 @@ public partial class Level1 : Node3D
 			evilCubeNoise.Play();
 			startRunTimer.Start();
 			trainWheelsTimer.Start();
+
+			// train stuff
+			_train._canCloseDoors = true;
+			GD.Print("Level Done");
 		}
 	}
 

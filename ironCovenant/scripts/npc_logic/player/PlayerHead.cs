@@ -233,6 +233,8 @@ public partial class PlayerHead : Node3D
                 // Convert target direction into player's local space
                 Vector3 localDir = _player.GlobalTransform.Basis.Inverse() * toTargetFromHead.Normalized();
 
+                float horizontalLength = new Vector2(localDir.X, localDir.Z).Length();
+
                 // Head pitch
                 float targetPitch = Mathf.Atan2(localDir.Y, -localDir.Z);
 

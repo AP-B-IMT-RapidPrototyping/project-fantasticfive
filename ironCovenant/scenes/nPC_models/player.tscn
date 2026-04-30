@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://evma3bdsnls3" path="res://scripts/npc_logic/player/player_debug/DebugPlayer.cs" id="4_qvykc"]
 [ext_resource type="Script" uid="uid://cc2rojun03uvi" path="res://scripts/npc_logic/player/player_debug/DebugMenu.cs" id="5_d7324"]
 [ext_resource type="PackedScene" uid="uid://prf03ox8chpp" path="res://scenes/ui/inventory_slot.tscn" id="7_6icxk"]
-[ext_resource type="Script" uid="uid://dblxn85ca6knp" path="res://scripts/npc_logic/player/player_debug/DebugConsole.cs" id="7_35tf2"]
 [ext_resource type="Script" uid="uid://cc7it8t7d0ndw" path="res://scripts/npc_logic/player/playerui/InventoryUi.cs" id="7_jgevp"]
 [ext_resource type="FontFile" uid="uid://dja080asghmk4" path="res://assets/fonts/Cinzel-VariableFont_wght.ttf" id="12_ee5uu"]
 [ext_resource type="Texture2D" uid="uid://8kqsld5q2ycx" path="res://assets/overlays/bloodsplatter.png" id="12_h0ak3"]
@@ -473,7 +472,7 @@ transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34
 cull_mask = 1048574
 fov = 32.0
 
-[node name="DevMenu" type="Control" parent="." unique_id=923707927 node_paths=PackedStringArray("_pauseMenu", "_playerHead", "_debug", "_debugStatsContainer", "_camToPlayer", "_cin")]
+[node name="DevMenu" type="Control" parent="." unique_id=923707927 node_paths=PackedStringArray("_pauseMenu", "_playerHead", "_debug", "_debugStatsContainer", "_camToPlayer")]
 process_mode = 3
 visible = false
 z_index = 5
@@ -491,7 +490,6 @@ _playerHead = NodePath("../PlayerHead")
 _debug = NodePath("../DebugStats")
 _debugStatsContainer = NodePath("../DebugStats/DebugStatsContainer")
 _camToPlayer = NodePath("../DebugStats/CamToPlayer")
-_cin = NodePath("DebugConsole/Console")
 
 [node name="ColorRectTitle" type="ColorRect" parent="DevMenu" unique_id=634947225]
 layout_mode = 1
@@ -594,32 +592,6 @@ text = "shake_explode"
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
 text = "shake_earthq"
-
-[node name="DebugConsole" type="VBoxContainer" parent="DevMenu" unique_id=1879108609]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -68.0
-offset_right = -502.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("7_35tf2")
-
-[node name="CommandOutput" type="RichTextLabel" parent="DevMenu/DebugConsole" unique_id=282486387]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/default_color = Color(1, 1, 1, 0.5921569)
-theme_override_font_sizes/normal_font_size = 25
-fit_content = true
-vertical_alignment = 1
-
-[node name="Console" type="LineEdit" parent="DevMenu/DebugConsole" unique_id=326787461]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
-theme_override_font_sizes/font_size = 38
-placeholder_text = "command"
 
 [node name="DeathLayer" type="CanvasLayer" parent="." unique_id=318575002]
 visible = false

@@ -5,21 +5,24 @@ public partial class Enemy : CharacterBody3D
 {
     [Signal] public delegate void EnemyDiedEventHandler();
 
+
     [Export] public float VisionRange = 15f;
     [Export] public float VisionAngle = 90f;
-    [Export] public float AttackRange = 5f;
+
+    [Export] public int Damage = 20;
     [Export] public float FireRate = 1f;
+    [Export] public float AttackRange = 5f;
+    [Export] public float AttackRangePercent = 10; 
+
     [Export] public float Speed = 5f;
     [Export] public int MaxHealth = 100;
     [Export] public float Gravity = 9.8f;
-    [Export] public float AttackRangePercent = 10; 
-
 
     [Export] private AnimationPlayer anim;
 
-    private int _currentHealth;
-    private Player _player;
-    private float _fireCooldown = 0f;
+    private int currentHealth;
+    private Player player;
+    private float fireCooldown = 0f;
 
     private enum State
     {
@@ -27,27 +30,27 @@ public partial class Enemy : CharacterBody3D
         Walking
     }
 
-    private State _currentState = State.Idle;
+    private State currentState = State.Idle;
 
     public override void _Ready()
     {
-        _currentHealth = MaxHealth;
-        _player = GetTree().GetFirstNodeInGroup("player") as Player;
+        currentHealth = MaxHealth;
+        player = GetTree().GetFirstNodeInGroup("player") as Player;
 
         
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        if (_player == null) 
+        if (player == null) 
         {
             GD.Print("Player not found");
         }
 
-        float distance = GlobalPosition.DistanceTo(_player.GlobalPosition);
+        float distance = GlobalPosition.DistanceTo(player.GlobalPosition);
         bool canSee = CanSeePlayer(distance);
 
-        _currentState = canSee ? State.Walking : State.Idle;
+        currentState = canSee ? State.Walking : State.Idle;
 
         Vector3 velocity = Velocity;
 
@@ -60,7 +63,7 @@ public partial class Enemy : CharacterBody3D
             velocity.Y = -0.1f;
         }
 
-        switch (_currentState)
+        switch (currentState)
         {
             case State.Idle:
                 anim.Play("Idle");
@@ -73,7 +76,7 @@ public partial class Enemy : CharacterBody3D
                 {
                     anim.Play("walk");
 
-                    Vector3 direction = (_player.GlobalPosition - GlobalPosition);
+                    Vector3 direction = (player.GlobalPosition - GlobalPosition);
                     direction.Y = 0;
                     direction = direction.Normalized();
 
@@ -94,7 +97,7 @@ public partial class Enemy : CharacterBody3D
                     }
                 }
                 LookAt(
-                    new Vector3(_player.GlobalPosition.X, GlobalPosition.Y, _player.GlobalPosition.Z),
+                    new Vector3(player.GlobalPosition.X, GlobalPosition.Y, player.GlobalPosition.Z),
                     Vector3.Up
                 );
 
@@ -115,7 +118,7 @@ public partial class Enemy : CharacterBody3D
             return false;
 
         Vector3 forward = -Transform.Basis.Z;
-        Vector3 toPlayer = (_player.GlobalPosition - GlobalPosition).Normalized();
+        Vector3 toPlayer = (player.GlobalPosition - GlobalPosition).Normalized();
 
         float dot = forward.Dot(toPlayer);
         float threshold = Mathf.Cos(Mathf.DegToRad(VisionAngle / 2f));
@@ -128,42 +131,37 @@ public partial class Enemy : CharacterBody3D
         if (!canSee || distance > AttackRange)
             return;
 
-        _fireCooldown -= delta;
+        fireCooldown -= delta;
 
-        if (_fireCooldown <= 0f)
+        if (fireCooldown <= 0f)
         {
             Attack();
-            _fireCooldown = 1f / FireRate;
+            fireCooldown = 1f / FireRate;
         }
     }
 
     private void Attack()
     {
+        // Enemy start animation
         GD.Print("Enemy attacks!");
-
-        float distance = GlobalPosition.DistanceTo(_player.GlobalPosition);
-
-        Vector3 direction = (_player.GlobalPosition - GlobalPosition);
-        direction.Y = 0;
-        direction = direction.Normalized();
-
-        float targetDistance = AttackRange * (1f - (AttackRangePercent / 100f));
-
         anim.Play("Action");
-
-
-        GD.Print("taking damage");
-        _player.TakeDamage(25);
-
+        // Enemy attack anim is on player, player take damage
     }
 
     public void TakeDamage(int dmg)
     {
         GD.Print("Hitted!");
-        _currentHealth -= dmg;
+        currentHealth -= dmg;
 
-        if (_currentHealth <= 0)
+        if (currentHealth <= 0)
             Die();
+    }
+
+    public void DealDamage()
+    {
+        GD.Print("Player Damaged");
+        if ()
+        player.TakeDamage(Damage);
     }
 
     private void Die()

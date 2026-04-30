@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://53ojkwfplxat"]
 
 [ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="1_rlj4e"]
-[ext_resource type="PackedScene" uid="uid://bc6wu0woh52l8" path="res://scenes/levels/enemyBase.tscn" id="2_gxyjh"]
+[ext_resource type="PackedScene" uid="uid://c60ymnv5l4qkj" path="res://scenes/nPC_models/default_enemy.tscn" id="3_1idyi"]
 [ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/nPC_models/items/axe.tscn" id="3_x6gbo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlj4e"]
@@ -41,9 +41,13 @@ material = SubResource("StandardMaterial3D_rlj4e")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D" unique_id=2052888826]
 environment = SubResource("Environment_x6gbo")
 
-[node name="EnemyBase" parent="." unique_id=493020299 instance=ExtResource("2_gxyjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.788326, 0, -0.9098339)
-
 [node name="Axe" parent="." unique_id=167397360 instance=ExtResource("3_x6gbo")]
 transform = Transform3D(-0.9642436, 0, 0.26501754, 0, 1, 0, -0.26501754, 0, -0.9642436, -2.0245218, 0.4355303, -3.0385933)
 damage = 100
+
+[node name="defaultEnemy" parent="." unique_id=1435184889 instance=ExtResource("3_1idyi")]
+transform = Transform3D(-0.06484574, 0, 0.99789524, 0, 1, 0, -0.99789524, 0, -0.06484574, 18.107431, 0.28068304, 2.6048584)
+AttackRange = 2.0
+
+[editable path="defaultEnemy"]
+[editable path="defaultEnemy/DefaultEnemy"]

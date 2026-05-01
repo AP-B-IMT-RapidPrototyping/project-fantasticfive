@@ -160,7 +160,7 @@ public partial class Enemy : CharacterBody3D
     public void DealDamage()
     {
         GD.Print("Player Damaged");
-        if ()
+        //if ()
         player.TakeDamage(Damage);
     }
 

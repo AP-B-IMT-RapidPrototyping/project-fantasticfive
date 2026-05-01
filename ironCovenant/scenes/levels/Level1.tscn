@@ -69,8 +69,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_p5s5a"]
 resource_name = "playu"
-length = 9.0
-step = 1.0
+length = 20.0
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -90,10 +90,10 @@ tracks/1/path = NodePath("TrainDoor/DoorR:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 9),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 19.6, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.6500015, 2.2500002, 1.7458916), Vector3(-0.6500015, 2.2500002, 1.7458916)]
+"values": [Vector3(-0.6500015, 2.2500002, 1.7458916), Vector3(-0.6500015, 2.2500002, 1.7458916), Vector3(-2.95, 2.25, 1.746)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -168,6 +168,7 @@ size = Vector3(1, 7.4630127, 41)
 size = Vector3(1, 7.4630127, 130.88873)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qbjw"]
+albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
 emission = Color(0.7397895, 1.9372628e-06, 9.62615e-07, 1)
 
@@ -184,6 +185,96 @@ text = "IN CASE OF
 EMERGENCY
 PRESS E"
 font_size = 34
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7nyf"]
+albedo_color = Color(0.6077073, 0.6077073, 0.6077073, 1)
+
+[sub_resource type="Animation" id="Animation_bspq0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:mesh:material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpotLight3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dqba7"]
+resource_name = "play"
+length = 4.0
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:light_energy")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.4, 0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:mesh:material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpotLight3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.6600001, 1.71, 1.8, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_usw5k"]
+_data = {
+&"RESET": SubResource("Animation_bspq0"),
+&"play": SubResource("Animation_dqba7")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lha2r"]
 size = Vector3(6.8309326, 3.083685, 9.281921)
@@ -832,19 +923,32 @@ unit_size = 45.41
 
 [node name="Axe stuff" type="Node3D" parent="." unique_id=721326152]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axe stuff" unique_id=750415844]
+[node name="emergency" type="MeshInstance3D" parent="Axe stuff" unique_id=750415844]
 transform = Transform3D(0.669197, 0, 0, 0, 0.40667582, 0, 0, 0, 0.17817444, -7.5771265, 1.9994495, 77.41729)
 mesh = SubResource("BoxMesh_o6odm")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axe stuff/MeshInstance3D" unique_id=1728603470]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axe stuff/emergency" unique_id=1728603470]
 transform = Transform3D(-0.45679852, 0, 8.74228e-08, 0, 0.65102583, 0, -3.9934598e-08, 0, -1.0000001, 0, 0, -0.49649048)
 mesh = SubResource("TextMesh_f2qns")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Axe stuff/MeshInstance3D" unique_id=1759437286]
-transform = Transform3D(1, 0, 0, 0, -0.9995607, 0.029636724, 0, -0.029636724, -0.9995607, 0, -1.6076388, -7.223175)
+[node name="SpotLight3D" type="SpotLight3D" parent="Axe stuff/emergency" unique_id=1759437286]
+transform = Transform3D(1, 0, 0, 0, -0.13963062, 0.9902037, 0, -0.9902037, -0.13963062, 0, 0.2031908, -4.1367188)
 light_color = Color(1, 0, 0, 1)
-light_volumetric_fog_energy = 6.778
+light_volumetric_fog_energy = 7.178
 shadow_enabled = true
+spot_range = 2.335
+spot_attenuation = 0.9
+spot_angle = 49.75
+spot_angle_attenuation = 0.36602294
+
+[node name="lightwall" type="CSGBox3D" parent="Axe stuff/emergency" unique_id=1852938579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -3.804719, -1.67297, 0.45526123)
+size = Vector3(22.045227, 6.8271484, 1)
+material = SubResource("StandardMaterial3D_j7nyf")
+
+[node name="EmergencyAnim" type="AnimationPlayer" parent="Axe stuff/emergency" unique_id=602343751]
+libraries/ = SubResource("AnimationLibrary_usw5k")
+autoplay = &"play"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Axe stuff" unique_id=928920908]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.169056, 3.10658, 76.01473)

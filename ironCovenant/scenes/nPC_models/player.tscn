@@ -12,6 +12,8 @@
 [ext_resource type="FontFile" uid="uid://dja080asghmk4" path="res://assets/fonts/Cinzel-VariableFont_wght.ttf" id="12_ee5uu"]
 [ext_resource type="Texture2D" uid="uid://8kqsld5q2ycx" path="res://assets/overlays/bloodsplatter.png" id="12_h0ak3"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_32nx7"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4nt1"]
 radius = 0.4
 height = 1.75
@@ -32,8 +34,6 @@ albedo_color = Color(0.037521772, 0.2753775, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35tf2"]
 albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_32nx7"]
 
 [sub_resource type="Animation" id="Animation_50dpb"]
 length = 0.001
@@ -198,6 +198,20 @@ deathLayer = NodePath("DeathLayer")
 deathTimer = NodePath("DeathTimer")
 dmgAnim = NodePath("DamageAnim")
 
+[node name="Damage" type="CanvasLayer" parent="." unique_id=1186656959]
+layer = -1
+
+[node name="blood" type="TextureRect" parent="Damage" unique_id=125005786]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_32nx7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_h0ak3")
+expand_mode = 1
+
 [node name="Pause" parent="." unique_id=1074082978 instance=ExtResource("2_cp7s5")]
 visible = false
 
@@ -289,19 +303,6 @@ area_mask = 8
 
 [node name="FootRayCast" type="RayCast3D" parent="FootstepSound" unique_id=998055940]
 target_position = Vector3(0, -0.4, 0)
-
-[node name="Damage" type="CanvasLayer" parent="." unique_id=1186656959]
-
-[node name="blood" type="TextureRect" parent="Damage" unique_id=125005786]
-self_modulate = Color(1, 1, 1, 0)
-material = SubResource("ShaderMaterial_32nx7")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("12_h0ak3")
-expand_mode = 1
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1698097815]
 

@@ -28,6 +28,92 @@ disable_fog = true
 disable_specular_occlusion = true
 albedo_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
 
+[sub_resource type="Animation" id="Animation_xbvxr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(82, 0, -45.130936)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainDoor/DoorR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.95, 2.2500002, 1.7458912)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TrainDoor/DoorL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.95, 2.2500002, -1.7541088)]
+}
+
+[sub_resource type="Animation" id="Animation_p5s5a"]
+resource_name = "playu"
+length = 9.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(82, 0, -45.130936), Vector3(0, 0, -45.130936)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainDoor/DoorR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.6500015, 2.2500002, 1.7458916), Vector3(-0.6500015, 2.2500002, 1.7458916)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TrainDoor/DoorL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.4, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.64998627, 2.2500002, -1.7541084), Vector3(-0.64998627, 2.2500002, -1.7541084), Vector3(-2.95, 2.2500002, -1.7541088)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_njy47"]
+_data = {
+&"RESET": SubResource("Animation_xbvxr"),
+&"play": SubResource("Animation_p5s5a")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_6qbjw"]
 size = Vector3(8.825745, 4.4229736, 4.7604065)
 
@@ -71,6 +157,12 @@ volumetric_fog_emission_energy = 0.3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ex7q"]
 size = Vector3(1, 7.4630127, 238.30295)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7nyf"]
+size = Vector3(1, 7.4630127, 179)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbvxr"]
+size = Vector3(1, 7.4630127, 41)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ijfg6"]
 size = Vector3(1, 7.4630127, 130.88873)
@@ -508,7 +600,7 @@ shadow_enabled = true
 spot_angle = 39.17886
 
 [node name="Player" parent="." unique_id=1004373502 instance=ExtResource("1_1pwbc")]
-transform = Transform3D(-0.9999198, 0, 0.012670744, 0, 1, 0, -0.012670744, 0, -0.9999198, -0.038872957, 2.8600297, -44.30374)
+transform = Transform3D(-0.9999198, 0, 0.012670744, 0, 1, 0, -0.012670744, 0, -0.9999198, 82.36113, 2.7600298, -45.10374)
 
 [node name="Pause" parent="Player" index="0" unique_id=1074082978]
 visible = true
@@ -528,7 +620,7 @@ size = Vector3(3, 1, 0.001)
 material = SubResource("StandardMaterial3D_lha2r")
 
 [node name="Camera3D" parent="Player/DebugStats/CamToPlayer/SubViewport" parent_id_path=PackedInt32Array(1004373502, 28746108) index="0" unique_id=527580327]
-transform = Transform3D(0.81486475, 0.19730139, -0.54503906, 0, 0.94028807, 0.34037957, 0.57965106, -0.2773633, 0.7662077, -1.7640212, 3.9790297, -41.856403)
+transform = Transform3D(0.81486475, 0.19730139, -0.54503906, 0, 0.94028807, 0.34037957, 0.57965106, -0.2773633, 0.7662077, 80.63598, 3.8790298, -42.656403)
 
 [node name="Train" parent="." unique_id=615132714 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)
@@ -552,6 +644,10 @@ light_volumetric_fog_energy = 1.103
 [node name="ShaderRect" parent="Train/CanvasLayer" parent_id_path=PackedInt32Array(615132714, 1079546955) index="0" unique_id=727015593]
 modulate = Color(1, 1, 1, 0.3019608)
 self_modulate = Color(1, 1, 1, 0.2)
+
+[node name="TrainIntro" type="AnimationPlayer" parent="Train" unique_id=690494881]
+libraries/ = SubResource("AnimationLibrary_njy47")
+autoplay = &"play"
 
 [node name="Environment" type="Node3D" parent="." unique_id=1323152187]
 
@@ -702,8 +798,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.426315, 3.573995, 18.0762
 shape = SubResource("BoxShape3D_6ex7q")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1130885752]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.143074, 3.573995, 18.076223)
-shape = SubResource("BoxShape3D_6ex7q")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.143074, 3.573995, 47.7277)
+shape = SubResource("BoxShape3D_j7nyf")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1013249036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.143074, 3.573995, -69.27231)
+shape = SubResource("BoxShape3D_xbvxr")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" unique_id=228900683]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 72.143074, 3.573995, -49.27231)
+shape = SubResource("BoxShape3D_xbvxr")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D" unique_id=378977129]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 72.143074, 3.573995, -41.27231)
+shape = SubResource("BoxShape3D_xbvxr")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D" unique_id=439101064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.143074, 3.573995, -45.27231)
+shape = SubResource("BoxShape3D_xbvxr")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1013717708]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.2727585, 3.573995, -84.85531)

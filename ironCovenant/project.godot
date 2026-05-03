@@ -161,6 +161,7 @@ debug={
 3d_physics/layer_3="Entity"
 3d_physics/layer_4="Player"
 3d_physics/layer_5="Enemy"
+3d_physics/layer_6="Train"
 
 [physics]
 

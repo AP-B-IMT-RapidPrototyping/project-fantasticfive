@@ -20,6 +20,8 @@ public partial class Enemy : CharacterBody3D
 
     [Export] private AnimationPlayer anim;
 
+    [Export] private GpuParticles3D spark;
+
     private int currentHealth;
     private Player player;
     private float fireCooldown = 0f;
@@ -150,6 +152,7 @@ public partial class Enemy : CharacterBody3D
 
     public void TakeDamage(int dmg)
     {
+        spark.Emitting = true;
         GD.Print("Hitted!");
         currentHealth -= dmg;
 

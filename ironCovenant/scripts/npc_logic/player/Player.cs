@@ -35,6 +35,8 @@ public partial class Player : CharacterBody3D
     private float _maxFallSpeed = 190.0f;
 
     private int health = 100;
+    [Export] private TextureRect healthRect;
+    [Export] private Timer healthTimer;
 
     [ExportGroup("Other Settings")]
     [Export] public bool canMove = true; 
@@ -79,6 +81,7 @@ public partial class Player : CharacterBody3D
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Captured;
+        healthTimer.Timeout += Heal;
     }
 
     public override void _UnhandledInput(InputEvent @event)
@@ -357,6 +360,9 @@ public partial class Player : CharacterBody3D
     {
         dmgAnim.Play("take_damage");
         health -= damage;
+        double convertedHealth = (100 - health) / 100.0;
+        GD.Print($"Converted: ${convertedHealth}");
+        healthRect.SelfModulate = new Color(1f,1f,1f,(float)convertedHealth);
         if (health <= 0)
         {
             health = 100;
@@ -371,6 +377,18 @@ public partial class Player : CharacterBody3D
         deathTimer.Timeout += Reload;
         deathTimer.Start();
         GetTree().Paused = true;
+    }
+
+    private void Heal()
+    {
+        health += 10;
+        double convertedHealth = (100 - health) / 100.0;
+        GD.Print($"Converted: ${convertedHealth}");
+        healthRect.SelfModulate = new Color(1f,1f,1f,(float)convertedHealth);
+        if (health > 100)
+        {
+            health = 100;
+        }
     }
 
     public void Reload()

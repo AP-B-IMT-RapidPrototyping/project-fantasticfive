@@ -76,7 +76,7 @@ public partial class TrainSpotlight : Node3D
 
 				if (results[0].collider is Node3D node)
 				{
-					GD.Print($"Collidor 0: ${node.Name}");
+					//GD.Print($"Collidor 0: ${node.Name}");
 					if (node.Name == "Player" || node.Name == "TrainCollision")
 					{
 						//player is infront
@@ -90,7 +90,7 @@ public partial class TrainSpotlight : Node3D
 					{
 						if (results[1].collider is Node3D node2)
 						{
-							GD.Print($"Collider 1: ${node2}");
+							//GD.Print($"Collider 1: ${node2}");
 							if (node2.Name == "Player")
 							{
 								if (beingRadiated)

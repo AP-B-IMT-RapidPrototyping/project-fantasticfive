@@ -6,7 +6,11 @@ public partial class InventorySystem : Node
 {
     [Signal] public delegate void InventoryUpdatedEventHandler();
 
+    public PlayerInteract playerInteract;
+
     public static InventorySystem Inventory { get; private set; }
+
+    public ItemData previousHeldItemData { get; set; } = null;
 
     private Dictionary<ItemData, int> _inventory = new();
     public Dictionary<ItemData, int> GetItems() => _inventory;

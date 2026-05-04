@@ -47,6 +47,6 @@ public partial class Level0 : Node3D
         if (_train._playerInTrain)
         {
             _cutsceneEnding.Play("play");
-        }   
+        }
     }
 }

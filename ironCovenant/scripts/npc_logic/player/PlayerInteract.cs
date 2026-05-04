@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Diagnostics.Tracing;
+using System.Threading;
 
 public partial class PlayerInteract : Node3D
 {
@@ -10,9 +11,24 @@ public partial class PlayerInteract : Node3D
     [Export] private ColorRect _crosshair;
     private bool _crosshairIsBig;
 
-    private Node3D _heldItemNode = null;
-    private ItemData _heldItemData = null;
+    public Node3D _heldItemNode = null;
+    public ItemData _heldItemData = null;
 
+
+
+
+    public override void _Ready()
+    {
+        CallDeferred(nameof(CheckPreviousItem));
+    }
+
+    private void CheckPreviousItem()
+    {
+        if (InventorySystem.Inventory.previousHeldItemData != null)
+        {
+            EquipItem(InventorySystem.Inventory.previousHeldItemData);
+        }
+    }
 
 
 
@@ -109,6 +125,7 @@ public partial class PlayerInteract : Node3D
             _heldItemNode.QueueFree();
             _heldItemNode = null;
             _heldItemData = null;
+            InventorySystem.Inventory.previousHeldItemData = null;
         }
     }
 
@@ -130,6 +147,8 @@ public partial class PlayerInteract : Node3D
             var scene = GD.Load<PackedScene>(item.ItemScene);
             _heldItemNode = scene.Instantiate<Node3D>();
             _heldItemData = item;
+
+            InventorySystem.Inventory.previousHeldItemData = item;
 
             _playerHand.AddChild(_heldItemNode);
 

@@ -938,7 +938,7 @@ spot_angle = 39.17886
 [node name="Player" parent="." unique_id=1004373502 instance=ExtResource("1_1pwbc")]
 transform = Transform3D(-0.9999198, 0, 0.012670744, 0, 1, 0, -0.012670744, 0, -0.9999198, 82.36113, 2.7600298, -45.10374)
 
-[node name="Pause" parent="Player" index="2" unique_id=1074082978]
+[node name="Pause" parent="Player" index="1" unique_id=1074082978]
 visible = true
 
 [node name="Cutscene Bars" type="Node3D" parent="Player/PlayerHead/PlayerCamera" parent_id_path=PackedInt32Array(1004373502, 1820625364) index="0" unique_id=218138750]
@@ -961,14 +961,14 @@ transform = Transform3D(0.81486475, 0.19730139, -0.54503906, 0, 0.94028807, 0.34
 [node name="Train" parent="." unique_id=615132714 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)
 
-[node name="Skeleton3D" parent="Train/TestTrain/Armature" parent_id_path=PackedInt32Array(615132714, 1189408230, 1316773928) index="0" unique_id=921717970]
+[node name="Skeleton3D" parent="Train/TestTrain/Armature" parent_id_path=PackedInt32Array(615132714, 1189408230, 638347045) index="0" unique_id=109920202]
 bones/4/rotation = Quaternion(-0.49991927, 0.5000804, -0.49991983, 0.5000804)
 bones/21/rotation = Quaternion(-0.49991927, -0.5000804, 0.49991983, 0.5000804)
 
-[node name="Bone9_L" parent="Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=593331796]
+[node name="Bone9_L" parent="Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=2141362132]
 transform = Transform3D(-5.9604645e-07, 5.66244e-07, 0.99999994, -1, 0.0003216862, -5.6624407e-07, -0.00032171607, -0.9999998, 5.3644175e-07, -1.2495898, 0.8614147, 0.2831316)
 
-[node name="Bone9_R" parent="Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=60272669]
+[node name="Bone9_R" parent="Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=69373672]
 transform = Transform3D(-5.9604645e-07, -5.66244e-07, -0.99999994, 1, 0.0003216862, -5.6624407e-07, 0.00032171607, -0.9999998, 5.3644175e-07, 1.2495898, 0.8614147, 0.2831316)
 
 [node name="TrainSpotlight" parent="Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player")]
@@ -1114,7 +1114,7 @@ spot_angle = 39.17886
 [node name="Floodlight2" parent="Environment" unique_id=1074300691 instance=ExtResource("9_ukjja")]
 transform = Transform3D(-0.20349151, 0, 0.6697696, 0, 0.70000005, 0, -0.6697696, 0, -0.20349151, -3.0888424, 1.1749083, 77.01668)
 
-[node name="Cube" parent="Environment/Floodlight2" index="3" unique_id=861849066]
+[node name="Cube" parent="Environment/Floodlight2" index="3" unique_id=673259293]
 transform = Transform3D(0.12806384, 0.012045763, -0.0010967404, -0.012093428, 0.12773407, -0.00918761, 0.00022870675, 0.009250008, 0.12830056, 0.0051498413, 1.2377564, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environment/Floodlight2/Cube" index="0" unique_id=1198016125]
@@ -1310,10 +1310,10 @@ AttackRange = 2.0
 [node name="CeilingLights" parent="." unique_id=116336728 instance=ExtResource("16_p5s5a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.366889, 2.8712888, 69.54774)
 
-[node name="Cube" parent="CeilingLights" index="0" unique_id=1763625376]
+[node name="Cube" parent="CeilingLights" index="0" unique_id=1909041610]
 material_override = SubResource("StandardMaterial3D_njy47")
 
-[node name="Cube_001" parent="CeilingLights" index="1" unique_id=1892938662]
+[node name="Cube_001" parent="CeilingLights" index="1" unique_id=1852772999]
 material_override = SubResource("StandardMaterial3D_p5s5a")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CeilingLights" unique_id=1287182832]
@@ -1326,10 +1326,10 @@ autoplay = &"flicker"
 [node name="CeilingLights2" parent="." unique_id=1742133937 instance=ExtResource("16_p5s5a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.907755, 2.8712888, 69.54774)
 
-[node name="Cube" parent="CeilingLights2" index="0" unique_id=1763625376]
+[node name="Cube" parent="CeilingLights2" index="0" unique_id=1909041610]
 material_override = SubResource("StandardMaterial3D_njy47")
 
-[node name="Cube_001" parent="CeilingLights2" index="1" unique_id=1892938662]
+[node name="Cube_001" parent="CeilingLights2" index="1" unique_id=1852772999]
 material_override = SubResource("StandardMaterial3D_p5s5a")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CeilingLights2" unique_id=136456023]

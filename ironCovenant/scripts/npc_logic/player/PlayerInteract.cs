@@ -10,8 +10,8 @@ public partial class PlayerInteract : Node3D
     [Export] private ColorRect _crosshair;
     private bool _crosshairIsBig;
 
-    private Node3D _heldItemNode = null;
-    private ItemData _heldItemData = null;
+    public Node3D _heldItemNode = null;
+    public ItemData _heldItemData = null;
 
 
 

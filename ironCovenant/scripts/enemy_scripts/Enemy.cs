@@ -150,7 +150,7 @@ public partial class Enemy : CharacterBody3D
         // Enemy attack anim is on player, player take damage
     }
 
-    public void TakeDamage(int dmg)
+    public virtual void TakeDamage(int dmg)
     {
         spark.Emitting = true;
         GD.Print("Hitted!");

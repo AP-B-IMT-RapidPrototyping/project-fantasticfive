@@ -99,6 +99,12 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 [node name="station_rooflights" parent="station" index="21" unique_id=489934714]
 material_override = SubResource("StandardMaterial3D_4q2or")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="station/door_frame" parent_id_path=PackedInt32Array(286276482, 1636510551) index="0" unique_id=772026717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99998, 0.0024636984, 0.10908604)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="station/door_frame/StaticBody3D" unique_id=1166788000]
+shape = SubResource("BoxShape3D_jk21j")
+
 [node name="SpotLight3D" type="SpotLight3D" parent="station" unique_id=903564918]
 transform = Transform3D(1.25, 0, 0, 0, 0.2944789, 1.2148178, 0, -1.2148178, 0.2944789, 0, 6.4503293, -12.78347)
 light_color = Color(0.3506417, 0.29473358, 0.53766507, 1)
@@ -107,12 +113,6 @@ light_volumetric_fog_energy = 8.174
 shadow_enabled = true
 spot_range = 20.91964
 spot_angle = 90.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="station/door_frame" parent_id_path=PackedInt32Array(286276482, 1636510551) index="0" unique_id=772026717]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99998, 0.0024636984, 0.10908604)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="station/door_frame/StaticBody3D" unique_id=1166788000]
-shape = SubResource("BoxShape3D_jk21j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=295617682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019760132, -0.29499912, 0.16365051)
@@ -144,6 +144,10 @@ shape = SubResource("BoxShape3D_hvm5t")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="." unique_id=906437009]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5666862, 2.178041, 3.5726652)
+shape = SubResource("BoxShape3D_t6lk1")
+
+[node name="CollisionShape3D37" type="CollisionShape3D" parent="." unique_id=1774801065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41199303, 4.5518928, 3.5726652)
 shape = SubResource("BoxShape3D_t6lk1")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="." unique_id=2020238459]

@@ -374,7 +374,7 @@ offset_right = -714.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(640, 360)
-color = Color(0.05882353, 0.05882353, 0.05882353, 0.32941177)
+color = Color(1, 1, 1, 0.21960784)
 
 [node name="InventoryContainer" type="VBoxContainer" parent="HUD/InventoryUI" unique_id=1651047698]
 layout_mode = 1

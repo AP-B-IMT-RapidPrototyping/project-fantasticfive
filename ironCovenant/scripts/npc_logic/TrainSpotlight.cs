@@ -58,29 +58,47 @@ public partial class TrainSpotlight : Node3D
 			if (shapeCast.IsColliding())
 			{
 				var results = new List<(GodotObject collider, float distance)>();
-				Vector3 origin = shapeCast.GlobalTransform.Origin;
+				Node3D _originNode = GetParent() as Node3D;
+				Vector3 _origin = _originNode.GlobalPosition;
 
 				for (int i = 0; i < shapeCast.GetCollisionCount(); i++)
 				{
 					var collider = shapeCast.GetCollider(i);
 					Vector3 point = shapeCast.GetCollisionPoint(i);
 
-					float dist = origin.DistanceTo(point);
+					float dist = _origin.DistanceTo(point);
 
 					results.Add((collider, dist));
 				}
 
 				results.Sort((a, b) => a.distance.CompareTo(b.distance));
 
+
 				if (results[0].collider is Node3D node)
 				{
-					if (node.Name == "Player" || node.Name == "TrainCollision" || node.Name == "Floor")
+					GD.Print($"Collidor 0: ${node.Name}");
+					if (node.Name == "Player" || node.Name == "TrainCollision")
 					{
 						//player is infront
 						if (beingRadiated)
 						{
 							StopRadiation();
 							beingRadiated = false;
+						}
+					}
+					else if (node.Name == "Floor")
+					{
+						if (results[1].collider is Node3D node2)
+						{
+							GD.Print($"Collider 1: ${node2}");
+							if (node2.Name == "Player")
+							{
+								if (beingRadiated)
+								{
+									StopRadiation();
+									beingRadiated = false;
+								}
+							}
 						}
 					}
 					else

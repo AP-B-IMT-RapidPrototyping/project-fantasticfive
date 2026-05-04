@@ -7,8 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/nPC_models/items/axe.tscn" id="4_js0vw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dovyc"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_top_color = Color(0.23347911, 0.42727727, 0.8222376, 1)
+sky_horizon_color = Color(0.3019608, 0.44313726, 0.7019608, 1)
+ground_bottom_color = Color(0.3019608, 0.44313726, 0.7019608, 1)
+ground_horizon_color = Color(0.3019608, 0.44313726, 0.7019608, 1)
+ground_curve = 0.9050964
 
 [sub_resource type="Sky" id="Sky_a1d61"]
 sky_material = SubResource("ProceduralSkyMaterial_dovyc")
@@ -212,7 +215,7 @@ uv1_triplanar = true
 environment = SubResource("Environment_corbn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=38763671]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.1294095, 0.6770772, 0.7244444, -0.48296294, 0.5950349, -0.642402, 0, 7, 0)
 shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=856979702]

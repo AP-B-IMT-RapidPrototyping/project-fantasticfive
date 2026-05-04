@@ -15,11 +15,34 @@ public partial class Axe : RigidBody3D, IInteractable
 
 	[Export] private int damage = 50;
 
+	private bool hasHit = false;
+
 	public override void _Ready()
 	{
 		_collisionLayer = CollisionLayer;
 		_collisionMask = CollisionMask;
 	}
+
+    public override void _PhysicsProcess(double delta)
+    {
+        if ((delayTimer.TimeLeft < 0.4) && (!hasHit))
+		{
+			hasHit = true;
+			foreach (Node3D node in hitArea.GetOverlappingBodies())
+				{
+					GD.Print($"hit node: {node}");
+					if (node.IsInGroup("enemy"))
+					{
+						GD.Print("enemy hit");
+						if (node is Enemy enemy)
+						{
+							enemy.TakeDamage(damage);
+						}
+					}
+				}
+		}
+    }
+
 
 
 	public void OnDropped()
@@ -55,25 +78,12 @@ public partial class Axe : RigidBody3D, IInteractable
 		if (delayTimer.TimeLeft == 0)
 		{
 			delayTimer.Start();
+			hasHit = false;
 			if (!_anim.IsPlaying())
 			{
 				_anim.Play("attack2");
 			}
-			if (_anim.CurrentAnimation == "attack2")
-			{
-				foreach (Node3D node in hitArea.GetOverlappingBodies())
-				{
-					GD.Print($"hit node: {node}");
-					if (node.IsInGroup("enemy"))
-					{
-						GD.Print("enemy hit");
-						if (node is Enemy enemy)
-						{
-							enemy.TakeDamage(damage);
-						}
-					}
-				}
-			}
 		}
 	}
+
 }

@@ -6,19 +6,21 @@ public partial class Enemy : CharacterBody3D
     [Signal] public delegate void EnemyDiedEventHandler();
 
 
-    [Export] public float VisionRange = 15f;
-    [Export] public float VisionAngle = 90f;
+    [Export] public float visionRange = 15f;
+    [Export] public float visionAngle = 90f;
 
-    [Export] public int Damage = 20;
-    [Export] public float FireRate = 1f;
-    [Export] public float AttackRange = 5f;
-    [Export] public float AttackRangePercent = 10; 
+    [Export] public int damage = 20;
+    [Export] public float fireRate = 1f;
+    [Export] public float attackRange = 5f;
+    [Export] public float attackRangePercent = 10; 
 
-    [Export] public float Speed = 5f;
-    [Export] public int MaxHealth = 100;
-    [Export] public float Gravity = 9.8f;
+    [Export] public float speed = 5f;
+    [Export] public int maxHealth = 100;
+    [Export] public float gravity = 9.8f;
 
     [Export] private AnimationPlayer anim;
+
+    [Export] private GpuParticles3D spark;
 
     private int currentHealth;
     private Player player;
@@ -34,7 +36,7 @@ public partial class Enemy : CharacterBody3D
 
     public override void _Ready()
     {
-        currentHealth = MaxHealth;
+        currentHealth = maxHealth;
         player = GetTree().GetFirstNodeInGroup("player") as Player;
 
         
@@ -56,7 +58,7 @@ public partial class Enemy : CharacterBody3D
 
         if (!IsOnFloor())
         {
-            velocity.Y -= Gravity * (float)delta;
+            velocity.Y -= gravity * (float)delta;
         }
         else
         {
@@ -80,14 +82,14 @@ public partial class Enemy : CharacterBody3D
                     direction.Y = 0;
                     direction = direction.Normalized();
 
-                    float targetDistance = AttackRange * (1f - (AttackRangePercent / 100f));
+                    float targetDistance = attackRange * (1f - (attackRangePercent / 100f));
                     //GD.Print($"dis: {distance} tardis: {targetDistance}");
 
                     if (distance > targetDistance)
                     {
                         // te ver
-                        velocity.X = direction.X * Speed;
-                        velocity.Z = direction.Z * Speed;
+                        velocity.X = direction.X * speed;
+                        velocity.Z = direction.Z * speed;
                     }
                     else
                     {
@@ -114,21 +116,21 @@ public partial class Enemy : CharacterBody3D
 
     private bool CanSeePlayer(float distance)
     {
-        if (distance > VisionRange)
+        if (distance > visionRange)
             return false;
 
         Vector3 forward = -Transform.Basis.Z;
         Vector3 toPlayer = (player.GlobalPosition - GlobalPosition).Normalized();
 
         float dot = forward.Dot(toPlayer);
-        float threshold = Mathf.Cos(Mathf.DegToRad(VisionAngle / 2f));
+        float threshold = Mathf.Cos(Mathf.DegToRad(visionAngle / 2f));
 
         return dot > threshold;
     }
 
     private void HandleAttack(float delta, float distance, bool canSee)
     {
-        if (!canSee || distance > AttackRange)
+        if (!canSee || distance > attackRange)
             return;
 
         fireCooldown -= delta;
@@ -136,7 +138,7 @@ public partial class Enemy : CharacterBody3D
         if (fireCooldown <= 0f)
         {
             Attack();
-            fireCooldown = 1f / FireRate;
+            fireCooldown = 1f / fireRate;
         }
     }
 
@@ -148,8 +150,9 @@ public partial class Enemy : CharacterBody3D
         // Enemy attack anim is on player, player take damage
     }
 
-    public void TakeDamage(int dmg)
+    public virtual void TakeDamage(int dmg)
     {
+        spark.Emitting = true;
         GD.Print("Hitted!");
         currentHealth -= dmg;
 
@@ -161,7 +164,7 @@ public partial class Enemy : CharacterBody3D
     {
         float distance = GlobalPosition.DistanceTo(player.GlobalPosition);
 
-        if (distance > AttackRange)
+        if (distance > attackRange)
         {
             GD.Print("out of range");
             return;
@@ -169,7 +172,7 @@ public partial class Enemy : CharacterBody3D
 
         GD.Print("Hit!");
     
-        player.TakeDamage(Damage);
+        player.TakeDamage(damage);
     }
 
     private void Die()

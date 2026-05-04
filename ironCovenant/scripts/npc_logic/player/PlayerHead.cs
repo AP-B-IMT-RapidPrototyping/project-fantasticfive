@@ -35,7 +35,7 @@ public partial class PlayerHead : Node3D
 
 
     // Rotation
-    public float _yaw = Mathf.DegToRad(180f);
+    [Export] public float _yaw = Mathf.DegToRad(180f);
     private float _pitch;
     private float _smoothYaw;
     private float _smoothPitch;

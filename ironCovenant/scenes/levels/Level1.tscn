@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://b5ft1cj4fqov6" path="res://assets/audio/ambience/shut_up_ghost-smooth-cold-wind-looped-135538 (1).mp3" id="13_n5pya"]
 [ext_resource type="PackedScene" uid="uid://c60ymnv5l4qkj" path="res://scenes/nPC_models/default_enemy.tscn" id="14_kypp1"]
 [ext_resource type="PackedScene" uid="uid://sgckfgsygatv" path="res://assets/prototypeAssets/CeilingLights.glb" id="16_p5s5a"]
+[ext_resource type="Script" uid="uid://ceuhch32onam" path="res://scripts/enemy_scripts/Wood.cs" id="17_njy47"]
 [ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="50_6qbjw"]
 [ext_resource type="PackedScene" uid="uid://weyxyaqx4qjw" path="res://assets/prototypeAssets/street.glb" id="51_vaqq6"]
 [ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/nPC_models/items/axe.tscn" id="54_o6odm"]
@@ -27,6 +28,92 @@ disable_ambient_light = true
 disable_fog = true
 disable_specular_occlusion = true
 albedo_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+
+[sub_resource type="Animation" id="Animation_xbvxr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(82, 0, -45.130936)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainDoor/DoorR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.95, 2.2500002, 1.7458912)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TrainDoor/DoorL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.95, 2.2500002, -1.7541088)]
+}
+
+[sub_resource type="Animation" id="Animation_p5s5a"]
+resource_name = "playu"
+length = 20.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(82, 0, -45.130936), Vector3(0, 0, -45.130936)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainDoor/DoorR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 19.6, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.6500015, 2.2500002, 1.7458916), Vector3(-0.6500015, 2.2500002, 1.7458916), Vector3(-2.95, 2.25, 1.746)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TrainDoor/DoorL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.4, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.64998627, 2.2500002, -1.7541084), Vector3(-0.64998627, 2.2500002, -1.7541084), Vector3(-2.95, 2.2500002, -1.7541088)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_njy47"]
+_data = {
+&"RESET": SubResource("Animation_xbvxr"),
+&"play": SubResource("Animation_p5s5a")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6qbjw"]
 size = Vector3(8.825745, 4.4229736, 4.7604065)
@@ -72,10 +159,17 @@ volumetric_fog_emission_energy = 0.3
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ex7q"]
 size = Vector3(1, 7.4630127, 238.30295)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7nyf"]
+size = Vector3(1, 7.4630127, 179)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbvxr"]
+size = Vector3(1, 7.4630127, 41)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ijfg6"]
 size = Vector3(1, 7.4630127, 130.88873)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qbjw"]
+albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
 emission = Color(0.7397895, 1.9372628e-06, 9.62615e-07, 1)
 
@@ -93,6 +187,96 @@ EMERGENCY
 PRESS E"
 font_size = 34
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7nyf"]
+albedo_color = Color(0.6077073, 0.6077073, 0.6077073, 1)
+
+[sub_resource type="Animation" id="Animation_bspq0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:mesh:material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpotLight3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dqba7"]
+resource_name = "play"
+length = 4.0
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:light_energy")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.4, 0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:mesh:material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpotLight3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.6600001, 1.71, 1.8, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_usw5k"]
+_data = {
+&"RESET": SubResource("Animation_bspq0"),
+&"play": SubResource("Animation_dqba7")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_lha2r"]
 size = Vector3(6.8309326, 3.083685, 9.281921)
 
@@ -104,6 +288,9 @@ size = Vector3(10.048828, 8.548828, 12.865723)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kypp1"]
 size = Vector3(17.262001, 6.8134766, 25.929985)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p5s5a"]
+size = Vector3(3.183838, 2.2781982, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6owa4"]
 
@@ -467,6 +654,247 @@ _data = {
 &"flicker": SubResource("Animation_j7nyf")
 }
 
+[sub_resource type="BoxMesh" id="BoxMesh_p5s5a"]
+size = Vector3(0.135, 1.5, 0.265)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbvxr"]
+albedo_color = Color(0.5797723, 0.3209556, 0.17754802, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_njy47"]
+size = Vector3(0.135, 0.5, 0.265)
+
+[sub_resource type="Animation" id="Animation_ijfg6"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_jsker"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Woodbody1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.15214035)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Woodbody1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.13810712, 0.8275418, 0.054893494)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Woodbody2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.2867405, 1.7969418, 0.054893494)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Woodbody2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.15214035)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WoodColl:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Woodbody1:use_collision")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Woodbody2:use_collision")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6ex7q"]
+resource_name = "break"
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.9350252)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Woodbody1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.36, 0.43),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.15214035), Vector3(0, 0, 0.63325787), Vector3(0, 0, 0.585558), Vector3(0, 0, 0.63894755)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Woodbody1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.36, 0.43),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.13810712, 0.8275418, 0.054893494), Vector3(-0.20787859, 0.5722084, 0.054893494), Vector3(-0.18533301, 0.5888467, 0.054893494), Vector3(-0.21790552, 0.5648086, 0.054893494)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Woodbody2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.29996663, 0.36666667, 0.43),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.2867405, 1.7969418, 0.054893494), Vector3(-0.47516274, 1.2346637, 0.054893494), Vector3(-0.43018126, 1.2678597, 0.054893494), Vector3(-0.4637699, 1.1542966, 0.054893494)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Woodbody2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.29996663, 0.36666667, 0.43),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.15214035), Vector3(0, 0, -1.9213282), Vector3(0, 0, -2.3162613), Vector3(0, 0, -2.5123665)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WoodColl:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2823357),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Woodbody1:use_collision")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.37017345),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Woodbody2:use_collision")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.37017345),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_usw5k"]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.54, 0.6333333, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.9350252), Vector3(0, 0, 0.89709926), Vector3(0, 0, 0.9350252)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsker"]
+_data = {
+&"Idle": SubResource("Animation_ijfg6"),
+&"RESET": SubResource("Animation_jsker"),
+&"break": SubResource("Animation_6ex7q"),
+&"fall": SubResource("Animation_usw5k")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_njy47"]
+size = Vector3(0.13916016, 2.5565186, 0.2568817)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_njy47"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j7nyf"]
+
 [node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("_train", "_introAnimDoor", "spotlight", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "deathTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy", "deathLayer")]
 script = ExtResource("1_fh0io")
 _train = NodePath("Train")
@@ -508,9 +936,9 @@ shadow_enabled = true
 spot_angle = 39.17886
 
 [node name="Player" parent="." unique_id=1004373502 instance=ExtResource("1_1pwbc")]
-transform = Transform3D(-0.9999198, 0, 0.012670744, 0, 1, 0, -0.012670744, 0, -0.9999198, -0.038872957, 2.8600297, -44.30374)
+transform = Transform3D(-0.9999198, 0, 0.012670744, 0, 1, 0, -0.012670744, 0, -0.9999198, 82.36113, 2.7600298, -45.10374)
 
-[node name="Pause" parent="Player" index="0" unique_id=1074082978]
+[node name="Pause" parent="Player" index="2" unique_id=1074082978]
 visible = true
 
 [node name="Cutscene Bars" type="Node3D" parent="Player/PlayerHead/PlayerCamera" parent_id_path=PackedInt32Array(1004373502, 1820625364) index="0" unique_id=218138750]
@@ -528,19 +956,19 @@ size = Vector3(3, 1, 0.001)
 material = SubResource("StandardMaterial3D_lha2r")
 
 [node name="Camera3D" parent="Player/DebugStats/CamToPlayer/SubViewport" parent_id_path=PackedInt32Array(1004373502, 28746108) index="0" unique_id=527580327]
-transform = Transform3D(0.81486475, 0.19730139, -0.54503906, 0, 0.94028807, 0.34037957, 0.57965106, -0.2773633, 0.7662077, -1.7640212, 3.9790297, -41.856403)
+transform = Transform3D(0.81486475, 0.19730139, -0.54503906, 0, 0.94028807, 0.34037957, 0.57965106, -0.2773633, 0.7662077, 80.63598, 3.8790298, -42.656403)
 
 [node name="Train" parent="." unique_id=615132714 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)
 
-[node name="Skeleton3D" parent="Train/TestTrain/Armature" parent_id_path=PackedInt32Array(615132714, 1189408230, 638347045) index="0" unique_id=109920202]
+[node name="Skeleton3D" parent="Train/TestTrain/Armature" parent_id_path=PackedInt32Array(615132714, 1189408230, 1316773928) index="0" unique_id=921717970]
 bones/4/rotation = Quaternion(-0.49991927, 0.5000804, -0.49991983, 0.5000804)
 bones/21/rotation = Quaternion(-0.49991927, -0.5000804, 0.49991983, 0.5000804)
 
-[node name="Bone9_L" parent="Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=2141362132]
+[node name="Bone9_L" parent="Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=593331796]
 transform = Transform3D(-5.9604645e-07, 5.66244e-07, 0.99999994, -1, 0.0003216862, -5.6624407e-07, -0.00032171607, -0.9999998, 5.3644175e-07, -1.2495898, 0.8614147, 0.2831316)
 
-[node name="Bone9_R" parent="Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=69373672]
+[node name="Bone9_R" parent="Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=60272669]
 transform = Transform3D(-5.9604645e-07, -5.66244e-07, -0.99999994, 1, 0.0003216862, -5.6624407e-07, 0.00032171607, -0.9999998, 5.3644175e-07, 1.2495898, 0.8614147, 0.2831316)
 
 [node name="TrainSpotlight" parent="Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player")]
@@ -552,6 +980,10 @@ light_volumetric_fog_energy = 1.103
 [node name="ShaderRect" parent="Train/CanvasLayer" parent_id_path=PackedInt32Array(615132714, 1079546955) index="0" unique_id=727015593]
 modulate = Color(1, 1, 1, 0.3019608)
 self_modulate = Color(1, 1, 1, 0.2)
+
+[node name="TrainIntro" type="AnimationPlayer" parent="Train" unique_id=690494881]
+libraries/ = SubResource("AnimationLibrary_njy47")
+autoplay = &"play"
 
 [node name="Environment" type="Node3D" parent="." unique_id=1323152187]
 
@@ -682,7 +1114,7 @@ spot_angle = 39.17886
 [node name="Floodlight2" parent="Environment" unique_id=1074300691 instance=ExtResource("9_ukjja")]
 transform = Transform3D(-0.20349151, 0, 0.6697696, 0, 0.70000005, 0, -0.6697696, 0, -0.20349151, -3.0888424, 1.1749083, 77.01668)
 
-[node name="Cube" parent="Environment/Floodlight2" index="3" unique_id=673259293]
+[node name="Cube" parent="Environment/Floodlight2" index="3" unique_id=861849066]
 transform = Transform3D(0.12806384, 0.012045763, -0.0010967404, -0.012093428, 0.12773407, -0.00918761, 0.00022870675, 0.009250008, 0.12830056, 0.0051498413, 1.2377564, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environment/Floodlight2/Cube" index="0" unique_id=1198016125]
@@ -702,8 +1134,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.426315, 3.573995, 18.0762
 shape = SubResource("BoxShape3D_6ex7q")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1130885752]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.143074, 3.573995, 18.076223)
-shape = SubResource("BoxShape3D_6ex7q")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.143074, 3.573995, 47.7277)
+shape = SubResource("BoxShape3D_j7nyf")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1013249036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.143074, 3.573995, -69.27231)
+shape = SubResource("BoxShape3D_xbvxr")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" unique_id=228900683]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 72.143074, 3.573995, -49.27231)
+shape = SubResource("BoxShape3D_xbvxr")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D" unique_id=378977129]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 72.143074, 3.573995, -41.27231)
+shape = SubResource("BoxShape3D_xbvxr")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D" unique_id=439101064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.143074, 3.573995, -45.27231)
+shape = SubResource("BoxShape3D_xbvxr")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1013717708]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.2727585, 3.573995, -84.85531)
@@ -720,19 +1168,32 @@ unit_size = 45.41
 
 [node name="Axe stuff" type="Node3D" parent="." unique_id=721326152]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axe stuff" unique_id=750415844]
+[node name="emergency" type="MeshInstance3D" parent="Axe stuff" unique_id=750415844]
 transform = Transform3D(0.669197, 0, 0, 0, 0.40667582, 0, 0, 0, 0.17817444, -7.5771265, 1.9994495, 77.41729)
 mesh = SubResource("BoxMesh_o6odm")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axe stuff/MeshInstance3D" unique_id=1728603470]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axe stuff/emergency" unique_id=1728603470]
 transform = Transform3D(-0.45679852, 0, 8.74228e-08, 0, 0.65102583, 0, -3.9934598e-08, 0, -1.0000001, 0, 0, -0.49649048)
 mesh = SubResource("TextMesh_f2qns")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Axe stuff/MeshInstance3D" unique_id=1759437286]
-transform = Transform3D(1, 0, 0, 0, -0.9995607, 0.029636724, 0, -0.029636724, -0.9995607, 0, -1.6076388, -7.223175)
+[node name="SpotLight3D" type="SpotLight3D" parent="Axe stuff/emergency" unique_id=1759437286]
+transform = Transform3D(1, 0, 0, 0, -0.13963062, 0.9902037, 0, -0.9902037, -0.13963062, 0, 0.2031908, -4.1367188)
 light_color = Color(1, 0, 0, 1)
-light_volumetric_fog_energy = 6.778
+light_volumetric_fog_energy = 7.178
 shadow_enabled = true
+spot_range = 2.335
+spot_attenuation = 0.9
+spot_angle = 49.75
+spot_angle_attenuation = 0.36602294
+
+[node name="lightwall" type="CSGBox3D" parent="Axe stuff/emergency" unique_id=1852938579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -3.804719, -1.67297, 0.45526123)
+size = Vector3(22.045227, 6.8271484, 1)
+material = SubResource("StandardMaterial3D_j7nyf")
+
+[node name="EmergencyAnim" type="AnimationPlayer" parent="Axe stuff/emergency" unique_id=602343751]
+libraries/ = SubResource("AnimationLibrary_usw5k")
+autoplay = &"play"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Axe stuff" unique_id=928920908]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.169056, 3.10658, 76.01473)
@@ -777,6 +1238,14 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/station" unique_id=384822305]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5643349, 2.9067383, 3.5144882)
 shape = SubResource("BoxShape3D_kypp1")
+
+[node name="WoodArea" type="Area3D" parent="Areas" unique_id=1268837049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6792893, 0, 76.343735)
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/WoodArea" unique_id=1010910341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4407959, 0.9209933, 0)
+shape = SubResource("BoxShape3D_p5s5a")
 
 [node name="Station_scene" parent="." unique_id=599469948 instance=ExtResource("12_6owa4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3376875, -0.07207966, 71.21851)
@@ -841,10 +1310,10 @@ AttackRange = 2.0
 [node name="CeilingLights" parent="." unique_id=116336728 instance=ExtResource("16_p5s5a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.366889, 2.8712888, 69.54774)
 
-[node name="Cube" parent="CeilingLights" index="0" unique_id=1909041610]
+[node name="Cube" parent="CeilingLights" index="0" unique_id=1763625376]
 material_override = SubResource("StandardMaterial3D_njy47")
 
-[node name="Cube_001" parent="CeilingLights" index="1" unique_id=1852772999]
+[node name="Cube_001" parent="CeilingLights" index="1" unique_id=1892938662]
 material_override = SubResource("StandardMaterial3D_p5s5a")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CeilingLights" unique_id=1287182832]
@@ -857,10 +1326,10 @@ autoplay = &"flicker"
 [node name="CeilingLights2" parent="." unique_id=1742133937 instance=ExtResource("16_p5s5a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.907755, 2.8712888, 69.54774)
 
-[node name="Cube" parent="CeilingLights2" index="0" unique_id=1909041610]
+[node name="Cube" parent="CeilingLights2" index="0" unique_id=1763625376]
 material_override = SubResource("StandardMaterial3D_njy47")
 
-[node name="Cube_001" parent="CeilingLights2" index="1" unique_id=1852772999]
+[node name="Cube_001" parent="CeilingLights2" index="1" unique_id=1892938662]
 material_override = SubResource("StandardMaterial3D_p5s5a")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CeilingLights2" unique_id=136456023]
@@ -872,10 +1341,43 @@ light_energy = 3.095
 shadow_enabled = true
 spot_angle = 33.975185
 
+[node name="Wood" type="CharacterBody3D" parent="." unique_id=1709337570 node_paths=PackedStringArray("woodAnim", "anim", "spark") groups=["enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7909703, 0, 75.01892)
+collision_layer = 16
+script = ExtResource("17_njy47")
+woodAnim = NodePath("WoodAnim")
+anim = NodePath("WoodAnim")
+spark = NodePath("FakeParticles")
+
+[node name="Woodbody1" type="CSGMesh3D" parent="Wood" unique_id=1205956187]
+transform = Transform3D(0.9884491, 0.15155412, 0, -0.15155412, 0.9884491, 0, 0, 0, 1, 0.13810712, 0.8275418, 0.054893494)
+use_collision = true
+mesh = SubResource("BoxMesh_p5s5a")
+material = SubResource("StandardMaterial3D_xbvxr")
+
+[node name="Woodbody2" type="CSGMesh3D" parent="Wood" unique_id=1268176816]
+transform = Transform3D(0.98844945, 0.15155418, 0, -0.15155418, 0.98844945, 0, 0, 0, 1, 0.2867405, 1.7969418, 0.054893494)
+use_collision = true
+mesh = SubResource("BoxMesh_njy47")
+material = SubResource("StandardMaterial3D_xbvxr")
+
+[node name="WoodAnim" type="AnimationPlayer" parent="Wood" unique_id=1998834550]
+libraries/ = SubResource("AnimationLibrary_jsker")
+
+[node name="WoodColl" type="CollisionShape3D" parent="Wood" unique_id=346777345]
+transform = Transform3D(0.98891485, 0.14848247, 0, -0.14848247, 0.98891485, 0, 0, 0, 1, 0.13524985, 0.7780428, 0.07120514)
+shape = SubResource("BoxShape3D_njy47")
+
+[node name="FakeParticles" type="GPUParticles3D" parent="Wood" unique_id=865702880]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_njy47")
+draw_pass_1 = SubResource("CylinderMesh_j7nyf")
+
 [connection signal="body_entered" from="Areas/SpotlightArea" to="." method="on_body_entered_spotlightArea"]
 [connection signal="body_entered" from="Areas/ChaseArea" to="." method="on_body_entered_chaseArea"]
 [connection signal="body_entered" from="Areas/station" to="." method="on_body_entered_station"]
 [connection signal="body_exited" from="Areas/station" to="." method="on_body_exit_station"]
+[connection signal="body_entered" from="Areas/WoodArea" to="Wood" method="on_body_entered_wood"]
 [connection signal="body_entered" from="ChaseStuff/EvilCube/DeathArea" to="." method="on_body_entered_deathArea"]
 [connection signal="EnemyDied" from="defaultEnemy" to="." method="On_Enemy_Died"]
 

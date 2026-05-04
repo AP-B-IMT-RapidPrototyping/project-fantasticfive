@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cba8f8yol756t"]
 
+[ext_resource type="Script" uid="uid://bl3h8twpp717t" path="res://scripts/scene_scripts/Level2.cs" id="1_1xtnv"]
 [ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="1_uw6xe"]
+[ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="2_oblk4"]
+[ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="3_a3cud"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oblk4"]
-albedo_color = Color(0.11127845, 0.15021288, 0.10676446, 1)
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uw6xe"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oblk4"]
 sky_top_color = Color(0.045755774, 0.06657307, 0.09292682, 1)
 sky_horizon_color = Color(0.06512584, 0.07988768, 0.22412953, 1)
 sky_energy_multiplier = 1.85
@@ -13,12 +13,12 @@ ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0, 0, 0, 1)
 energy_multiplier = 0.0
 
-[sub_resource type="Sky" id="Sky_5lmob"]
-sky_material = SubResource("ProceduralSkyMaterial_uw6xe")
+[sub_resource type="Sky" id="Sky_6owa4"]
+sky_material = SubResource("ProceduralSkyMaterial_oblk4")
 
-[sub_resource type="Environment" id="Environment_oblk4"]
+[sub_resource type="Environment" id="Environment_a3cud"]
 background_mode = 2
-sky = SubResource("Sky_5lmob")
+sky = SubResource("Sky_6owa4")
 tonemap_mode = 3
 sdfgi_energy = 0.39
 glow_enabled = true
@@ -30,6 +30,95 @@ volumetric_fog_enabled = true
 volumetric_fog_emission = Color(0.20653868, 0.24313423, 0.25286314, 1)
 volumetric_fog_emission_energy = 0.3
 
+[sub_resource type="Animation" id="Animation_xbvxr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(82, 0, -45.130936)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainDoor/DoorR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.95, 2.2500002, 1.7458912)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TrainDoor/DoorL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.95, 2.2500002, -1.7541088)]
+}
+
+[sub_resource type="Animation" id="Animation_p5s5a"]
+resource_name = "playu"
+length = 20.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(82, -1.214, -45.131), Vector3(0, -1.214, -45.131)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainDoor/DoorR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 19.6, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.6500015, 2.2500002, 1.7458916), Vector3(-0.6500015, 2.2500002, 1.7458916), Vector3(-2.95, 2.25, 1.746)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TrainDoor/DoorL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.4, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.64998627, 2.2500002, -1.7541084), Vector3(-0.64998627, 2.2500002, -1.7541084), Vector3(-2.95, 2.2500002, -1.7541088)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oblk4"]
+_data = {
+&"RESET": SubResource("Animation_xbvxr"),
+&"play": SubResource("Animation_p5s5a")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oblk4"]
+albedo_color = Color(0.11127845, 0.15021288, 0.10676446, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uw6xe"]
 metallic = 1.0
 metallic_specular = 1.0
@@ -39,204 +128,265 @@ roughness = 0.4
 emission_enabled = true
 emission = Color(1, 1, 0, 1)
 
-[node name="Level2" type="Node3D" unique_id=646259433]
+[sub_resource type="BoxMesh" id="BoxMesh_a3cud"]
+size = Vector3(15.18, 5.995, 1)
 
-[node name="Floor" type="CSGBox3D" parent="." unique_id=595687775 groups=["sound_grass"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.340027, -0.5, 19.522675)
-use_collision = true
-collision_mask = 0
-size = Vector3(160.28748, 1, 241.69409)
-material = SubResource("StandardMaterial3D_oblk4")
+[node name="Level2" type="Node3D" unique_id=646259433 node_paths=PackedStringArray("spotlight")]
+script = ExtResource("1_1xtnv")
+spotlight = NodePath("Entities/Train/TrainSpotlight")
 
-[node name="Player" parent="." unique_id=746536559 instance=ExtResource("1_uw6xe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2097955, 0)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=711760419]
+environment = SubResource("Environment_a3cud")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=629910560]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1965036046]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 light_color = Color(0.49706316, 0.585892, 0.6700323, 1)
 light_energy = 0.316
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1286778488]
-environment = SubResource("Environment_oblk4")
+[node name="Entities" type="Node3D" parent="." unique_id=2002145011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2097955, 0)
 
-[node name="Parkour" type="Node3D" parent="." unique_id=211249069]
-transform = Transform3D(0.7071068, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.7071068, -1, -0.5, 20)
+[node name="Player" parent="Entities" unique_id=746536559 instance=ExtResource("1_uw6xe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.46555, 2.9250855, -44.940956)
 
-[node name="Pillar1" type="CSGBox3D" parent="Parkour" unique_id=56657116]
+[node name="Train" parent="Entities" unique_id=615132714 instance=ExtResource("2_oblk4")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 82, 0, -45.130936)
+
+[node name="TrainSpotlight" parent="Entities/Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[node name="SpotLight3D" parent="Entities/Train/TrainSpotlight" index="4" unique_id=538811013]
+light_volumetric_fog_energy = 1.103
+
+[node name="TrainIntro" type="AnimationPlayer" parent="Entities/Train" unique_id=1501386876]
+libraries/ = SubResource("AnimationLibrary_oblk4")
+autoplay = &"play"
+
+[node name="Environment" type="Node3D" parent="." unique_id=742158180]
+
+[node name="Floor" type="CSGBox3D" parent="Environment" unique_id=595687775 groups=["sound_grass"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.43814, -0.5, 19.522675)
+use_collision = true
+collision_mask = 0
+size = Vector3(188.4837, 1, 241.69409)
+material = SubResource("StandardMaterial3D_oblk4")
+
+[node name="Rails" type="Node3D" parent="Environment" unique_id=912831016]
+
+[node name="Rails" parent="Environment/Rails" unique_id=1340875580 instance=ExtResource("3_a3cud")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -45.212723)
+
+[node name="Rails4" parent="Environment/Rails" unique_id=1470710588 instance=ExtResource("3_a3cud")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26.47519, 0, -45.212723)
+
+[node name="Rails5" parent="Environment/Rails" unique_id=1914461347 instance=ExtResource("3_a3cud")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 52.917446, 0, -45.212723)
+
+[node name="Rails2" parent="Environment/Rails" unique_id=1216018553 instance=ExtResource("3_a3cud")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.679623, 0, -45.212723)
+
+[node name="Rails3" parent="Environment/Rails" unique_id=580101877 instance=ExtResource("3_a3cud")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -53.19617, 0, -45.212723)
+
+[node name="Parkour" type="Node3D" parent="Environment" unique_id=211249069]
+transform = Transform3D(0.7071068, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.7071068, 26.910568, -0.5, 38.995277)
+
+[node name="Pillar1" type="CSGBox3D" parent="Environment/Parkour" unique_id=56657116]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 2)
 use_collision = true
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar2" type="CSGBox3D" parent="Parkour" unique_id=1769171934]
+[node name="Pillar2" type="CSGBox3D" parent="Environment/Parkour" unique_id=1769171934]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.5, 0)
 use_collision = true
 size = Vector3(1, 2, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar3" type="CSGBox3D" parent="Parkour" unique_id=1756697328]
+[node name="Pillar3" type="CSGBox3D" parent="Environment/Parkour" unique_id=1756697328]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, 3)
 use_collision = true
 size = Vector3(1, 2, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar4" type="CSGBox3D" parent="Parkour" unique_id=813211140]
+[node name="Pillar4" type="CSGBox3D" parent="Environment/Parkour" unique_id=813211140]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 1)
 use_collision = true
 size = Vector3(1, 3, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar5" type="CSGBox3D" parent="Parkour" unique_id=356240344]
+[node name="Pillar5" type="CSGBox3D" parent="Environment/Parkour" unique_id=356240344]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 3)
 use_collision = true
 size = Vector3(1, 4, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar6" type="CSGBox3D" parent="Parkour" unique_id=350925848]
+[node name="Pillar6" type="CSGBox3D" parent="Environment/Parkour" unique_id=350925848]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.5, 5)
 use_collision = true
 size = Vector3(1, 4, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar7" type="CSGBox3D" parent="Parkour" unique_id=1766328780]
+[node name="Pillar7" type="CSGBox3D" parent="Environment/Parkour" unique_id=1766328780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 7)
 use_collision = true
 size = Vector3(1, 4, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar8" type="CSGBox3D" parent="Parkour" unique_id=300679042]
+[node name="Pillar8" type="CSGBox3D" parent="Environment/Parkour" unique_id=300679042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.5, 8)
 use_collision = true
 size = Vector3(1, 4, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar9" type="CSGBox3D" parent="Parkour" unique_id=782466601]
+[node name="Pillar9" type="CSGBox3D" parent="Environment/Parkour" unique_id=782466601]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, 8)
 use_collision = true
 size = Vector3(1, 5, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar10" type="CSGBox3D" parent="Parkour" unique_id=2103546878]
+[node name="Pillar10" type="CSGBox3D" parent="Environment/Parkour" unique_id=2103546878]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3.5, 9)
 use_collision = true
 size = Vector3(1, 6, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar11" type="CSGBox3D" parent="Parkour" unique_id=1571990106]
+[node name="Pillar11" type="CSGBox3D" parent="Environment/Parkour" unique_id=1571990106]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3.5, 7)
 use_collision = true
 size = Vector3(1, 6, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar12" type="CSGBox3D" parent="Parkour" unique_id=1923407599]
+[node name="Pillar12" type="CSGBox3D" parent="Environment/Parkour" unique_id=1923407599]
 transform = Transform3D(0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, 0, 0, 0, 1, -2.3000011, 4.5, 7)
 use_collision = true
 size = Vector3(1, 8, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar13" type="CSGBox3D" parent="Parkour" unique_id=663137695]
+[node name="Pillar13" type="CSGBox3D" parent="Environment/Parkour" unique_id=663137695]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 7)
 use_collision = true
 size = Vector3(1, 7, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar14" type="CSGBox3D" parent="Parkour" unique_id=1118586039]
+[node name="Pillar14" type="CSGBox3D" parent="Environment/Parkour" unique_id=1118586039]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 5, 10)
 use_collision = true
 size = Vector3(1, 9, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar15" type="CSGBox3D" parent="Parkour" unique_id=436409223]
+[node name="Pillar15" type="CSGBox3D" parent="Environment/Parkour" unique_id=436409223]
 transform = Transform3D(0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 0, 0, 1, 3, 5.5, 10)
 use_collision = true
 size = Vector3(1, 10, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar21" type="CSGBox3D" parent="Parkour" unique_id=2037989334]
+[node name="Pillar21" type="CSGBox3D" parent="Environment/Parkour" unique_id=2037989334]
 transform = Transform3D(0.96592593, -0.25881907, 0, 0.25881907, 0.96592593, 0, 0, 0, 1, 4.3999996, 3.9999998, 10)
 use_collision = true
 size = Vector3(1, 7, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar22" type="CSGBox3D" parent="Parkour" unique_id=1067926739]
+[node name="Pillar22" type="CSGBox3D" parent="Environment/Parkour" unique_id=1067926739]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3999996, 5, 10)
 use_collision = true
 size = Vector3(1, 9, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar30" type="CSGBox3D" parent="Parkour" unique_id=1404711555]
+[node name="Pillar30" type="CSGBox3D" parent="Environment/Parkour" unique_id=1404711555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3999996, 4.5, 11)
 use_collision = true
 size = Vector3(1, 8, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar29" type="CSGBox3D" parent="Parkour" unique_id=142223042]
+[node name="Pillar29" type="CSGBox3D" parent="Environment/Parkour" unique_id=142223042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3999996, 5.5, 11)
 use_collision = true
 size = Vector3(1, 10, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar23" type="CSGBox3D" parent="Parkour" unique_id=847814249]
+[node name="Pillar23" type="CSGBox3D" parent="Environment/Parkour" unique_id=847814249]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3999996, 8, 11)
 use_collision = true
 size = Vector3(1, 15, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar24" type="CSGBox3D" parent="Parkour" unique_id=1326869783]
+[node name="Pillar24" type="CSGBox3D" parent="Environment/Parkour" unique_id=1326869783]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3999996, 6, 12)
 use_collision = true
 size = Vector3(1, 11, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar26" type="CSGBox3D" parent="Parkour" unique_id=1962895429]
+[node name="Pillar26" type="CSGBox3D" parent="Environment/Parkour" unique_id=1962895429]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3999996, 6.5, 13)
 use_collision = true
 size = Vector3(1, 12, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar27" type="CSGBox3D" parent="Parkour" unique_id=1712070848]
+[node name="Pillar27" type="CSGBox3D" parent="Environment/Parkour" unique_id=1712070848]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3999996, 7, 16)
 use_collision = true
 size = Vector3(1, 13, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar28" type="CSGBox3D" parent="Parkour" unique_id=334635249]
+[node name="Pillar28" type="CSGBox3D" parent="Environment/Parkour" unique_id=334635249]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4, 7.5, 13)
 use_collision = true
 size = Vector3(1, 14, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar25" type="CSGBox3D" parent="Parkour" unique_id=77655224]
+[node name="Pillar25" type="CSGBox3D" parent="Environment/Parkour" unique_id=77655224]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3999996, 8.5, 13)
 use_collision = true
 size = Vector3(1, 16, 1)
 material = SubResource("StandardMaterial3D_a3cud")
 
-[node name="Pillar16" type="CSGBox3D" parent="Parkour" unique_id=2605332]
+[node name="Pillar16" type="CSGBox3D" parent="Environment/Parkour" unique_id=2605332]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 2.2999992, 2.4999995, 10)
 use_collision = true
 size = Vector3(1, 4, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar20" type="CSGBox3D" parent="Parkour" unique_id=658100295]
+[node name="Pillar20" type="CSGBox3D" parent="Environment/Parkour" unique_id=658100295]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0.29999924, 2.9999995, 8)
 use_collision = true
 size = Vector3(1, 5, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar17" type="CSGBox3D" parent="Parkour" unique_id=2069073152]
+[node name="Pillar17" type="CSGBox3D" parent="Environment/Parkour" unique_id=2069073152]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0.5, 0.9999993, 13)
 use_collision = true
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar18" type="CSGBox3D" parent="Parkour" unique_id=660402802]
+[node name="Pillar18" type="CSGBox3D" parent="Environment/Parkour" unique_id=660402802]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, -1, 1.4999993, 11)
 use_collision = true
 size = Vector3(1, 2, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
 
-[node name="Pillar19" type="CSGBox3D" parent="Parkour" unique_id=477880282]
+[node name="Pillar19" type="CSGBox3D" parent="Environment/Parkour" unique_id=477880282]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 2, 1.9999993, 13)
 use_collision = true
 size = Vector3(1, 3, 1)
 material = SubResource("StandardMaterial3D_uw6xe")
+
+[node name="Light Mechanic" type="Node3D" parent="Environment" unique_id=1272402725]
+
+[node name="Borther" type="CSGMesh3D" parent="Environment/Light Mechanic" unique_id=583442112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0389547, 2.9611208, -2.9865608)
+use_collision = true
+mesh = SubResource("BoxMesh_a3cud")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Environment/Light Mechanic" unique_id=1766746438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.91024, 2.9611208, -2.9865608)
+use_collision = true
+mesh = SubResource("BoxMesh_a3cud")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Environment/Light Mechanic" unique_id=992120931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.869398, 2.9611208, -2.9865608)
+use_collision = true
+mesh = SubResource("BoxMesh_a3cud")
+
+[editable path="Entities/Train"]
+[editable path="Entities/Train/TestTrain"]
+[editable path="Entities/Train/TrainSpotlight"]

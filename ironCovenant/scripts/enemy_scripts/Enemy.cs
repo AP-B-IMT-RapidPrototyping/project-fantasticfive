@@ -159,8 +159,16 @@ public partial class Enemy : CharacterBody3D
 
     public void DealDamage()
     {
-        GD.Print("Player Damaged");
-        if ()
+        float distance = GlobalPosition.DistanceTo(player.GlobalPosition);
+
+        if (distance > AttackRange)
+        {
+            GD.Print("out of range");
+            return;
+        }
+
+        GD.Print("Hit!");
+    
         player.TakeDamage(Damage);
     }
 

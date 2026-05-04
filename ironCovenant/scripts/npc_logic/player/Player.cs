@@ -201,7 +201,7 @@ public partial class Player : CharacterBody3D
     private void HandleNoclip(float delta, Vector2 inputDir) //! TURN OFF WHEN RELEASE BUILD
     {
         float vertical = 0f;
-
+        
         if (Input.IsActionPressed("jump")) vertical += 1f;
         if (Input.IsActionPressed("crouch")) vertical -= 1f;
 

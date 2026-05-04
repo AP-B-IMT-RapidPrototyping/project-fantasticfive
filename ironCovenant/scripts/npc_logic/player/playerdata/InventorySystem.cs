@@ -7,10 +7,10 @@ public partial class InventorySystem : Node
     [Signal] public delegate void InventoryUpdatedEventHandler();
 
     public PlayerInteract playerInteract;
-    private Node3D previousHeldItemNode = null;
-    private ItemData previousHeldItemData = null;
 
     public static InventorySystem Inventory { get; private set; }
+
+    public ItemData previousHeldItemData { get; set; } = null;
 
     private Dictionary<ItemData, int> _inventory = new();
     public Dictionary<ItemData, int> GetItems() => _inventory;
@@ -26,12 +26,6 @@ public partial class InventorySystem : Node
         if (Inventory == null)
         {
             Inventory = this;
-            previousHeldItemNode = playerInteract._heldItemNode;
-            previousHeldItemData = playerInteract._heldItemData;
-            System.Console.WriteLine($"PREVIOUS OVERWRITTEN: {previousHeldItemNode} = {playerInteract._heldItemNode}");
-            System.Console.WriteLine($"PREVIOUS OVERWRITTEN: {previousHeldItemData} = {playerInteract._heldItemData}");
-            playerInteract._heldItemNode = previousHeldItemNode;
-            playerInteract._heldItemData = previousHeldItemData;
         }
         else if (Inventory != this)
         {

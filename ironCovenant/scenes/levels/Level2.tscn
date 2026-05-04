@@ -148,6 +148,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2097955, 0)
 
 [node name="Player" parent="Entities" unique_id=746536559 instance=ExtResource("1_uw6xe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.46555, 2.9250855, -44.940956)
 
 [node name="Train" parent="Entities" unique_id=615132714 instance=ExtResource("2_oblk4")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 82, 0, -45.130936)
@@ -165,10 +166,10 @@ autoplay = &"play"
 [node name="Environment" type="Node3D" parent="." unique_id=742158180]
 
 [node name="Floor" type="CSGBox3D" parent="Environment" unique_id=595687775 groups=["sound_grass"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.340027, -0.5, 19.522675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.43814, -0.5, 19.522675)
 use_collision = true
 collision_mask = 0
-size = Vector3(160.28748, 1, 241.69409)
+size = Vector3(188.4837, 1, 241.69409)
 material = SubResource("StandardMaterial3D_oblk4")
 
 [node name="Rails" type="Node3D" parent="Environment" unique_id=912831016]
@@ -372,17 +373,17 @@ material = SubResource("StandardMaterial3D_uw6xe")
 [node name="Light Mechanic" type="Node3D" parent="Environment" unique_id=1272402725]
 
 [node name="Borther" type="CSGMesh3D" parent="Environment/Light Mechanic" unique_id=583442112]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.277839, 2.9611208, 14.335081)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0389547, 2.9611208, -2.9865608)
 use_collision = true
 mesh = SubResource("BoxMesh_a3cud")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="Environment/Light Mechanic" unique_id=1766746438]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.593446, 2.9611208, 14.335081)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.91024, 2.9611208, -2.9865608)
 use_collision = true
 mesh = SubResource("BoxMesh_a3cud")
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="Environment/Light Mechanic" unique_id=992120931]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.186192, 2.9611208, 14.335081)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.869398, 2.9611208, -2.9865608)
 use_collision = true
 mesh = SubResource("BoxMesh_a3cud")
 

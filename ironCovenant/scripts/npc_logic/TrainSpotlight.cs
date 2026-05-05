@@ -13,12 +13,12 @@ public partial class TrainSpotlight : Node3D
 	[Export] private ShapeCast3D shapeCast;
 
 	[Export] private ShaderMaterial _shader;
-	[Export] private ColorRect _shaderRect;
+	[Export] private TextureRect _shaderRect;
 
 	[Export] private AudioStreamPlayer geigerMeter;
 
 	public double intensity = 0;
-	private double baseIntensity = .97;
+	private double baseIntensity = .99;
 	private bool beingRadiated = false;
 	public bool canRadiate = false;
 

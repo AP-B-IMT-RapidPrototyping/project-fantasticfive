@@ -26,6 +26,11 @@ top_radius = 0.1
 bottom_radius = 0.1
 height = 148.695
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_31nt6"]
+top_radius = 0.06
+bottom_radius = 0.06
+height = 166.565
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ie6wu"]
 size = Vector3(9.365921, 4.4750977, 3.6776428)
 
@@ -231,15 +236,16 @@ transform = Transform3D(0.0003361702, -0.011998981, 0.9999279, -0.9999988, 0.001
 [node name="AnimationPlayer" parent="TestTrain" index="24" unique_id=1406773743]
 autoplay = &"move_001"
 
-[node name="TrainSpotlight" parent="." unique_id=1474622944 node_paths=PackedStringArray("visionTimer", "bufferTimer", "radiationTick", "shapeCast", "shapeCastTurnPoint", "spotlightArea", "_shaderRect", "geigerMeter") instance=ExtResource("2_ie6wu")]
+[node name="TrainSpotlight" parent="." unique_id=1474622944 node_paths=PackedStringArray("visionTimer", "bufferTimer", "radiationTick", "spotCast", "spotCastTurnPoint", "spotlightArea", "energyCast", "_shaderRect", "geigerMeter") instance=ExtResource("2_ie6wu")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 5.4124975, 0)
 script = ExtResource("3_fjli7")
 visionTimer = NodePath("../VisionTimer")
 bufferTimer = NodePath("../BufferTimer")
 radiationTick = NodePath("../RadiationTick")
-shapeCast = NodePath("../TrainShapeCast/ShapeCast3D")
-shapeCastTurnPoint = NodePath("../TrainShapeCast")
+spotCast = NodePath("../TrainShapeCast/ShapeCast3D")
+spotCastTurnPoint = NodePath("../TrainShapeCast")
 spotlightArea = NodePath("SpotlightArea")
+energyCast = NodePath("../EnergyCast")
 _shader = ExtResource("5_5kvja")
 _shaderRect = NodePath("../CanvasLayer/ShaderRect")
 geigerMeter = NodePath("../StaticSound")
@@ -260,7 +266,7 @@ spot_angle = 15.0
 [node name="SpotlightArea" type="Area3D" parent="TrainSpotlight" unique_id=70150208]
 transform = Transform3D(1, 0, 0, 0, 0.9740511, 0.22632831, 0, -0.22632831, 0.9740511, 0, 2.1625423, 0)
 visible = false
-collision_mask = 8
+collision_mask = 40
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrainSpotlight/SpotlightArea" unique_id=1799262683]
 transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -1, 0, 1, -4.3711392e-08, 0, -0.064528465, -120.37227)
@@ -278,6 +284,16 @@ collision_mask = 9
 transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, 1, 0, -1, -4.3711392e-08, 0, 0.118524075, -74.67848)
 visible = false
 mesh = SubResource("CylinderMesh_0ni18")
+
+[node name="EnergyCast" type="RayCast3D" parent="." unique_id=475534566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4482193, 0)
+target_position = Vector3(0, -1, -240)
+collision_mask = 32
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnergyCast" unique_id=401935087]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.032592773, -83.25653)
+visible = false
+mesh = SubResource("CylinderMesh_31nt6")
 
 [node name="VisionTimer" type="Timer" parent="." unique_id=640714585]
 autostart = true

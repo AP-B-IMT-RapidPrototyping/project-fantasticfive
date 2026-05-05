@@ -31,7 +31,6 @@ InventorySystem="*uid://chw2phh0x5dhj"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-window/vsync/vsync_mode=0
 
 [dotnet]
 
@@ -166,7 +165,7 @@ toggleLight={
 3d_physics/layer_3="Entity"
 3d_physics/layer_4="Player"
 3d_physics/layer_5="Enemy"
-3d_physics/layer_6="Train"
+3d_physics/layer_6="Panel"
 
 [physics]
 

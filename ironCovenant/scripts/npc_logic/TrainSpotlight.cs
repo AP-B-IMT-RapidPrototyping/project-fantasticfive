@@ -10,9 +10,11 @@ public partial class TrainSpotlight : Node3D
 	[Export] private Timer visionTimer;
 	[Export] private Timer bufferTimer;
 	[Export] private Timer radiationTick;
-	[Export] private ShapeCast3D shapeCast;
-	[Export] private Node3D shapeCastTurnPoint;
+	[Export] private ShapeCast3D spotCast;
+	[Export] private Node3D spotCastTurnPoint;
 	[Export] private Area3D spotlightArea;
+
+	[Export] private RayCast3D energyCast; 
 
 	[Export] private ShaderMaterial _shader;
 	[Export] private TextureRect _shaderRect;
@@ -25,7 +27,7 @@ public partial class TrainSpotlight : Node3D
 	public bool canRadiate = false;
 	private bool followPlayer = true;
 
-	private bool shapeCastCheck = false;
+	private bool spotCastCheck = false;
 	private bool coneCheck = false;
 
 	public override void _Ready()
@@ -52,7 +54,7 @@ public partial class TrainSpotlight : Node3D
 				LookAt(playerLocation);	
 			}
 
-			shapeCastTurnPoint.LookAt(playerLocation);
+			spotCastTurnPoint.LookAt(playerLocation);
 		}
 
 		if (Input.IsActionJustPressed("toggleLight"))
@@ -68,24 +70,23 @@ public partial class TrainSpotlight : Node3D
 
 	private void CheckVision()
 	{
+		var overlaps = spotlightArea.GetOverlappingBodies();
 		if (canRadiate)
 		{
-
-
 			//player before or behind an object
-			shapeCast.ForceShapecastUpdate();
-			if (shapeCast.IsColliding())
+			spotCast.ForceShapecastUpdate();
+			if (spotCast.IsColliding())
 			{
-				GD.Print("ShapeCast is colliding");
+				//GD.Print("ShapeCast is colliding");
 				// Maak een lijst van de colliders en sorteer ze in de array op volgorde van afstand tov origin
 				var results = new List<(GodotObject collider, float distance)>();
 				Node3D _originNode = GetParent() as Node3D;
 				Vector3 _origin = _originNode.GlobalPosition;
 
-				for (int i = 0; i < shapeCast.GetCollisionCount(); i++)
+				for (int i = 0; i < spotCast.GetCollisionCount(); i++)
 				{
-					var collider = shapeCast.GetCollider(i);
-					Vector3 point = shapeCast.GetCollisionPoint(i);
+					var collider = spotCast.GetCollider(i);
+					Vector3 point = spotCast.GetCollisionPoint(i);
 
 					float dist = _origin.DistanceTo(point);
 
@@ -101,7 +102,7 @@ public partial class TrainSpotlight : Node3D
 				{
 					if (node.Name == "Floor")
 					{
-						GD.Print("First node is floor");
+						//GD.Print("First node is floor");
 						checkIndex++;
 					}
 				}
@@ -112,13 +113,13 @@ public partial class TrainSpotlight : Node3D
 					{
 						if (node2.Name == "Train" || node2.Name == "DoorL" || node2.Name == "DoorR" || node2.Name == "backwallSafety")
 						{
-							GD.Print("First node is train");
+							//GD.Print("First node is train");
 							checkIndex++;
 						}
 					}
 				} catch
 				{
-					GD.Print("There wasn't a second collider");
+					//GD.Print("There wasn't a second collider");
 				}
 
 				//Controlleer of de dichtste collider de speler is
@@ -128,31 +129,29 @@ public partial class TrainSpotlight : Node3D
 					{
 						if (closeNode.Name == "Player")
 						{
-							GD.Print("Closest is player");
-							shapeCastCheck = true;
+							//GD.Print("Closest is player");
+							spotCastCheck = true;
 						} else
 						{
-							GD.Print($"Closest isn't player, it is: {closeNode.Name}");
-							shapeCastCheck = false;
+							//GD.Print($"Closest isn't player, it is: {closeNode.Name}");
+							spotCastCheck = false;
 						}
 					}
 				} catch // mogelijks was de trein of de vloer de enige collider, in elk geval is de speler niet in de shapecast
 				{
-					GD.Print("There wasn't a second or third collider");
-					shapeCastCheck = false;
+					//GD.Print("There wasn't a second or third collider");
+					spotCastCheck = false;
 				}
 			} else
 			{
-				GD.Print("Didn't collide");
-				shapeCastCheck = false;
+				//GD.Print("Didn't collide");
+				spotCastCheck = false;
 			}
 
-			GD.Print($"Shapecast check status: {shapeCastCheck}");
+			//GD.Print($"Shapecast check status: {spotCastCheck}");
 
 
 			//player binnen of buiten spotlight
-			var overlaps = spotlightArea.GetOverlappingBodies();
-
 			coneCheck = false;
 			foreach (Node3D body in overlaps)
 			{
@@ -162,10 +161,10 @@ public partial class TrainSpotlight : Node3D
 				}
 			}
 
-			GD.Print($"Cone check status: {coneCheck}");
+			//GD.Print($"Cone check status: {coneCheck}");
 
 			//Alleen als de speler binnen de cone is en als eerste voor de shapecast dan kan de speler niet geradieert worden
-			if (coneCheck && shapeCastCheck)
+			if (coneCheck && spotCastCheck)
 			{
 				if (beingRadiated)
 				{
@@ -179,6 +178,27 @@ public partial class TrainSpotlight : Node3D
 					beingRadiated = true;
 					geigerMeter.Play();
 					bufferTimer.Start();
+				}
+			}
+		}
+
+		//check if energy device is visible
+		foreach (Node3D body in overlaps)
+		{
+			//GD.Print($"Checking bodies, current: {body}");
+			//Als er een light panel in de light cone zit
+			if (body is LightPanel panel)
+			{
+				//Kijk naar het light panel om te controleren of het paneel zichtbaar is vanaf de trein
+				energyCast.LookAt(panel.GlobalPosition);
+				energyCast.ForceRaycastUpdate();
+				
+				//GD.Print($"energy cast collider: ${energyCast.GetCollider()}");
+				if (energyCast.GetCollider() is Node3D node)
+				{
+					if (node.Name == "")
+					GD.Print("Panel gets power");
+					panel.GetPower();
 				}
 			}
 		}
@@ -208,7 +228,7 @@ public partial class TrainSpotlight : Node3D
 		intensity += 0.01;
 		_shader.SetShaderParameter("intensity", intensity);
 
-		GD.Print($"Intensity is now = {intensity}");
+		//GD.Print($"Intensity is now = {intensity}");
 
 		if (intensity >= 1.03)
 		{

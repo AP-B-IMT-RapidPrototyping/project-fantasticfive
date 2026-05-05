@@ -25,6 +25,7 @@ public partial class Level1 : Node3D
 	[Export] private AnimationPlayer trainAnim;
 	[Export] private Enemy defaultEnemy;
 	[Export] private CanvasLayer deathLayer;
+	[Export] private Area3D spotlightArea;
 
 	private bool chaseCanStart = false;
 	private bool playerCanDie = false;
@@ -46,6 +47,8 @@ public partial class Level1 : Node3D
 		_sceneManager.Call("RegisterAreas");
 
 		deathLayer.Visible = false;
+
+		spotlightArea.Visible = true;
 	}
 
 

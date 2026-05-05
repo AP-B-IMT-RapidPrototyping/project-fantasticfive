@@ -5,9 +5,11 @@ public partial class MenuMain : Node3D
 {
     [Export] private AnimationPlayer _animIntro;
     [Export] private AnimationPlayer _animWheels;
+    [Export] private Area3D spotlightArea;
 
     public override void _Ready()
     {
+        spotlightArea.Visible = false;
         _animIntro.AnimationFinished += onAnimationFinished;
         _animWheels.Play("move");
     }

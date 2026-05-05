@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="1_uw6xe"]
 [ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="2_oblk4"]
 [ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="3_a3cud"]
-[ext_resource type="Texture2D" uid="uid://baoke4t3uhn1c" path="res://assets/overlays/whiteVignette.png" id="4_2p574"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oblk4"]
 sky_top_color = Color(0.045755774, 0.06657307, 0.09292682, 1)
@@ -154,21 +153,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.46555, 2.9250855, -44.9409
 [node name="Train" parent="Entities" unique_id=615132714 instance=ExtResource("2_oblk4")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 82, 0, -45.130936)
 
-[node name="TrainSpotlight" parent="Entities/Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player", "_shaderRect")]
+[node name="TrainSpotlight" parent="Entities/Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player")]
 player = NodePath("../../Player")
-_shaderRect = NodePath("../CanvasLayer/ShaderRect")
 
 [node name="SpotLight3D" parent="Entities/Train/TrainSpotlight" index="4" unique_id=538811013]
 light_volumetric_fog_energy = 1.103
 spot_angle_attenuation = 0.0041866135
 
+[node name="ShapeCast3D" parent="Entities/Train/TrainShapeCast" parent_id_path=PackedInt32Array(615132714, 1315567941) index="0" unique_id=912961362]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.118524075, -74.67848)
+
 [node name="ShaderRect" parent="Entities/Train/CanvasLayer" parent_id_path=PackedInt32Array(615132714, 1079546955) index="0" unique_id=1321283475]
 modulate = Color(1, 1, 1, 1)
 self_modulate = Color(1, 1, 1, 1)
-texture = ExtResource("4_2p574")
-
-[node name="BufferTimer" parent="Entities/Train" index="4" unique_id=895068191]
-wait_time = 0.5
 
 [node name="TrainIntro" type="AnimationPlayer" parent="Entities/Train" unique_id=1501386876]
 libraries/ = SubResource("AnimationLibrary_oblk4")

@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c60ymnv5l4qkj" path="res://scenes/nPC_models/default_enemy.tscn" id="14_kypp1"]
 [ext_resource type="PackedScene" uid="uid://sgckfgsygatv" path="res://assets/prototypeAssets/CeilingLights.glb" id="16_p5s5a"]
 [ext_resource type="Script" uid="uid://ceuhch32onam" path="res://scripts/enemy_scripts/Wood.cs" id="17_njy47"]
-[ext_resource type="PackedScene" uid="uid://cohhybbc6h8su" path="res://scenes/nPC_models/items/flare.tscn" id="18_j7nyf"]
+[ext_resource type="PackedScene" path="res://scenes/nPC_models/items/flare.tscn" id="18_j7nyf"]
 [ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="50_6qbjw"]
 [ext_resource type="PackedScene" uid="uid://weyxyaqx4qjw" path="res://assets/prototypeAssets/street.glb" id="51_vaqq6"]
 [ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/nPC_models/items/axe.tscn" id="54_o6odm"]
@@ -959,7 +959,7 @@ size = Vector3(0.13916016, 2.5565186, 0.2568817)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_j7nyf"]
 
-[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("_train", "_introAnimDoor", "spotlight", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "deathTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy", "deathLayer")]
+[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("_train", "_introAnimDoor", "spotlight", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "deathTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy", "deathLayer", "spotlightArea")]
 script = ExtResource("1_fh0io")
 _train = NodePath("Train")
 _introAnimDoor = NodePath("Train/TrainDoor/DoorAnim")
@@ -979,6 +979,7 @@ chaseAnim = NodePath("ChaseAnim")
 trainAnim = NodePath("Train/TestTrain/AnimationPlayer")
 defaultEnemy = NodePath("defaultEnemy")
 deathLayer = NodePath("Player/DeathLayer")
+spotlightArea = NodePath("Train/TrainSpotlight/SpotlightArea")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1279296464]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -1032,14 +1033,14 @@ transform = Transform3D(0.81486475, 0.19730139, -0.54503906, 0, 0.94028807, 0.34
 [node name="Train" parent="." unique_id=615132714 instance=ExtResource("2_j08sa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -45.130936)
 
-[node name="Skeleton3D" parent="Train/TestTrain/Armature" parent_id_path=PackedInt32Array(615132714, 1189408230, 638347045) index="0" unique_id=109920202]
+[node name="Skeleton3D" parent="Train/TestTrain/Armature" parent_id_path=PackedInt32Array(615132714, 1189408230, 1316773928) index="0" unique_id=921717970]
 bones/4/rotation = Quaternion(-0.49991927, 0.5000804, -0.49991983, 0.5000804)
 bones/21/rotation = Quaternion(-0.49991927, -0.5000804, 0.49991983, 0.5000804)
 
-[node name="Bone9_L" parent="Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=2141362132]
+[node name="Bone9_L" parent="Train/TestTrain/Armature/Skeleton3D" index="3" unique_id=593331796]
 transform = Transform3D(-5.9604645e-07, 5.66244e-07, 0.99999994, -1, 0.0003216862, -5.6624407e-07, -0.00032171607, -0.9999998, 5.3644175e-07, -1.2495898, 0.8614147, 0.2831316)
 
-[node name="Bone9_R" parent="Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=69373672]
+[node name="Bone9_R" parent="Train/TestTrain/Armature/Skeleton3D" index="12" unique_id=60272669]
 transform = Transform3D(-5.9604645e-07, -5.66244e-07, -0.99999994, 1, 0.0003216862, -5.6624407e-07, 0.00032171607, -0.9999998, 5.3644175e-07, 1.2495898, 0.8614147, 0.2831316)
 
 [node name="TrainSpotlight" parent="Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player")]
@@ -1048,7 +1049,7 @@ player = NodePath("../../Player")
 [node name="SpotLight3D" parent="Train/TrainSpotlight" index="4" unique_id=538811013]
 light_volumetric_fog_energy = 1.103
 
-[node name="ShaderRect" parent="Train/CanvasLayer" parent_id_path=PackedInt32Array(615132714, 1079546955) index="0" unique_id=727015593]
+[node name="ShaderRect" parent="Train/CanvasLayer" parent_id_path=PackedInt32Array(615132714, 1079546955) index="0" unique_id=1321283475]
 modulate = Color(1, 1, 1, 0.3019608)
 self_modulate = Color(1, 1, 1, 0.2)
 
@@ -1231,7 +1232,7 @@ spot_angle = 39.17886
 [node name="Floodlight2" parent="Environment" unique_id=1074300691 instance=ExtResource("9_ukjja")]
 transform = Transform3D(-0.20349151, 0, 0.6697696, 0, 0.70000005, 0, -0.6697696, 0, -0.20349151, -3.0888424, 1.1749083, 77.01668)
 
-[node name="Cube" parent="Environment/Floodlight2" index="3" unique_id=673259293]
+[node name="Cube" parent="Environment/Floodlight2" index="3" unique_id=861849066]
 transform = Transform3D(0.12806384, 0.012045763, -0.0010967404, -0.012093428, 0.12773407, -0.00918761, 0.00022870675, 0.009250008, 0.12830056, 0.0051498413, 1.2377564, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environment/Floodlight2/Cube" index="0" unique_id=1198016125]
@@ -1426,10 +1427,10 @@ visible = false
 [node name="CeilingLights" parent="." unique_id=116336728 instance=ExtResource("16_p5s5a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.366889, 2.8712888, 69.54774)
 
-[node name="Cube" parent="CeilingLights" index="0" unique_id=1909041610]
+[node name="Cube" parent="CeilingLights" index="0" unique_id=1763625376]
 material_override = SubResource("StandardMaterial3D_njy47")
 
-[node name="Cube_001" parent="CeilingLights" index="1" unique_id=1852772999]
+[node name="Cube_001" parent="CeilingLights" index="1" unique_id=1892938662]
 material_override = SubResource("StandardMaterial3D_p5s5a")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CeilingLights" unique_id=1287182832]
@@ -1442,10 +1443,10 @@ autoplay = &"flicker"
 [node name="CeilingLights2" parent="." unique_id=1742133937 instance=ExtResource("16_p5s5a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.907755, 2.8712888, 69.54774)
 
-[node name="Cube" parent="CeilingLights2" index="0" unique_id=1909041610]
+[node name="Cube" parent="CeilingLights2" index="0" unique_id=1763625376]
 material_override = SubResource("StandardMaterial3D_njy47")
 
-[node name="Cube_001" parent="CeilingLights2" index="1" unique_id=1852772999]
+[node name="Cube_001" parent="CeilingLights2" index="1" unique_id=1892938662]
 material_override = SubResource("StandardMaterial3D_p5s5a")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CeilingLights2" unique_id=136456023]

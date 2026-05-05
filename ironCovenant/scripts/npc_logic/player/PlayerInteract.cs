@@ -14,6 +14,10 @@ public partial class PlayerInteract : Node3D
     public Node3D _heldItemNode = null;
     public ItemData _heldItemData = null;
 
+    // UI shit
+    [Export] private AnimationPlayer _uiInfoAnim;
+    [Export] private RichTextLabel _uiInfoText;
+
 
 
 
@@ -156,6 +160,9 @@ public partial class PlayerInteract : Node3D
             {
                 interactable.OnEquipped();
             }
+
+            ShowInfo("Picked up", item);
+
             GD.Print($"Equipped {item.DisplayName}");
         }
         else
@@ -164,6 +171,14 @@ public partial class PlayerInteract : Node3D
         }
     }
 
+
+
+    // UI 
+    private void ShowInfo(string infoText, ItemData item)
+    {
+        _uiInfoText.Text = $"{infoText} {item.DisplayName}.";
+        _uiInfoAnim.Play("play");
+    }
 
 
     // No unhandled input. i know, maybe call funcs from elsewhere?

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c15acg5obqlbb" path="res://assets/textures/Prototype/kenney/PNG/Dark/texture_13.png" id="3_corbn"]
 [ext_resource type="PackedScene" uid="uid://bixm2ahxxcaqh" path="res://scenes/nPC_models/items/test_item.tscn" id="4_corbn"]
 [ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/nPC_models/items/axe.tscn" id="4_js0vw"]
+[ext_resource type="PackedScene" uid="uid://cohhybbc6h8su" path="res://scenes/nPC_models/items/flare.tscn" id="6_pyrxr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dovyc"]
 sky_top_color = Color(0.23347911, 0.42727727, 0.8222376, 1)
@@ -760,3 +761,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -24)
 use_collision = true
 size = Vector3(10, 5, 1)
 material = SubResource("StandardMaterial3D_hhhrn")
+
+[node name="Flare" parent="." unique_id=1264351893 instance=ExtResource("6_pyrxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 6)
+
+[node name="Flare2" parent="." unique_id=1591161301 instance=ExtResource("6_pyrxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.9392877, 6)
+
+[node name="Flare3" parent="." unique_id=1791476486 instance=ExtResource("6_pyrxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.9392877, 6)
+
+[node name="Flare4" parent="." unique_id=1064173480 instance=ExtResource("6_pyrxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.9392877, 6)
+
+[node name="Flare5" parent="." unique_id=364096754 instance=ExtResource("6_pyrxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.9392877, 6)
+
+[node name="Flare6" parent="." unique_id=1834302472 instance=ExtResource("6_pyrxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3.9392877, 6)
+
+[node name="Flare7" parent="." unique_id=1347897370 instance=ExtResource("6_pyrxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3.9392877, 6)

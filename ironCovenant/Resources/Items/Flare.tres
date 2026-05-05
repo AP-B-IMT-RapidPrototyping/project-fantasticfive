@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://2pwur3ruyci0"]
+
+[ext_resource type="Script" uid="uid://ku6bs8x6g4aq" path="res://scripts/npc_logic/items/Logic/ItemData.cs" id="1_op7oi"]
+
+[resource]
+script = ExtResource("1_op7oi")
+ItemID = "utility_flare"
+DisplayName = "Flare"
+ItemScene = "uid://cohhybbc6h8su"
+metadata/_custom_type_script = "uid://ku6bs8x6g4aq"

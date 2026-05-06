@@ -381,7 +381,7 @@ fov = 90.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 script = ExtResource("4_50dpb")
 _interactRay = NodePath("InteractRay")
-_playerHand = NodePath("../../Hand")
+_playerHand = NodePath("Hand")
 _crosshair = NodePath("../../HUD/HUD/Crosshair")
 _uiInfoAnim = NodePath("../../HUD/HUD/InfoScreenAnim")
 _uiInfoText = NodePath("../../HUD/HUD/InfoScreen/InfoText")
@@ -391,7 +391,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 0, -2)
 collision_mask = 6
 
-[node name="Hand" type="Marker3D" parent="." unique_id=1975491519]
+[node name="Hand" type="Marker3D" parent="PlayerHead/PlayerInteract" unique_id=1975491519]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5984691, -0.10000002, -0.43710408)
 
 [node name="FootstepSound" type="Node3D" parent="." unique_id=257852073 node_paths=PackedStringArray("_player", "_footRaycast", "_footstepPlayer")]

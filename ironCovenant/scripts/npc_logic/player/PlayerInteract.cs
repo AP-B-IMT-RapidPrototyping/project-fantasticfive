@@ -1,7 +1,4 @@
 using Godot;
-using System;
-using System.Diagnostics.Tracing;
-using System.Threading;
 
 public partial class PlayerInteract : Node3D
 {

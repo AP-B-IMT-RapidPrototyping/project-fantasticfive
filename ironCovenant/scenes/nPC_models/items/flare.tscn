@@ -67,6 +67,8 @@ _data = {
 &"play": SubResource("Animation_qhpnc")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_dmg81"]
+
 [node name="Flare" type="RigidBody3D" unique_id=1264351893 node_paths=PackedStringArray("_anim") groups=["entity", "item"]]
 collision_layer = 6
 collision_mask = 15
@@ -100,3 +102,10 @@ omni_attenuation = 0.5
 
 [node name="Action" type="AnimationPlayer" parent="." unique_id=1573989729]
 libraries/ = SubResource("AnimationLibrary_hygys")
+
+[node name="Attractor" type="Area3D" parent="." unique_id=1770887761]
+collision_layer = 128
+collision_mask = 144
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Attractor" unique_id=206430973]
+shape = SubResource("SphereShape3D_dmg81")

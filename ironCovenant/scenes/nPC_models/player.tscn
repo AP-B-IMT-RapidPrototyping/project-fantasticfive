@@ -277,7 +277,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D" unique_id=746536559 node_paths=PackedStringArray("_playerHead", "_playerCamera", "healthRect", "healthTimer", "deathLayer", "deathTimer", "dmgAnim") groups=["player"]]
 collision_layer = 8
-collision_mask = 41
+collision_mask = 105
 script = ExtResource("1_o7mkg")
 _playerHead = NodePath("PlayerHead")
 _playerCamera = NodePath("PlayerHead/PlayerCamera")

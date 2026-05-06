@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 
 public partial class TrainSpotlight : Node3D
 {
+	[Export] private SpotLight3D spot;
 	[Export] private Player player;
 	[Export] private Timer visionTimer;
 	[Export] private Timer bufferTimer;
@@ -196,9 +197,12 @@ public partial class TrainSpotlight : Node3D
 				//GD.Print($"energy cast collider: ${energyCast.GetCollider()}");
 				if (energyCast.GetCollider() is Node3D node)
 				{
-					if (node.Name == "")
-					GD.Print("Panel gets power");
-					panel.GetPower();
+					//GD.Print($"node.Name: {node.Name}");
+					if (node.Name == "LightPanel")
+					{
+						panel.GetPower();
+						//GD.Print("Panel gets power");		
+					}
 				}
 			}
 		}

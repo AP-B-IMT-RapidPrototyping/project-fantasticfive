@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using System.ComponentModel.DataAnnotations;
 
 public partial class InventoryUi : Control
 {

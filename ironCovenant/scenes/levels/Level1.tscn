@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://52coofs4q1q4" path="res://Resources/Items/Axe.tres" id="2_6owa4"]
 [ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="2_j08sa"]
 [ext_resource type="PackedScene" uid="uid://db87juw48ece6" path="res://scenes/levels/forest1.tscn" id="5_lha2r"]
+[ext_resource type="FontFile" uid="uid://cctg45s3enmvs" path="res://assets/fonts/ShareTechMono-Regular.ttf" id="5_xbvxr"]
 [ext_resource type="PackedScene" uid="uid://cfo4exy1pdxjn" path="res://assets/prototypeAssets/ElectricalBuilding.glb" id="5_yfpbl"]
 [ext_resource type="PackedScene" uid="uid://cpevna01njwcm" path="res://assets/prototypeAssets/Floodlight.glb" id="9_ukjja"]
 [ext_resource type="AudioStream" uid="uid://dmemm84lktc2j" path="res://assets/audio/train/train horn 4.mp3" id="10_6owa4"]
@@ -14,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c60ymnv5l4qkj" path="res://scenes/nPC_models/default_enemy.tscn" id="14_kypp1"]
 [ext_resource type="PackedScene" uid="uid://sgckfgsygatv" path="res://assets/prototypeAssets/CeilingLights.glb" id="16_p5s5a"]
 [ext_resource type="Script" uid="uid://ceuhch32onam" path="res://scripts/enemy_scripts/Wood.cs" id="17_njy47"]
+[ext_resource type="PackedScene" path="res://scenes/nPC_models/items/flare.tscn" id="18_j7nyf"]
 [ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="50_6qbjw"]
 [ext_resource type="PackedScene" uid="uid://weyxyaqx4qjw" path="res://assets/prototypeAssets/street.glb" id="51_vaqq6"]
 [ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/nPC_models/items/axe.tscn" id="54_o6odm"]
@@ -113,6 +115,68 @@ tracks/2/keys = {
 _data = {
 &"RESET": SubResource("Animation_xbvxr"),
 &"play": SubResource("Animation_p5s5a")
+}
+
+[sub_resource type="Animation" id="Animation_ijoxy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t2wor"]
+resource_name = "play"
+length = 9.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.0333333, 1.0343333, 2, 2.0333333, 7.965667, 7.999, 8.999001, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, true, true, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.0333333, 2.0333333, 7.999, 8.999001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l40or"]
+_data = {
+&"RESET": SubResource("Animation_ijoxy"),
+&"play": SubResource("Animation_t2wor")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6qbjw"]
@@ -895,7 +959,7 @@ size = Vector3(0.13916016, 2.5565186, 0.2568817)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_j7nyf"]
 
-[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("_train", "_introAnimDoor", "spotlight", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "deathTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy", "deathLayer")]
+[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("_train", "_introAnimDoor", "spotlight", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "deathTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy", "deathLayer", "spotlightArea")]
 script = ExtResource("1_fh0io")
 _train = NodePath("Train")
 _introAnimDoor = NodePath("Train/TrainDoor/DoorAnim")
@@ -915,12 +979,20 @@ chaseAnim = NodePath("ChaseAnim")
 trainAnim = NodePath("Train/TestTrain/AnimationPlayer")
 defaultEnemy = NodePath("defaultEnemy")
 deathLayer = NodePath("Player/DeathLayer")
+spotlightArea = NodePath("Train/TrainSpotlight/SpotlightArea")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1279296464]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 light_color = Color(0.49706316, 0.585892, 0.6700323, 1)
 light_energy = 0.316
 shadow_enabled = true
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1312086095]
+stream = ExtResource("13_n5pya")
+volume_db = -5.0
+pitch_scale = 0.9
+bus = &"Music"
+parameters/looping = true
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1060475541 groups=["sound_grass"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.340027, -0.5, 19.522675)
@@ -977,13 +1049,59 @@ player = NodePath("../../Player")
 [node name="SpotLight3D" parent="Train/TrainSpotlight" index="4" unique_id=538811013]
 light_volumetric_fog_energy = 1.103
 
-[node name="ShaderRect" parent="Train/CanvasLayer" parent_id_path=PackedInt32Array(615132714, 1079546955) index="0" unique_id=727015593]
+[node name="ShaderRect" parent="Train/CanvasLayer" parent_id_path=PackedInt32Array(615132714, 1079546955) index="0" unique_id=1321283475]
 modulate = Color(1, 1, 1, 0.3019608)
 self_modulate = Color(1, 1, 1, 0.2)
 
 [node name="TrainIntro" type="AnimationPlayer" parent="Train" unique_id=690494881]
 libraries/ = SubResource("AnimationLibrary_njy47")
 autoplay = &"play"
+
+[node name="Intro" type="Control" parent="." unique_id=258539102]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 154.0
+grow_horizontal = 2
+
+[node name="InfoScreenAnim" type="AnimationPlayer" parent="Intro" unique_id=2075096535]
+root_node = NodePath("../InfoScreen")
+libraries/ = SubResource("AnimationLibrary_l40or")
+autoplay = &"play"
+
+[node name="InfoScreen" type="Control" parent="Intro" unique_id=760771655]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InfoBg" type="ColorRect" parent="Intro/InfoScreen" unique_id=1275417334]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05882353, 0.05882353, 0.05882353, 0.20784314)
+
+[node name="InfoText" type="RichTextLabel" parent="Intro/InfoScreen" unique_id=494791349]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("5_xbvxr")
+theme_override_font_sizes/normal_font_size = 54
+bbcode_enabled = true
+text = "Любеч (Lyubech), Ukraine"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Environment" type="Node3D" parent="." unique_id=1323152187]
 
@@ -1023,8 +1141,8 @@ transform = Transform3D(0.7162812, 0, 0.40866512, 0, 0.8246612, 0, -0.4086651, 0
 transform = Transform3D(-1.0269125, 0, -0.42985854, 0, 1.1132512, 0, 0.42985865, 0, -1.0269122, 2.70899, 0, 32.711227)
 
 [node name="FogVolume" type="FogVolume" parent="Environment" unique_id=845514182]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.75473, 12.966003, 0.31781006)
-size = Vector3(40.89441, 27.932007, 235.32172)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.088196, 12.966003, 0.31781006)
+size = Vector3(83.56134, 27.932007, 235.32172)
 material = SubResource("FogMaterial_6ex7q")
 
 [node name="FogVolume2" type="FogVolume" parent="Environment" unique_id=356053524]
@@ -1305,7 +1423,6 @@ stream = ExtResource("13_n5pya")
 [node name="defaultEnemy" parent="." unique_id=1435184889 instance=ExtResource("14_kypp1")]
 transform = Transform3D(-0.06484574, 0, 0.99789524, 0, 1, 0, -0.99789524, 0, -0.06484574, 66.0612, 0.28068304, 46.773438)
 visible = false
-AttackRange = 2.0
 
 [node name="CeilingLights" parent="." unique_id=116336728 instance=ExtResource("16_p5s5a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.366889, 2.8712888, 69.54774)
@@ -1372,6 +1489,9 @@ shape = SubResource("BoxShape3D_njy47")
 visible = false
 process_material = SubResource("ParticleProcessMaterial_njy47")
 draw_pass_1 = SubResource("CylinderMesh_j7nyf")
+
+[node name="Flare" parent="." unique_id=1264351893 instance=ExtResource("18_j7nyf")]
+transform = Transform3D(0.7818916, 0.60914767, 0.13260686, -0.17967272, 0.42387497, -0.8877207, -0.5969617, 0.67027533, 0.44087145, -16.00148, 0.0760653, 75.71077)
 
 [connection signal="body_entered" from="Areas/SpotlightArea" to="." method="on_body_entered_spotlightArea"]
 [connection signal="body_entered" from="Areas/ChaseArea" to="." method="on_body_entered_chaseArea"]

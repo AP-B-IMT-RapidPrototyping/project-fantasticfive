@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using System.Diagnostics.Tracing;
 
 public partial class PlayerInteract : Node3D
 {
@@ -10,9 +8,29 @@ public partial class PlayerInteract : Node3D
     [Export] private ColorRect _crosshair;
     private bool _crosshairIsBig;
 
-    private Node3D _heldItemNode = null;
-    private ItemData _heldItemData = null;
+    public Node3D _heldItemNode = null;
+    public ItemData _heldItemData = null;
 
+    // UI shit
+    [Export] private AnimationPlayer _uiInfoAnim;
+    [Export] private RichTextLabel _uiInfoText;
+
+
+
+
+    public override void _Ready()
+    {
+        CallDeferred(nameof(CheckPreviousItem));
+    }
+
+
+    private void CheckPreviousItem()
+    {
+        if (InventorySystem.Inventory.previousHeldItemData != null)
+        {
+            EquipItem(InventorySystem.Inventory.previousHeldItemData);
+        }
+    }
 
 
 
@@ -109,6 +127,7 @@ public partial class PlayerInteract : Node3D
             _heldItemNode.QueueFree();
             _heldItemNode = null;
             _heldItemData = null;
+            InventorySystem.Inventory.previousHeldItemData = null;
         }
     }
 
@@ -131,12 +150,17 @@ public partial class PlayerInteract : Node3D
             _heldItemNode = scene.Instantiate<Node3D>();
             _heldItemData = item;
 
+            InventorySystem.Inventory.previousHeldItemData = item;
+
             _playerHand.AddChild(_heldItemNode);
 
             if (_heldItemNode is IInteractable interactable)
             {
                 interactable.OnEquipped();
             }
+
+            ShowInfo("Picked up", item);
+
             GD.Print($"Equipped {item.DisplayName}");
         }
         else
@@ -145,6 +169,14 @@ public partial class PlayerInteract : Node3D
         }
     }
 
+
+
+    // UI 
+    private void ShowInfo(string infoText, ItemData item)
+    {
+        _uiInfoText.Text = $"{infoText} {item.DisplayName}.";
+        _uiInfoAnim.Play("play");
+    }
 
 
     // No unhandled input. i know, maybe call funcs from elsewhere?

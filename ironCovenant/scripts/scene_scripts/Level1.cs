@@ -25,10 +25,17 @@ public partial class Level1 : Node3D
 	[Export] private AnimationPlayer trainAnim;
 	[Export] private Enemy defaultEnemy;
 	[Export] private CanvasLayer deathLayer;
+	[Export] private Area3D spotlightArea;
 
 	private bool chaseCanStart = false;
 	private bool playerCanDie = false;
 	private Node _sceneManager = null;
+
+
+	// LEVEL 1 BOOL TRACKER
+	private bool _spotlightAreaAlreadyPlayed = false;
+
+
 
 	public override void _Ready()
 	{
@@ -40,6 +47,8 @@ public partial class Level1 : Node3D
 		_sceneManager.Call("RegisterAreas");
 
 		deathLayer.Visible = false;
+
+		spotlightArea.Visible = true;
 	}
 
 
@@ -74,14 +83,15 @@ public partial class Level1 : Node3D
 		if (body is Player)
 		{
 			var items = InventorySystem.Inventory.GetItems();
-			if (items.ContainsKey(axe))
+			if (items.ContainsKey(axe) && !_spotlightAreaAlreadyPlayed)
 			{
 				spotlight.canRadiate = true;
-				trainNoise.Play();
+				trainNoise.Play(); // TUUUUUTT TTUUUUUUUUUUTTTTT... i have disabled the train horn playing mutliple times...
 				chaseCanStart = true;
 				defaultEnemy.Visible = true;
 				defaultEnemy.GlobalPosition = new Vector3(8.255f, 1.317f, 46.773f);
 				//defaultEnemy.Rotation = new Vector3(Mathf.DegToRad(46.1f), Mathf.DegToRad(57.0f), Mathf.DegToRad(-36.9f));
+				_spotlightAreaAlreadyPlayed = true;
 			}
 		}
 	}

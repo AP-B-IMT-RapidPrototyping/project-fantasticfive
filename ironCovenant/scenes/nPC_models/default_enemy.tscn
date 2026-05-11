@@ -47,9 +47,7 @@ size = Vector2(0.03, 0.07)
 collision_layer = 16
 collision_mask = 9
 script = ExtResource("1_ngpqn")
-FireRate = 0.5
-AttackRange = 1.0
-Speed = 3.0
+attackRange = 2.0
 anim = NodePath("DefaultEnemy/AnimationPlayer")
 spark = NodePath("Sparks")
 

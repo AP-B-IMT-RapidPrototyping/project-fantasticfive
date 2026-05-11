@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://cohhybbc6h8su"]
+
+[ext_resource type="Script" uid="uid://bcfida464yfj0" path="res://scripts/npc_logic/items/Flare.cs" id="1_hygys"]
+[ext_resource type="Resource" uid="uid://2pwur3ruyci0" path="res://Resources/Items/Flare.tres" id="2_dmg81"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhpnc"]
+albedo_color = Color(0.9999983, 0.36595818, 0.41270602, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qhpnc"]
+material = SubResource("StandardMaterial3D_qhpnc")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hygys"]
+albedo_color = Color(1, 0.45378923, 0.4483741, 1)
+metallic = 1.0
+emission_enabled = true
+emission = Color(0.9788124, 0.07575265, 7.70092e-07, 1)
+emission_energy_multiplier = 4.15
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dmg81"]
+material = SubResource("StandardMaterial3D_hygys")
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hygys"]
+height = 0.5
+radius = 0.02
+
+[sub_resource type="Animation" id="Animation_hygys"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlareLight:omni_range")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qhpnc"]
+resource_name = "play"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlareLight:omni_range")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 10.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hygys"]
+_data = {
+&"RESET": SubResource("Animation_hygys"),
+&"play": SubResource("Animation_qhpnc")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dmg81"]
+
+[node name="Flare" type="RigidBody3D" unique_id=1264351893 node_paths=PackedStringArray("_anim") groups=["entity", "item"]]
+collision_layer = 6
+collision_mask = 15
+script = ExtResource("1_hygys")
+Item = ExtResource("2_dmg81")
+_anim = NodePath("Action")
+
+[node name="FlareModelPrototype" type="MeshInstance3D" parent="." unique_id=1512986072]
+layers = 16
+mesh = SubResource("CylinderMesh_qhpnc")
+
+[node name="FlrLight" type="MeshInstance3D" parent="FlareModelPrototype" unique_id=1013957926]
+transform = Transform3D(1, 0, 0, 0, 0.87000006, 0, 0, 0, 1, 0, 0.2, 0)
+layers = 16
+mesh = SubResource("CylinderMesh_dmg81")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1215520083]
+shape = SubResource("CylinderShape3D_hygys")
+
+[node name="FlareLight" type="OmniLight3D" parent="." unique_id=927931413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29828984, 0)
+light_color = Color(1, 0, 0, 1)
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 3.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_blur = 4.0
+shadow_caster_mask = 4294967279
+omni_range = 0.0
+omni_attenuation = 0.5
+
+[node name="Action" type="AnimationPlayer" parent="." unique_id=1573989729]
+libraries/ = SubResource("AnimationLibrary_hygys")
+
+[node name="Attractor" type="Area3D" parent="." unique_id=1770887761]
+collision_layer = 128
+collision_mask = 144
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Attractor" unique_id=206430973]
+shape = SubResource("SphereShape3D_dmg81")

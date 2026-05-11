@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dxqxd1d7qpmkw" path="res://assets/prototypeAssets/TrainSpotlight.glb" id="2_ie6wu"]
 [ext_resource type="Script" uid="uid://dft03ixo78jia" path="res://scripts/npc_logic/TrainSpotlight.cs" id="3_fjli7"]
 [ext_resource type="Material" uid="uid://b8ct2p0p6vird" path="res://assets/overlays/static_shader_material.tres" id="5_5kvja"]
-[ext_resource type="AudioStream" uid="uid://drfskxbsppf4m" path="res://assets/audio/sfx/catch22music-090-344615.mp3" id="6_t23a6"]
+[ext_resource type="Texture2D" uid="uid://baoke4t3uhn1c" path="res://assets/overlays/whiteVignette.png" id="6_0ni18"]
+[ext_resource type="AudioStream" uid="uid://b41tbv5d1mix4" path="res://assets/audio/sfx/staticShortEffect.mp3" id="6_t23a6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjli7"]
 albedo_color = Color(1, 1, 0.72156864, 1)
@@ -13,9 +14,22 @@ emission_enabled = true
 emission = Color(0.6763577, 0.5721143, 0.2080318, 1)
 emission_energy_multiplier = 5.42
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0ni18"]
+points = PackedVector3Array(-64, -120, 0, -63.699295, -120, -6.27721, -63.699295, -120, 6.2646866, -51.20752, -72.0047, 0, -38.227097, -24.0094, -3.7713394, -62.77212, -120, -12.491779, -62.77212, -120, 12.479248, -38.227097, -24.0094, 3.758812, -25.610023, 23.9859, 0, 0, 119.999985, 0, -61.25607, -120, -18.58105, -24.507439, 23.9859, -7.442444, -61.25607, -120, 18.56852, -24.507439, 23.9859, 7.4299164, 64, -120, 0, 38.21457, -24.0094, -3.7713394, 62.75959, -120, -12.491779, 61.243538, -120, -18.58105, 59.126076, -120, -24.494911, 56.432266, -120, -30.170712, 45.143303, -72.0047, -24.144089, 53.21222, -120, -35.558342, 29.682068, -24.0094, -24.369617, 27.151138, -24.0094, -27.163666, 24.357086, -24.0094, -29.694595, 35.545807, -120, -53.224747, 24.131561, -72.0047, -45.155834, 24.482384, -120, -59.138607, 7.4299164, 23.9859, -24.507439, 12.479248, -120, -62.77212, 3.758812, -24.0094, -38.227097, 0, 23.9859, -25.610023, -3.7713394, -24.0094, -38.227097, -12.491779, -120, -62.77212, -7.442444, 23.9859, -24.507439, -24.494911, -120, -59.138607, -24.144089, -72.0047, -45.155834, -12.078308, 23.9859, -22.577915, -7.11668, 71.9812, -10.64996, -8.131557, 71.9812, -9.898197, -9.058731, 71.9812, -9.058731, -9.898197, 71.9812, -8.131557, -10.64996, 71.9812, -7.11668, -22.577915, 23.9859, -12.078308, -45.155834, -72.0047, -24.144089, -59.138607, -120, -24.494911, -59.138607, -120, 24.482384, -45.155834, -72.0047, 24.131561, -53.224747, -120, 35.545807, -29.694595, -24.0094, 24.357086, -27.163666, -24.0094, 27.151138, -24.369617, -24.0094, 29.682068, -35.558342, -120, 53.21222, -24.144089, -72.0047, 45.143303, -30.170712, -120, 56.432266, -24.494911, -120, 59.126076, -18.58105, -120, 61.243538, -12.491779, -120, 62.75959, -3.7713394, -24.0094, 38.21457, 0, -120, 64, 6.2646866, -120, 63.686768, 12.479248, -120, 62.75959, 18.56852, -120, 61.243538, 24.482384, -120, 59.126076, 30.15818, -120, 56.432266, 35.545807, -120, 53.21222, 40.595146, -120, 49.465935, 27.151138, -24.0094, 27.151138, 49.465935, -120, 40.595146, 53.21222, -120, 35.545807, 56.432266, -120, 30.15818, 59.126076, -120, 24.482384, 61.243538, -120, 18.56852, 62.75959, -120, 12.479248, 63.686768, -120, 6.2646866, 63.686768, -120, -6.27721, 49.465935, -120, -40.607674, 45.243538, -120, -45.25607, 40.595146, -120, -49.478466, 30.15818, -120, -56.444794, 18.56852, -120, -61.25607, 6.2646866, -120, -63.699295, 0, -72.0047, -51.20752, -6.27721, -120, -63.699295, -18.58105, -120, -61.25607, -30.170712, -120, -56.444794, -35.558342, -120, -53.224747, -24.369617, -24.0094, -29.694595, -27.163666, -24.0094, -27.163666, -29.694595, -24.0094, -24.369617, -53.224747, -120, -35.558342, -56.444794, -120, -30.170712, -56.444794, -120, 30.15818, -49.478466, -120, 40.595146, -45.25607, -120, 45.243538, -40.607674, -120, 49.465935, -6.27721, -120, 63.686768, 45.243538, -120, 45.243538, 0, -120, -64, -40.607674, -120, -49.478466, -45.25607, -120, -45.25607, -49.478466, -120, -40.607674)
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fjli7"]
 height = 150.0
 radius = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0ni18"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 148.695
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_31nt6"]
+top_radius = 0.06
+bottom_radius = 0.06
+height = 166.565
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ie6wu"]
 size = Vector3(9.365921, 4.4750977, 3.6776428)
@@ -222,16 +236,20 @@ transform = Transform3D(0.0003361702, -0.011998981, 0.9999279, -0.9999988, 0.001
 [node name="AnimationPlayer" parent="TestTrain" index="24" unique_id=1406773743]
 autoplay = &"move_001"
 
-[node name="TrainSpotlight" parent="." unique_id=1474622944 node_paths=PackedStringArray("visionTimer", "bufferTimer", "radiationTick", "shapeCast", "_shaderRect", "geigerMeter") instance=ExtResource("2_ie6wu")]
+[node name="TrainSpotlight" parent="." unique_id=1474622944 node_paths=PackedStringArray("spot", "visionTimer", "bufferTimer", "radiationTick", "spotCast", "spotCastTurnPoint", "spotlightArea", "energyCast", "_shaderRect", "geigerMeter") instance=ExtResource("2_ie6wu")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 5.4124975, 0)
 script = ExtResource("3_fjli7")
+spot = NodePath("SpotLight3D")
 visionTimer = NodePath("../VisionTimer")
 bufferTimer = NodePath("../BufferTimer")
 radiationTick = NodePath("../RadiationTick")
-shapeCast = NodePath("ShapeCast3D")
+spotCast = NodePath("../TrainShapeCast/ShapeCast3D")
+spotCastTurnPoint = NodePath("../TrainShapeCast")
+spotlightArea = NodePath("SpotlightArea")
+energyCast = NodePath("../EnergyCast")
 _shader = ExtResource("5_5kvja")
 _shaderRect = NodePath("../CanvasLayer/ShaderRect")
-geigerMeter = NodePath("../AudioStreamPlayer")
+geigerMeter = NodePath("../StaticSound")
 
 [node name="Sphere_001" parent="TrainSpotlight" index="0" unique_id=1728112780]
 surface_material_override/0 = SubResource("StandardMaterial3D_fjli7")
@@ -242,14 +260,40 @@ light_color = Color(1, 1, 0.8156863, 1)
 light_volumetric_fog_energy = 7.96
 light_cull_mask = 4294967287
 shadow_enabled = true
-spot_range = 237.761
+spot_range = 240.0
 spot_attenuation = 0.0
 spot_angle = 15.0
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="TrainSpotlight" unique_id=912961362]
-transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -1, 0, 1, -4.3711392e-08, 0, 0.10218191, -73.91814)
+[node name="SpotlightArea" type="Area3D" parent="TrainSpotlight" unique_id=70150208]
+transform = Transform3D(1, 0, 0, 0, 0.9740511, 0.22632831, 0, -0.22632831, 0.9740511, 0, 2.1625423, 0)
+collision_mask = 40
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainSpotlight/SpotlightArea" unique_id=1799262683]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.064528465, -120.37227)
+shape = SubResource("ConvexPolygonShape3D_0ni18")
+
+[node name="TrainShapeCast" type="Node3D" parent="." unique_id=1315567941]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 5.5044613, 0.040802002)
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="TrainShapeCast" unique_id=912961362]
+transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, 1, 0, -1, -4.3711392e-08, 0, 0.118524075, -74.67848)
 shape = SubResource("CylinderShape3D_fjli7")
 collision_mask = 9
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TrainShapeCast" unique_id=1514268136]
+transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, 1, 0, -1, -4.3711392e-08, 0, 0.118524075, -74.67848)
+visible = false
+mesh = SubResource("CylinderMesh_0ni18")
+
+[node name="EnergyCast" type="RayCast3D" parent="." unique_id=475534566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4482193, 0)
+target_position = Vector3(0, -1, -240)
+collision_mask = 33
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnergyCast" unique_id=401935087]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.032592773, -83.25653)
+visible = false
+mesh = SubResource("CylinderMesh_31nt6")
 
 [node name="VisionTimer" type="Timer" parent="." unique_id=640714585]
 autostart = true
@@ -257,10 +301,10 @@ autostart = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1079546955]
 layer = -1
 
-[node name="ShaderRect" type="ColorRect" parent="CanvasLayer" unique_id=727015593]
+[node name="ShaderRect" type="TextureRect" parent="CanvasLayer" unique_id=1321283475]
 visible = false
-modulate = Color(1, 1, 1, 0.22352941)
-self_modulate = Color(1, 1, 1, 0.23137255)
+modulate = Color(1, 1, 1, 0.795)
+self_modulate = Color(1, 1, 1, 0.73800004)
 z_index = -3
 material = ExtResource("5_5kvja")
 anchors_preset = 15
@@ -268,13 +312,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("6_0ni18")
+expand_mode = 1
 
 [node name="BufferTimer" type="Timer" parent="." unique_id=895068191]
-wait_time = 14.0
+wait_time = 0.5
 one_shot = true
 
 [node name="RadiationTick" type="Timer" parent="." unique_id=755055228]
-wait_time = 12.1
+wait_time = 11.299999999999999
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=505178712]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6514206, 1.7375488, -0.011856079)
@@ -312,7 +358,7 @@ shape = SubResource("BoxShape3D_t23a6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8839045, 2.4515667, 0.048843384)
 shape = SubResource("BoxShape3D_aqclw")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1451471150]
+[node name="StaticSound" type="AudioStreamPlayer" parent="." unique_id=1451471150]
 stream = ExtResource("6_t23a6")
 volume_db = -5.493
 
@@ -378,7 +424,10 @@ material = SubResource("StandardMaterial3D_31nt6")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=87583921]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.53069794, 4.0951343, 0)
+light_energy = 2.0
+light_volumetric_fog_energy = 0.05
 shadow_enabled = true
+spot_range = 6.0
 spot_angle = 77.26514
 
 [connection signal="child_entered_tree" from="TrainSpotlight" to="TrainSpotlight" method="_on_child_entered_tree"]

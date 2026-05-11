@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cc2rojun03uvi" path="res://scripts/npc_logic/player/player_debug/DebugMenu.cs" id="5_d7324"]
 [ext_resource type="PackedScene" uid="uid://prf03ox8chpp" path="res://scenes/ui/inventory_slot.tscn" id="7_6icxk"]
 [ext_resource type="Script" uid="uid://cc7it8t7d0ndw" path="res://scripts/npc_logic/player/playerui/InventoryUi.cs" id="7_jgevp"]
+[ext_resource type="FontFile" uid="uid://cctg45s3enmvs" path="res://assets/fonts/ShareTechMono-Regular.ttf" id="8_h0ak3"]
 [ext_resource type="FontFile" uid="uid://dja080asghmk4" path="res://assets/fonts/Cinzel-VariableFont_wght.ttf" id="12_ee5uu"]
 [ext_resource type="Texture2D" uid="uid://8kqsld5q2ycx" path="res://assets/overlays/bloodsplatter.png" id="12_h0ak3"]
 
@@ -35,6 +36,92 @@ albedo_color = Color(0.037521772, 0.2753775, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35tf2"]
 albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ee5uu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 725)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h0ak3"]
+resource_name = "play"
+length = 6.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664, 1, 4.9666667, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 725), Vector2(0, 651), Vector2(0, 651), Vector2(0, 651), Vector2(0, 651), Vector2(0, 725)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.001, 0.96666664, 1, 4.9666667, 5, 6, 6.001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, true, true, true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_32nx7"]
+_data = {
+&"RESET": SubResource("Animation_ee5uu"),
+&"play": SubResource("Animation_h0ak3")
+}
 
 [sub_resource type="Animation" id="Animation_50dpb"]
 length = 0.001
@@ -190,7 +277,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D" unique_id=746536559 node_paths=PackedStringArray("_playerHead", "_playerCamera", "healthRect", "healthTimer", "deathLayer", "deathTimer", "dmgAnim") groups=["player"]]
 collision_layer = 8
-collision_mask = 41
+collision_mask = 105
 script = ExtResource("1_o7mkg")
 _playerHead = NodePath("PlayerHead")
 _playerCamera = NodePath("PlayerHead/PlayerCamera")
@@ -290,12 +377,14 @@ material = SubResource("StandardMaterial3D_35tf2")
 cull_mask = 1048567
 fov = 90.0
 
-[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_interactRay", "_playerHand", "_crosshair")]
+[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_interactRay", "_playerHand", "_crosshair", "_uiInfoAnim", "_uiInfoText")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 script = ExtResource("4_50dpb")
 _interactRay = NodePath("InteractRay")
 _playerHand = NodePath("Hand")
 _crosshair = NodePath("../../HUD/HUD/Crosshair")
+_uiInfoAnim = NodePath("../../HUD/HUD/InfoScreenAnim")
+_uiInfoText = NodePath("../../HUD/HUD/InfoScreen/InfoText")
 
 [node name="InteractRay" type="RayCast3D" parent="PlayerHead/PlayerInteract" unique_id=1289993461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -303,7 +392,7 @@ target_position = Vector3(0, 0, -2)
 collision_mask = 6
 
 [node name="Hand" type="Marker3D" parent="PlayerHead/PlayerInteract" unique_id=1975491519]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49846908, 0, -0.6371041)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5984691, -0.10000002, -0.43710408)
 
 [node name="FootstepSound" type="Node3D" parent="." unique_id=257852073 node_paths=PackedStringArray("_player", "_footRaycast", "_footstepPlayer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
@@ -347,6 +436,50 @@ grow_vertical = 2
 pivot_offset = Vector2(1, 1)
 color = Color(1, 1, 1, 0.69803923)
 
+[node name="InfoScreenAnim" type="AnimationPlayer" parent="HUD/HUD" unique_id=969555181]
+root_node = NodePath("../InfoScreen")
+libraries/ = SubResource("AnimationLibrary_32nx7")
+
+[node name="InfoScreen" type="Control" parent="HUD/HUD" unique_id=1477764092]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = 5.0
+offset_right = 640.0
+offset_bottom = 75.00159
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="InfoBg" type="ColorRect" parent="HUD/HUD/InfoScreen" unique_id=1117142082]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05882353, 0.05882353, 0.05882353, 0.20784314)
+
+[node name="InfoText" type="RichTextLabel" parent="HUD/HUD/InfoScreen" unique_id=69227529]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("8_h0ak3")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[wave]CONGRATULATIONS, YOU FOUND A BUG!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="InventoryUI" type="Control" parent="HUD" unique_id=802560802 node_paths=PackedStringArray("_playerHead", "_playerInteract", "_itemContainer", "_inventoryAnim")]
 visible = false
 layout_mode = 3
@@ -374,7 +507,7 @@ offset_right = -714.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(640, 360)
-color = Color(0.05882353, 0.05882353, 0.05882353, 0.32941177)
+color = Color(1, 1, 1, 0.21960784)
 
 [node name="InventoryContainer" type="VBoxContainer" parent="HUD/InventoryUI" unique_id=1651047698]
 layout_mode = 1
@@ -386,6 +519,44 @@ offset_right = 300.0
 offset_bottom = 315.0
 grow_vertical = 2
 theme_override_constants/separation = 120
+
+[node name="DeathLayer" type="CanvasLayer" parent="." unique_id=318575002]
+visible = false
+
+[node name="Label" type="Label" parent="DeathLayer" unique_id=471374392]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = -39.5
+offset_right = 118.5
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_h0ak3")
+
+[node name="ColorRect" type="ColorRect" parent="DeathLayer" unique_id=510867090]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16470589, 0.16470589, 0.16470589, 0.4745098)
+
+[node name="DeathTimer" type="Timer" parent="." unique_id=619147026]
+process_mode = 3
+wait_time = 5.0
+one_shot = true
+
+[node name="DamageAnim" type="AnimationPlayer" parent="." unique_id=1754450732]
+libraries/ = SubResource("AnimationLibrary_ojamd")
+
+[node name="healingTimer" type="Timer" parent="." unique_id=1498297487]
+wait_time = 10.0
+autostart = true
 
 [node name="DEBUGTRANSFORM" type="RemoteTransform3D" parent="." unique_id=684393037]
 transform = Transform3D(-0.8221439, -0.19377114, 0.53528684, 0, 0.94028807, 0.34037957, -0.56927955, 0.27984098, -0.7730522, 1.694, 1.119, -2.469)
@@ -609,44 +780,6 @@ text = "shake_explode"
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
 text = "shake_earthq"
-
-[node name="DeathLayer" type="CanvasLayer" parent="." unique_id=318575002]
-visible = false
-
-[node name="Label" type="Label" parent="DeathLayer" unique_id=471374392]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -118.5
-offset_top = -39.5
-offset_right = 118.5
-offset_bottom = 39.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "YOU DIED"
-label_settings = SubResource("LabelSettings_h0ak3")
-
-[node name="ColorRect" type="ColorRect" parent="DeathLayer" unique_id=510867090]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.16470589, 0.16470589, 0.16470589, 0.4745098)
-
-[node name="DeathTimer" type="Timer" parent="." unique_id=619147026]
-process_mode = 3
-wait_time = 5.0
-one_shot = true
-
-[node name="DamageAnim" type="AnimationPlayer" parent="." unique_id=1754450732]
-libraries/ = SubResource("AnimationLibrary_ojamd")
-
-[node name="healingTimer" type="Timer" parent="." unique_id=1498297487]
-wait_time = 10.0
-autostart = true
 
 [connection signal="pressed" from="DevMenu/VBoxLeft/Debug" to="DevMenu" method="ShowDebug"]
 [connection signal="pressed" from="DevMenu/VBoxLeft/DebugStats" to="DevMenu" method="ShowDebugStatsContainer"]

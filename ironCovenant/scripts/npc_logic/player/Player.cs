@@ -201,7 +201,7 @@ public partial class Player : CharacterBody3D
     private void HandleNoclip(float delta, Vector2 inputDir) //! TURN OFF WHEN RELEASE BUILD
     {
         float vertical = 0f;
-
+        
         if (Input.IsActionPressed("jump")) vertical += 1f;
         if (Input.IsActionPressed("crouch")) vertical -= 1f;
 
@@ -361,7 +361,7 @@ public partial class Player : CharacterBody3D
         dmgAnim.Play("take_damage");
         health -= damage;
         double convertedHealth = (100 - health) / 100.0;
-        GD.Print($"Converted: ${convertedHealth}");
+        //GD.Print($"Converted: ${convertedHealth}");
         healthRect.SelfModulate = new Color(1f,1f,1f,(float)convertedHealth);
         if (health <= 0)
         {
@@ -383,7 +383,7 @@ public partial class Player : CharacterBody3D
     {
         health += 10;
         double convertedHealth = (100 - health) / 100.0;
-        GD.Print($"Converted: ${convertedHealth}");
+        //GD.Print($"Converted: ${convertedHealth}");
         healthRect.SelfModulate = new Color(1f,1f,1f,(float)convertedHealth);
         if (health > 100)
         {

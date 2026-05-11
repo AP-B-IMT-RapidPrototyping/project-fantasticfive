@@ -763,22 +763,4 @@ size = Vector3(10, 5, 1)
 material = SubResource("StandardMaterial3D_hhhrn")
 
 [node name="Flare" parent="." unique_id=1264351893 instance=ExtResource("6_pyrxr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 6)
-
-[node name="Flare2" parent="." unique_id=1591161301 instance=ExtResource("6_pyrxr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.9392877, 6)
-
-[node name="Flare3" parent="." unique_id=1791476486 instance=ExtResource("6_pyrxr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.9392877, 6)
-
-[node name="Flare4" parent="." unique_id=1064173480 instance=ExtResource("6_pyrxr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.9392877, 6)
-
-[node name="Flare5" parent="." unique_id=364096754 instance=ExtResource("6_pyrxr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.9392877, 6)
-
-[node name="Flare6" parent="." unique_id=1834302472 instance=ExtResource("6_pyrxr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3.9392877, 6)
-
-[node name="Flare7" parent="." unique_id=1347897370 instance=ExtResource("6_pyrxr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3.9392877, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 6)

@@ -23,6 +23,7 @@ public partial class PlayerInteract : Node3D
         CallDeferred(nameof(CheckPreviousItem));
     }
 
+
     private void CheckPreviousItem()
     {
         if (InventorySystem.Inventory.previousHeldItemData != null)

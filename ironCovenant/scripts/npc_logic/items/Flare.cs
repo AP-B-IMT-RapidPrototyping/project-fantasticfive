@@ -12,6 +12,7 @@ public partial class Flare : RigidBody3D, IInteractable
 
     [Export] private AnimationPlayer _anim;
 
+    private bool alreadyLighted = false;
 
 
     public override void _Ready()
@@ -59,10 +60,15 @@ public partial class Flare : RigidBody3D, IInteractable
 
         LinearVelocity = throwDir * 15.0f;
 
+        Light();
     }
 
     private void Light()
     {
-        _anim.Play("play");
+        if (!alreadyLighted)
+        {
+            _anim.Play("play");
+            alreadyLighted = true;
+        }
     }
 }

@@ -79,4 +79,11 @@ public partial class InventorySystem : Node
 
         return null;
     }
+
+    public bool HasItem(ItemData item, int amount = 1)
+    {
+        if (item == null) return false;
+
+        return _inventory.ContainsKey(item) && _inventory[item] >= amount;
+    }
 }

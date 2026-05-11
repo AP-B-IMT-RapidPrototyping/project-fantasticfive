@@ -47,7 +47,7 @@ damage = 100
 
 [node name="defaultEnemy" parent="." unique_id=1435184889 instance=ExtResource("3_1idyi")]
 transform = Transform3D(-0.06484574, 0, 0.99789524, 0, 1, 0, -0.99789524, 0, -0.06484574, 18.107431, 0.28068304, 2.6048584)
-AttackRange = 2.0
+attackRange = 2.0
 
 [editable path="defaultEnemy"]
 [editable path="defaultEnemy/DefaultEnemy"]

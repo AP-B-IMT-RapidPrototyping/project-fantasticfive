@@ -1,14 +1,11 @@
 using Godot;
 using System;
 
-public partial class Level2 : Node3D
+public partial class GlowingSign : Node3D
 {
-	[Export] private TrainSpotlight spotlight;
-	[Export] private ScreenStuff screen;
+	
 	public override void _Ready()
 	{
-		spotlight.canRadiate = true;
-		screen.StartFuelBlinking();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

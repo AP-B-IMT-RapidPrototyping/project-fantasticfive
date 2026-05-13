@@ -1,25 +1,29 @@
 [gd_scene format=3 uid="uid://cgc2djyyxpem2"]
 
 [ext_resource type="Script" uid="uid://cj5wcmb6bk1vw" path="res://scripts/puzzle_scripts/LightPanel.cs" id="1_x01nl"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_sst4i"]
-size = Vector3(0.145, 1, 1)
+[ext_resource type="PackedScene" uid="uid://h57bq7xcvg4h" path="res://assets/prototypeAssets/LightPanel.glb" id="2_p5fgg"]
+[ext_resource type="Material" uid="uid://cch14op7jkqxq" path="res://scenes/nPC_models/puzzleStuff/PowerCableMat.tres" id="3_vwgqa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x01nl"]
-size = Vector3(0.14587402, 1, 1)
+size = Vector3(0.14587402, 1, 1.5257568)
 
 [node name="LightPanel" type="StaticBody3D" unique_id=2111136213 node_paths=PackedStringArray("endPowerTimer")]
 collision_layer = 32
 script = ExtResource("1_x01nl")
 endPowerTimer = NodePath("EndPowerTimer")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1150969918]
-mesh = SubResource("BoxMesh_sst4i")
-
 [node name="PanelCollision" type="CollisionShape3D" parent="." unique_id=1218985730]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0060424805, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0060424805, 0, 0.0099487305)
 shape = SubResource("BoxShape3D_x01nl")
 
 [node name="EndPowerTimer" type="Timer" parent="." unique_id=1948664784]
 wait_time = 1.5
 one_shot = true
+
+[node name="LightPanel" parent="." unique_id=144391817 instance=ExtResource("2_p5fgg")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Cube" parent="LightPanel" index="0" unique_id=1519614942]
+material_override = ExtResource("3_vwgqa")
+
+[editable path="LightPanel"]

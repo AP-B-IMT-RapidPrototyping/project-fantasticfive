@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 public partial class Level0 : Node3D
 {
+    [Export] private AnimationPlayer _introText;
+    private bool _introTextDone = false;
+
     [Export] private Train _train;
     [Export] private AnimationPlayer _cutsceneIntroAnim;
     [Export] private AnimationPlayer _cutsceneAnim;
@@ -13,6 +16,17 @@ public partial class Level0 : Node3D
 
     [Export] private Camera3D _cutsceneCamera;
 
+
+
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (@event.IsActionPressed("jump") && !_introTextDone)
+        {
+            _introText.Seek(_introText.GetAnimation(_introText.CurrentAnimation).Length, true);
+            _introTextDone = true;
+        }
+    }
 
 
 

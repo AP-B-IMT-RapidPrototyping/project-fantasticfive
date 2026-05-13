@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://cek5y5ftr60lc" path="res://assets/prototypeAssets/Sign.glb" id="9_xckex"]
 [ext_resource type="PackedScene" uid="uid://72e8mxob20mt" path="res://assets/prototypeAssets/walls/BrickWall.glb" id="10_mcssb"]
 [ext_resource type="PackedScene" uid="uid://gyxgdjf4rsuj" path="res://assets/prototypeAssets/walls/BrickWallEnd.glb" id="11_dwyyt"]
-[ext_resource type="PackedScene" uid="uid://d1xe7qwlad8wx" path="res://assets/Models/Broken_Firewatch_tower.glb" id="12_dwyyt"]
 [ext_resource type="PackedScene" uid="uid://dd6u726r5u81u" path="res://assets/NatureAssets/forest_floor/boulders/Boulder_02_flat.glb" id="13_mo72a"]
 [ext_resource type="PackedScene" uid="uid://c66wr0ew87bjs" path="res://assets/NatureAssets/forest_floor/bushes/Bush_L_flat.glb" id="14_xckex"]
 [ext_resource type="PackedScene" uid="uid://c3cpuqbbvb8dh" path="res://assets/NatureAssets/forest_floor/bushes/Bush_M_flat.glb" id="15_wwnxi"]
@@ -56,6 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://djylq8p82iyo7" path="res://assets/NatureAssets/trees/birch/Birch_L_flat.glb" id="53_3rr8u"]
 [ext_resource type="PackedScene" uid="uid://bfuts6elxn6e5" path="res://assets/NatureAssets/trees/other/Mistletoe_Tree_flat.glb" id="54_tujjb"]
 [ext_resource type="PackedScene" uid="uid://gaiiy7k6s8m2" path="res://assets/NatureAssets/trees/birch/Birch_M_flat.glb" id="55_4bkgb"]
+[ext_resource type="PackedScene" uid="uid://csbuod4affyni" path="res://scenes/scene_models/firewatch_tower.tscn" id="56_xckex"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oblk4"]
 sky_top_color = Color(0.045755774, 0.06657307, 0.09292682, 1)
@@ -181,7 +181,7 @@ emission_enabled = true
 emission = Color(1, 1, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e5vnl"]
-size = Vector3(3.61, 5.995, 1)
+size = Vector3(3.61, 4.02, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_e5vnl"]
 material = ExtResource("7_twycr")
@@ -202,17 +202,31 @@ emission = Color(0.45685214, 0.4568522, 0.4568522, 1)
 [sub_resource type="TextMesh" id="TextMesh_wwnxi"]
 material = SubResource("StandardMaterial3D_xckex")
 text = "Press A to toggle
-the following of light
+the train spotlight
+ following you
 (or Q on querty)"
 
+[sub_resource type="BoxMesh" id="BoxMesh_xckex"]
+size = Vector3(0.145, 0.52, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwnxi"]
+emission_enabled = true
+emission = Color(0.641934, 0.641934, 0.641934, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_836tr"]
+material = SubResource("StandardMaterial3D_wwnxi")
+text = "Maybe press A
+again
+(or q for querty)"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_dwyyt"]
-size = Vector3(8, 4, 0.2)
+size = Vector3(16, 4, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6ptl"]
 size = Vector3(16, 4, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a6cvn"]
-size = Vector3(16, 4, 0.2)
+size = Vector3(63.193115, 4, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6rin4"]
 size = Vector3(72, 4, 0.2)
@@ -277,10 +291,10 @@ autoplay = &"play"
 [node name="Environment" type="Node3D" parent="." unique_id=742158180]
 
 [node name="Floor" type="CSGBox3D" parent="Environment" unique_id=595687775 groups=["sound_grass"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.43814, -0.5, 19.522675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.80368, -0.5, 19.522675)
 use_collision = true
 collision_mask = 0
-size = Vector3(188.4837, 1, 241.69409)
+size = Vector3(264.96735, 1, 241.69409)
 material = SubResource("StandardMaterial3D_oblk4")
 
 [node name="Rails" type="Node3D" parent="Environment" unique_id=912831016]
@@ -485,12 +499,12 @@ material = SubResource("StandardMaterial3D_uw6xe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.353836, 0, -18.06429)
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="Environment/Light Mechanic" unique_id=1766746438]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -63.86869, 2.9611208, -2.4592133)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -63.86869, 1.9979618, -2.4592133)
 use_collision = true
 mesh = SubResource("BoxMesh_e5vnl")
 
 [node name="CSGMesh3D4" type="CSGMesh3D" parent="Environment/Light Mechanic" unique_id=772699575]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -63.86869, 2.9611208, 2.3972006)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -63.86869, 1.9542909, 2.3972006)
 use_collision = true
 mesh = SubResource("BoxMesh_e5vnl")
 
@@ -519,29 +533,58 @@ light_energy = 8.619
 light_volumetric_fog_energy = 1.825
 shadow_enabled = true
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Light Mechanic" unique_id=585530772]
-transform = Transform3D(-0.98835355, -0.0010969132, 0.15217116, -0.054641284, 0.9358451, -0.34814987, -0.14202674, -0.35241, -0.92500573, -26.67781, 0.16716623, -2.0014744)
-light_energy = 2.968
-light_volumetric_fog_energy = 1.825
-shadow_enabled = true
-
 [node name="Sign" parent="Environment/Light Mechanic" unique_id=53817721 instance=ExtResource("9_xckex")]
-transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -26.876156, 0.71872115, 0)
+transform = Transform3D(1.7789285, 0, 0.91400963, 0, 2, 0, -0.91400963, 0, 1.7789285, -23.939598, 0.71872115, -3.0608902)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light Mechanic/Sign" unique_id=1125581579]
 transform = Transform3D(-2.411971e-08, 1.9406308e-09, 0.55, -0.044396456, 0.54820526, -3.8812606e-09, -0.54820526, -0.044396456, -2.3884354e-08, 0.07551193, 0.31773317, 0)
 mesh = SubResource("TextMesh_wwnxi")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Light Mechanic/Sign" unique_id=585530772]
+transform = Transform3D(0.14202677, 0.35241002, 0.92500573, -0.054641284, 0.9358451, -0.3481499, -0.9883535, -0.0010968931, 0.1521712, 1.0007372, -0.27577746, 0.09917259)
+light_energy = 2.968
+light_volumetric_fog_energy = 1.825
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light Mechanic" unique_id=957107791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.85315, 1.9831698, -1.3879585)
+mesh = SubResource("BoxMesh_xckex")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light Mechanic/MeshInstance3D" unique_id=532153184]
+transform = Transform3D(-3.4531997e-08, 0, 0.79, 0, 0.79, 0, -0.79, 0, -3.4531997e-08, 0.056224823, 0, 0)
+mesh = SubResource("TextMesh_836tr")
 
 [node name="IronFence" type="Node3D" parent="Environment" unique_id=340695118]
 
 [node name="IronFence" parent="Environment/IronFence" unique_id=904226136 instance=ExtResource("9_e3qul")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.2004638, 0, -22.487154)
 
+[node name="IronFence31" parent="Environment/IronFence" unique_id=1220723300 instance=ExtResource("9_e3qul")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.799536, 0, -22.487154)
+
 [node name="IronFence2" parent="Environment/IronFence" unique_id=898809369 instance=ExtResource("9_e3qul")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -35.13584, 0, -22.429174)
 
 [node name="IronFence29" parent="Environment/IronFence" unique_id=97919404 instance=ExtResource("9_e3qul")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -43.13584, 0, -22.429174)
+
+[node name="IronFence32" parent="Environment/IronFence" unique_id=1231244174 instance=ExtResource("9_e3qul")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -51.13584, 0, -22.429174)
+
+[node name="IronFence33" parent="Environment/IronFence" unique_id=1986633441 instance=ExtResource("9_e3qul")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -59.13584, 0, -22.429174)
+
+[node name="IronFence34" parent="Environment/IronFence" unique_id=1909460275 instance=ExtResource("9_e3qul")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -67.13584, 0, -22.429174)
+
+[node name="IronFence35" parent="Environment/IronFence" unique_id=176317159 instance=ExtResource("9_e3qul")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -75.13584, 0, -22.429174)
+
+[node name="IronFence36" parent="Environment/IronFence" unique_id=825911339 instance=ExtResource("9_e3qul")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -83.13584, 0, -22.429174)
+
+[node name="IronFence37" parent="Environment/IronFence" unique_id=252041798 instance=ExtResource("9_e3qul")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -91.13584, 0, -22.429174)
 
 [node name="IronFence3" parent="Environment/IronFence" unique_id=875035006 instance=ExtResource("9_e3qul")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.799536, 0, -14.608591)
@@ -550,86 +593,86 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.7
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.7995358, 0, -14.608591)
 
 [node name="IronFence4" parent="Environment/IronFence" unique_id=2125545341 instance=ExtResource("9_e3qul")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 16.799536, 0, -10.608591)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.200464, 0, -10.608591)
 
 [node name="IronFence5" parent="Environment/IronFence" unique_id=207598849 instance=ExtResource("9_e3qul")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 16.799536, 0, -2.608591)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.200464, 0, -2.608591)
 
 [node name="IronFence6" parent="Environment/IronFence" unique_id=1940168612 instance=ExtResource("9_e3qul")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 16.799536, 0, 5.391409)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.200464, 0, 5.391409)
 
 [node name="IronFence7" parent="Environment/IronFence" unique_id=1484166985 instance=ExtResource("9_e3qul")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 16.799536, 0, 13.391409)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.200464, 0, 13.391409)
 
 [node name="IronFence8" parent="Environment/IronFence" unique_id=689363036 instance=ExtResource("9_e3qul")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 16.799536, 0, 21.391409)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.200464, 0, 21.391409)
 
 [node name="IronFence9" parent="Environment/IronFence" unique_id=1329188477 instance=ExtResource("9_e3qul")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 16.799536, 0, 29.391409)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.200464, 0, 29.391409)
 
 [node name="IronFence10" parent="Environment/IronFence" unique_id=1871784807 instance=ExtResource("9_e3qul")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 16.799536, 0, 37.39141)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.200464, 0, 37.39141)
 
 [node name="IronFence11" parent="Environment/IronFence" unique_id=2013142222 instance=ExtResource("9_e3qul")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 16.799536, 0, 45.39141)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.200464, 0, 45.39141)
 
 [node name="IronFence12" parent="Environment/IronFence" unique_id=255348530 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 12.799538, 0, 49.39141)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -34.200462, 0, 49.39141)
 
 [node name="IronFence13" parent="Environment/IronFence" unique_id=1024917084 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 4.7995377, 0, 49.39141)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -42.200462, 0, 49.39141)
 
 [node name="IronFence14" parent="Environment/IronFence" unique_id=1357385383 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.2004642, 0, 49.39141)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -50.200462, 0, 49.39141)
 
 [node name="IronFence15" parent="Environment/IronFence" unique_id=874452885 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -11.200464, 0, 49.39141)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -58.200462, 0, 49.39141)
 
 [node name="IronFence16" parent="Environment/IronFence" unique_id=60431427 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -19.200462, 0, 49.39141)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -66.20046, 0, 49.39141)
 
 [node name="IronFence17" parent="Environment/IronFence" unique_id=64057916 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -27.200462, 0, 49.39141)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -74.20046, 0, 49.39141)
 
 [node name="IronFence18" parent="Environment/IronFence" unique_id=434891386 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -35.200462, 0, 49.39141)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -82.20046, 0, 49.39141)
 
 [node name="IronFence19" parent="Environment/IronFence" unique_id=535934708 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -43.200462, 0, 49.39141)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -90.20046, 0, 49.39141)
 
 [node name="IronFence20" parent="Environment/IronFence" unique_id=949150742 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -47.200462, 0, 45.39141)
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -94.20046, 0, 45.39141)
 
 [node name="IronFence21" parent="Environment/IronFence" unique_id=226546030 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -47.200462, 0, 37.39141)
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -94.20046, 0, 37.39141)
 
 [node name="IronFence22" parent="Environment/IronFence" unique_id=1509304682 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -47.200462, 0, 29.39141)
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -94.20046, 0, 29.39141)
 
 [node name="IronFence23" parent="Environment/IronFence" unique_id=984083050 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -47.200462, 0, 21.39141)
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -94.20046, 0, 21.39141)
 
 [node name="IronFence24" parent="Environment/IronFence" unique_id=2029486916 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -47.200462, 0, 13.391411)
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -94.20046, 0, 13.391411)
 
 [node name="IronFence25" parent="Environment/IronFence" unique_id=17783655 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -47.200462, 0, 5.391411)
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -94.20046, 0, 5.391411)
 
 [node name="IronFence26" parent="Environment/IronFence" unique_id=903214378 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -47.200462, 0, -2.6085892)
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -94.20046, 0, -2.6085892)
 
 [node name="IronFence27" parent="Environment/IronFence" unique_id=841002840 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -47.200462, 0, -10.608589)
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -94.20046, 0, -10.608589)
 
 [node name="IronFence28" parent="Environment/IronFence" unique_id=59146136 instance=ExtResource("9_e3qul")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -47.200462, 0, -18.60859)
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -94.20046, 0, -18.60859)
 
 [node name="FenceCollision" type="StaticBody3D" parent="Environment/IronFence" unique_id=1889856192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.409857)
 collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/IronFence/FenceCollision" unique_id=110129656]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1302824, 2, -0.0723896)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8697176, 2, -0.0723896)
 shape = SubResource("BoxShape3D_dwyyt")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Environment/IronFence/FenceCollision" unique_id=1859767812]
@@ -637,19 +680,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.869718, 2, 7.8007793)
 shape = SubResource("BoxShape3D_o6ptl")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/IronFence/FenceCollision" unique_id=374911221]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.130283, 2, -0.0723896)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.72684, 2, -0.0723896)
 shape = SubResource("BoxShape3D_a6cvn")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Environment/IronFence/FenceCollision" unique_id=411020796]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -47.130283, 2, 35.927612)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -94.13028, 2, 35.927612)
 shape = SubResource("BoxShape3D_6rin4")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Environment/IronFence/FenceCollision" unique_id=368886627]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -15.130283, 2, 71.92761)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -62.130283, 2, 71.92761)
 shape = SubResource("BoxShape3D_5v643")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Environment/IronFence/FenceCollision" unique_id=15568640]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 16.869717, 2, 39.927612)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -30.130283, 2, 39.927612)
 shape = SubResource("BoxShape3D_5v643")
 
 [node name="Bricks" type="Node3D" parent="Environment" unique_id=890966360]
@@ -685,9 +728,6 @@ transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 6.09
 
 [node name="BrickWallEnd3" parent="Environment/Bricks" unique_id=966277104 instance=ExtResource("11_dwyyt")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -18.069345, 0, 2.7895117)
-
-[node name="Broken_Firewatch_tower" parent="Environment" unique_id=239623907 instance=ExtResource("12_dwyyt")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.65493774, -0.5661354, 25.124012)
 
 [node name="Forest" type="Node3D" parent="Environment" unique_id=301202835]
 
@@ -4284,7 +4324,7 @@ transform = Transform3D(0.73228514, 0, -0.35471025, 0, 0.81367123, 0, 0.35471025
 transform = Transform3D(-0.92369276, 0, -0.38615528, 0, 1.0011616, 0, 0.38615528, 0, -0.92369276, -79.057144, 0, -61.32983)
 
 [node name="_Node3D_94546" parent="Environment/Forest/GeneratedTrees" unique_id=1727873012 instance=ExtResource("44_mmoqj")]
-transform = Transform3D(0.5987006, 0, -1.01236, 0, 1.1761444, 0, 1.01236, 0, 0.5987006, -76.48446, 0, -9.179255)
+transform = Transform3D(0.5987006, 0, -1.01236, 0, 1.1761444, 0, 1.01236, 0, 0.5987006, -80.41259, 0, 1.1425686)
 
 [node name="_Node3D_94547" parent="Environment/Forest/GeneratedTrees" unique_id=1858975758 instance=ExtResource("54_tujjb")]
 transform = Transform3D(0.27025306, 0, 0.82867444, 0, 0.87162954, 0, -0.82867444, 0, 0.27025306, 26.332443, 0, -67.58078)
@@ -4327,6 +4367,9 @@ transform = Transform3D(0.38113725, 0, 1.0580837, 0, 1.1246363, 0, -1.0580837, 0
 
 [node name="_Node3D_94560" parent="Environment/Forest/GeneratedTrees" unique_id=669669840 instance=ExtResource("46_qwt8r")]
 transform = Transform3D(0.28655928, 0, 0.9541099, 0, 0.99621385, 0, -0.9541099, 0, 0.28655928, -18.136473, 0, -26.422)
+
+[node name="FirewatchTower" parent="Environment" unique_id=1357974716 instance=ExtResource("56_xckex")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -70.526886, 0, -11.853211)
 
 [connection signal="GivePower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/ElectricalDoor" method="OnGetPower"]
 [connection signal="GivePower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/PowerCable" method="OnGetPower"]

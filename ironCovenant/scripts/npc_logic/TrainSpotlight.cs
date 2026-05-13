@@ -112,7 +112,7 @@ public partial class TrainSpotlight : Node3D
 				{
 					if (results[checkIndex].collider is Node3D node2)
 					{
-						if (node2.Name == "Train" || node2.Name == "DoorL" || node2.Name == "DoorR" || node2.Name == "backwallSafety")
+						if (node2.Name == "Train" || node2.Name == "DoorL" || node2.Name == "DoorR" || node2.Name == "backwallsafety")
 						{
 							//GD.Print("First node is train");
 							checkIndex++;
@@ -134,7 +134,7 @@ public partial class TrainSpotlight : Node3D
 							spotCastCheck = true;
 						} else
 						{
-							//GD.Print($"Closest isn't player, it is: {closeNode.Name}");
+							GD.Print($"Closest isn't player, it is: {closeNode.Name}");
 							spotCastCheck = false;
 						}
 					}

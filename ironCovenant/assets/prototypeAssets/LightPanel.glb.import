@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1xe7qwlad8wx"
-path="res://.godot/imported/Broken_Firewatch_tower.glb-451f80bf1d9faad1eef6b494489c306b.scn"
+uid="uid://h57bq7xcvg4h"
+path="res://.godot/imported/LightPanel.glb-5fc71a90c468788350517b5f5b0cfb3b.scn"
 
 [deps]
 
-source_file="res://assets/Models/Broken_Firewatch_tower.glb"
-dest_files=["res://.godot/imported/Broken_Firewatch_tower.glb-451f80bf1d9faad1eef6b494489c306b.scn"]
+source_file="res://assets/prototypeAssets/LightPanel.glb"
+dest_files=["res://.godot/imported/LightPanel.glb-5fc71a90c468788350517b5f5b0cfb3b.scn"]
 
 [params]
 

@@ -248,9 +248,71 @@ albedo_color = Color(0, 0, 0, 1)
 material = SubResource("StandardMaterial3D_a6cvn")
 size = Vector3(30.645, 4.44, 0.13)
 
-[node name="Level2" type="Node3D" unique_id=646259433 node_paths=PackedStringArray("spotlight")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_836tr"]
+disable_fog = true
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 5.7
+
+[sub_resource type="TextMesh" id="TextMesh_obq70"]
+text = "Fire          tower
+         of order"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xv6ks"]
+disable_fog = true
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 5.7
+
+[sub_resource type="TextMesh" id="TextMesh_75f5a"]
+material = SubResource("StandardMaterial3D_xv6ks")
+text = "     watch
+out"
+
+[sub_resource type="Animation" id="Animation_xckex"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:material_override:emission_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_wwnxi"]
+resource_name = "blinkSign"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:material_override:emission_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.54, 0.71, 0.84, 1.02, 3.28, 3.38, 3.44, 3.54, 3.69, 3.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, true, false, false, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_836tr"]
+_data = {
+&"RESET": SubResource("Animation_xckex"),
+&"blinkSign": SubResource("Animation_wwnxi")
+}
+
+[node name="Level2" type="Node3D" unique_id=646259433 node_paths=PackedStringArray("spotlight", "screen")]
 script = ExtResource("1_1xtnv")
 spotlight = NodePath("Entities/Train/TrainSpotlight")
+screen = NodePath("Entities/Train/ScreenStuff")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=711760419]
 environment = SubResource("Environment_a3cud")
@@ -534,7 +596,7 @@ light_volumetric_fog_energy = 1.825
 shadow_enabled = true
 
 [node name="Sign" parent="Environment/Light Mechanic" unique_id=53817721 instance=ExtResource("9_xckex")]
-transform = Transform3D(1.7789285, 0, 0.91400963, 0, 2, 0, -0.91400963, 0, 1.7789285, -23.939598, 0.71872115, -3.0608902)
+transform = Transform3D(1.7789285, 0, 0.91400963, 0, 2, 0, -0.91400963, 0, 1.7789285, -28.789215, 0.71872115, 2.0676947)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light Mechanic/Sign" unique_id=1125581579]
 transform = Transform3D(-2.411971e-08, 1.9406308e-09, 0.55, -0.044396456, 0.54820526, -3.8812606e-09, -0.54820526, -0.044396456, -2.3884354e-08, 0.07551193, 0.31773317, 0)
@@ -3326,7 +3388,7 @@ transform = Transform3D(-0.99415314, 0, 0.10797921, 0, 1, 0, -0.10797921, 0, -0.
 transform = Transform3D(0.961073, 0, 0.27629474, 0, 1, 0, -0.27629474, 0, 0.961073, 47.36561, 0, -98.993675)
 
 [node name="_Node3D_95446" parent="Environment/Forest/GeneratedForestFloor" unique_id=2056515438 instance=ExtResource("19_75f5a")]
-transform = Transform3D(0.79933363, 0, 0.6008875, 0, 1, 0, -0.6008875, 0, 0.79933363, 5.2621346, 0, -16.830887)
+transform = Transform3D(0.79933363, 0, 0.6008875, 0, 1, 0, -0.6008875, 0, 0.79933363, 5.2621346, 0, -23.970352)
 
 [node name="_Node3D_95447" parent="Environment/Forest/GeneratedForestFloor" unique_id=1684727861 instance=ExtResource("19_75f5a")]
 transform = Transform3D(0.40622172, 0, 0.91377455, 0, 1, 0, -0.91377455, 0, 0.40622172, -17.299454, 0, -57.67449)
@@ -4371,6 +4433,21 @@ transform = Transform3D(0.28655928, 0, 0.9541099, 0, 0.99621385, 0, -0.9541099, 
 [node name="FirewatchTower" parent="Environment" unique_id=1357974716 instance=ExtResource("56_xckex")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -70.526886, 0, -11.853211)
 
+[node name="GlowingSign" type="Node3D" parent="Environment" unique_id=542431035]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/GlowingSign" unique_id=308542895]
+transform = Transform3D(-3, 0, 1.2683647e-07, 0, 3, 0, -4.5298742e-07, 0, -0.84, 12.069125, 2.7510114, -14.705663)
+material_override = SubResource("StandardMaterial3D_836tr")
+mesh = SubResource("TextMesh_obq70")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment/GlowingSign" unique_id=1251813385]
+transform = Transform3D(-3, 0, 1.2683647e-07, 0, 3, 0, -4.5298742e-07, 0, -0.84, 12.719111, 2.7510114, -14.705663)
+mesh = SubResource("TextMesh_75f5a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment/GlowingSign" unique_id=713243642]
+libraries/ = SubResource("AnimationLibrary_836tr")
+autoplay = &"blinkSign"
+
 [connection signal="GivePower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/ElectricalDoor" method="OnGetPower"]
 [connection signal="GivePower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/PowerCable" method="OnGetPower"]
 [connection signal="StopPower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/ElectricalDoor" method="OnStopPower"]
@@ -4379,3 +4456,4 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -70.526886, 0, -11.8532
 [editable path="Entities/Train"]
 [editable path="Entities/Train/TestTrain"]
 [editable path="Entities/Train/TrainSpotlight"]
+[editable path="Entities/Train/ScreenStuff/icons"]

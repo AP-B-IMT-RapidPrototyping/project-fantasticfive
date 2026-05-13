@@ -1466,7 +1466,7 @@ size = Vector3(96, 5, 95)
 material = SubResource("FogMaterial_ax2ff")
 
 [node name="Player" parent="." unique_id=746536559 instance=ExtResource("2_wnydg")]
-transform = Transform3D(-0.9958846, 0, -0.090632714, 0, 0.99999994, 0, 0.09063277, 0, -0.995884, 28.426962, 2.0712335, 48.814674)
+transform = Transform3D(-0.9958846, 0, -0.09063271, 0, 0.99999994, 0, 0.09063277, 0, -0.99588394, 28.426962, 2.0712335, 48.814674)
 
 [node name="PlayerHead" parent="Player" index="5" unique_id=1089481490]
 _yaw = -3.142
@@ -1685,7 +1685,7 @@ max_db = 0.0
 pitch_scale = 0.75
 
 [node name="Camera3D" type="Camera3D" parent="Cutscene" unique_id=780881902]
-transform = Transform3D(0.39855665, -0.011073765, 0.91707593, 0.034766693, 0.99939, -0.0030416893, -0.91648465, 0.033095986, 0.39869842, 38.76986, 1.3964998, 4.031459)
+transform = Transform3D(0.39855665, -0.011073764, 0.9170759, 0.034766693, 0.99938995, -0.003041689, -0.91648465, 0.033095986, 0.3986984, 38.76986, 1.3964998, 4.031459)
 visible = false
 fov = 60.0
 
@@ -2211,7 +2211,9 @@ shape = SubResource("BoxShape3D_bakur")
 [editable path="Train"]
 [editable path="Train/TestTrain"]
 [editable path="Train/TrainSpotlight"]
+[editable path="Train/ScreenStuff/icons"]
 [editable path="Cutscene/TrainCutscene"]
 [editable path="Cutscene/TrainCutscene/TestTrain"]
 [editable path="Cutscene/TrainCutscene/TrainSpotlight"]
+[editable path="Cutscene/TrainCutscene/ScreenStuff/icons"]
 [editable path="BuildingsNew/House_Small"]

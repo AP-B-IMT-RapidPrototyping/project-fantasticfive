@@ -1341,8 +1341,9 @@ size = Vector3(37.67778, 5.1602783, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bakur"]
 size = Vector3(17.04501, 5.1602783, 1)
 
-[node name="Level0" type="Node3D" unique_id=1218683510 node_paths=PackedStringArray("_train", "_cutsceneIntroAnim", "_cutsceneAnim", "_cutsceneOutroAnim", "_cutsceneEnding", "_cutsceneCamera")]
+[node name="Level0" type="Node3D" unique_id=1218683510 node_paths=PackedStringArray("_introText", "_train", "_cutsceneIntroAnim", "_cutsceneAnim", "_cutsceneOutroAnim", "_cutsceneEnding", "_cutsceneCamera")]
 script = ExtResource("1_qcr8a")
+_introText = NodePath("IntroText/IntroText")
 _train = NodePath("Train")
 _cutsceneIntroAnim = NodePath("Cutscene/CutsceneIntroAnim")
 _cutsceneAnim = NodePath("Cutscene/CutsceneAnim")
@@ -1465,13 +1466,13 @@ size = Vector3(96, 5, 95)
 material = SubResource("FogMaterial_ax2ff")
 
 [node name="Player" parent="." unique_id=746536559 instance=ExtResource("2_wnydg")]
-transform = Transform3D(-0.9958846, 0, -0.09063272, 0, 0.99999994, 0, 0.09063277, 0, -0.9958841, 28.426962, 2.0712335, 48.814674)
+transform = Transform3D(-0.9958846, 0, -0.090632714, 0, 0.99999994, 0, 0.09063277, 0, -0.995884, 28.426962, 2.0712335, 48.814674)
 
 [node name="PlayerHead" parent="Player" index="5" unique_id=1089481490]
 _yaw = -3.142
 
 [node name="Camera3D" parent="Player/DebugStats/CamToPlayer/SubViewport" parent_id_path=PackedInt32Array(746536559, 28746108) index="0" unique_id=527580327]
-transform = Transform3D(0.8703558, 0.16761094, -0.4630201, 0, 0.940288, 0.34037954, 0.49242333, -0.29625118, 0.81838495, 26.963705, 3.1902332, 51.427044)
+transform = Transform3D(0.8703558, 0.16761094, -0.4630201, 0, 0.940288, 0.34037954, 0.4924232, -0.29625115, 0.8183849, 26.963705, 3.1902332, 51.427044)
 
 [node name="BuildingsOLD" type="Node3D" parent="." unique_id=822769759]
 transform = Transform3D(0.42000002, 0, 0, 0, 1, 0, 0, 0, 1, 14.0452795, 0, 0)
@@ -1608,16 +1609,13 @@ visible = false
 [node name="SpotLight3D" parent="Train/TrainSpotlight" parent_id_path=PackedInt32Array(615132714, 1474622944) index="4" unique_id=538811013]
 visible = false
 
-[node name="ShapeCast3D" parent="Train/TrainSpotlight" parent_id_path=PackedInt32Array(615132714, 1474622944) index="5" unique_id=912961362]
-visible = false
-
 [node name="FrontLight" parent="Train/TrainFrontLight" parent_id_path=PackedInt32Array(615132714, 1662121363) index="0" unique_id=1738821236]
 light_energy = 2.0
 light_volumetric_fog_energy = 200.0
 light_size = 0.5
 light_specular = 0.0
 
-[node name="SpotLight3D" parent="Train" index="19" unique_id=87583921]
+[node name="SpotLight3D" parent="Train" index="21" unique_id=87583921]
 light_volumetric_fog_energy = 30.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Train" unique_id=436028321]
@@ -1665,9 +1663,6 @@ visible = false
 [node name="SpotLight3D" parent="Cutscene/TrainCutscene/TrainSpotlight" parent_id_path=PackedInt32Array(163513889, 1474622944) index="4" unique_id=538811013]
 visible = false
 
-[node name="ShapeCast3D" parent="Cutscene/TrainCutscene/TrainSpotlight" parent_id_path=PackedInt32Array(163513889, 1474622944) index="5" unique_id=912961362]
-visible = false
-
 [node name="FrontLight2" type="SpotLight3D" parent="Cutscene/TrainCutscene/TrainFrontLight" parent_id_path=PackedInt32Array(163513889, 1662121363) index="0" unique_id=1512562891]
 transform = Transform3D(-2.9802322e-08, 0.34202018, -0.9396926, 1.0192994e-08, 0.9396926, 0.34202018, 1, -1.8626451e-09, -3.7252903e-08, -0.3321123, 0, -1.9073486e-06)
 light_energy = 2.0
@@ -1690,7 +1685,7 @@ max_db = 0.0
 pitch_scale = 0.75
 
 [node name="Camera3D" type="Camera3D" parent="Cutscene" unique_id=780881902]
-transform = Transform3D(0.39855665, -0.011073766, 0.91707605, 0.034766693, 0.9993901, -0.0030416895, -0.91648465, 0.03309599, 0.39869848, 38.76986, 1.3964998, 4.031459)
+transform = Transform3D(0.39855665, -0.011073765, 0.91707593, 0.034766693, 0.99939, -0.0030416893, -0.91648465, 0.033095986, 0.39869842, 38.76986, 1.3964998, 4.031459)
 visible = false
 fov = 60.0
 
@@ -1769,6 +1764,11 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 1.6294327, 
 use_collision = true
 size = Vector3(1, 3.4, 2)
 material = SubResource("StandardMaterial3D_1gr7n")
+
+[node name="CollisionShape3D" type="CSGBox3D" parent="BuildingsNew/House_Small" unique_id=191263948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4999542, 4.75, -9.250038)
+use_collision = true
+size = Vector3(12, 1, 19)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BuildingsNew" unique_id=1744611813 groups=["sound_wood"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.30157, 0.28149414, 51.765118)

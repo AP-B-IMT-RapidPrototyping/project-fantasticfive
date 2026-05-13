@@ -15,13 +15,14 @@ public partial class MenuMain : Node3D
     }
 
     /* skip intro */
-    public override void _UnhandledInput(InputEvent @event){
+    public override void _UnhandledInput(InputEvent @event)
+    {
         if (@event.IsActionPressed("jump"))
         {
-                _animIntro.Seek(_animIntro.GetAnimation(_animIntro.CurrentAnimation).Length, true);
+            _animIntro.Seek(_animIntro.GetAnimation(_animIntro.CurrentAnimation).Length, true);
         }
     }
-    
+
     public void onAnimationFinished(StringName animName)
     {
         _animWheels.Pause();

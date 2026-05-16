@@ -316,6 +316,22 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_836tr"]
 size = Vector3(10.048828, 8.548828, 12.865723)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_obq70"]
+size = Vector3(1, 7.4630127, 238.30295)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xv6ks"]
+size = Vector3(1, 7.4630127, 179)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_75f5a"]
+size = Vector3(1, 7.4630127, 41)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xcrx2"]
+size = Vector3(1, 7.4630127, 163.38577)
+
+[sub_resource type="FogMaterial" id="FogMaterial_wwnxi"]
+density = 0.4418
+emission = Color(0.16078432, 0.1882353, 0.2, 1)
+
 [node name="Level2" type="Node3D" unique_id=646259433 node_paths=PackedStringArray("spotlight", "screen", "door")]
 script = ExtResource("1_1xtnv")
 spotlight = NodePath("Entities/Train/TrainSpotlight")
@@ -361,7 +377,7 @@ autoplay = &"play"
 [node name="Environment" type="Node3D" parent="." unique_id=742158180]
 
 [node name="Floor" type="CSGBox3D" parent="Environment" unique_id=595687775 groups=["sound_grass"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.80368, -0.5, 19.522675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.97609, -0.5000038, 19.501278)
 use_collision = true
 collision_mask = 0
 size = Vector3(264.96735, 1, 241.69409)
@@ -4471,6 +4487,62 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Level3" unique_id=2088480024]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.524414, 3.774414, -1.5212402)
 shape = SubResource("BoxShape3D_836tr")
+
+[node name="BorderCollision" type="StaticBody3D" parent="Environment" unique_id=194003843]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=1777358413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.6311, 3.573995, 18.076223)
+shape = SubResource("BoxShape3D_obq70")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=977346079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.143074, 3.573995, 47.7277)
+shape = SubResource("BoxShape3D_xv6ks")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=337080174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.143074, 3.573995, -69.27231)
+shape = SubResource("BoxShape3D_75f5a")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=1033339376]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 72.143074, 3.573995, -49.27231)
+shape = SubResource("BoxShape3D_75f5a")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=677861311]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 72.143074, 3.573995, -41.27231)
+shape = SubResource("BoxShape3D_75f5a")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=320044590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.143074, 3.573995, -45.27231)
+shape = SubResource("BoxShape3D_75f5a")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=1821986757]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.019249, 3.573995, -84.85531)
+shape = SubResource("BoxShape3D_xcrx2")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=1386810387]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.521278, 3.573995, 100.38541)
+shape = SubResource("BoxShape3D_xcrx2")
+
+[node name="Fog" type="Node3D" parent="Environment" unique_id=1224972898]
+
+[node name="FogVolume" type="FogVolume" parent="Environment/Fog" unique_id=1994318720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.088196, 12.966003, 0.31781006)
+size = Vector3(83.56134, 27.932007, 235.32172)
+material = SubResource("FogMaterial_wwnxi")
+
+[node name="FogVolume2" type="FogVolume" parent="Environment/Fog" unique_id=2113484913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.72337, 12.966003, -0.51416016)
+size = Vector3(40.89441, 27.932007, 233.65778)
+material = SubResource("FogMaterial_wwnxi")
+
+[node name="FogVolume3" type="FogVolume" parent="Environment/Fog" unique_id=210712391]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.396366, 12.966003, 112.47341)
+size = Vector3(40.89441, 27.932007, 160.38968)
+material = SubResource("FogMaterial_wwnxi")
+
+[node name="FogVolume4" type="FogVolume" parent="Environment/Fog" unique_id=1528112414]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -34.759983, 12.966003, -87.09318)
+size = Vector3(40.89441, 27.932007, 159.59628)
+material = SubResource("FogMaterial_wwnxi")
 
 [node name="EvilCube" parent="." unique_id=27284076 instance=ExtResource("57_wwnxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, -25)

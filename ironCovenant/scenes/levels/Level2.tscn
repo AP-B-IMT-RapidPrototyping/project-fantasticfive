@@ -66,12 +66,12 @@ ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0, 0, 0, 1)
 energy_multiplier = 0.0
 
-[sub_resource type="Sky" id="Sky_6owa4"]
+[sub_resource type="Sky" id="Sky_wwnxi"]
 sky_material = SubResource("ProceduralSkyMaterial_oblk4")
 
 [sub_resource type="Environment" id="Environment_a3cud"]
 background_mode = 2
-sky = SubResource("Sky_6owa4")
+sky = SubResource("Sky_wwnxi")
 tonemap_mode = 3
 sdfgi_energy = 0.39
 glow_enabled = true
@@ -220,6 +220,9 @@ text = "Maybe press A
 again
 (or q for querty)"
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wwnxi"]
+size = Vector3(1.9699707, 3.6085205, 4.72937)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_dwyyt"]
 size = Vector3(16, 4, 0.2)
 
@@ -310,10 +313,14 @@ _data = {
 &"blinkSign": SubResource("Animation_wwnxi")
 }
 
-[node name="Level2" type="Node3D" unique_id=646259433 node_paths=PackedStringArray("spotlight", "screen")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_836tr"]
+size = Vector3(10.048828, 8.548828, 12.865723)
+
+[node name="Level2" type="Node3D" unique_id=646259433 node_paths=PackedStringArray("spotlight", "screen", "door")]
 script = ExtResource("1_1xtnv")
 spotlight = NodePath("Entities/Train/TrainSpotlight")
 screen = NodePath("Entities/Train/ScreenStuff")
+door = NodePath("Environment/Light Mechanic/ElectricalDoor")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=711760419]
 environment = SubResource("Environment_a3cud")
@@ -616,6 +623,14 @@ mesh = SubResource("BoxMesh_xckex")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light Mechanic/MeshInstance3D" unique_id=532153184]
 transform = Transform3D(-3.4531997e-08, 0, 0.79, 0, 0.79, 0, -0.79, 0, -3.4531997e-08, 0.056224823, 0, 0)
 mesh = SubResource("TextMesh_836tr")
+
+[node name="EnteredFireWatchArea" type="Area3D" parent="Environment/Light Mechanic" unique_id=1722893967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.89198, 0, 0)
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Light Mechanic/EnteredFireWatchArea" unique_id=826065782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48498535, 1.3042603, 0.04046631)
+shape = SubResource("BoxShape3D_wwnxi")
 
 [node name="IronFence" type="Node3D" parent="Environment" unique_id=340695118]
 
@@ -4449,6 +4464,14 @@ mesh = SubResource("TextMesh_75f5a")
 libraries/ = SubResource("AnimationLibrary_836tr")
 autoplay = &"blinkSign"
 
+[node name="Level3" type="Area3D" parent="Environment" unique_id=630878486 groups=["scene_teleporter_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.479485, 0, -44.263977)
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Level3" unique_id=2088480024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.524414, 3.774414, -1.5212402)
+shape = SubResource("BoxShape3D_836tr")
+
 [node name="EvilCube" parent="." unique_id=27284076 instance=ExtResource("57_wwnxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, -25)
 
@@ -4456,6 +4479,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, -25)
 [connection signal="GivePower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/PowerCable" method="OnGetPower"]
 [connection signal="StopPower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/ElectricalDoor" method="OnStopPower"]
 [connection signal="StopPower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/PowerCable" method="OnStopPower"]
+[connection signal="body_entered" from="Environment/Light Mechanic/EnteredFireWatchArea" to="." method="onBodyEnteredFireArea"]
 
 [editable path="Entities/Train"]
 [editable path="Entities/Train/TestTrain"]

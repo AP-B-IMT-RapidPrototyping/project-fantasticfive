@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://cbxn04gk686bi"]
+
+[ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="1_4f1no"]
+[ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="2_nts3o"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nanwd"]
+sky_top_color = Color(0.045755774, 0.06657307, 0.09292682, 1)
+sky_horizon_color = Color(0.06512584, 0.07988768, 0.22412953, 1)
+sky_energy_multiplier = 1.85
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+energy_multiplier = 0.0
+
+[sub_resource type="Sky" id="Sky_6owa4"]
+sky_material = SubResource("ProceduralSkyMaterial_nanwd")
+
+[sub_resource type="Environment" id="Environment_v7du0"]
+background_mode = 2
+sky = SubResource("Sky_6owa4")
+tonemap_mode = 3
+sdfgi_energy = 0.39
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.16062155, 0.18914679, 0.20182067, 1)
+fog_light_energy = 0.67
+fog_density = 0.2343
+volumetric_fog_enabled = true
+volumetric_fog_emission = Color(0.20653868, 0.24313423, 0.25286314, 1)
+volumetric_fog_emission_energy = 0.3
+
+[sub_resource type="Animation" id="Animation_xbvxr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(82, 0, -45.130936)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainDoor/DoorR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.95, 2.2500002, 1.7458912)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TrainDoor/DoorL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.95, 2.2500002, -1.7541088)]
+}
+
+[sub_resource type="Animation" id="Animation_p5s5a"]
+resource_name = "playu"
+length = 20.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(82, -1.214, -45.131), Vector3(0, -1.214, -45.131)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainDoor/DoorR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 19.6, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.6500015, 2.2500002, 1.7458916), Vector3(-0.6500015, 2.2500002, 1.7458916), Vector3(-2.95, 2.25, 1.746)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TrainDoor/DoorL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.4, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.64998627, 2.2500002, -1.7541084), Vector3(-0.64998627, 2.2500002, -1.7541084), Vector3(-2.95, 2.2500002, -1.7541088)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_btbtd"]
+_data = {
+&"RESET": SubResource("Animation_xbvxr"),
+&"play": SubResource("Animation_p5s5a")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxpvw"]
+albedo_color = Color(0.11127845, 0.15021288, 0.10676446, 1)
+
+[node name="Level4" type="Node3D" unique_id=1635894834]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1956508359]
+environment = SubResource("Environment_v7du0")
+
+[node name="Entities" type="Node3D" parent="." unique_id=508226003]
+
+[node name="Train" parent="Entities" unique_id=615132714 instance=ExtResource("1_4f1no")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 82, 0, -45.130936)
+
+[node name="TrainSpotlight" parent="Entities/Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[node name="SpotLight3D" parent="Entities/Train/TrainSpotlight" index="4" unique_id=538811013]
+light_volumetric_fog_energy = 1.103
+spot_angle_attenuation = 0.0041866135
+
+[node name="ShapeCast3D" parent="Entities/Train/TrainShapeCast" parent_id_path=PackedInt32Array(615132714, 1315567941) index="0" unique_id=912961362]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.118524075, -74.67848)
+
+[node name="ShaderRect" parent="Entities/Train/CanvasLayer" parent_id_path=PackedInt32Array(615132714, 1079546955) index="0" unique_id=1321283475]
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+
+[node name="TrainIntro" type="AnimationPlayer" parent="Entities/Train" unique_id=1543472735]
+libraries/ = SubResource("AnimationLibrary_btbtd")
+autoplay = &"play"
+
+[node name="Player" parent="Entities" unique_id=746536559 instance=ExtResource("2_nts3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.46555, 2.9250855, -44.940956)
+
+[node name="Environment" type="Node3D" parent="." unique_id=927626784]
+
+[node name="Floor" type="CSGBox3D" parent="Environment" unique_id=246090486 groups=["sound_grass"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.80368, -0.5, 19.522675)
+use_collision = true
+collision_mask = 0
+size = Vector3(264.96735, 1, 241.69409)
+material = SubResource("StandardMaterial3D_nxpvw")
+
+[editable path="Entities/Train"]
+[editable path="Entities/Train/TestTrain"]
+[editable path="Entities/Train/TrainSpotlight"]
+[editable path="Entities/Train/ScreenStuff/icons"]

@@ -7,4 +7,5 @@ script = ExtResource("1_g3n5s")
 ItemID = "fuel"
 DisplayName = "fuel"
 IsDroppable = false
+ItemScene = "uid://dnwdy1myeee2x"
 metadata/_custom_type_script = "uid://ku6bs8x6g4aq"

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dnwdy1myeee2x"]
+
+[ext_resource type="PackedScene" uid="uid://ciqpk20rgfscx" path="res://assets/Models/jerry_can.glb" id="1_b33j8"]
+[ext_resource type="Script" uid="uid://7kq2iipkn12b" path="res://scripts/npc_logic/items/Fuel.cs" id="1_dh86f"]
+[ext_resource type="Resource" uid="uid://bqnyljfask4rn" path="res://Resources/Items/Fuel.tres" id="2_fpj83"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpj83"]
+size = Vector3(5.8, 9, 2.6000001)
+
+[node name="Fuel" type="RigidBody3D" unique_id=340717098]
+collision_layer = 6
+collision_mask = 79
+script = ExtResource("1_dh86f")
+Item = ExtResource("2_fpj83")
+
+[node name="jerry_can" parent="." unique_id=1554797090 instance=ExtResource("1_b33j8")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1662818571]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0004272908, 0.022796437, -0.0040818974)
+shape = SubResource("BoxShape3D_fpj83")

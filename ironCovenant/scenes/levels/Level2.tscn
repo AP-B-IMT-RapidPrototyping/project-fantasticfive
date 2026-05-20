@@ -56,6 +56,7 @@
 [ext_resource type="PackedScene" uid="uid://bfuts6elxn6e5" path="res://assets/NatureAssets/trees/other/Mistletoe_Tree_flat.glb" id="54_tujjb"]
 [ext_resource type="PackedScene" uid="uid://gaiiy7k6s8m2" path="res://assets/NatureAssets/trees/birch/Birch_M_flat.glb" id="55_4bkgb"]
 [ext_resource type="PackedScene" uid="uid://csbuod4affyni" path="res://scenes/scene_models/firewatch_tower.tscn" id="56_xckex"]
+[ext_resource type="PackedScene" uid="uid://dnwdy1myeee2x" path="res://scenes/nPC_models/items/fuel.tscn" id="57_wwnxi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oblk4"]
 sky_top_color = Color(0.045755774, 0.06657307, 0.09292682, 1)
@@ -4431,7 +4432,7 @@ transform = Transform3D(0.38113725, 0, 1.0580837, 0, 1.1246363, 0, -1.0580837, 0
 transform = Transform3D(0.28655928, 0, 0.9541099, 0, 0.99621385, 0, -0.9541099, 0, 0.28655928, -18.136473, 0, -26.422)
 
 [node name="FirewatchTower" parent="Environment" unique_id=1357974716 instance=ExtResource("56_xckex")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -70.526886, 0, -11.853211)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -70.54115, 0, -11.847763)
 
 [node name="GlowingSign" type="Node3D" parent="Environment" unique_id=542431035]
 
@@ -4447,6 +4448,9 @@ mesh = SubResource("TextMesh_75f5a")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Environment/GlowingSign" unique_id=713243642]
 libraries/ = SubResource("AnimationLibrary_836tr")
 autoplay = &"blinkSign"
+
+[node name="Fuel" parent="Environment" unique_id=340717098 instance=ExtResource("57_wwnxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.11765, 17.09463, -11.231246)
 
 [connection signal="GivePower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/ElectricalDoor" method="OnGetPower"]
 [connection signal="GivePower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/PowerCable" method="OnGetPower"]

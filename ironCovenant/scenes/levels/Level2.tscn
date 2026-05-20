@@ -56,6 +56,7 @@
 [ext_resource type="PackedScene" uid="uid://bfuts6elxn6e5" path="res://assets/NatureAssets/trees/other/Mistletoe_Tree_flat.glb" id="54_tujjb"]
 [ext_resource type="PackedScene" uid="uid://gaiiy7k6s8m2" path="res://assets/NatureAssets/trees/birch/Birch_M_flat.glb" id="55_4bkgb"]
 [ext_resource type="PackedScene" uid="uid://csbuod4affyni" path="res://scenes/scene_models/firewatch_tower.tscn" id="56_xckex"]
+[ext_resource type="PackedScene" uid="uid://dnwdy1myeee2x" path="res://scenes/nPC_models/items/fuel.tscn" id="57_836tr"]
 [ext_resource type="PackedScene" uid="uid://drooc7iv65u4q" path="res://scenes/nPC_models/evil_cube.tscn" id="57_wwnxi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oblk4"]
@@ -332,11 +333,10 @@ size = Vector3(1, 7.4630127, 163.38577)
 density = 0.4418
 emission = Color(0.16078432, 0.1882353, 0.2, 1)
 
-[node name="Level2" type="Node3D" unique_id=646259433 node_paths=PackedStringArray("spotlight", "screen", "door")]
+[node name="Level2" type="Node3D" unique_id=646259433 node_paths=PackedStringArray("spotlight", "screen")]
 script = ExtResource("1_1xtnv")
 spotlight = NodePath("Entities/Train/TrainSpotlight")
 screen = NodePath("Entities/Train/ScreenStuff")
-door = NodePath("Environment/Light Mechanic/ElectricalDoor")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=711760419]
 environment = SubResource("Environment_a3cud")
@@ -4543,6 +4543,9 @@ material = SubResource("FogMaterial_wwnxi")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -34.759983, 12.966003, -87.09318)
 size = Vector3(40.89441, 27.932007, 159.59628)
 material = SubResource("FogMaterial_wwnxi")
+
+[node name="Fuel" parent="Environment" unique_id=340717098 instance=ExtResource("57_836tr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.1199, 17.05933, -11.572523)
 
 [node name="EvilCube" parent="." unique_id=27284076 instance=ExtResource("57_wwnxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, -25)

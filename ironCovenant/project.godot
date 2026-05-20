@@ -57,6 +57,7 @@ scene_teleporter_area=""
 enemy=""
 item=""
 player=""
+screen=""
 
 [gui]
 

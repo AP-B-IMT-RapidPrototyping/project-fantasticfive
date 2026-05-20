@@ -61,6 +61,7 @@ public partial class PlayerInteract : Node3D
             if (_interactRay.IsColliding())
             {
                 var collider = _interactRay.GetCollider() as Node;
+                GD.Print($"Item: {collider.Name}");
 
                 if (collider != null && collider.IsInGroup("enemy"))
                 {
@@ -83,6 +84,15 @@ public partial class PlayerInteract : Node3D
                         ((Node)interactableData).QueueFree();
                     }
                 }
+
+                if (collider != null && collider.IsInGroup("screen"))
+                {
+                    if (collider is ScreenInteractArea screen)
+                    {
+                        screen.Interact();
+                    }
+                }
+
             }
         }
     }

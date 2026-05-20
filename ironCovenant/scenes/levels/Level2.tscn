@@ -58,6 +58,7 @@
 [ext_resource type="PackedScene" uid="uid://csbuod4affyni" path="res://scenes/scene_models/firewatch_tower.tscn" id="56_xckex"]
 [ext_resource type="PackedScene" uid="uid://dnwdy1myeee2x" path="res://scenes/nPC_models/items/fuel.tscn" id="57_836tr"]
 [ext_resource type="PackedScene" uid="uid://drooc7iv65u4q" path="res://scenes/nPC_models/evil_cube.tscn" id="57_wwnxi"]
+[ext_resource type="Script" uid="uid://v4irl84ghek7" path="res://scripts/npc_logic/ScreenInteractArea.cs" id="59_obq70"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oblk4"]
 sky_top_color = Color(0.045755774, 0.06657307, 0.09292682, 1)
@@ -332,6 +333,9 @@ size = Vector3(1, 7.4630127, 163.38577)
 [sub_resource type="FogMaterial" id="FogMaterial_wwnxi"]
 density = 0.4418
 emission = Color(0.16078432, 0.1882353, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y10u0"]
+size = Vector3(0.55810547, 0.69921875, 1.7495728)
 
 [node name="Level2" type="Node3D" unique_id=646259433 node_paths=PackedStringArray("spotlight", "screen")]
 script = ExtResource("1_1xtnv")
@@ -4549,6 +4553,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.1199, 17.05933, -11.57252
 
 [node name="EvilCube" parent="." unique_id=27284076 instance=ExtResource("57_wwnxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, -25)
+
+[node name="ScreenInteractArea" type="Area3D" parent="." unique_id=815848877 groups=["entity", "screen"]]
+transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 11.977884, 2.6322522, -15.001003)
+collision_layer = 15
+collision_mask = 8
+collision_priority = 2.0
+script = ExtResource("59_obq70")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScreenInteractArea" unique_id=2050048903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22094727, -0.29030228, 0.04232788)
+shape = SubResource("BoxShape3D_y10u0")
 
 [connection signal="GivePower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/ElectricalDoor" method="OnGetPower"]
 [connection signal="GivePower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/PowerCable" method="OnGetPower"]

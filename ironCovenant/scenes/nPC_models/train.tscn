@@ -9,6 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://b41tbv5d1mix4" path="res://assets/audio/sfx/staticShortEffect.mp3" id="6_t23a6"]
 [ext_resource type="PackedScene" uid="uid://ra0an1gkulhw" path="res://assets/Models/Icons/icons.glb" id="8_31nt6"]
 [ext_resource type="Script" uid="uid://b1w273xuqyvve" path="res://scenes/nPC_models/ScreenStuff.cs" id="8_aqclw"]
+[ext_resource type="Script" uid="uid://d4c6felu7y6wa" path="res://scripts/fuelSystem.cs" id="10_e833i"]
+[ext_resource type="Resource" uid="uid://bqnyljfask4rn" path="res://Resources/Items/Fuel.tres" id="11_mv878"]
+[ext_resource type="Script" uid="uid://v4irl84ghek7" path="res://scripts/npc_logic/ScreenInteractArea.cs" id="12_mv878"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqclw"]
 albedo_color = Color(0.07762883, 0.07762881, 0.07762881, 1)
@@ -259,6 +262,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_s2phb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c36r2"]
+size = Vector3(0.55810547, 0.69921875, 1.7495728)
 
 [node name="Train" type="AnimatableBody3D" unique_id=615132714 node_paths=PackedStringArray("_chestAnim", "_doorAnim")]
 collision_layer = 64
@@ -586,6 +592,21 @@ wait_time = 0.5
 
 [node name="teddyTimer" type="Timer" parent="ScreenStuff" unique_id=86426471]
 wait_time = 0.5
+
+[node name="fuelSystem" type="Node" parent="ScreenStuff" unique_id=1169897497]
+script = ExtResource("10_e833i")
+fuelItem = ExtResource("11_mv878")
+
+[node name="ScreenInteractArea" type="Area3D" parent="ScreenStuff" unique_id=1172565180 groups=["entity", "screen"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.824018, 3.0601246, 0)
+collision_layer = 6
+collision_mask = 8
+collision_priority = 2.0
+script = ExtResource("12_mv878")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScreenStuff/ScreenInteractArea" unique_id=13449687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22094727, -0.15039063, 0.04232788)
+shape = SubResource("BoxShape3D_c36r2")
 
 [connection signal="child_entered_tree" from="TrainSpotlight" to="TrainSpotlight" method="_on_child_entered_tree"]
 [connection signal="body_entered" from="TrainDoor/Area3D" to="." method="OnDoorBodyEntered"]

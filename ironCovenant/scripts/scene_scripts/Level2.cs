@@ -13,7 +13,7 @@ public partial class Level2 : Node3D
 	{
 		spotlight.canRadiate = true;
 		screen.StartFuelBlinking();
-		_sceneManager.Call("RegisterAreas");
+		_sceneManager = GetNode("/root/SceneManager");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

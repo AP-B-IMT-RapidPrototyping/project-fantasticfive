@@ -1,0 +1,405 @@
+[gd_scene format=3 uid="uid://cxs0n5jh3atpm"]
+
+[ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="1_twaqj"]
+[ext_resource type="Script" uid="uid://brc2nsrdj4gi" path="res://scripts/scene_scripts/Level3.cs" id="1_x3k3d"]
+[ext_resource type="PackedScene" uid="uid://db87juw48ece6" path="res://scenes/levels/forest1.tscn" id="2_63eb4"]
+[ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="3_53p26"]
+[ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="4_g0tkw"]
+[ext_resource type="PackedScene" uid="uid://6dnphmgtuay6" path="res://assets/Models/Camp/Tent.glb" id="5_3825t"]
+[ext_resource type="Texture2D" uid="uid://ch055yqul430b" path="res://assets/textures/Fire/T_fire01.png" id="6_6qpip"]
+[ext_resource type="PackedScene" uid="uid://b4q77rmdudws8" path="res://scenes/nPC_models/items/teddy.tscn" id="7_f3pvd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_np6mx"]
+sky_top_color = Color(0.045755774, 0.06657307, 0.09292682, 1)
+sky_horizon_color = Color(0.06512584, 0.07988768, 0.22412953, 1)
+sky_energy_multiplier = 1.85
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+energy_multiplier = 0.0
+
+[sub_resource type="Sky" id="Sky_6owa4"]
+sky_material = SubResource("ProceduralSkyMaterial_np6mx")
+
+[sub_resource type="Environment" id="Environment_twaqj"]
+background_mode = 2
+sky = SubResource("Sky_6owa4")
+tonemap_mode = 3
+sdfgi_energy = 0.39
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.16062155, 0.18914679, 0.20182067, 1)
+fog_light_energy = 0.67
+fog_density = 0.2343
+volumetric_fog_enabled = true
+volumetric_fog_emission = Color(0.20653868, 0.24313423, 0.25286314, 1)
+volumetric_fog_emission_energy = 0.3
+
+[sub_resource type="Animation" id="Animation_xbvxr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(82, 0, -45.130936)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainDoor/DoorR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.95, 2.2500002, 1.7458912)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TrainDoor/DoorL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.95, 2.2500002, -1.7541088)]
+}
+
+[sub_resource type="Animation" id="Animation_p5s5a"]
+resource_name = "playu"
+length = 20.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(82, -1.214, -45.131), Vector3(0, -1.214, -45.131)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainDoor/DoorR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 19.6, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.6500015, 2.2500002, 1.7458916), Vector3(-0.6500015, 2.2500002, 1.7458916), Vector3(-2.95, 2.25, 1.746)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TrainDoor/DoorL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.4, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.64998627, 2.2500002, -1.7541084), Vector3(-0.64998627, 2.2500002, -1.7541084), Vector3(-2.95, 2.2500002, -1.7541088)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g0tkw"]
+_data = {
+&"RESET": SubResource("Animation_xbvxr"),
+&"play": SubResource("Animation_p5s5a")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_63eb4"]
+albedo_color = Color(0.11127845, 0.15021288, 0.10676446, 1)
+
+[sub_resource type="FogMaterial" id="FogMaterial_63eb4"]
+density = 0.4418
+emission = Color(0.16078432, 0.1882353, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_63eb4"]
+size = Vector3(1, 7.4630127, 238.30295)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_53p26"]
+size = Vector3(1, 7.4630127, 179)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g0tkw"]
+size = Vector3(1, 7.4630127, 41)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3825t"]
+size = Vector3(1, 7.4630127, 130.88873)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3pvd"]
+transparency = 1
+shading_mode = 0
+disable_fog = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("6_6qpip")
+albedo_texture_force_srgb = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_x3k3d"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7258065, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_stl8g"]
+texture_mode = 1
+curve = SubResource("Curve_x3k3d")
+
+[sub_resource type="Gradient" id="Gradient_h66bl"]
+offsets = PackedFloat32Array(0, 0.375817, 0.8202614)
+colors = PackedColorArray(1, 1, 1, 1, 0.73767996, 0.49271774, 0.43772328, 1, 0.047557704, 0.04755763, 0.047557645, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vnuxi"]
+gradient = SubResource("Gradient_h66bl")
+
+[sub_resource type="Curve" id="Curve_bs2pm"]
+_data = [Vector2(0.005376339, 0.46308732), 0.0, 0.0, 0, 0, Vector2(0.4139785, 0.9105146), 0.47200236, 0.47200236, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_i2tsv"]
+curve = SubResource("Curve_bs2pm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4n27n"]
+lifetime_randomness = 0.08
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.2
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 0.49997765
+gravity = Vector3(0, 1, 0)
+scale_min = 0.9
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_i2tsv")
+color = Color(1.7853335, 1.3043542, 0.6803111, 1)
+color_ramp = SubResource("GradientTexture1D_vnuxi")
+alpha_curve = SubResource("CurveTexture_stl8g")
+
+[sub_resource type="QuadMesh" id="QuadMesh_cw4sw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f3pvd"]
+height = 2.6166992
+radius = 0.3383789
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3k3d"]
+size = Vector3(4.5179443, 3.0093994, 3.7501526)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_stl8g"]
+radius = 0.72509766
+
+[node name="Level3" type="Node3D" unique_id=1517028683 node_paths=PackedStringArray("spotlight", "screen")]
+script = ExtResource("1_x3k3d")
+spotlight = NodePath("Entities/Train/TrainSpotlight")
+screen = NodePath("Entities/Train/ScreenStuff")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1072655943]
+environment = SubResource("Environment_twaqj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1008729692]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.49706316, 0.585892, 0.6700323, 1)
+light_energy = 0.316
+shadow_enabled = true
+
+[node name="Entities" type="Node3D" parent="." unique_id=82566204]
+
+[node name="Train" parent="Entities" unique_id=615132714 instance=ExtResource("3_53p26")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 82, 0, -45.130936)
+
+[node name="TrainSpotlight" parent="Entities/Train" index="1" unique_id=1474622944 node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[node name="SpotLight3D" parent="Entities/Train/TrainSpotlight" index="4" unique_id=538811013]
+light_volumetric_fog_energy = 1.103
+spot_angle_attenuation = 0.0041866135
+
+[node name="ShapeCast3D" parent="Entities/Train/TrainShapeCast" parent_id_path=PackedInt32Array(615132714, 1315567941) index="0" unique_id=912961362]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.118524075, -74.67848)
+
+[node name="ShaderRect" parent="Entities/Train/CanvasLayer" parent_id_path=PackedInt32Array(615132714, 1079546955) index="0" unique_id=1321283475]
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+
+[node name="TrainIntro" type="AnimationPlayer" parent="Entities/Train" unique_id=921323630]
+libraries/ = SubResource("AnimationLibrary_g0tkw")
+autoplay = &"play"
+
+[node name="Player" parent="Entities" unique_id=746536559 instance=ExtResource("4_g0tkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.46555, 2.9250855, -44.940956)
+
+[node name="Environment" type="Node3D" parent="." unique_id=1249228443]
+
+[node name="Floor" type="CSGBox3D" parent="Environment" unique_id=380661138 groups=["sound_grass"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.80368, -0.5, 19.522675)
+use_collision = true
+collision_mask = 0
+size = Vector3(264.96735, 1, 241.69409)
+material = SubResource("StandardMaterial3D_63eb4")
+
+[node name="Rails" type="Node3D" parent="Environment" unique_id=655724516]
+
+[node name="Rails" parent="Environment/Rails" unique_id=1340875580 instance=ExtResource("1_twaqj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -45.212723)
+
+[node name="Rails4" parent="Environment/Rails" unique_id=1816489240 instance=ExtResource("1_twaqj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26.47519, 0, -45.212723)
+
+[node name="Rails5" parent="Environment/Rails" unique_id=1124198877 instance=ExtResource("1_twaqj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 52.917446, 0, -45.212723)
+
+[node name="Rails2" parent="Environment/Rails" unique_id=1467504085 instance=ExtResource("1_twaqj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.679623, 0, -45.212723)
+
+[node name="Rails3" parent="Environment/Rails" unique_id=1326332883 instance=ExtResource("1_twaqj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -53.19617, 0, -45.212723)
+
+[node name="Forest" parent="Environment" unique_id=947826763 instance=ExtResource("2_63eb4")]
+
+[node name="_Node3D_95067" parent="Environment/Forest/GeneratedForestFloor" parent_id_path=PackedInt32Array(947826763, 1364767117) index="500" unique_id=565659059]
+transform = Transform3D(-0.98363584, 0, 0.18016796, 0, 1, 0, -0.18016796, 0, -0.98363584, -13.937569, 0, 27.808985)
+
+[node name="Pine_H_flat" parent="Environment/Forest/GeneratedTrees" parent_id_path=PackedInt32Array(947826763, 260590966) index="9" unique_id=508255443]
+transform = Transform3D(0.32219535, 0, 0.75531185, 0, 0.8211613, 0, -0.75531185, 0, 0.32219535, -12.708952, 0, 1.5349274)
+
+[node name="_Node3D_94434" parent="Environment/Forest/GeneratedTrees" parent_id_path=PackedInt32Array(947826763, 260590966) index="13" unique_id=734078661]
+transform = Transform3D(-0.063220374, 0, -1.001163, 0, 1.0031574, 0, 1.0011631, 0, -0.06322037, 5.566977, 0, 13.618601)
+
+[node name="_Node3D_94488" parent="Environment/Forest/GeneratedTrees" parent_id_path=PackedInt32Array(947826763, 260590966) index="77" unique_id=1283551629]
+transform = Transform3D(0.70045245, 0, 0.8892503, 0, 1.1319891, 0, -0.8892503, 0, 0.70045245, 5.909217, 0, -8.027831)
+
+[node name="_Node3D_94491" parent="Environment/Forest/GeneratedTrees" parent_id_path=PackedInt32Array(947826763, 260590966) index="80" unique_id=1992915990]
+transform = Transform3D(0.7162812, 0, 0.40866512, 0, 0.8246612, 0, -0.4086651, 0, 0.71628124, -11.204272, 0, 20.38819)
+
+[node name="_Node3D_94549" parent="Environment/Forest/GeneratedTrees" parent_id_path=PackedInt32Array(947826763, 260590966) index="138" unique_id=2105054858]
+transform = Transform3D(-1.0269125, 0, -0.42985854, 0, 1.1132512, 0, 0.42985865, 0, -1.0269122, 2.70899, 0, 32.711227)
+
+[node name="Fog" type="Node3D" parent="Environment" unique_id=1394664978]
+
+[node name="FogVolume" type="FogVolume" parent="Environment/Fog" unique_id=638878133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.088196, 12.966003, 0.31781006)
+size = Vector3(83.56134, 27.932007, 235.32172)
+material = SubResource("FogMaterial_63eb4")
+
+[node name="FogVolume2" type="FogVolume" parent="Environment/Fog" unique_id=1520310406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.65941, 12.966003, -0.51416016)
+size = Vector3(40.89441, 27.932007, 233.65778)
+material = SubResource("FogMaterial_63eb4")
+
+[node name="FogVolume3" type="FogVolume" parent="Environment/Fog" unique_id=648018418]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.848156, 12.966003, 112.47341)
+size = Vector3(40.89441, 27.932007, 86.777695)
+material = SubResource("FogMaterial_63eb4")
+
+[node name="FogVolume4" type="FogVolume" parent="Environment/Fog" unique_id=842587875]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.848156, 12.966003, -87.09318)
+size = Vector3(40.89441, 27.932007, 86.777695)
+material = SubResource("FogMaterial_63eb4")
+
+[node name="BorderCollision" type="StaticBody3D" parent="Environment" unique_id=1027312868]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=172610083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.426315, 3.573995, 18.076223)
+shape = SubResource("BoxShape3D_63eb4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=1084543954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.143074, 3.573995, 47.7277)
+shape = SubResource("BoxShape3D_53p26")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=588589503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.143074, 3.573995, -69.27231)
+shape = SubResource("BoxShape3D_g0tkw")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=2114602042]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 72.143074, 3.573995, -49.27231)
+shape = SubResource("BoxShape3D_g0tkw")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=1831362505]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 72.143074, 3.573995, -41.27231)
+shape = SubResource("BoxShape3D_g0tkw")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=947736257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.143074, 3.573995, -45.27231)
+shape = SubResource("BoxShape3D_g0tkw")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=1579964576]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.2727585, 3.573995, -84.85531)
+shape = SubResource("BoxShape3D_3825t")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Environment/BorderCollision" unique_id=963239166]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.2727585, 3.573995, 100.38541)
+shape = SubResource("BoxShape3D_3825t")
+
+[node name="Camp" type="Node3D" parent="Environment" unique_id=1600955246]
+
+[node name="Tent" parent="Environment/Camp" unique_id=505747612 instance=ExtResource("5_3825t")]
+transform = Transform3D(-0.6, 0, 9.059749e-08, 0, 0.6, 0, -9.059749e-08, 0, -0.6, 1.9037657, 0.37150073, 43.716103)
+
+[node name="fire" type="GPUParticles3D" parent="Environment/Camp" unique_id=1233816305]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.177396, 0, 44.866985)
+material_override = SubResource("StandardMaterial3D_f3pvd")
+amount = 50
+lifetime = 1.2
+process_material = SubResource("ParticleProcessMaterial_4n27n")
+draw_pass_1 = SubResource("QuadMesh_cw4sw")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment/Camp" unique_id=1737824435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1847715, 0.808651, 44.87975)
+light_color = Color(1, 0.6730475, 0.23215559, 1)
+shadow_enabled = true
+omni_range = 13.022
+
+[node name="Teddy" parent="Environment/Camp" unique_id=938357421 instance=ExtResource("7_f3pvd")]
+transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, -6.069298, 0.8117254, 47.257072)
+
+[node name="Campcollisions" type="StaticBody3D" parent="Environment/Camp" unique_id=1908243553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.448577, 0, 46.25984)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Camp/Campcollisions" unique_id=286425224]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -1.3894796, 0.3095404, -3.5794144)
+shape = SubResource("CylinderShape3D_f3pvd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/Camp/Campcollisions" unique_id=1873490408]
+transform = Transform3D(-2.5868491e-08, 0.59091544, 0.80673355, -1, -4.3711363e-08, -4.806317e-11, 3.523502e-08, -0.80673355, 0.59091544, -3.7902038, 0.30954036, -2.2410183)
+shape = SubResource("CylinderShape3D_f3pvd")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Environment/Camp/Campcollisions" unique_id=1407197013]
+transform = Transform3D(0.973215, 0, 0.22989687, 0, 1, 0, -0.22989687, 0, 0.973215, 4.9737816, 1.0046997, -3.8340492)
+shape = SubResource("BoxShape3D_x3k3d")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Environment/Camp/Campcollisions" unique_id=1709714353]
+transform = Transform3D(0.27929282, 0, -0.96020603, 0, 1, 0, 0.96020603, 0, 0.27929282, 1.1891193, 1.0046997, 5.0475793)
+shape = SubResource("BoxShape3D_x3k3d")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Environment/Camp/Campcollisions" unique_id=151494428]
+transform = Transform3D(-0.58884376, 0, -0.808247, 0, 1, 0, 0.808247, 0, -0.58884376, -6.9105535, 1.0046997, 3.7257547)
+shape = SubResource("BoxShape3D_x3k3d")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Environment/Camp/Campcollisions" unique_id=2030014950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7384639, 0, -1.3726616)
+shape = SubResource("CapsuleShape3D_stl8g")
+
+[editable path="Entities/Train"]
+[editable path="Entities/Train/TestTrain"]
+[editable path="Entities/Train/TrainSpotlight"]
+[editable path="Entities/Train/ScreenStuff/icons"]
+[editable path="Environment/Forest"]

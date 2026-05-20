@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c60ymnv5l4qkj" path="res://scenes/nPC_models/default_enemy.tscn" id="14_kypp1"]
 [ext_resource type="PackedScene" uid="uid://sgckfgsygatv" path="res://assets/prototypeAssets/CeilingLights.glb" id="16_p5s5a"]
 [ext_resource type="Script" uid="uid://ceuhch32onam" path="res://scripts/enemy_scripts/Wood.cs" id="17_njy47"]
-[ext_resource type="PackedScene" path="res://scenes/nPC_models/items/flare.tscn" id="18_j7nyf"]
+[ext_resource type="PackedScene" uid="uid://cohhybbc6h8su" path="res://scenes/nPC_models/items/flare.tscn" id="18_j7nyf"]
 [ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="50_6qbjw"]
 [ext_resource type="PackedScene" uid="uid://weyxyaqx4qjw" path="res://assets/prototypeAssets/street.glb" id="51_vaqq6"]
 [ext_resource type="PackedScene" uid="uid://ci0x70abg3hay" path="res://scenes/nPC_models/items/axe.tscn" id="54_o6odm"]
@@ -1245,37 +1245,37 @@ spot_angle = 39.17886
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1089515206]
 environment = SubResource("Environment_x4si1")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1616819686]
+[node name="BorderCollision" type="StaticBody3D" parent="." unique_id=1616819686]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1534252165]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BorderCollision" unique_id=1534252165]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.426315, 3.573995, 18.076223)
 shape = SubResource("BoxShape3D_6ex7q")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1130885752]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BorderCollision" unique_id=1130885752]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.143074, 3.573995, 47.7277)
 shape = SubResource("BoxShape3D_j7nyf")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1013249036]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="BorderCollision" unique_id=1013249036]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.143074, 3.573995, -69.27231)
 shape = SubResource("BoxShape3D_xbvxr")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" unique_id=228900683]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="BorderCollision" unique_id=228900683]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 72.143074, 3.573995, -49.27231)
 shape = SubResource("BoxShape3D_xbvxr")
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D" unique_id=378977129]
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="BorderCollision" unique_id=378977129]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 72.143074, 3.573995, -41.27231)
 shape = SubResource("BoxShape3D_xbvxr")
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D" unique_id=439101064]
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="BorderCollision" unique_id=439101064]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.143074, 3.573995, -45.27231)
 shape = SubResource("BoxShape3D_xbvxr")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1013717708]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BorderCollision" unique_id=1013717708]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.2727585, 3.573995, -84.85531)
 shape = SubResource("BoxShape3D_ijfg6")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1602305531]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="BorderCollision" unique_id=1602305531]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.2727585, 3.573995, 100.38541)
 shape = SubResource("BoxShape3D_ijfg6")
 
@@ -1505,6 +1505,7 @@ transform = Transform3D(0.7818916, 0.60914767, 0.13260686, -0.17967272, 0.423874
 [editable path="Train"]
 [editable path="Train/TestTrain"]
 [editable path="Train/TrainSpotlight"]
+[editable path="Train/ScreenStuff/icons"]
 [editable path="Environment/Forest"]
 [editable path="Environment/Floodlight2"]
 [editable path="defaultEnemy"]

@@ -6,5 +6,6 @@
 script = ExtResource("1_oqa22")
 ItemID = "weapon_axe"
 DisplayName = "Axe"
+IsDroppable = false
 ItemScene = "uid://ci0x70abg3hay"
 metadata/_custom_type_script = "uid://ku6bs8x6g4aq"

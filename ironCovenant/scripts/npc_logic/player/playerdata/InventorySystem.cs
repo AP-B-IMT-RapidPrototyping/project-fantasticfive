@@ -86,10 +86,15 @@ public partial class InventorySystem : Node
     public bool HasItem(ItemData item, int amount = 1)
     {
         if (item == null) return false;
-        
-        GD.Print(item);
-        GD.Print(_inventory.ContainsKey(item));
 
-        return _inventory.ContainsKey(item) && _inventory[item] >= amount;
+        foreach (var i in _inventory)
+        {
+            if (i.Key.ItemID == item.ItemID)
+            {
+                return i.Value >= amount;
+            }
+        }
+
+        return false;
     }
 }

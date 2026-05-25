@@ -87,8 +87,10 @@ public partial class InventorySystem : Node
     {
         if (item == null) return false;
 
+        // go through every item in the inventory  
         foreach (var i in _inventory)
         {
+            // check if anything matches the iten we are looking for
             if (i.Key.ItemID == item.ItemID)
             {
                 return i.Value >= amount;

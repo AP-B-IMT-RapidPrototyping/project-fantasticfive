@@ -5,7 +5,15 @@ public partial class fuelSystem : Node
 {
     
     [Export] private ItemData fuelItem;
+    [Export] private Label suggestionLabel;
+    [Export] private Timer suggestionTimer;
     [Export] private int fuelNeeded = 1;
+
+    public override void _Ready()
+    {
+        suggestionTimer.Timeout += ClearLabel;
+    }
+
 
     public void TryStartTrain()
     {
@@ -26,11 +34,18 @@ public partial class fuelSystem : Node
         else
         {
             GD.Print("Not enough fuel");
+            suggestionLabel.Text = "The train needs fuel to start.";
+            suggestionTimer.Start();
         }
     }
 
     private void StartTrain()
     {
         GD.Print("Train is moving!");
+    }
+
+    public void ClearLabel()
+    {
+        suggestionLabel.Text = "";
     }
 }

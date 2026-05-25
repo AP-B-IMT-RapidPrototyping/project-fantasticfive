@@ -275,13 +275,13 @@ _doorAnim = NodePath("TrainDoor/DoorAnim")
 [node name="TestTrain" parent="." unique_id=1189408230 instance=ExtResource("1_8en2i")]
 transform = Transform3D(-3.934025e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.934025e-08, 2.4002118, 0.007462263, 0.002560854)
 
-[node name="Cube_018" parent="TestTrain" index="16" unique_id=1496764455]
+[node name="Cube_018" parent="TestTrain" index="16" unique_id=1298154132]
 mesh = SubResource("ArrayMesh_backo")
 
-[node name="Cube_022" parent="TestTrain" index="19" unique_id=1940703486]
+[node name="Cube_022" parent="TestTrain" index="19" unique_id=275129926]
 transform = Transform3D(1, 0, 0, 0, 0.42511714, 0.9051384, 0, -0.9051384, 0.42511714, 0.053884476, 3.1759558, 5.154736)
 
-[node name="Skeleton3D" parent="TestTrain/Armature" parent_id_path=PackedInt32Array(1189408230, 638347045) index="0" unique_id=109920202]
+[node name="Skeleton3D" parent="TestTrain/Armature" parent_id_path=PackedInt32Array(1189408230, 1316773928) index="0" unique_id=921717970]
 bones/0/rotation = Quaternion(-0.5027114, 0.50327003, -0.4965393, 0.49744284)
 bones/2/rotation = Quaternion(-0.5027114, 0.5032699, -0.49653926, 0.49744284)
 bones/4/rotation = Quaternion(-0.5027114, 0.50327003, -0.4965393, 0.4974428)
@@ -306,70 +306,70 @@ bones/29/scale = Vector3(1.0096505, 1.0096502, 1.0096503)
 bones/31/rotation = Quaternion(0.004714589, 0.004716284, 0.7070911, 0.70709103)
 bones/33/rotation = Quaternion(-0.50271136, 0.50326985, -0.49653938, 0.49744284)
 
-[node name="Bone1_L" parent="TestTrain/Armature/Skeleton3D" index="0" unique_id=1750048173]
+[node name="Bone1_L" parent="TestTrain/Armature/Skeleton3D" index="0" unique_id=1050316642]
 transform = Transform3D(0.00033627698, -0.9999279, -0.0119993705, -0.9999989, -0.00035382705, 0.0014597261, -0.0014639003, 0.011998891, -0.99992704, -1.2470682, 0.8619178, -2.34591)
 
-[node name="Bone_L" parent="TestTrain/Armature/Skeleton3D" index="1" unique_id=969836730]
+[node name="Bone_L" parent="TestTrain/Armature/Skeleton3D" index="1" unique_id=1335016630]
 transform = Transform3D(0.0003361106, -0.0119993705, 0.99992794, -0.9999989, 0.0014600159, 0.00035366416, -0.0014641881, -0.99992704, -0.011998892, -1.2429328, 0.8614147, -2.001299)
 
-[node name="Bone5_L" parent="TestTrain/Armature/Skeleton3D" index="2" unique_id=1632599002]
+[node name="Bone5_L" parent="TestTrain/Armature/Skeleton3D" index="2" unique_id=566970942]
 transform = Transform3D(0.0003362894, -0.0119992215, 0.9999279, -0.9999988, 0.0014599563, 0.00035381317, -0.0014640987, -0.99992704, -0.011998773, -1.2529215, 0.8614147, -4.227758)
 
-[node name="Bone9_L" parent="TestTrain/Armature/Skeleton3D" index="3" unique_id=2141362132]
+[node name="Bone9_L" parent="TestTrain/Armature/Skeleton3D" index="3" unique_id=593331796]
 transform = Transform3D(0.0003361106, -0.011999397, 0.9999279, -0.9999989, 0.0014600155, 0.00035366413, -0.0014641881, -0.99992675, -0.011998891, -1.2495898, 0.8614147, 0.2831316)
 
-[node name="Bone17_L" parent="TestTrain/Armature/Skeleton3D" index="4" unique_id=951689149]
+[node name="Bone17_L" parent="TestTrain/Armature/Skeleton3D" index="4" unique_id=634904812]
 transform = Transform3D(8.392999e-08, -0.0017679557, -0.9999984, 1.0000001, 7.416471e-06, 3.1271156e-08, 7.480383e-06, -0.9999983, 0.0017681895, -1.2458432, 0.8619526, 2.110691)
 
-[node name="Bone10_L" parent="TestTrain/Armature/Skeleton3D" index="5" unique_id=233064514]
+[node name="Bone10_L" parent="TestTrain/Armature/Skeleton3D" index="5" unique_id=1699355395]
 transform = Transform3D(0.000336051, -0.011999488, 0.999928, -0.9999989, 0.0014599562, 0.00035363436, -0.0014641583, -0.999927, -0.011999011, -1.1087595, 0.8614147, 2.5095906)
 
-[node name="Bone12_L" parent="TestTrain/Armature/Skeleton3D" index="6" unique_id=248272776]
+[node name="Bone12_L" parent="TestTrain/Armature/Skeleton3D" index="6" unique_id=2092613731]
 transform = Transform3D(3.1001753e-07, 1.2920812e-06, 1.000057, -7.610768e-05, -1.0000001, 1.2101995e-06, 1.0000004, -7.606298e-05, -3.397421e-07, -1.5582026, 2.136727, -2.3458114)
 
-[node name="Bone11_L" parent="TestTrain/Armature/Skeleton3D" index="7" unique_id=1121571025]
+[node name="Bone11_L" parent="TestTrain/Armature/Skeleton3D" index="7" unique_id=2125919789]
 transform = Transform3D(-1.1920929e-06, 1.4007095e-06, 1.0000569, 0.9942764, 0.10683908, 9.537285e-07, -0.10683915, 0.9942766, -1.5498089e-06, -1.5582062, 1.853946, -4.9774604)
 
-[node name="Bone15_L" parent="TestTrain/Armature/Skeleton3D" index="8" unique_id=337991754]
+[node name="Bone15_L" parent="TestTrain/Armature/Skeleton3D" index="8" unique_id=1511136680]
 transform = Transform3D(-1.0000005, -4.5539593e-08, 2.412745e-06, 2.5221998e-06, 0.013341049, 0.9999111, -9.127464e-08, 0.9999108, -0.013341082, -1.4917051, 0.8239464, -5.1918287)
 
-[node name="Bone3_L" parent="TestTrain/Armature/Skeleton3D" index="9" unique_id=1513877467]
+[node name="Bone3_L" parent="TestTrain/Armature/Skeleton3D" index="9" unique_id=1866526043]
 transform = Transform3D(1.4006631e-06, -1.4584543e-08, 1.0000006, -2.430759e-07, -1.0000001, -1.2450948e-07, 0.99999976, -2.0582365e-07, -1.4147406e-06, -1.6340791, 1.0094073, -5.191828)
 
-[node name="Bone_R" parent="TestTrain/Armature/Skeleton3D" index="10" unique_id=2127957907]
+[node name="Bone_R" parent="TestTrain/Armature/Skeleton3D" index="10" unique_id=532746546]
 transform = Transform3D(-0.00033664703, 0.011999281, -0.999928, 0.9999989, 0.0014681222, -0.00031894445, 0.0014642477, -0.9999271, -0.0119998455, 1.2429328, 0.8614147, -2.001299)
 
-[node name="Bone5_R" parent="TestTrain/Armature/Skeleton3D" index="11" unique_id=223302151]
+[node name="Bone5_R" parent="TestTrain/Armature/Skeleton3D" index="11" unique_id=2033678408]
 transform = Transform3D(-0.00033664703, 0.01199943, -0.999928, 0.99999887, 0.0014681222, -0.00031897426, 0.0014642477, -0.99992704, -0.011999965, 1.2529215, 0.8614147, -4.227758)
 
-[node name="Bone9_R" parent="TestTrain/Armature/Skeleton3D" index="12" unique_id=69373672]
+[node name="Bone9_R" parent="TestTrain/Armature/Skeleton3D" index="12" unique_id=60272669]
 transform = Transform3D(-0.00033640862, 0.011999248, -0.9999278, 0.9999988, 0.0014680622, -0.00031882522, 0.0014640987, -0.9999267, -0.011999725, 1.2495898, 0.8614147, 0.2831316)
 
-[node name="Bone17_R" parent="TestTrain/Armature/Skeleton3D" index="13" unique_id=1390112126]
+[node name="Bone17_R" parent="TestTrain/Armature/Skeleton3D" index="13" unique_id=27191776]
 transform = Transform3D(3.3023753e-08, 0.0017678356, -0.99999833, 0.9999998, -5.596783e-06, -4.6837158e-08, -5.5985292e-06, -0.99999815, -0.0017678617, 1.245843, 0.8620449, 2.1106913)
 
-[node name="Bone10_R" parent="TestTrain/Armature/Skeleton3D" index="14" unique_id=1233967586]
+[node name="Bone10_R" parent="TestTrain/Armature/Skeleton3D" index="14" unique_id=1008086898]
 transform = Transform3D(-0.00033640862, 0.01199922, -0.99992794, 0.9999988, 0.001468122, -0.00031888485, 0.0014641881, -0.9999269, -0.011999726, 1.1087595, 0.8614147, 2.5095906)
 
-[node name="Bone12_R" parent="TestTrain/Armature/Skeleton3D" index="15" unique_id=1595939014]
+[node name="Bone12_R" parent="TestTrain/Armature/Skeleton3D" index="15" unique_id=1665278846]
 transform = Transform3D(3.8202722e-07, -1.4042339e-06, -1.000057, 7.600337e-05, -1, 1.3890246e-06, -1.0000002, -7.6040626e-05, -3.3974254e-07, 1.5582024, 2.13673, -2.3458118)
 
-[node name="Bone11_R" parent="TestTrain/Armature/Skeleton3D" index="16" unique_id=192784194]
+[node name="Bone11_R" parent="TestTrain/Armature/Skeleton3D" index="16" unique_id=1472755875]
 transform = Transform3D(-1.3113022e-06, -1.4603141e-06, -1.0000569, -0.9942763, 0.106840156, 1.1325526e-06, 0.10684013, 0.99427646, -1.5498089e-06, 1.5582062, 1.853946, -4.9774604)
 
-[node name="Bone16_R" parent="TestTrain/Armature/Skeleton3D" index="17" unique_id=829768259]
+[node name="Bone16_R" parent="TestTrain/Armature/Skeleton3D" index="17" unique_id=707827265]
 transform = Transform3D(-7.426788e-08, -1.0000001, 3.229161e-08, -0.013341501, 4.4647095e-09, 0.99991095, -0.99991083, 6.9412124e-08, -0.013341502, 1.4917057, 0.861921, -2.3459113)
 
-[node name="Bone15_R" parent="TestTrain/Armature/Skeleton3D" index="18" unique_id=561540130]
+[node name="Bone15_R" parent="TestTrain/Armature/Skeleton3D" index="18" unique_id=979428133]
 transform = Transform3D(-1.0000004, 1.9348226e-07, -2.3667535e-06, -2.392776e-06, 0.013339374, 0.99991095, 2.2061258e-07, 0.99991095, -0.013339373, 1.4917052, 0.8239549, -5.1918306)
 
-[node name="Bone3_R" parent="TestTrain/Armature/Skeleton3D" index="19" unique_id=526759687]
+[node name="Bone3_R" parent="TestTrain/Armature/Skeleton3D" index="19" unique_id=2096310032]
 transform = Transform3D(1.4321504e-06, -3.1455556e-08, -1.0000002, 4.662123e-10, -1, 3.517016e-09, -0.99999994, 4.6449264e-10, -1.4046122e-06, 1.6340792, 1.0085237, -5.1918297)
 
-[node name="Bone_001" parent="TestTrain/Armature/Skeleton3D" index="20" unique_id=763086580]
+[node name="Bone_001" parent="TestTrain/Armature/Skeleton3D" index="20" unique_id=873566453]
 transform = Transform3D(0.0003361702, -0.011998981, 0.9999279, -0.9999988, 0.001459837, 0.00035369396, -0.0014639795, -0.9999269, -0.011998534, -0.9105048, 0.6560104, -7.1018972)
 
-[node name="AnimationPlayer" parent="TestTrain" index="24" unique_id=475539230]
+[node name="AnimationPlayer" parent="TestTrain" index="24" unique_id=1406773743]
 autoplay = &"move_001"
 
 [node name="TrainSpotlight" parent="." unique_id=1474622944 node_paths=PackedStringArray("spot", "visionTimer", "bufferTimer", "radiationTick", "spotCast", "spotCastTurnPoint", "spotlightArea", "energyCast", "_shaderRect", "geigerMeter") instance=ExtResource("2_ie6wu")]
@@ -387,7 +387,7 @@ _shader = ExtResource("5_5kvja")
 _shaderRect = NodePath("../CanvasLayer/ShaderRect")
 geigerMeter = NodePath("../StaticSound")
 
-[node name="Sphere_001" parent="TrainSpotlight" index="0" unique_id=66815037]
+[node name="Sphere_001" parent="TrainSpotlight" index="0" unique_id=1728112780]
 surface_material_override/0 = SubResource("StandardMaterial3D_fjli7")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="TrainSpotlight" unique_id=538811013]
@@ -567,10 +567,12 @@ shadow_enabled = true
 spot_range = 6.0
 spot_angle = 77.26514
 
-[node name="ScreenStuff" type="Node3D" parent="." unique_id=309507433 node_paths=PackedStringArray("fuelMesh", "fuelTimer")]
+[node name="ScreenStuff" type="Node3D" parent="." unique_id=309507433 node_paths=PackedStringArray("fuelMesh", "teddyMesh", "fuelTimer", "teddyTimer")]
 script = ExtResource("8_aqclw")
 fuelMesh = NodePath("icons/low_fuel")
+teddyMesh = NodePath("icons/teddy")
 fuelTimer = NodePath("fuelTimer")
+teddyTimer = NodePath("teddyTimer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ScreenStuff" unique_id=1671917836]
 transform = Transform3D(0.18532695, -0.8505818, 0, 0.29977724, 0.5258429, 0, 0, 0, 0.80689543, 0.9685172, 2.9905524, 0.042032838)
@@ -579,10 +581,10 @@ mesh = SubResource("PlaneMesh_0ni18")
 [node name="icons" parent="ScreenStuff" unique_id=856793497 instance=ExtResource("8_31nt6")]
 transform = Transform3D(-2.6226834e-08, -0.5125012, -0.3119978, -5.551115e-17, 0.3119978, -0.5125012, 0.6, -2.2402139e-08, -1.3637856e-08, 0.9258352, 2.9785745, -0.13474518)
 
-[node name="low_fuel" parent="ScreenStuff/icons" index="0" unique_id=1792125661]
+[node name="low_fuel" parent="ScreenStuff/icons" index="0" unique_id=892742683]
 mesh = SubResource("ArrayMesh_e833i")
 
-[node name="teddy" parent="ScreenStuff/icons" index="2" unique_id=1693444135]
+[node name="teddy" parent="ScreenStuff/icons" index="2" unique_id=642473025]
 mesh = SubResource("ArrayMesh_721md")
 
 [node name="fuelTimer" type="Timer" parent="ScreenStuff" unique_id=575303047]

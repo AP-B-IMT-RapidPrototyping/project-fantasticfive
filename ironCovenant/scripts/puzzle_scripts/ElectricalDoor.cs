@@ -7,6 +7,7 @@ public partial class ElectricalDoor : Node3D
 	[Export] private AnimationPlayer anim;
 	private bool isOpen = false;
 	public bool permaOpen = false;
+
 	public override void _Ready()
 	{
 		anim.Play("close");
@@ -19,6 +20,7 @@ public partial class ElectricalDoor : Node3D
 			anim.Play("open");
 			isOpen = true;
 		}
+
 	}
 
 	public void OnStopPower()

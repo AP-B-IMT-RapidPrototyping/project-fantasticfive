@@ -2,14 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://0nhc2oa1wysn" path="res://assets/Models/Camp/Teddy.glb" id="1_epq62"]
 [ext_resource type="Script" uid="uid://dxlgeq471w1fu" path="res://scripts/npc_logic/items/Teddy.cs" id="1_firmy"]
-[ext_resource type="Script" uid="uid://ku6bs8x6g4aq" path="res://scripts/npc_logic/items/Logic/ItemData.cs" id="2_arqoi"]
-
-[sub_resource type="Resource" id="Resource_yh3is"]
-script = ExtResource("2_arqoi")
-ItemID = "teddy_bear"
-DisplayName = "Teddy"
-ItemScene = "uid://b4q77rmdudws8"
-metadata/_custom_type_script = "uid://ku6bs8x6g4aq"
+[ext_resource type="Resource" uid="uid://dvscxo6t04rbl" path="res://Resources/Items/Teddy.tres" id="2_arqoi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_firmy"]
 size = Vector3(2.0941162, 2.9173584, 2.324646)
@@ -19,7 +12,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 collision_layer = 6
 collision_mask = 15
 script = ExtResource("1_firmy")
-Item = SubResource("Resource_yh3is")
+Item = ExtResource("2_arqoi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1395467939]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -0.2639771, 0.5508423, -0.0032653809)

@@ -1,17 +1,16 @@
 using Godot;
 using System;
-using System.Runtime.Serialization;
 
-public partial class ElectricalDoor : Node3D
+public partial class Church : Node3D
 {
 	[Export] private AnimationPlayer anim;
 	private bool isOpen = false;
 	public bool permaOpen = false;
 
-	//private bool panel1On = false;
-	/// <summary>
-	//private bool panel2On = false;
-	/// </summary>
+	private bool panel1On = false;
+	// <summary>
+	private bool panel2On = false;
+	// </summary>
 
 	public override void _Ready()
 	{
@@ -21,44 +20,44 @@ public partial class ElectricalDoor : Node3D
 	public void OnGetPower1()
 	{
 		GD.Print("Get power 1");
-		//panel1On = true;
+		panel1On = true;
 		TryOpeningDoor();
 	}
 
 	public void OnStopPower1()
 	{
 		GD.Print("Lose power 1");
-		//panel1On = false;
+		panel1On = false;
 		TryClosingDoor();
 	}
 
-	// public void OnGetPower2()
-	// {
-	// 	GD.Print("Get power 2");
-	// 	panel2On = true;
-	// 	TryOpeningDoor();
-	// }
+	public void OnGetPower2()
+	{
+		GD.Print("Get power 2");
+		panel2On = true;
+		TryOpeningDoor();
+	}
 
-	// public void OnStopPower2()
-	// {
-	// 	GD.Print("Lose power 2");
-	// 	panel2On = false;
-	// 	TryClosingDoor();
-	// }
+	public void OnStopPower2()
+	{
+		GD.Print("Lose power 2");
+		panel2On = false;
+		TryClosingDoor();
+	}
 
 
 	private void TryOpeningDoor()
 	{
 		GD.Print("Try opening door");
-		//if (panel1On && panel2On)
-		//{
+		if (panel1On && panel2On)
+		{
 			GD.Print("Both on");
 			if (!isOpen && !permaOpen)
 			{
 				anim.Play("open");
 				isOpen = true;
 			}
-		//}
+		}
 	}
 
 	private void TryClosingDoor()
@@ -72,6 +71,7 @@ public partial class ElectricalDoor : Node3D
 
 	public void OpenDoorPermanently()
 	{
+		GD.Print("Door perma open");
 		if (!isOpen && !permaOpen)
 		{
 			anim.Play("open");
@@ -79,5 +79,4 @@ public partial class ElectricalDoor : Node3D
 		}
 		permaOpen = true;
 	}
-	
 }

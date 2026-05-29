@@ -3,13 +3,50 @@ using System;
 
 public partial class FancyLightPanel : LightPanel
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
+	[Export] private MeshInstance3D chargeMesh;
+	private bool charging = false;
+	private bool hasCharged = false;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	private int charge = 0;
+
+	public override void _Ready()
+    {
+        endPowerTimer.Timeout += StopCharging;
+    }
+
+    public override void _Process(double delta)
+    {
+		
+
+        if (!charging && charge > 0)
+		{
+			charge--;
+			chargeMesh.GlobalPosition -= new Vector3(0, 0.003f, 0);
+		}
+
+		if (charge == 0 && hasCharged)
+		{
+			EmitStopPower();
+			hasCharged = false;
+		}
+    }
+
+
+    public override void GetPower()
+    {
+        base.GetPower();
+		if (charge < 500)
+		{
+			charge += 50;
+			chargeMesh.GlobalPosition += new Vector3(0, 0.15f, 0);
+		}
+		charging = true;
+		hasCharged = true;
+    }
+
+
+	private void StopCharging()
 	{
+		charging = false;
 	}
 }

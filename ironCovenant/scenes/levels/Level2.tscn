@@ -58,8 +58,6 @@
 [ext_resource type="PackedScene" uid="uid://csbuod4affyni" path="res://scenes/scene_models/firewatch_tower.tscn" id="56_xckex"]
 [ext_resource type="PackedScene" uid="uid://dnwdy1myeee2x" path="res://scenes/nPC_models/items/fuel.tscn" id="57_836tr"]
 [ext_resource type="PackedScene" uid="uid://drooc7iv65u4q" path="res://scenes/nPC_models/evil_cube.tscn" id="57_wwnxi"]
-[ext_resource type="Script" uid="uid://ku6bs8x6g4aq" path="res://scripts/npc_logic/items/Logic/ItemData.cs" id="59_75f5a"]
-[ext_resource type="FontFile" uid="uid://cctg45s3enmvs" path="res://assets/fonts/ShareTechMono-Regular.ttf" id="60_xv6ks"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oblk4"]
 sky_top_color = Color(0.045755774, 0.06657307, 0.09292682, 1)
@@ -125,14 +123,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_s2phb")
-
-[sub_resource type="Resource" id="Resource_xv6ks"]
-script = ExtResource("59_75f5a")
-ItemID = "fuel"
-DisplayName = "Fuel"
-IsDroppable = false
-ItemScene = "uid://dnwdy1myeee2x"
-metadata/_custom_type_script = "uid://ku6bs8x6g4aq"
 
 [sub_resource type="Animation" id="Animation_xbvxr"]
 length = 0.001
@@ -383,15 +373,12 @@ size = Vector3(1, 7.4630127, 163.38577)
 density = 0.4418
 emission = Color(0.16078432, 0.1882353, 0.2, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_obq70"]
-font = ExtResource("60_xv6ks")
-font_size = 49
-
-[node name="Level2" type="Node3D" unique_id=646259433 node_paths=PackedStringArray("spotlight", "screen", "door")]
+[node name="Level2" type="Node3D" unique_id=646259433 node_paths=PackedStringArray("spotlight", "screen", "door", "fuelSystem")]
 script = ExtResource("1_1xtnv")
 spotlight = NodePath("Entities/Train/TrainSpotlight")
 screen = NodePath("Entities/Train/ScreenStuff")
 door = NodePath("Environment/Light Mechanic/ElectricalDoor")
+fuelSystem = NodePath("Entities/Train/ScreenStuff/fuelSystem")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=711760419]
 environment = SubResource("Environment_a3cud")
@@ -427,11 +414,6 @@ self_modulate = Color(1, 1, 1, 1)
 
 [node name="teddy" parent="Entities/Train/ScreenStuff/icons" parent_id_path=PackedInt32Array(615132714, 856793497) index="2" unique_id=642473025]
 mesh = SubResource("ArrayMesh_iv8t4")
-
-[node name="fuelSystem" parent="Entities/Train/ScreenStuff" parent_id_path=PackedInt32Array(615132714, 309507433) index="4" unique_id=1169897497 node_paths=PackedStringArray("suggestionLabel", "suggestionTimer")]
-fuelItem = SubResource("Resource_xv6ks")
-suggestionLabel = NodePath("../../../../UI/SuggestionLabel")
-suggestionTimer = NodePath("../../../../Environment/SuggestionTimer")
 
 [node name="TrainIntro" type="AnimationPlayer" parent="Entities/Train" unique_id=1501386876]
 libraries/ = SubResource("AnimationLibrary_oblk4")
@@ -4610,10 +4592,6 @@ material = SubResource("FogMaterial_wwnxi")
 [node name="Fuel" parent="Environment" unique_id=340717098 instance=ExtResource("57_836tr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.1199, 17.05933, -11.572523)
 
-[node name="SuggestionTimer" type="Timer" parent="Environment" unique_id=336114525]
-wait_time = 5.0
-one_shot = true
-
 [node name="ExtraLights" type="Node3D" parent="Environment" unique_id=852788793]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environment/ExtraLights" unique_id=1323171137]
@@ -4621,39 +4599,11 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -70.
 shadow_enabled = true
 
 [node name="EvilCube" parent="." unique_id=27284076 instance=ExtResource("57_wwnxi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, -25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, -180.0892)
 
-[node name="UI" type="Control" parent="." unique_id=2083249024]
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="SuggestionLabel" type="Label" parent="UI" unique_id=1932962404]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -53.0
-offset_top = -56.0
-offset_right = 53.0
-grow_horizontal = 2
-grow_vertical = 0
-label_settings = SubResource("LabelSettings_obq70")
-
-[connection signal="StartTrain" from="Entities/Train/ScreenStuff/Screen" to="Entities/Train/ScreenStuff/fuelSystem" method="TryStartTrain"]
-[connection signal="GivePower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/ElectricalDoor" method="OnGetPower"]
+[connection signal="GivePower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/ElectricalDoor" method="OnGetPower1"]
 [connection signal="GivePower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/PowerCable" method="OnGetPower"]
-[connection signal="StopPower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/ElectricalDoor" method="OnStopPower"]
+[connection signal="StopPower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/ElectricalDoor" method="OnStopPower1"]
 [connection signal="StopPower" from="Environment/Light Mechanic/LightPanel" to="Environment/Light Mechanic/PowerCable" method="OnStopPower"]
 [connection signal="body_entered" from="Environment/Light Mechanic/EnteredFireWatchArea" to="." method="onBodyEnteredFireArea"]
 

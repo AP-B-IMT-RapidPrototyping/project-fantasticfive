@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://cbxn04gk686bi"]
+[gd_scene format=4 uid="uid://cbxn04gk686bi"]
 
 [ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="1_4f1no"]
+[ext_resource type="Script" uid="uid://c140hsudko4ug" path="res://scenes/levels/Level4.cs" id="1_e4dcm"]
 [ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="2_nts3o"]
-[ext_resource type="Script" uid="uid://c6uqvoj444n3l" path="res://scripts/puzzle_scripts/ElectricalDoor.cs" id="3_d04xt"]
 [ext_resource type="PackedScene" uid="uid://bvdytyumuadbi" path="res://assets/Models/Church/church.glb" id="3_nts3o"]
+[ext_resource type="Script" uid="uid://cci6nsln2obmq" path="res://scenes/levels/Church.cs" id="4_8d6ko"]
 [ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="4_nanwd"]
 [ext_resource type="PackedScene" uid="uid://dd6u726r5u81u" path="res://assets/NatureAssets/forest_floor/boulders/Boulder_02_flat.glb" id="5_d07my"]
 [ext_resource type="PackedScene" uid="uid://c66wr0ew87bjs" path="res://assets/NatureAssets/forest_floor/bushes/Bush_L_flat.glb" id="6_d04xt"]
@@ -50,6 +51,9 @@
 [ext_resource type="PackedScene" uid="uid://gaiiy7k6s8m2" path="res://assets/NatureAssets/trees/birch/Birch_M_flat.glb" id="47_1vm6c"]
 [ext_resource type="PackedScene" uid="uid://cgc2djyyxpem2" path="res://scenes/nPC_models/puzzleStuff/light_panel.tscn" id="49_dj2sc"]
 [ext_resource type="Script" uid="uid://j3q80bfdndrg" path="res://scenes/nPC_models/puzzleStuff/FancyLightPanel.cs" id="50_b1h0p"]
+[ext_resource type="Material" uid="uid://cch14op7jkqxq" path="res://scenes/nPC_models/puzzleStuff/PowerCableMat.tres" id="52_8d6ko"]
+[ext_resource type="Script" uid="uid://byf5xj1405yb1" path="res://scripts/puzzle_scripts/PowerCable.cs" id="53_ylabu"]
+[ext_resource type="Material" uid="uid://c07b0qvw67es1" path="res://scenes/nPC_models/puzzleStuff/PowercableMat2.tres" id="54_x8j8p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nanwd"]
 sky_top_color = Color(0.045755774, 0.06657307, 0.09292682, 1)
@@ -165,6 +169,12 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxpvw"]
 albedo_color = Color(0.11127845, 0.15021288, 0.10676446, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_743nu"]
+size = Vector3(5.373535, 9.865662, 0.5571289)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1h0p"]
+size = Vector3(4.8031616, 9.729431, 0.49121094)
+
 [sub_resource type="Animation" id="Animation_d07my"]
 length = 0.001
 tracks/0/type = "value"
@@ -190,6 +200,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, -0.026521917, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment/Church/church/AnimatableBody3D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Environment/Church/church/AnimatableBody3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.6317154, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_d04xt"]
@@ -218,6 +252,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 1.6323961, 0), Vector3(0, -0.026521917, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment/Church/church/AnimatableBody3D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5180321, 0), Vector3(0, 0.052764297, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Environment/Church/church/AnimatableBody3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.6317154, 0), Vector3(0, -0.043346923, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_dj2sc"]
 resource_name = "open"
@@ -245,6 +303,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, -0.026521917, 0), Vector3(0, 1.6323961, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment/Church/church/AnimatableBody3D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.025118249, 0), Vector3(0, -1.5180321, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Environment/Church/church/AnimatableBody3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.037098642, 0), Vector3(0, 1.6317154, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b1h0p"]
 _data = {
@@ -253,7 +335,100 @@ _data = {
 &"open": SubResource("Animation_dj2sc")
 }
 
-[node name="Level4" type="Node3D" unique_id=1635894834]
+[sub_resource type="BoxShape3D" id="BoxShape3D_e4dcm"]
+size = Vector3(35.849777, 2.2874756, 0.4105835)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q2qnl"]
+size = Vector3(4.600548, 5.621765, 0.4105835)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4k527"]
+size = Vector3(2.9456596, 5.621765, 0.4105835)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8146s"]
+size = Vector3(6.9825954, 5.621765, 0.4105835)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uwjl5"]
+size = Vector3(2.9706678, 5.621765, 0.4105835)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8fusu"]
+size = Vector3(4.2900214, 5.621765, 0.4105835)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8d6ko"]
+size = Vector3(7.7473354, 6.5925293, 0.4105835)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ylabu"]
+size = Vector3(1.8599958, 6.5925293, 0.4105835)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x8j8p"]
+size = Vector3(6.3896346, 6.5925293, 0.4105835)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8d6ko"]
+resource_name = "LightPanel_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.034419656, -0.325038, -0.51069546, 0.06883931, 0.650076, 1.0213909),
+"attribute_data": PackedByteArray("nKrYvf9/////f9i9nKr//7zZC5hA3ibCvNkmwkDeC5hC5VmcgeYmwkLlJsKB5lmcQN4LmMPiJsJA3ibCw+ILmP//2L17+///e/vYvf////+82f9/OdUmwjnV/3+82SbCyqz/vznV2L0M0/+/OdX//5yq2L0M09j9yqzY/Zyq//97+ybCOdX//znVJsJ7+///wOcmwoHmWZzA51mcgeYmwgLkJsLD4k2EAuRNhMPiJsIC5E2EQuUmwgLkJsJC5U2E"),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGgAZABsAGAAcABkAGgAbAB0AHgAcABgAHQAbAB8AHgAfABwAHQAfAB4AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0A"),
+"material": ExtResource("54_x8j8p"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(1.9760015, 2, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////FQ1TCP//OLnp8lMI/////+nyUwj//zi5FQ1TCP////8AAP////8AAP//////////////////AAAAAP////8AAAAAAAD/////AAD///////8AAAAA//8AAAAA//////////8AAP+/AAD//////78AAP//AAD/v/////////+////p8lMIVNX//wAAAABU1f//FQ1TCFTV//8AAP//VNX/////AABU1f//FQ2r91TV///p8qv3VNX///////9U1Ti5FQ1TCFTVOLnp8qv3VNU4uenyUwhU1Ti5FQ2r91TV///p8qv3//84uRUNq/f/////FQ2r9///OLnp8qv3/////xUNq/f/vzi5FQ1TCP+///8VDVMI/784uRUNq/f/v///6fJTCP//OLnp8qv3/////+nyq/f//zi56fJTCP//VFWqqlRVqqpUVaqqVFWqqv///3////9/////f////3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//z//f/8//3//P/9//z////9/////f////3////9/qqpVVamqVFWpqlRVqqpVVaqqVVWqqlVVqapUVamqVFWqqlRVqqpUVaqqVFWqqlRV////f////3////9/////f////3////9/////f////3//f/8//3//P/9//z//f/8/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ylabu"]
+material = ExtResource("54_x8j8p")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8d6ko"]
+emission_enabled = true
+emission = Color(0.25524214, 1, 1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ylabu"]
+material = SubResource("StandardMaterial3D_8d6ko")
+size = Vector3(1, 1, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8j8p"]
+emission_enabled = true
+emission = Color(0.25524214, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_743nu"]
+material = SubResource("StandardMaterial3D_x8j8p")
+size = Vector3(0.2, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylabu"]
+emission_enabled = true
+emission = Color(0.38560182, 1, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_x8j8p"]
+material = SubResource("StandardMaterial3D_ylabu")
+text = "1 + 1 = open"
+font_size = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x8j8p"]
+material = ExtResource("52_8d6ko")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 26.154
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_743nu"]
+material = ExtResource("54_x8j8p")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 26.154
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t4kpv"]
+size = Vector3(1, 5.8693237, 6.682007)
+
+[node name="Level4" type="Node3D" unique_id=1635894834 node_paths=PackedStringArray("spot", "door")]
+script = ExtResource("1_e4dcm")
+spot = NodePath("Entities/Train/TrainSpotlight")
+door = NodePath("Environment/Church")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1956508359]
 environment = SubResource("Environment_v7du0")
@@ -300,7 +475,7 @@ size = Vector3(264.96735, 1, 241.69409)
 material = SubResource("StandardMaterial3D_nxpvw")
 
 [node name="Church" type="Node3D" parent="Environment" unique_id=1947591009 node_paths=PackedStringArray("anim")]
-script = ExtResource("3_d04xt")
+script = ExtResource("4_8d6ko")
 anim = NodePath("ChurchDoors")
 
 [node name="church" parent="Environment/Church" unique_id=606068695 instance=ExtResource("3_nts3o")]
@@ -367,9 +542,79 @@ transform = Transform3D(0.9996483, 0, -0.026518807, 0, 1, 0, 0.026518807, 0, 0.9
 [node name="Cube_036" parent="Environment/Church/church" index="17" unique_id=464452450]
 transform = Transform3D(0.9996846, 0, 0.025115605, 0, 1, 0, -0.025115605, 0, 0.9996846, 4.810379, 3.0917501, 59.464283)
 
+[node name="AnimatableBody3D2" type="AnimatableBody3D" parent="Environment/Church/church" unique_id=1241126610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.810375, 3.0917501, 59.46428)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Church/church/AnimatableBody3D2" unique_id=2059688692]
+transform = Transform3D(1, 0, -3.1291688e-07, 0, 1, 0, 3.1291688e-07, 0, 1, -2.1867752, 1.8102117, 0.22138977)
+shape = SubResource("BoxShape3D_743nu")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Environment/Church/church" unique_id=921849145]
+transform = Transform3D(-0.060881402, 0, 0.99814475, 0, 1, 0, -0.99814475, 0, -0.060881402, -4.810379, 3.7059422, 59.464264)
+collision_mask = 25
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Church/church/AnimatableBody3D" unique_id=1826330647]
+transform = Transform3D(1, 0, 6.3330695e-08, 0, 1, 0, -6.3330695e-08, 0, 1, 2.374649, 1.0482447, 0.19683075)
+shape = SubResource("BoxShape3D_b1h0p")
+
 [node name="ChurchDoors" type="AnimationPlayer" parent="Environment/Church" unique_id=1198227058]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_b1h0p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Church" unique_id=3937473]
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=813811109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0090714, 0.6437378, -11.161661)
+shape = SubResource("BoxShape3D_e4dcm")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=605168152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0090714, 0.66326714, -29.266907)
+shape = SubResource("BoxShape3D_e4dcm")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=443336925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.633686, 4.561369, -29.266907)
+shape = SubResource("BoxShape3D_q2qnl")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=909731932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.440443, 4.561369, -29.266907)
+shape = SubResource("BoxShape3D_4k527")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=1146765524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0588236, 4.561369, -29.266907)
+shape = SubResource("BoxShape3D_8146s")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=252937752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.426829, 4.561369, -29.266907)
+shape = SubResource("BoxShape3D_uwjl5")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=157810581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.445218, 4.561369, -29.266907)
+shape = SubResource("BoxShape3D_8fusu")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=512441352]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.733011, 2.7962646, -27.555347)
+shape = SubResource("BoxShape3D_8d6ko")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=1321726018]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.733011, 2.7962646, -12.950845)
+shape = SubResource("BoxShape3D_8d6ko")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=1101736785]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 27.863794, 2.7962646, -17.355074)
+shape = SubResource("BoxShape3D_ylabu")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=1592997365]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 27.863794, 2.7962646, -23.148508)
+shape = SubResource("BoxShape3D_ylabu")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=423766543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.953505, 2.7962646, -23.887972)
+shape = SubResource("BoxShape3D_x8j8p")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=991405598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.032003, 2.7962646, -16.636192)
+shape = SubResource("BoxShape3D_x8j8p")
 
 [node name="Rails" type="Node3D" parent="Environment" unique_id=1990255686]
 
@@ -3964,15 +4209,73 @@ transform = Transform3D(0.28655928, 0, 0.9541099, 0, 0.99621385, 0, -0.9541099, 
 [node name="Light puzzle" type="Node3D" parent="Environment" unique_id=1602713022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.774067, 0, -28.690983)
 
-[node name="FancyLightPanel" parent="Environment/Light puzzle" unique_id=2111136213 instance=ExtResource("49_dj2sc")]
-transform = Transform3D(-0.8500306, 0, 0.5267332, 0, 1, 0, -0.5267332, 0, -0.8500306, -2.4668536, 1.02373, 4.234677)
+[node name="LightPanel" parent="Environment/Light puzzle" unique_id=2111136213 node_paths=PackedStringArray("chargeMesh") instance=ExtResource("49_dj2sc")]
+transform = Transform3D(-0.5267332, 0, -0.8500306, 0, 1, 0, 0.8500306, 0, -0.5267332, -5.013905, 1.02373, -37.355003)
 script = ExtResource("50_b1h0p")
+chargeMesh = NodePath("MeshInstance3D")
 
-[connection signal="GivePower" from="Environment/Light puzzle/FancyLightPanel" to="Environment/Church" method="OnGetPower"]
-[connection signal="StopPower" from="Environment/Light puzzle/FancyLightPanel" to="Environment/Church" method="OnStopPower"]
+[node name="Cube" parent="Environment/Light puzzle/LightPanel/LightPanel" parent_id_path=PackedInt32Array(2111136213, 144391817) index="0" unique_id=1519614942]
+mesh = SubResource("ArrayMesh_8d6ko")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light puzzle/LightPanel" unique_id=2119087574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8079492, -1.3049353)
+mesh = SubResource("CylinderMesh_ylabu")
+
+[node name="LightPanel2" parent="Environment/Light puzzle" unique_id=637575069 instance=ExtResource("49_dj2sc")]
+transform = Transform3D(-0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071068, -2.4350963, 1.1087396, 4.1387424)
+
+[node name="Arrow" type="MeshInstance3D" parent="Environment/Light puzzle" unique_id=269829898]
+transform = Transform3D(0, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.3711385e-08, -1.0795517, 1.0354084, -2.6053362e-08)
+mesh = SubResource("PrismMesh_ylabu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light puzzle/Arrow" unique_id=766512433]
+transform = Transform3D(1.9106853e-15, 1, -4.371139e-08, 4.3711385e-08, -4.371139e-08, -1, -1, -1.9106855e-15, -4.371139e-08, -0.01682133, -0.96246165, -0.04175061)
+mesh = SubResource("BoxMesh_743nu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light puzzle" unique_id=1721673975]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0413055, 1.9256083, 0.5388699)
+mesh = SubResource("TextMesh_x8j8p")
+
+[node name="PowerCable" type="Node3D" parent="Environment/Light puzzle" unique_id=130173515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2554722, 0, -0.75523376)
+script = ExtResource("53_ylabu")
+mat = ExtResource("52_8d6ko")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light puzzle/PowerCable" unique_id=464753035]
+transform = Transform3D(-4.371139e-08, -0.71624744, 0.24417359, 1, -3.1308172e-08, 1.0673166e-08, 0, 0.18034753, 0.96973157, -7.766185, -0.056057513, 7.5554686)
+mesh = SubResource("CylinderMesh_x8j8p")
+
+[node name="PowerCable2" type="Node3D" parent="Environment/Light puzzle" unique_id=1604580551]
+transform = Transform3D(0.18938684, 0, 0.98190254, 0, 1, 0, -0.98190254, 0, 0.18938684, -7.328694, 0, -28.452417)
+script = ExtResource("53_ylabu")
+mat = ExtResource("54_x8j8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light puzzle/PowerCable2" unique_id=2079960700]
+transform = Transform3D(-4.371139e-08, -1.5177768, 0.24417359, 1, -6.6344136e-08, 1.0673166e-08, 0, 0.38216862, 0.96973157, -10.420762, -0.05605763, 6.179848)
+mesh = SubResource("CylinderMesh_743nu")
+
+[node name="OnChurchEntered" type="Area3D" parent="Environment/Light puzzle" unique_id=891002896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.157177, 0, 8.348606)
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Light puzzle/OnChurchEntered" unique_id=669931771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4346619, 0.1329956)
+shape = SubResource("BoxShape3D_t4kpv")
+
+[connection signal="GivePower" from="Environment/Light puzzle/LightPanel" to="Environment/Church" method="OnGetPower1"]
+[connection signal="GivePower" from="Environment/Light puzzle/LightPanel" to="Environment/Light puzzle/PowerCable2" method="OnGetPower"]
+[connection signal="StopPower" from="Environment/Light puzzle/LightPanel" to="Environment/Church" method="OnStopPower1"]
+[connection signal="StopPower" from="Environment/Light puzzle/LightPanel" to="Environment/Light puzzle/PowerCable2" method="OnStopPower"]
+[connection signal="GivePower" from="Environment/Light puzzle/LightPanel2" to="Environment/Church" method="OnGetPower2"]
+[connection signal="GivePower" from="Environment/Light puzzle/LightPanel2" to="Environment/Light puzzle/PowerCable" method="OnGetPower"]
+[connection signal="StopPower" from="Environment/Light puzzle/LightPanel2" to="Environment/Church" method="OnStopPower2"]
+[connection signal="StopPower" from="Environment/Light puzzle/LightPanel2" to="Environment/Light puzzle/PowerCable" method="OnStopPower"]
+[connection signal="body_entered" from="Environment/Light puzzle/OnChurchEntered" to="." method="onBodyEnteredChurcheArea"]
 
 [editable path="Entities/Train"]
 [editable path="Entities/Train/TestTrain"]
 [editable path="Entities/Train/TrainSpotlight"]
 [editable path="Entities/Train/ScreenStuff/icons"]
 [editable path="Environment/Church/church"]
+[editable path="Environment/Light puzzle/LightPanel"]
+[editable path="Environment/Light puzzle/LightPanel/LightPanel"]

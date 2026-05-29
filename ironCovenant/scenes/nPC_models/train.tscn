@@ -11,7 +11,9 @@
 [ext_resource type="Script" uid="uid://b1w273xuqyvve" path="res://scenes/nPC_models/ScreenStuff.cs" id="8_aqclw"]
 [ext_resource type="Script" uid="uid://d4c6felu7y6wa" path="res://scripts/fuelSystem.cs" id="10_e833i"]
 [ext_resource type="Resource" uid="uid://bqnyljfask4rn" path="res://Resources/Items/Fuel.tres" id="11_mv878"]
+[ext_resource type="Resource" uid="uid://dvscxo6t04rbl" path="res://Resources/Items/Teddy.tres" id="12_721md"]
 [ext_resource type="Script" uid="uid://v4irl84ghek7" path="res://scripts/npc_logic/ScreenInteractArea.cs" id="12_mv878"]
+[ext_resource type="FontFile" uid="uid://cctg45s3enmvs" path="res://assets/fonts/ShareTechMono-Regular.ttf" id="13_c36r2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqclw"]
 albedo_color = Color(0.07762883, 0.07762881, 0.07762881, 1)
@@ -266,7 +268,49 @@ shadow_mesh = SubResource("ArrayMesh_s2phb")
 [sub_resource type="BoxShape3D" id="BoxShape3D_mv878"]
 size = Vector3(0.4, 0.6, 1.6)
 
+[sub_resource type="LabelSettings" id="LabelSettings_721md"]
+font = ExtResource("13_c36r2")
+font_size = 49
+
+[sub_resource type="Animation" id="Animation_obq70"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -45.131)]
+}
+
+[sub_resource type="Animation" id="Animation_xv6ks"]
+resource_name = "play"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.214, -45.131), Vector3(-53.663254, -1.214, -45.131)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c36r2"]
+_data = {
+&"RESET": SubResource("Animation_obq70"),
+&"play": SubResource("Animation_xv6ks")
+}
+
 [node name="Train" type="AnimatableBody3D" unique_id=615132714 node_paths=PackedStringArray("_chestAnim", "_doorAnim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45.131)
 collision_layer = 64
 script = ExtResource("1_5kvja")
 _chestAnim = NodePath("TestTrain/AnimationPlayer")
@@ -593,9 +637,14 @@ wait_time = 0.5
 [node name="teddyTimer" type="Timer" parent="ScreenStuff" unique_id=86426471]
 wait_time = 0.5
 
-[node name="fuelSystem" type="Node" parent="ScreenStuff" unique_id=1169897497]
+[node name="fuelSystem" type="Node" parent="ScreenStuff" unique_id=1169897497 node_paths=PackedStringArray("suggestionLabel", "suggestionTimer", "trainAnim", "doorAnim")]
 script = ExtResource("10_e833i")
 fuelItem = ExtResource("11_mv878")
+teddyItem = ExtResource("12_721md")
+suggestionLabel = NodePath("../../UI/SuggestionLabel")
+suggestionTimer = NodePath("../../SuggestionTimer")
+trainAnim = NodePath("../../TrainOutro")
+doorAnim = NodePath("../../TrainDoor/DoorAnim")
 
 [node name="Screen" type="StaticBody3D" parent="ScreenStuff" unique_id=1705784023 groups=["screen"]]
 transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, 0.824018, 3.0601244, 0)
@@ -607,8 +656,43 @@ script = ExtResource("12_mv878")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29999995, -2.3841858e-07, 0)
 shape = SubResource("BoxShape3D_mv878")
 
+[node name="UI" type="Control" parent="." unique_id=589829222]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SuggestionLabel" type="Label" parent="UI" unique_id=734419697]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -56.0
+offset_right = 53.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_721md")
+
+[node name="SuggestionTimer" type="Timer" parent="." unique_id=371340057]
+wait_time = 5.0
+one_shot = true
+
+[node name="TrainOutro" type="AnimationPlayer" parent="." unique_id=1498430492]
+libraries/ = SubResource("AnimationLibrary_c36r2")
+
 [connection signal="child_entered_tree" from="TrainSpotlight" to="TrainSpotlight" method="_on_child_entered_tree"]
 [connection signal="body_entered" from="TrainDoor/Area3D" to="." method="OnDoorBodyEntered"]
+[connection signal="StartTrain" from="ScreenStuff/Screen" to="ScreenStuff/fuelSystem" method="TryStartTrain"]
 
 [editable path="TestTrain"]
 [editable path="TrainSpotlight"]

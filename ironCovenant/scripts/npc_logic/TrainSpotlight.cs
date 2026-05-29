@@ -198,10 +198,10 @@ public partial class TrainSpotlight : Node3D
 				if (energyCast.GetCollider() is Node3D node)
 				{
 					//GD.Print($"node.Name: {node.Name}");
-					if (node.Name == "LightPanel")
+					if (node.Name == "LightPanel" || node.Name == "LightPanel2")
 					{
 						panel.GetPower();
-						//GD.Print("Panel gets power");		
+						GD.Print("Panel gets power");		
 					}
 				}
 			}

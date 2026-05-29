@@ -8,7 +8,7 @@ public partial class LightPanel : StaticBody3D
 	[Signal]
 	public delegate void StopPowerEventHandler();
 
-	[Export] private Timer endPowerTimer;
+	[Export] protected Timer endPowerTimer;
 
     public override void _Ready()
     {
@@ -16,17 +16,17 @@ public partial class LightPanel : StaticBody3D
     }
 
 
-	public void GetPower()
+	virtual public void GetPower()
 	{
-		//GD.Print("Emitting signal: GivePower");
+		GD.Print("Emitting signal: GivePower");
 		EmitSignal(SignalName.GivePower);
 		
 		endPowerTimer.Start();
 	}
 
-	private void EmitStopPower()
+	protected void EmitStopPower()
 	{
-		//GD.Print("Emitting signal: StopPower");
+		GD.Print("Emitting signal: StopPower");
 		EmitSignal(SignalName.StopPower);
 	}
 }

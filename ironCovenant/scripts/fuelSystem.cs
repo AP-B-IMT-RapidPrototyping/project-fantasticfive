@@ -5,9 +5,15 @@ public partial class fuelSystem : Node
 {
     
     [Export] private ItemData fuelItem;
+    [Export] private ItemData teddyItem;
     [Export] private Label suggestionLabel;
     [Export] private Timer suggestionTimer;
     [Export] private int fuelNeeded = 1;
+
+    [Export] private AnimationPlayer trainAnim;
+    [Export] private AnimationPlayer doorAnim;
+
+    public int currentLevel = 1;
 
     public override void _Ready()
     {
@@ -30,11 +36,26 @@ public partial class fuelSystem : Node
             InventorySystem.Inventory.RemoveItem(fuelItem, fuelNeeded);
 
             StartTrain();
+        } else  if (InventorySystem.Inventory.HasItem(teddyItem, 1))
+        {
+            GD.Print("Train starts!");
+
+            InventorySystem.Inventory.RemoveItem(teddyItem, 1);
+
+            StartTrain();
         }
         else
         {
-            GD.Print("Not enough fuel");
-            suggestionLabel.Text = "The train needs fuel to start.";
+            if (currentLevel == 2)
+            {
+                GD.Print("Not enough fuel");
+                suggestionLabel.Text = "The train needs fuel to start.";
+            } else if (currentLevel == 3)
+            {
+                GD.Print("Not enough teddy");
+                suggestionLabel.Text = "The train needs a teddy bear to start.";
+            }
+            
             suggestionTimer.Start();
         }
     }
@@ -42,6 +63,8 @@ public partial class fuelSystem : Node
     private void StartTrain()
     {
         GD.Print("Train is moving!");
+        trainAnim.Play("play");
+        doorAnim.Play("play");
     }
 
     public void ClearLabel()

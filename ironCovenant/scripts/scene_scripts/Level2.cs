@@ -7,6 +7,8 @@ public partial class Level2 : Node3D
 	[Export] private ScreenStuff screen;
 	[Export] private ElectricalDoor door;
 
+	[Export] private fuelSystem fuelSystem;
+
 	private Node _sceneManager = null;
 
 	public override void _Ready()
@@ -14,6 +16,8 @@ public partial class Level2 : Node3D
 		spotlight.canRadiate = true;
 		screen.StartFuelBlinking();
 		_sceneManager = GetNode("/root/SceneManager");
+
+		fuelSystem.currentLevel = 2;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

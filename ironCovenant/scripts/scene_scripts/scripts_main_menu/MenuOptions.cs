@@ -23,7 +23,7 @@ public partial class MenuOptions : Node3D
     {
         Input.MouseMode = Input.MouseModeEnum.Visible;
 
-        color = new Color(0.497f, 0.497f, 0.497f);
+        color = new Color(1f, 0.63f, 0.63f);
 
         // Play button
         var playMaterial = _buttonPlay.GetActiveMaterial(0);
@@ -31,7 +31,7 @@ public partial class MenuOptions : Node3D
         {
             var uniqueMaterial = (StandardMaterial3D)playMat.Duplicate();
             _buttonPlay.SetSurfaceOverrideMaterial(0, uniqueMaterial);
-            _playDefaultColor = uniqueMaterial.AlbedoColor;
+            _playDefaultColor = uniqueMaterial.Emission;
         }
 
         // Settings button
@@ -40,7 +40,7 @@ public partial class MenuOptions : Node3D
         {
             var uniqueMaterial = (StandardMaterial3D)settingsMat.Duplicate();
             _buttonSettings.SetSurfaceOverrideMaterial(0, uniqueMaterial);
-            _settingsDefaultColor = uniqueMaterial.AlbedoColor;
+            _settingsDefaultColor = uniqueMaterial.Emission;
         }
 
         // Quit button
@@ -49,7 +49,7 @@ public partial class MenuOptions : Node3D
         {
             var uniqueMaterial = (StandardMaterial3D)quitMat.Duplicate();
             _buttonQuit.SetSurfaceOverrideMaterial(0, uniqueMaterial);
-            _quitDefaultColor = uniqueMaterial.AlbedoColor;
+            _quitDefaultColor = uniqueMaterial.Emission;
         }
 
         // Back button
@@ -58,7 +58,7 @@ public partial class MenuOptions : Node3D
         {
             var uniqueMaterial = (StandardMaterial3D)backMat.Duplicate();
             _buttonBack.SetSurfaceOverrideMaterial(0, uniqueMaterial);
-            _backDefaultColor = uniqueMaterial.AlbedoColor;
+            _backDefaultColor = uniqueMaterial.Emission;
         }
     }
 
@@ -79,7 +79,7 @@ public partial class MenuOptions : Node3D
         _hoverUI.Play();
         var material = _buttonPlay.GetActiveMaterial(0) as StandardMaterial3D;
         if (material != null)
-            material.AlbedoColor = new Color(color);
+            material.Emission = new Color(color);
     }
 
     /* Exit Play */
@@ -87,7 +87,7 @@ public partial class MenuOptions : Node3D
     {
         var material = _buttonPlay.GetActiveMaterial(0) as StandardMaterial3D;
         if (material != null)
-            material.AlbedoColor = _playDefaultColor;
+            material.Emission = _playDefaultColor;
     }
 
     /* ------------------------------------------ */
@@ -108,7 +108,7 @@ public partial class MenuOptions : Node3D
         _hoverUI.Play();
         var material = _buttonSettings.GetActiveMaterial(0) as StandardMaterial3D;
         if (material != null)
-            material.AlbedoColor = new Color(color);
+            material.Emission = new Color(color);
     }
 
     /* Exit Settings */
@@ -116,7 +116,7 @@ public partial class MenuOptions : Node3D
     {
         var material = _buttonSettings.GetActiveMaterial(0) as StandardMaterial3D;
         if (material != null)
-            material.AlbedoColor = _settingsDefaultColor;
+            material.Emission = _settingsDefaultColor;
     }
 
     /* ------------------------------------------ */
@@ -136,7 +136,7 @@ public partial class MenuOptions : Node3D
         _hoverUI.Play();
         var material = _buttonQuit.GetActiveMaterial(0) as StandardMaterial3D;
         if (material != null)
-            material.AlbedoColor = new Color(color);
+            material.Emission = new Color(color);
     }
 
     /* Exit Quit */
@@ -144,7 +144,7 @@ public partial class MenuOptions : Node3D
     {
         var material = _buttonQuit.GetActiveMaterial(0) as StandardMaterial3D;
         if (material != null)
-            material.AlbedoColor = _quitDefaultColor;
+            material.Emission = _quitDefaultColor;
     }
 
     /* ------------------------------------------ */
@@ -166,7 +166,7 @@ public partial class MenuOptions : Node3D
         _hoverUI.Play();
         var material = _buttonBack.GetActiveMaterial(0) as StandardMaterial3D;
         if (material != null)
-            material.AlbedoColor = new Color(color);
+            material.Emission = new Color(color);
     }
 
     /* Exit Back */
@@ -174,6 +174,6 @@ public partial class MenuOptions : Node3D
     {
         var material = _buttonBack.GetActiveMaterial(0) as StandardMaterial3D;
         if (material != null)
-            material.AlbedoColor = _backDefaultColor;
+            material.Emission = _backDefaultColor;
     }
 }

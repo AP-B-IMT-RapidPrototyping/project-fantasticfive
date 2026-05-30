@@ -4,6 +4,7 @@ using System;
 public partial class Church : Node3D
 {
 	[Export] private AnimationPlayer anim;
+	[Export] private AnimationPlayer audioanim;
 	private bool isOpen = false;
 	public bool permaOpen = false;
 
@@ -76,6 +77,7 @@ public partial class Church : Node3D
 		{
 			anim.Play("open");
 			isOpen = true;
+			audioanim.Play("play");
 		}
 		permaOpen = true;
 	}

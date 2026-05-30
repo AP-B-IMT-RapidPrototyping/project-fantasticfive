@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b2mqbmlbsouhe"]
+
+[ext_resource type="Script" uid="uid://ku6bs8x6g4aq" path="res://scripts/npc_logic/items/Logic/ItemData.cs" id="1_y8weu"]
+
+[resource]
+script = ExtResource("1_y8weu")
+ItemID = "weapon_gun"
+DisplayName = "Gun"
+IsDroppable = false
+ItemScene = "uid://by7h2jxisbrf6"
+metadata/_custom_type_script = "uid://ku6bs8x6g4aq"

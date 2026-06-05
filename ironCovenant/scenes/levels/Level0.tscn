@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="3_0l7rd"]
 [ext_resource type="AudioStream" uid="uid://b5ft1cj4fqov6" path="res://assets/audio/ambience/shut_up_ghost-smooth-cold-wind-looped-135538 (1).mp3" id="3_1gr7n"]
 [ext_resource type="AudioStream" uid="uid://dlxhuuy5mhv5w" path="res://assets/audio/sfx/nuclear distanct.mp3" id="4_ip4ik"]
-[ext_resource type="Script" uid="uid://bxuca47lfk1vi" path="res://scenes/levels/lightArea.cs" id="5_j8gtt"]
+[ext_resource type="Script" uid="uid://bxuca47lfk1vi" path="res://scripts/scene_scripts/lightArea.cs" id="5_j8gtt"]
 [ext_resource type="PackedScene" uid="uid://coet5djbsi78" path="res://assets/Models/LightPole.glb" id="5_rbe81"]
 [ext_resource type="PackedScene" uid="uid://c6e1yj6aeycml" path="res://assets/Models/HouseWithInterior/House_Small.fbx" id="6_in5bs"]
 [ext_resource type="PackedScene" uid="uid://b5ha3hv0iffrj" path="res://assets/prototypeAssets/PinBoard.glb" id="7_ax2ff"]
@@ -44,6 +44,8 @@
 [ext_resource type="PackedScene" uid="uid://djylq8p82iyo7" path="res://assets/NatureAssets/trees/birch/Birch_L_flat.glb" id="36_op5gj"]
 [ext_resource type="PackedScene" uid="uid://bfuts6elxn6e5" path="res://assets/NatureAssets/trees/other/Mistletoe_Tree_flat.glb" id="37_c5jbu"]
 [ext_resource type="PackedScene" uid="uid://gaiiy7k6s8m2" path="res://assets/NatureAssets/trees/birch/Birch_M_flat.glb" id="38_vooxx"]
+[ext_resource type="PackedScene" uid="uid://x3vssku01dnb" path="res://assets/Models/RoadSign.glb" id="45_hha03"]
+[ext_resource type="PackedScene" uid="uid://cllqolkbe1j24" path="res://assets/Models/train gate thing.glb" id="46_k6upr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qcr8a"]
 sky_top_color = Color(0.25348392, 0.18677208, 0.1765042, 1)
@@ -224,10 +226,34 @@ tracks/12/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("TextUI/ColorRect:color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.05882353, 0.05882353, 0.05882353, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TextUI:mouse_filter")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_j8gtt"]
 resource_name = "play"
-length = 83.0
+length = 82.0
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -236,7 +262,7 @@ tracks/0/path = NodePath("LockBox:use_collision")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 79),
+"times": PackedFloat32Array(0, 75),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -248,7 +274,7 @@ tracks/1/path = NodePath("TextUI/RichTextLabel:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(10, 15, 19, 20, 26, 27, 33, 34, 40, 41, 45, 46, 54, 57.5, 66.5, 70.5, 75.5),
+"times": PackedFloat32Array(6, 11, 15, 16, 22, 23, 29, 30, 36, 37, 41, 42, 50, 53.5, 62.5, 66.5, 71.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["...", "Life has changed...", "Life has changed...", "The government has failed us...", "The government has failed us...", "They betrayed us...", "They betrayed us...", "All I know is that I need to find these people...", "All I know is that I need to find these people...", "...", "...", "I don't know if I'll last any longer like this...", "I don't know if I'll last any longer like this...", "I think I'm dying.", "I think I'm dying.", "FIND THEM.", "FIND THEM."]
@@ -260,10 +286,10 @@ tracks/2/path = NodePath("TextUI/RichTextLabel:visible_ratio")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(10, 13, 15, 17, 19, 20, 22, 26, 27, 29, 33, 34, 36, 40, 41, 43, 45, 46, 49, 54, 57.5, 62.5, 66.5, 70.5, 72.5, 75.5, 77.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(6, 9, 11, 13, 15, 16, 18, 22, 23, 25, 29, 30, 32, 36, 37, 39, 41, 42, 45, 50, 53.5, 58.5, 62.5, 66.5, 68.5, 71.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0]
+"values": [0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -272,7 +298,7 @@ tracks/3/path = NodePath("TextUI:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 83),
+"times": PackedFloat32Array(0, 82),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -284,7 +310,7 @@ tracks/4/path = NodePath("../Player:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(75),
+"times": PackedFloat32Array(71),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, -3.0508354, 0)]
@@ -296,7 +322,7 @@ tracks/5/path = NodePath("Music:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(10, 79.5),
+"times": PackedFloat32Array(6, 75.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -308,7 +334,7 @@ tracks/6/path = NodePath("Music:volume_db")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(10, 15, 69.5),
+"times": PackedFloat32Array(6, 11, 65.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [-30.0, -15.0, -15.0]
@@ -320,7 +346,7 @@ tracks/7/path = NodePath("../Ambience:playing")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(10),
+"times": PackedFloat32Array(6),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -332,7 +358,7 @@ tracks/8/path = NodePath("../Ambience:volume_db")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(10, 15, 69.5),
+"times": PackedFloat32Array(6, 11, 65.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [-50.0, -20.0, -20.0]
@@ -344,7 +370,7 @@ tracks/9/path = NodePath("SFX:playing")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(61.5, 79.5),
+"times": PackedFloat32Array(57.5, 75.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -356,10 +382,10 @@ tracks/10/path = NodePath("../Player/PlayerHead:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(74.32165, 75),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(70.32165, 71, 73.32165, 74),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -368,7 +394,7 @@ tracks/11/path = NodePath("TextUI/Date:visible_ratio")
 tracks/11/interp = 2
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 2.5, 7, 10.018702),
+"times": PackedFloat32Array(1, 2.5, 6, 7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -380,10 +406,34 @@ tracks/12/path = NodePath("TextUI:modulate")
 tracks/12/interp = 2
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(79, 83),
+"times": PackedFloat32Array(78, 82),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("TextUI/ColorRect:color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(74, 78),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.05882353, 0.05882353, 0.05882353, 1), Color(0.05882353, 0.05882353, 0.05882353, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TextUI:mouse_filter")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 78),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gs4ao"]
@@ -407,6 +457,9 @@ density = 0.02
 albedo = Color(0, 0, 0, 1)
 emission = Color(0.54656905, 0.54656905, 0.54656905, 1)
 height_falloff = 14.236988
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_op5gj"]
+size = Vector3(0.8, 6, 0.7)
 
 [sub_resource type="Animation" id="Animation_a5ex2"]
 length = 0.001
@@ -1318,6 +1371,45 @@ size = Vector3(3.7662964, 0.6973877, 3.2276306)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ue060"]
 size = Vector3(7.786133, 1, 90.78116)
 
+[sub_resource type="Animation" id="Animation_k6upr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coplight:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [25.295]
+}
+
+[sub_resource type="Animation" id="Animation_7dcg5"]
+resource_name = "play"
+length = 0.8
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coplight:light_energy")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [8.226, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_snjjh"]
+_data = {
+&"RESET": SubResource("Animation_k6upr"),
+&"play": SubResource("Animation_7dcg5")
+}
+
 [sub_resource type="FogMaterial" id="FogMaterial_h27y2"]
 density = -0.2404
 emission = Color(0.16078432, 0.1882353, 0.2, 1)
@@ -1341,14 +1433,19 @@ size = Vector3(37.67778, 5.1602783, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bakur"]
 size = Vector3(17.04501, 5.1602783, 1)
 
-[node name="Level0" type="Node3D" unique_id=1218683510 node_paths=PackedStringArray("_introText", "_train", "_cutsceneIntroAnim", "_cutsceneAnim", "_cutsceneOutroAnim", "_cutsceneEnding", "_cutsceneCamera")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_c5jbu"]
+size = Vector3(0.2, 5.8, 4.2000003)
+
+[node name="Level0" type="Node3D" unique_id=1218683510 node_paths=PackedStringArray("_introText", "_introSkipText", "_train", "_cutsceneIntroAnim", "_cutsceneAnim", "_cutsceneOutroAnim", "_cutsceneEnding", "_thatOneFuckingPole", "_cutsceneCamera")]
 script = ExtResource("1_qcr8a")
 _introText = NodePath("IntroText/IntroText")
+_introSkipText = NodePath("IntroText/TextUI/SkipSpace")
 _train = NodePath("Train")
 _cutsceneIntroAnim = NodePath("Cutscene/CutsceneIntroAnim")
 _cutsceneAnim = NodePath("Cutscene/CutsceneAnim")
 _cutsceneOutroAnim = NodePath("Cutscene/CutsceneOutroAnim")
 _cutsceneEnding = NodePath("Ending/EndingAnim")
+_thatOneFuckingPole = NodePath("Lights/LightPole7/yes7")
 _cutsceneCamera = NodePath("Cutscene/Camera3D")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=749329540]
@@ -1415,6 +1512,23 @@ vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
+[node name="SkipSpace" type="Label" parent="IntroText/TextUI" unique_id=271617292]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -62.799988
+offset_right = 77.0
+offset_bottom = -24.799988
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.75686276)
+theme_override_font_sizes/font_size = 26
+text = "'space' to skip"
+
 [node name="Music" type="AudioStreamPlayer" parent="IntroText" unique_id=1353734851]
 stream = ExtResource("2_a5ex2")
 volume_db = -5.0
@@ -1466,13 +1580,13 @@ size = Vector3(96, 5, 95)
 material = SubResource("FogMaterial_ax2ff")
 
 [node name="Player" parent="." unique_id=746536559 instance=ExtResource("2_wnydg")]
-transform = Transform3D(-0.9958846, 0, -0.09063271, 0, 0.99999994, 0, 0.09063277, 0, -0.99588394, 28.426962, 2.0712335, 48.814674)
+transform = Transform3D(-0.9958846, 0, -0.09063269, 0, 0.99999994, 0, 0.09063277, 0, -0.99588376, 28.426962, 2.0712335, 48.814674)
 
 [node name="PlayerHead" parent="Player" index="5" unique_id=1089481490]
 _yaw = -3.142
 
 [node name="Camera3D" parent="Player/DebugStats/CamToPlayer/SubViewport" parent_id_path=PackedInt32Array(746536559, 28746108) index="0" unique_id=527580327]
-transform = Transform3D(0.8703558, 0.16761094, -0.4630201, 0, 0.940288, 0.34037954, 0.4924232, -0.29625115, 0.8183849, 26.963705, 3.1902332, 51.427044)
+transform = Transform3D(0.8703558, 0.16761094, -0.46302012, 0, 0.940288, 0.34037954, 0.4924231, -0.2962511, 0.8183847, 26.963705, 3.1902332, 51.427044)
 
 [node name="BuildingsOLD" type="Node3D" parent="." unique_id=822769759]
 transform = Transform3D(0.42000002, 0, 0, 0, 1, 0, 0, 0, 1, 14.0452795, 0, 0)
@@ -1497,6 +1611,12 @@ spot_attenuation = 0.85
 spot_angle = 34.49
 spot_angle_attenuation = 1.319505
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Lights/LightPole" unique_id=95107200]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lights/LightPole/StaticBody3D" unique_id=170501644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 2.5, 0)
+shape = SubResource("BoxShape3D_op5gj")
+
 [node name="LightPole2" parent="Lights" unique_id=1952959723 instance=ExtResource("5_rbe81")]
 transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -17, 0, 21)
 
@@ -1513,6 +1633,12 @@ spot_range = 18.0
 spot_attenuation = 0.85
 spot_angle = 34.49
 spot_angle_attenuation = 1.319505
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Lights/LightPole2" unique_id=364554698]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lights/LightPole2/StaticBody3D" unique_id=1160172799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 2.5, 0)
+shape = SubResource("BoxShape3D_op5gj")
 
 [node name="LightPole3" parent="Lights" unique_id=1969775945 instance=ExtResource("5_rbe81")]
 transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -17, 0, -1)
@@ -1531,6 +1657,12 @@ spot_attenuation = 0.85
 spot_angle = 34.49
 spot_angle_attenuation = 1.319505
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Lights/LightPole3" unique_id=499160926]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lights/LightPole3/StaticBody3D" unique_id=157425547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 2.5, 0)
+shape = SubResource("BoxShape3D_op5gj")
+
 [node name="LightPole4" parent="Lights" unique_id=421626219 instance=ExtResource("5_rbe81")]
 transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -17, 0, -12)
 
@@ -1547,6 +1679,12 @@ spot_range = 18.0
 spot_attenuation = 0.85
 spot_angle = 34.49
 spot_angle_attenuation = 1.319505
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Lights/LightPole4" unique_id=567829210]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lights/LightPole4/StaticBody3D" unique_id=1841786818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 2.5, 0)
+shape = SubResource("BoxShape3D_op5gj")
 
 [node name="LightPole5" parent="Lights" unique_id=1884832611 instance=ExtResource("5_rbe81")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.371139e-08, 9.190468, 0, -18)
@@ -1565,6 +1703,12 @@ spot_attenuation = 0.85
 spot_angle = 34.49
 spot_angle_attenuation = 1.319505
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Lights/LightPole5" unique_id=77627411]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lights/LightPole5/StaticBody3D" unique_id=128451714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 2.5, 0)
+shape = SubResource("BoxShape3D_op5gj")
+
 [node name="LightPole7" parent="Lights" unique_id=233523990 instance=ExtResource("5_rbe81")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.371139e-08, 54.428555, 0, -16)
 
@@ -1580,12 +1724,24 @@ spot_attenuation = 0.85
 spot_angle = 34.49
 spot_angle_attenuation = 1.319505
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/LightPole7" unique_id=687628000]
+[node name="yes7" type="AnimationPlayer" parent="Lights/LightPole7" unique_id=687628000]
 libraries/ = SubResource("AnimationLibrary_ip4ik")
 autoplay = &"play"
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Lights/LightPole7" unique_id=109332269]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lights/LightPole7/StaticBody3D" unique_id=1219604046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 2.5, 0)
+shape = SubResource("BoxShape3D_op5gj")
+
 [node name="LightPole6" parent="Lights" unique_id=1546607858 instance=ExtResource("5_rbe81")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.371139e-08, -19.380962, 0, -18)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Lights/LightPole6" unique_id=28321306]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lights/LightPole6/StaticBody3D" unique_id=1445633777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 2.5, 0)
+shape = SubResource("BoxShape3D_op5gj")
 
 [node name="Light" type="AnimationPlayer" parent="Lights" unique_id=918993217]
 libraries/ = SubResource("AnimationLibrary_oswwn")
@@ -1617,6 +1773,9 @@ light_specular = 0.0
 
 [node name="SpotLight3D" parent="Train" index="21" unique_id=87583921]
 light_volumetric_fog_energy = 30.0
+
+[node name="fuelSystem" parent="Train/ScreenStuff" parent_id_path=PackedInt32Array(615132714, 309507433) index="4" unique_id=1169897497]
+teddyItem = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Train" unique_id=436028321]
 libraries/ = SubResource("AnimationLibrary_hha03")
@@ -1676,6 +1835,15 @@ spot_angle = 29.012167
 [node name="FrontLight" parent="Cutscene/TrainCutscene/TrainFrontLight" parent_id_path=PackedInt32Array(163513889, 1662121363) index="1" unique_id=1738821236]
 visible = false
 
+[node name="fuelSystem" parent="Cutscene/TrainCutscene/ScreenStuff" parent_id_path=PackedInt32Array(163513889, 309507433) index="4" unique_id=1169897497]
+teddyItem = null
+
+[node name="UI" parent="Cutscene/TrainCutscene" index="23" unique_id=589829222]
+metadata/_edit_use_anchors_ = true
+
+[node name="SuggestionLabel" parent="Cutscene/TrainCutscene/UI" index="0" unique_id=734419697]
+metadata/_edit_use_anchors_ = true
+
 [node name="Train" type="AudioStreamPlayer3D" parent="Cutscene/TrainCutscene" unique_id=266970669]
 transform = Transform3D(0.9961947, 0, 0.08715574, 0, 1, 0, -0.08715574, 0, 0.9961947, 6.97052, 3, -2.2085838)
 stream = ExtResource("11_ip4ik")
@@ -1685,7 +1853,7 @@ max_db = 0.0
 pitch_scale = 0.75
 
 [node name="Camera3D" type="Camera3D" parent="Cutscene" unique_id=780881902]
-transform = Transform3D(0.39855665, -0.011073764, 0.9170759, 0.034766693, 0.99938995, -0.003041689, -0.91648465, 0.033095986, 0.3986984, 38.76986, 1.3964998, 4.031459)
+transform = Transform3D(0.39855665, -0.0110737635, 0.91707575, 0.034766693, 0.9993898, -0.0030416884, -0.91648465, 0.033095982, 0.39869833, 38.76986, 1.3964998, 4.031459)
 visible = false
 fov = 60.0
 
@@ -1921,10 +2089,26 @@ shadow_enabled = true
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.5228431, 0, 9.080326)
 
 [node name="Cop" parent="Cars" unique_id=55097116 instance=ExtResource("13_6se2n")]
-transform = Transform3D(0.40590066, 0, -1.4440376, 0, 1.5, 0, 1.4440376, 0, 0.40590066, 14.720238, 0, 58.71429)
+transform = Transform3D(-1.0476229, 0, -1.073539, 0, 1.5, 0, 1.073539, 0, -1.0476229, 14.720238, 0, 58.71429)
+
+[node name="coplight" type="SpotLight3D" parent="Cars/Cop" unique_id=737717915]
+transform = Transform3D(-0.9498421, 0.006355859, 0.31266534, -0.0077116983, 0.99901336, -0.04373521, -0.31263483, -0.043952726, -0.94885594, -0.42073187, 0.43682986, 1.4655862)
+light_color = Color(0.99999946, 0.9401796, 0.94130164, 1)
+light_energy = 25.295
+light_volumetric_fog_energy = 27.84
+light_specular = 6.325
+shadow_enabled = true
+spot_range = 15.0
+spot_attenuation = 1.05
+spot_angle = 15.531622
+spot_angle_attenuation = 0.68301946
+
+[node name="lightloop" type="AnimationPlayer" parent="Cars/Cop" unique_id=1988583212]
+libraries/ = SubResource("AnimationLibrary_snjjh")
+autoplay = &"play"
 
 [node name="NormalCar1" parent="Cars" unique_id=1207182336 instance=ExtResource("14_hsw41")]
-transform = Transform3D(0.6562621, 0, 1.3488215, 0, 1.5, 0, -1.3488215, 0, 0.6562621, 9.240874, 0, 58.118103)
+transform = Transform3D(1.1330085, 0, -0.9830011, 0, 1.5000005, 0, 0.9830011, 0, 1.1330085, 9.240874, 0, 58.118103)
 
 [node name="Taxi" parent="Cars" unique_id=1099779883 instance=ExtResource("16_jkdna")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 15.475533, 0, 26.904154)
@@ -1989,6 +2173,114 @@ transform = Transform3D(-0.16771379, 0, -0.8924698, 0, 0.90809166, 0, 0.8924698,
 [node name="_Node3D_94431" parent="Forest" unique_id=210995510 instance=ExtResource("22_gs4ao")]
 transform = Transform3D(0.6657855, 0, 0.71008813, 0, 0.973394, 0, -0.71008813, 0, 0.6657855, 38.98679, 0, -50.873894)
 
+[node name="_Node3D_94480" parent="Forest" unique_id=177512324 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(0.6657855, 0, 0.71008813, 0, 0.973394, 0, -0.71008813, 0, 0.6657855, 29.843004, 0, -35.429165)
+
+[node name="_Node3D_94481" parent="Forest" unique_id=918643670 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.28081653, -0.00033799553, 0.93200725, 0.00018557068, 0.97339386, 0.0004089116, -0.93200725, 0.00029564215, -0.2808164, 33.393444, 0, -32.10024)
+
+[node name="_Node3D_94482" parent="Forest" unique_id=2146638369 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.2820617, 0, 0.9316312, 0, 0.973394, 0, -0.9316312, 0, -0.2820617, 29.94898, 0, -30.040361)
+
+[node name="_Node3D_94483" parent="Forest" unique_id=594474212 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.8268837, 0, -0.5135746, 0, 0.973394, 0, 0.5135746, 0, -0.8268837, 19.589867, 0, -34.023224)
+
+[node name="_Node3D_94484" parent="Forest" unique_id=846594151 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.8268837, 0, -0.5135746, 0, 0.973394, 0, 0.5135746, 0, -0.8268837, 24.438126, 0, -33.59687)
+
+[node name="_Node3D_94485" parent="Forest" unique_id=1976362668 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.82793254, 0.0005709566, -0.5118817, 0.00028429495, 0.97339374, 0.0006258921, 0.511882, 0.00038284887, -0.8279325, 21.983295, 0, -41.23909)
+
+[node name="_Node3D_94486" parent="Forest" unique_id=1400791802 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.8268837, 0, -0.5135746, 0, 0.973394, 0, 0.5135746, 0, -0.8268837, 30.652664, 0, -42.040154)
+
+[node name="_Node3D_94487" parent="Forest" unique_id=874642792 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.8268837, 0, -0.5135746, 0, 0.973394, 0, 0.5135746, 0, -0.8268837, 17.874699, 0, -47.85416)
+
+[node name="_Node3D_94495" parent="Forest" unique_id=2086265762 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.71008813, 0, 0.6657854, 0, 0.973394, 0, -0.6657854, 0, -0.71008813, 54.28688, 0, -43.191635)
+
+[node name="_Node3D_94496" parent="Forest" unique_id=97469116 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.93200725, 0.00029564218, -0.2808164, 0.00018557067, 0.97339386, 0.00040891164, 0.28081656, 0.00033799556, -0.93200725, 57.615807, 0, -46.742073)
+
+[node name="_Node3D_94497" parent="Forest" unique_id=703141330 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.9316312, 0, -0.28206176, 0, 0.973394, 0, 0.28206176, 0, -0.9316312, 59.675686, 0, -43.297615)
+
+[node name="_Node3D_94498" parent="Forest" unique_id=839818157 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(0.51357466, 0, -0.8268836, 0, 0.973394, 0, 0.8268836, 0, 0.51357466, 55.692825, 0, -32.9385)
+
+[node name="_Node3D_94499" parent="Forest" unique_id=1523129824 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(0.51188207, 0.0003828489, -0.8279325, 0.00028429492, 0.97339374, 0.0006258921, 0.82793254, -0.0005709566, 0.51188177, 48.47696, 0, -35.331924)
+
+[node name="_Node3D_94500" parent="Forest" unique_id=1103764953 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(0.51357466, 0, -0.8268836, 0, 0.973394, 0, 0.8268836, 0, 0.51357466, 47.675896, 0, -44.001297)
+
+[node name="_Node3D_94501" parent="Forest" unique_id=552739545 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(0.51357466, 0, -0.8268836, 0, 0.973394, 0, 0.8268836, 0, 0.51357466, 41.861885, 0, -31.22333)
+
+[node name="_Node3D_94502" parent="Forest" unique_id=1826175928 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(0.82688355, 0, 0.51357454, 0, 0.9733941, 0, -0.51357454, 0, 0.82688355, 78.17397, 0, -34.553738)
+
+[node name="_Node3D_94503" parent="Forest" unique_id=404014121 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.030026734, -0.00040299658, 0.9729306, 0.00018557068, 0.973394, 0.00040891173, -0.97293067, 0.0001980887, -0.030026555, 80.741844, 0, -30.419321)
+
+[node name="_Node3D_94504" parent="Forest" unique_id=487298025 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.031326875, 0, 0.97288954, 0, 0.9733941, 0, -0.97288954, 0, -0.031326875, 76.881615, 0, -29.321117)
+
+[node name="_Node3D_94505" parent="Forest" unique_id=1053275386 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.9316311, 0, -0.28206182, 0, 0.9733941, 0, 0.28206182, 0, -0.9316311, 67.90632, 0, -35.849407)
+
+[node name="_Node3D_94506" parent="Forest" unique_id=324660277 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.93220615, 0.00045241317, -0.28015512, 0.0002842949, 0.97339374, 0.00062589196, 0.28015536, 0.0005175778, -0.93220603, 72.08579, 0, -42.199932)
+
+[node name="_Node3D_94507" parent="Forest" unique_id=587462295 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.9316311, 0, -0.28206182, 0, 0.9733941, 0, 0.28206182, 0, -0.9316311, 80.6671, 0, -40.729904)
+
+[node name="_Node3D_94508" parent="Forest" unique_id=1363697280 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.9316311, 0, -0.28206182, 0, 0.9733941, 0, 0.28206182, 0, -0.9316311, 69.82931, 0, -49.652985)
+
+[node name="_Node3D_94509" parent="Forest" unique_id=1735493951 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.45931485, 0, -0.8582103, 0, 0.973394, 0, 0.8582103, 0, -0.45931485, 94.104744, 0, -36.616756)
+
+[node name="_Node3D_94510" parent="Forest" unique_id=1929410879 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(0.51246923, 0.00024996095, -0.82756925, 0.0001855707, 0.973394, 0.00040891176, 0.8275691, -0.00037304813, 0.51246905, 89.8137, 0, -38.91333)
+
+[node name="_Node3D_94511" parent="Forest" unique_id=1790169672 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(0.5135748, 0, -0.82688373, 0, 0.9733942, 0, 0.82688373, 0, 0.5135748, 92.60765, 0, -41.794518)
+
+[node name="_Node3D_94512" parent="Forest" unique_id=655975897 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(0.66578525, 0, 0.7100883, 0, 0.9733942, 0, -0.7100883, 0, 0.66578525, 103.64463, 0, -40.6285)
+
+[node name="_Node3D_94513" parent="Forest" unique_id=1627307414 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(0.6672365, -0.0006505903, 0.7087245, 0.00028429495, 0.97339374, 0.0006258919, -0.7087248, -0.00022202879, 0.6672365, 103.20036, 0, -33.03905)
+
+[node name="_Node3D_94514" parent="Forest" unique_id=1686686545 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(0.66578525, 0, 0.7100883, 0, 0.9733942, 0, -0.7100883, 0, 0.66578525, 95.03372, 0, -30.021477)
+
+[node name="_Node3D_94515" parent="Forest" unique_id=167348400 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(0.66578525, 0, 0.7100883, 0, 0.9733942, 0, -0.7100883, 0, 0.66578525, 108.88106, 0, -27.71276)
+
+[node name="_Node3D_94488" parent="Forest" unique_id=949886936 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.8268837, 0, -0.5135746, 0, 0.973394, 0, 0.5135746, 0, -0.8268837, 4.357073, 0, -47.47945)
+
+[node name="_Node3D_94489" parent="Forest" unique_id=1755459391 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.8268837, 0, -0.5135746, 0, 0.973394, 0, 0.5135746, 0, -0.8268837, -5.452488, 0, -44.824356)
+
+[node name="_Node3D_94490" parent="Forest" unique_id=1218076588 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.8268837, 0, -0.5135746, 0, 0.973394, 0, 0.5135746, 0, -0.8268837, -5.329687, 0, -15.108187)
+
+[node name="_Node3D_94491" parent="Forest" unique_id=641927245 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.8268837, 0, -0.5135746, 0, 0.973394, 0, 0.5135746, 0, -0.8268837, -9.238018, 0, -19.555914)
+
+[node name="_Node3D_94492" parent="Forest" unique_id=1477631086 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.8268837, 0, -0.5135746, 0, 0.973394, 0, 0.5135746, 0, -0.8268837, -0.16811943, 0, -16.022293)
+
+[node name="_Node3D_94493" parent="Forest" unique_id=520220043 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.8268837, 0, -0.5135746, 0, 0.973394, 0, 0.5135746, 0, -0.8268837, -9.926037, 0, -31.733082)
+
+[node name="_Node3D_94494" parent="Forest" unique_id=1846058272 instance=ExtResource("22_gs4ao")]
+transform = Transform3D(-0.8268837, 0, -0.5135746, 0, 0.973394, 0, 0.5135746, 0, -0.8268837, -7.0448546, 0, -28.939121)
+
 [node name="_Node3D_94432" parent="Forest" unique_id=975833765 instance=ExtResource("23_bakur")]
 transform = Transform3D(1.1761348, 0, 0.11378113, 0, 1.1816258, 0, -0.11378113, 0, 1.1761348, 112.686325, 0, 14.737343)
 
@@ -1999,7 +2291,10 @@ transform = Transform3D(-0.95580703, 0, 0.13829185, 0, 0.96575963, 0, -0.1382918
 transform = Transform3D(0.72662926, 0, 0.3825124, 0, 0.8211613, 0, -0.3825124, 0, 0.72662926, 104.04812, 0, -49.528557)
 
 [node name="Windswept_Tree_flat" parent="Forest" unique_id=1908781236 instance=ExtResource("26_ip4ik")]
-transform = Transform3D(0.47878864, 0, -1.0426791, 0, 1.1473526, 0, 1.0426791, 0, 0.47878864, 24.16937, 0, -42.88636)
+transform = Transform3D(0.47878864, 0, -1.0426791, 0, 1.1473526, 0, 1.0426791, 0, 0.47878864, 26.424932, 0, -48.97223)
+
+[node name="Windswept_Tree_flat2" parent="Forest" unique_id=135362593 instance=ExtResource("26_ip4ik")]
+transform = Transform3D(0.47878864, 0, -1.0426791, 0, 1.1473526, 0, 1.0426791, 0, 0.47878864, -0.20593452, 0, -35.48105)
 
 [node name="Cypress_L_flat" parent="Forest" unique_id=490895894 instance=ExtResource("27_hha03")]
 transform = Transform3D(1.035685, 0, -0.30950087, 0, 1.0809413, 0, 0.30950087, 0, 1.035685, 67.863525, 0, 17.082413)
@@ -2186,7 +2481,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.547958, 0.73513794, 27.064
 shape = SubResource("BoxShape3D_a5ex2")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="BorderCollisions" unique_id=1007607872]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.026114, 2.0801392, 5.7671394)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.026114, 2.0801392, 5.7671394)
 shape = SubResource("BoxShape3D_j8gtt")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="BorderCollisions" unique_id=107410260]
@@ -2194,12 +2489,66 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18.4
 shape = SubResource("BoxShape3D_gs4ao")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="BorderCollisions" unique_id=898641679]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 21.521887, 2.0801392, -42.32845)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 21.521885, 2.0801392, -28.32845)
 shape = SubResource("BoxShape3D_1gr7n")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="BorderCollisions" unique_id=1994275939]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 26.563414, 2.0801392, -12.953642)
 shape = SubResource("BoxShape3D_bakur")
+
+[node name="some shit" type="Node3D" parent="." unique_id=135057553]
+transform = Transform3D(7.450581e-09, 0, -0.3, 0, 0.3, 0, 0.3, 0, 7.450581e-09, 6.2, 0.9440173, -19.200003)
+
+[node name="RoadSign" parent="some shit" unique_id=706725936 instance=ExtResource("45_hha03")]
+transform = Transform3D(2.4835268e-08, 0, 0.99999994, 0, 0.99999994, 0, -0.99999994, 0, 2.4835268e-08, 226.99998, 0, -5.9999943)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="some shit/RoadSign" unique_id=557467061]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="some shit/RoadSign/StaticBody3D" unique_id=1001588807]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, -0.099999905, -1.9999847)
+shape = SubResource("BoxShape3D_c5jbu")
+
+[node name="RoadSign2" parent="some shit" unique_id=709734065 instance=ExtResource("45_hha03")]
+transform = Transform3D(2.4835268e-08, 0, 0.99999994, 0, 0.99999994, 0, -0.99999994, 0, 2.4835268e-08, 89.99999, 0, -5.999998)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="some shit/RoadSign2" unique_id=1185493784]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="some shit/RoadSign2/StaticBody3D" unique_id=182503281]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, -0.099999905, -1.9999847)
+shape = SubResource("BoxShape3D_c5jbu")
+
+[node name="RoadSign4" parent="some shit" unique_id=1016938786 instance=ExtResource("45_hha03")]
+transform = Transform3D(0.99999994, 0, -1.7763568e-15, 0, 0.99999994, 0, 1.7763568e-15, 0, 0.99999994, 0, 0, -33)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="some shit/RoadSign4" unique_id=1976845262]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="some shit/RoadSign4/StaticBody3D" unique_id=1647950245]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, -0.099999905, -1.9999847)
+shape = SubResource("BoxShape3D_c5jbu")
+
+[node name="RoadSign5" parent="some shit" unique_id=163145205 instance=ExtResource("45_hha03")]
+transform = Transform3D(0.99999994, 0, -1.7763568e-15, 0, 0.99999994, 0, 1.7763568e-15, 0, 0.99999994, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="some shit/RoadSign5" unique_id=1024076087]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="some shit/RoadSign5/StaticBody3D" unique_id=1914111266]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, -0.099999905, -1.9999847)
+shape = SubResource("BoxShape3D_c5jbu")
+
+[node name="RoadSign3" parent="some shit" unique_id=1618180965 instance=ExtResource("45_hha03")]
+transform = Transform3D(-2.4835266e-08, -0.7071067, 0.70710665, 0.99999994, -4.3711385e-08, 0, 2.4835266e-08, 0.7071067, 0.70710665, 15.595402, -2.7999997, -10.814436)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="some shit/RoadSign3" unique_id=456409473]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="some shit/RoadSign3/StaticBody3D" unique_id=994477956]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, -0.099999905, -1.9999847)
+shape = SubResource("BoxShape3D_c5jbu")
+
+[node name="train gate thing" parent="." unique_id=485728260 instance=ExtResource("46_k6upr")]
+transform = Transform3D(0.4931164, 0.003760081, -0.04727572, 0, 0.4931164, 0.047456305, 0.04314209, -0.042977925, 0.54036397, 6.2, 1.3, -26.3)
+
+[node name="train gate thing2" parent="." unique_id=1868264370 instance=ExtResource("46_k6upr")]
+transform = Transform3D(-2.1637138e-08, 0, -0.54450005, 0, 0.49500003, 0, 0.49500003, 0, -2.3800853e-08, 16.800001, 1.3, -28.4)
 
 [connection signal="body_entered" from="Lights/Area3D" to="Lights/Area3D" method="on_body_entered"]
 [connection signal="body_entered" from="Cutscene/CutsceneTrigger" to="." method="OnCutsceneTrigger"]

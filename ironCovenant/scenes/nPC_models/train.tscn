@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://baoke4t3uhn1c" path="res://assets/overlays/whiteVignette.png" id="6_0ni18"]
 [ext_resource type="AudioStream" uid="uid://b41tbv5d1mix4" path="res://assets/audio/sfx/staticShortEffect.mp3" id="6_t23a6"]
 [ext_resource type="PackedScene" uid="uid://ra0an1gkulhw" path="res://assets/Models/Icons/icons.glb" id="8_31nt6"]
-[ext_resource type="Script" uid="uid://b1w273xuqyvve" path="res://scenes/nPC_models/ScreenStuff.cs" id="8_aqclw"]
+[ext_resource type="Script" uid="uid://b1w273xuqyvve" path="res://scripts/scene_scripts/ScreenStuff.cs" id="8_aqclw"]
 [ext_resource type="Script" uid="uid://d4c6felu7y6wa" path="res://scripts/fuelSystem.cs" id="10_e833i"]
 [ext_resource type="Resource" uid="uid://bqnyljfask4rn" path="res://Resources/Items/Fuel.tres" id="11_mv878"]
 [ext_resource type="Resource" uid="uid://dvscxo6t04rbl" path="res://Resources/Items/Teddy.tres" id="12_721md"]

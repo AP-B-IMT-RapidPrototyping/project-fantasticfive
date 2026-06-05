@@ -2142,8 +2142,8 @@ glow_enabled = true
 fog_enabled = true
 fog_density = 0.0224
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.06
-volumetric_fog_albedo = Color(0.16562027, 0.18368298, 0.21178904, 1)
+volumetric_fog_density = 0.09
+volumetric_fog_albedo = Color(0.29525948, 0.3243572, 0.36800358, 1)
 
 [node name="Main Menu" type="Node3D" unique_id=1685015896 node_paths=PackedStringArray("_animIntro", "_animWheels", "spotlightArea")]
 script = ExtResource("1_keln3")
@@ -2368,6 +2368,24 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_geflf")
 theme_override_font_sizes/font_size = 64
 text = "Back"
+
+[node name="Label" type="Label" parent="PlayOptionsControl" unique_id=1308788506]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 168.0
+offset_top = -67.0
+offset_right = 576.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.16580628
+theme_override_font_sizes/font_size = 29
+text = "<-- not available in beta ):"
+vertical_alignment = 1
 
 [node name="Environment" type="Node3D" parent="." unique_id=166934747]
 
@@ -5974,7 +5992,7 @@ transform = Transform3D(-0.82068974, 0, -0.57137406, 0, 1, 0, 0.57137406, 0, -0.
 transform = Transform3D(1.3583497, 12.671419, 3.886783e-08, 0, -5.662805e-07, 0.9090911, 6.385053, -2.6957047, -8.268695e-09, 12.501585, 0, 0)
 
 [node name="Train" parent="Environment" unique_id=991101801 instance=ExtResource("54_7248k")]
-transform = Transform3D(-0.89541686, 0, 0.4452291, 0, 1, 0, -0.4452291, 0, -0.89541686, 30.854347, -1.6723156, -4.0354223)
+transform = Transform3D(-0.89541686, 0, 0.4452291, 0, 1, 0, -0.4452291, 0, -0.89541686, 0, 0, -45.131)
 
 [node name="Cube_004" parent="Environment/Train/TestTrain" parent_id_path=PackedInt32Array(991101801, 1189408230) index="0" unique_id=260558339]
 transform = Transform3D(0.70315903, 0, 0, 0, 0.20013857, 0, 0, 0, 1, -2.1045096, 0.7651082, 2.7192068)
@@ -6168,6 +6186,9 @@ script = null
 [node name="SpotLight3D" parent="Environment/Train/TrainSpotlight" index="4" unique_id=538811013]
 transform = Transform3D(0.9945232, 0.09784569, 0.036740154, -0.103673875, 0.8790109, 0.46539402, 0.013241801, -0.46665415, 0.88434076, 4.7683716e-07, 2.1062603, -0.55262184)
 
+[node name="fuelSystem" parent="Environment/Train/ScreenStuff" parent_id_path=PackedInt32Array(991101801, 309507433) index="4" unique_id=1169897497]
+teddyItem = null
+
 [node name="AnimSpotlight" type="AnimationPlayer" parent="Environment/Train" unique_id=694261204]
 libraries/ = SubResource("AnimationLibrary_a2bth")
 autoplay = &"spotlight_idle"
@@ -6201,3 +6222,4 @@ shadow_enabled = true
 [editable path="Environment/Train"]
 [editable path="Environment/Train/TestTrain"]
 [editable path="Environment/Train/TrainSpotlight"]
+[editable path="Environment/Train/ScreenStuff/icons"]

@@ -1,0 +1,118 @@
+[gd_scene format=4 uid="uid://by7h2jxisbrf6"]
+
+[ext_resource type="Script" uid="uid://ighrkqiif6t7" path="res://scripts/npc_logic/items/Gun.cs" id="1_7yeta"]
+[ext_resource type="PackedScene" uid="uid://bxbkpqef4j6uj" path="res://assets/Models/dogshit gun.glb" id="1_xc8ea"]
+[ext_resource type="Resource" uid="uid://b2mqbmlbsouhe" path="res://Resources/Items/Gun.tres" id="2_cun8w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7yeta"]
+albedo_color = Color(0.13028675, 0.13028678, 0.13028675, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cun8w"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_80hxp"]
+resource_name = "dogshit gun_Cube_005"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_7yeta"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_cun8w")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xc8ea"]
+size = Vector3(0.13378906, 0.34344482, 0.46111298)
+
+[sub_resource type="Animation" id="Animation_uqldd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dogshit gun:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7yeta"]
+resource_name = "play"
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dogshit gun:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.016666668, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.5846853, 0.10471976, -0.008726646), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cun8w"]
+_data = {
+&"RESET": SubResource("Animation_uqldd"),
+&"shoot": SubResource("Animation_7yeta")
+}
+
+[node name="Gun" type="RigidBody3D" unique_id=131082272 node_paths=PackedStringArray("_anim", "delayTimer") groups=["entity", "item"]]
+collision_layer = 6
+collision_mask = 15
+script = ExtResource("1_7yeta")
+Item = ExtResource("2_cun8w")
+_anim = NodePath("AnimationPlayer")
+delayTimer = NodePath("attackDelayTimer")
+
+[node name="dogshit gun" parent="." unique_id=611610583 instance=ExtResource("1_xc8ea")]
+transform = Transform3D(0.09649489, 0, 0, 0, 0.09649489, 0, 0, 0, 0.09649489, 0, 0, 0)
+
+[node name="Cube" parent="dogshit gun" index="0" unique_id=623337628]
+mesh = SubResource("ArrayMesh_80hxp")
+
+[node name="Cube_001" parent="dogshit gun" index="1" unique_id=615193910]
+mesh = SubResource("ArrayMesh_80hxp")
+
+[node name="Cube_002" parent="dogshit gun" index="2" unique_id=424587689]
+mesh = SubResource("ArrayMesh_80hxp")
+
+[node name="Cube_003" parent="dogshit gun" index="3" unique_id=894226623]
+mesh = SubResource("ArrayMesh_80hxp")
+
+[node name="Cube_004" parent="dogshit gun" index="4" unique_id=914173024]
+mesh = SubResource("ArrayMesh_80hxp")
+
+[node name="attackDelayTimer" type="Timer" parent="." unique_id=1542957437]
+wait_time = 0.8
+one_shot = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=690330470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005859375, 0.013397217, -0.17006302)
+shape = SubResource("BoxShape3D_xc8ea")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1498458492]
+libraries/ = SubResource("AnimationLibrary_cun8w")
+
+[editable path="dogshit gun"]

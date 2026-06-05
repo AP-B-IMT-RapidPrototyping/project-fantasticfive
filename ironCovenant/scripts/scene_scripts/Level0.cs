@@ -8,11 +8,18 @@ public partial class Level0 : Node3D
     [Export] private AnimationPlayer _introText;
     private bool _introTextDone = false;
 
+    [Export] private Label _introSkipText;
+    private bool _introHasSkippedOnce = false;
+
     [Export] private Train _train;
     [Export] private AnimationPlayer _cutsceneIntroAnim;
     [Export] private AnimationPlayer _cutsceneAnim;
     [Export] private AnimationPlayer _cutsceneOutroAnim;
     [Export] private AnimationPlayer _cutsceneEnding;
+
+
+    [Export] private AnimationPlayer _thatOneFuckingPole;
+
 
     [Export] private Camera3D _cutsceneCamera;
 
@@ -23,8 +30,16 @@ public partial class Level0 : Node3D
     {
         if (@event.IsActionPressed("jump") && !_introTextDone)
         {
-            _introText.Seek(_introText.GetAnimation(_introText.CurrentAnimation).Length, true);
-            _introTextDone = true;
+            if (_introHasSkippedOnce)
+            {
+                _introText.Seek(_introText.GetAnimation(_introText.CurrentAnimation).Length, true);
+                _introTextDone = true;
+            }
+            else
+            {
+                _introHasSkippedOnce = true;
+                _introSkipText.Text = "are you sure you want to skip? (space)";
+            }
         }
     }
 
@@ -53,6 +68,11 @@ public partial class Level0 : Node3D
     {
         _cutsceneCamera.Current = false; // fix camera switching back to player   
         _train._canCloseDoors = true;
+        _thatOneFuckingPole.Stop();
+        _thatOneFuckingPole.Play("RESET");
+        _thatOneFuckingPole.Active = false;
+        _thatOneFuckingPole.Stop();
+        GD.Print("me buy the egg");
         GD.Print("Level Done.");
     }
 

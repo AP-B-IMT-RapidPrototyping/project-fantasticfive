@@ -1,17 +1,24 @@
 [gd_scene format=4 uid="uid://cbxn04gk686bi"]
 
 [ext_resource type="PackedScene" uid="uid://baroqmonwfls0" path="res://scenes/nPC_models/train.tscn" id="1_4f1no"]
-[ext_resource type="Script" uid="uid://c140hsudko4ug" path="res://scenes/levels/Level4.cs" id="1_e4dcm"]
+[ext_resource type="Script" uid="uid://c140hsudko4ug" path="res://scripts/scene_scripts/Level4.cs" id="1_e4dcm"]
 [ext_resource type="PackedScene" uid="uid://cljofefpq0wr2" path="res://scenes/nPC_models/player.tscn" id="2_nts3o"]
+[ext_resource type="Resource" uid="uid://b2mqbmlbsouhe" path="res://Resources/Items/Gun.tres" id="2_t4kpv"]
 [ext_resource type="PackedScene" uid="uid://bvdytyumuadbi" path="res://assets/Models/Church/church.glb" id="3_nts3o"]
-[ext_resource type="Script" uid="uid://cci6nsln2obmq" path="res://scenes/levels/Church.cs" id="4_8d6ko"]
+[ext_resource type="Script" uid="uid://cci6nsln2obmq" path="res://scripts/scene_scripts/Church.cs" id="4_8d6ko"]
 [ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="4_nanwd"]
 [ext_resource type="PackedScene" uid="uid://dd6u726r5u81u" path="res://assets/NatureAssets/forest_floor/boulders/Boulder_02_flat.glb" id="5_d07my"]
+[ext_resource type="AudioStream" uid="uid://b2bgvrl0gyud7" path="res://assets/audio/music/chruchGood.mp3" id="6_4k527"]
+[ext_resource type="PackedScene" uid="uid://by7h2jxisbrf6" path="res://scenes/nPC_models/items/gun.tscn" id="6_743nu"]
 [ext_resource type="PackedScene" uid="uid://c66wr0ew87bjs" path="res://assets/NatureAssets/forest_floor/bushes/Bush_L_flat.glb" id="6_d04xt"]
 [ext_resource type="PackedScene" uid="uid://c3cpuqbbvb8dh" path="res://assets/NatureAssets/forest_floor/bushes/Bush_M_flat.glb" id="7_dj2sc"]
+[ext_resource type="Script" uid="uid://bpugy3n3ik3cp" path="res://scripts/scene_scripts/ChurchLightTrigger.cs" id="7_q2qnl"]
 [ext_resource type="PackedScene" uid="uid://jl340age6ix" path="res://assets/NatureAssets/forest_floor/bushes/Bush_with_Flowers_flat.glb" id="8_b1h0p"]
+[ext_resource type="AudioStream" uid="uid://1a2fwpk5g8a8" path="res://assets/audio/music/Boss/BossIntro.mp3" id="8_qtwl0"]
 [ext_resource type="PackedScene" uid="uid://c0oxomj48q55t" path="res://assets/NatureAssets/forest_floor/bushes/Bush_Clumps_M_flat.glb" id="9_e4dcm"]
+[ext_resource type="AudioStream" uid="uid://w0gae4j1ktcv" path="res://assets/audio/music/Boss/BossLoop.mp3" id="9_mwool"]
 [ext_resource type="PackedScene" uid="uid://do4f4lkyvv8id" path="res://assets/NatureAssets/forest_floor/grass/Grass_S_flat.glb" id="10_8d6ko"]
+[ext_resource type="AudioStream" uid="uid://dkuyo11xx3hqk" path="res://assets/audio/music/Boss/BossOutro.mp3" id="10_o7v8g"]
 [ext_resource type="PackedScene" uid="uid://d23ci5l3mctc8" path="res://assets/NatureAssets/forest_floor/grass/Grass_M_flat.glb" id="11_ylabu"]
 [ext_resource type="PackedScene" uid="uid://byksg4okm7s1o" path="res://assets/NatureAssets/forest_floor/grass/Grass_L_flat.glb" id="12_x8j8p"]
 [ext_resource type="PackedScene" uid="uid://dve6neabqec45" path="res://assets/NatureAssets/forest_floor/logs_and_stumps/Fallen_Log_flat.glb" id="13_743nu"]
@@ -362,6 +369,199 @@ size = Vector3(1.8599958, 6.5925293, 0.4105835)
 [sub_resource type="BoxShape3D" id="BoxShape3D_x8j8p"]
 size = Vector3(6.3896346, 6.5925293, 0.4105835)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mwool"]
+size = Vector3(7, 1.7, 13.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mgxt0"]
+size = Vector3(0.234375, 1.0381837, 0.55688477)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s7tsg"]
+size = Vector3(0.5734375, 0.024121094, 0.5311157)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1guv0"]
+size = Vector3(0.17681885, 0.024121094, 0.5311157)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o7v8g"]
+size = Vector3(5.6, 1.7, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2eiov"]
+size = Vector3(1.9819336, 1.7, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sp58c"]
+size = Vector3(7, 8, 3.8)
+
+[sub_resource type="Animation" id="Animation_4k527"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("chruchMainLight:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.21]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("churchGunLight:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChurchLoopEnter:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChurchLoopBossIntro:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8146s"]
+resource_name = "play"
+length = 8.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("chruchMainLight:light_energy")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.21, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("churchGunLight:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.9, 7.9249997),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 16.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChurchLoopEnter:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.7, 0.01]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChurchLoopEnter:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChurchLoopBossIntro:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(7.85),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uwjl5"]
+_data = {
+&"RESET": SubResource("Animation_4k527"),
+&"play": SubResource("Animation_8146s")
+}
+
+[sub_resource type="Animation" id="Animation_2eiov"]
+resource_name = "play"
+length = 20.0
+step = 0.1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sp58c"]
+_data = {
+&"play": SubResource("Animation_2eiov")
+}
+
+[sub_resource type="Animation" id="Animation_uwjl5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChurchLoopEnter:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8fusu"]
+resource_name = "play"
+length = 49.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChurchLoopEnter:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t4kpv"]
+_data = {
+&"RESET": SubResource("Animation_uwjl5"),
+&"play": SubResource("Animation_8fusu")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qtwl0"]
+size = Vector3(1, 3, 11)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_8d6ko"]
 resource_name = "LightPanel_Cube_001"
 _surfaces = [{
@@ -425,10 +625,12 @@ height = 26.154
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4kpv"]
 size = Vector3(1, 5.8693237, 6.682007)
 
-[node name="Level4" type="Node3D" unique_id=1635894834 node_paths=PackedStringArray("spot", "door")]
+[node name="Level4" type="Node3D" unique_id=1635894834 node_paths=PackedStringArray("spot", "door", "_bossAnimation")]
 script = ExtResource("1_e4dcm")
 spot = NodePath("Entities/Train/TrainSpotlight")
 door = NodePath("Environment/Church")
+gun = ExtResource("2_t4kpv")
+_bossAnimation = NodePath("Environment/Church/BossAnim")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1956508359]
 environment = SubResource("Environment_v7du0")
@@ -474,14 +676,18 @@ collision_mask = 0
 size = Vector3(264.96735, 1, 241.69409)
 material = SubResource("StandardMaterial3D_nxpvw")
 
-[node name="Church" type="Node3D" parent="Environment" unique_id=1947591009 node_paths=PackedStringArray("anim")]
+[node name="Church" type="Node3D" parent="Environment" unique_id=1947591009 node_paths=PackedStringArray("anim", "audioanim")]
 script = ExtResource("4_8d6ko")
 anim = NodePath("ChurchDoors")
+audioanim = NodePath("audioanim")
 
 [node name="church" parent="Environment/Church" unique_id=606068695 instance=ExtResource("3_nts3o")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, 4.0159655, 0, -20.252655)
 
-[node name="Skeleton3D" parent="Environment/Church/church/Armature" parent_id_path=PackedInt32Array(606068695, 681880849) index="0" unique_id=1509078370]
+[node name="Armature" parent="Environment/Church/church" index="1" unique_id=1845196649]
+visible = false
+
+[node name="Skeleton3D" parent="Environment/Church/church/Armature" index="0" unique_id=30563286]
 bones/0/position = Vector3(-0.00052309036, -0.63415146, -246.91988)
 bones/0/rotation = Quaternion(-0.49998927, -0.49998853, 0.50001085, 0.50001156)
 bones/1/position = Vector3(-2.6592574, 21.950775, 5.675247e-10)
@@ -536,10 +742,10 @@ bones/30/rotation = Quaternion(0.39954573, -0.58161575, 0.36358592, 0.60818714)
 bones/31/position = Vector3(7.645722e-07, 37.774094, 3.341413e-07)
 bones/32/position = Vector3(2.015673e-06, 14.119332, -1.663575e-07)
 
-[node name="Cube_030" parent="Environment/Church/church" index="11" unique_id=33151219]
+[node name="Cube_030" parent="Environment/Church/church" index="11" unique_id=540718097]
 transform = Transform3D(0.9996483, 0, -0.026518807, 0, 1, 0, 0.026518807, 0, 0.9996483, -4.81038, 3.705942, 59.464268)
 
-[node name="Cube_036" parent="Environment/Church/church" index="17" unique_id=464452450]
+[node name="Cube_036" parent="Environment/Church/church" index="17" unique_id=664019081]
 transform = Transform3D(0.9996846, 0, 0.025115605, 0, 1, 0, -0.025115605, 0, 0.9996846, 4.810379, 3.0917501, 59.464283)
 
 [node name="AnimatableBody3D2" type="AnimatableBody3D" parent="Environment/Church/church" unique_id=1241126610]
@@ -615,6 +821,102 @@ shape = SubResource("BoxShape3D_x8j8p")
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=991405598]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.032003, 2.7962646, -16.636192)
 shape = SubResource("BoxShape3D_x8j8p")
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=776090881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.884083, 0.36603415, -22.985184)
+shape = SubResource("BoxShape3D_mwool")
+
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=604114330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.134083, 1.72663, -20.235186)
+shape = SubResource("BoxShape3D_mgxt0")
+
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=955398668]
+transform = Transform3D(0.68037564, -0.7328636, 0, 0.7328636, 0.68037564, 0, 0, 0, 1, -14.153423, 2.3582892, -20.250622)
+shape = SubResource("BoxShape3D_s7tsg")
+
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=1336984227]
+transform = Transform3D(-0.7070821, -0.70713156, 0, 0.70713156, -0.7070821, 0, 0, 0, 1, -14.336496, 2.185717, -20.250622)
+shape = SubResource("BoxShape3D_1guv0")
+
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=1964158467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.584084, 0.34508324, -15.635185)
+shape = SubResource("BoxShape3D_o7v8g")
+
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=1473945968]
+transform = Transform3D(0.73125845, 0.6821005, 0, -0.6821005, 0.73125845, 0, 0, 0, 1, -14.6314945, -0.08368435, -15.735184)
+shape = SubResource("BoxShape3D_2eiov")
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=866609291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.884083, 3.5160341, -13.273532)
+shape = SubResource("BoxShape3D_sp58c")
+
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="Environment/Church/StaticBody3D" unique_id=2113280251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.884083, 3.5160341, -27.373531)
+shape = SubResource("BoxShape3D_sp58c")
+
+[node name="ChurchLight" type="AnimationPlayer" parent="Environment/Church" unique_id=234968580]
+libraries/ = SubResource("AnimationLibrary_uwjl5")
+
+[node name="BossAnim" type="AnimationPlayer" parent="Environment/Church" unique_id=431492185]
+libraries/ = SubResource("AnimationLibrary_sp58c")
+
+[node name="audioanim" type="AnimationPlayer" parent="Environment/Church" unique_id=1527857844]
+libraries/ = SubResource("AnimationLibrary_t4kpv")
+
+[node name="ChurchLoopEnter" type="AudioStreamPlayer3D" parent="Environment/Church" unique_id=1066068837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.642271, 6.589859, -20.36362)
+stream = ExtResource("6_4k527")
+volume_db = -10.0
+max_db = 1.0
+pitch_scale = 0.7
+parameters/looping = true
+
+[node name="ChurchLoopBossIntro" type="AudioStreamPlayer3D" parent="Environment/Church" unique_id=2114583686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.642271, 6.589859, -20.36362)
+stream = ExtResource("8_qtwl0")
+max_db = 1.0
+
+[node name="ChurchLoopBossLoop" type="AudioStreamPlayer3D" parent="Environment/Church" unique_id=1569546957]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.642271, 6.589859, -20.36362)
+stream = ExtResource("9_mwool")
+max_db = 1.0
+parameters/looping = true
+
+[node name="ChurchLoopBossOutro" type="AudioStreamPlayer3D" parent="Environment/Church" unique_id=1241653582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.642271, 6.589859, -20.36362)
+stream = ExtResource("10_o7v8g")
+max_db = 1.0
+
+[node name="chruchMainLight" type="SpotLight3D" parent="Environment/Church" unique_id=1157108207]
+transform = Transform3D(-4.371139e-08, -0.49999997, 0.8660253, 0, 0.8660253, 0.49999997, -1, 2.1855694e-08, -3.7855173e-08, -8.742277e-09, 14, -20.2)
+light_color = Color(0.99999994, 0.9105223, 0.7924414, 1)
+light_energy = 6.21
+light_volumetric_fog_energy = 4.075
+shadow_enabled = true
+spot_range = 39.0
+spot_angle = 25.499306
+spot_angle_attenuation = 0.40612617
+
+[node name="churchGunLight" type="SpotLight3D" parent="Environment/Church" unique_id=2001563640]
+transform = Transform3D(-4.3711385e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.3711385e-08, 1.9106853e-15, -14.289326, 11.659046, -20.222464)
+light_energy = 0.0
+light_volumetric_fog_energy = 6.0
+shadow_enabled = true
+spot_range = 12.0
+spot_angle = 9.704446
+
+[node name="Gun" parent="Environment/Church" unique_id=131082272 instance=ExtResource("6_743nu")]
+transform = Transform3D(0.7699654, 0.546397, 0.32955098, -0.6377169, 0.6413867, 0.4265446, 0.02169305, -0.53858477, 0.842292, -14.229522, 2.451245, -20.110197)
+
+[node name="LightTrigger" type="Area3D" parent="Environment/Church" unique_id=1899455271 node_paths=PackedStringArray("_churchlight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.190807, 2.5880668, -20.179472)
+collision_mask = 8
+script = ExtResource("7_q2qnl")
+_churchlight = NodePath("../ChurchLight")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Church/LightTrigger" unique_id=33091393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+shape = SubResource("BoxShape3D_qtwl0")
 
 [node name="Rails" type="Node3D" parent="Environment" unique_id=1990255686]
 
@@ -4214,7 +4516,7 @@ transform = Transform3D(-0.5267332, 0, -0.8500306, 0, 1, 0, 0.8500306, 0, -0.526
 script = ExtResource("50_b1h0p")
 chargeMesh = NodePath("MeshInstance3D")
 
-[node name="Cube" parent="Environment/Light puzzle/LightPanel/LightPanel" parent_id_path=PackedInt32Array(2111136213, 144391817) index="0" unique_id=1519614942]
+[node name="Cube" parent="Environment/Light puzzle/LightPanel/LightPanel" parent_id_path=PackedInt32Array(2111136213, 144391817) index="0" unique_id=509937480]
 mesh = SubResource("ArrayMesh_8d6ko")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light puzzle/LightPanel" unique_id=2119087574]
@@ -4262,6 +4564,7 @@ collision_mask = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4346619, 0.1329956)
 shape = SubResource("BoxShape3D_t4kpv")
 
+[connection signal="body_entered" from="Environment/Church/LightTrigger" to="Environment/Church/LightTrigger" method="OnBodyEntered"]
 [connection signal="GivePower" from="Environment/Light puzzle/LightPanel" to="Environment/Church" method="OnGetPower1"]
 [connection signal="GivePower" from="Environment/Light puzzle/LightPanel" to="Environment/Light puzzle/PowerCable2" method="OnGetPower"]
 [connection signal="StopPower" from="Environment/Light puzzle/LightPanel" to="Environment/Church" method="OnStopPower1"]

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cci6nsln2obmq" path="res://scripts/scene_scripts/Church.cs" id="4_8d6ko"]
 [ext_resource type="PackedScene" uid="uid://2bt1eygl7ope" path="res://assets/prototypeAssets/Rails.glb" id="4_nanwd"]
 [ext_resource type="PackedScene" uid="uid://dd6u726r5u81u" path="res://assets/NatureAssets/forest_floor/boulders/Boulder_02_flat.glb" id="5_d07my"]
+[ext_resource type="PackedScene" uid="uid://drooc7iv65u4q" path="res://scenes/nPC_models/evil_cube.tscn" id="5_qtwl0"]
 [ext_resource type="AudioStream" uid="uid://b2bgvrl0gyud7" path="res://assets/audio/music/chruchGood.mp3" id="6_4k527"]
 [ext_resource type="PackedScene" uid="uid://by7h2jxisbrf6" path="res://scenes/nPC_models/items/gun.tscn" id="6_743nu"]
 [ext_resource type="PackedScene" uid="uid://c66wr0ew87bjs" path="res://assets/NatureAssets/forest_floor/bushes/Bush_L_flat.glb" id="6_d04xt"]
@@ -512,13 +513,65 @@ _data = {
 &"play": SubResource("Animation_8146s")
 }
 
+[sub_resource type="Animation" id="Animation_qtwl0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Entities/EvilCube:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 0),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Entities/EvilCube:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(45.089077, 24.601608, -271.9397)]
+}
+
 [sub_resource type="Animation" id="Animation_2eiov"]
 resource_name = "play"
 length = 20.0
 step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Entities/EvilCube:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Entities/EvilCube:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(45.08909, 24.601608, -19.523912), Vector3(15.146924, 13.19235, -19.52391)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sp58c"]
 _data = {
+&"RESET": SubResource("Animation_qtwl0"),
 &"play": SubResource("Animation_2eiov")
 }
 
@@ -667,6 +720,10 @@ autoplay = &"play"
 [node name="Player" parent="Entities" unique_id=746536559 instance=ExtResource("2_nts3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.46555, 2.9250855, -44.940956)
 
+[node name="EvilCube" parent="Entities" unique_id=27284076 instance=ExtResource("5_qtwl0")]
+transform = Transform3D(-4.371139e-08, -0.35606942, 0.9344595, 0, 0.9344595, 0.35606942, -1, 1.5564288e-08, -4.0846523e-08, 45.089077, 24.601608, -271.9397)
+visible = false
+
 [node name="Environment" type="Node3D" parent="." unique_id=927626784]
 
 [node name="Floor" type="CSGBox3D" parent="Environment" unique_id=246090486 groups=["sound_grass"]]
@@ -684,10 +741,10 @@ audioanim = NodePath("audioanim")
 [node name="church" parent="Environment/Church" unique_id=606068695 instance=ExtResource("3_nts3o")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, 4.0159655, 0, -20.252655)
 
-[node name="Armature" parent="Environment/Church/church" index="1" unique_id=1845196649]
+[node name="Armature" parent="Environment/Church/church" index="1" unique_id=681880849]
 visible = false
 
-[node name="Skeleton3D" parent="Environment/Church/church/Armature" index="0" unique_id=30563286]
+[node name="Skeleton3D" parent="Environment/Church/church/Armature" index="0" unique_id=1509078370]
 bones/0/position = Vector3(-0.00052309036, -0.63415146, -246.91988)
 bones/0/rotation = Quaternion(-0.49998927, -0.49998853, 0.50001085, 0.50001156)
 bones/1/position = Vector3(-2.6592574, 21.950775, 5.675247e-10)
@@ -742,10 +799,10 @@ bones/30/rotation = Quaternion(0.39954573, -0.58161575, 0.36358592, 0.60818714)
 bones/31/position = Vector3(7.645722e-07, 37.774094, 3.341413e-07)
 bones/32/position = Vector3(2.015673e-06, 14.119332, -1.663575e-07)
 
-[node name="Cube_030" parent="Environment/Church/church" index="11" unique_id=540718097]
+[node name="Cube_030" parent="Environment/Church/church" index="11" unique_id=33151219]
 transform = Transform3D(0.9996483, 0, -0.026518807, 0, 1, 0, 0.026518807, 0, 0.9996483, -4.81038, 3.705942, 59.464268)
 
-[node name="Cube_036" parent="Environment/Church/church" index="17" unique_id=664019081]
+[node name="Cube_036" parent="Environment/Church/church" index="17" unique_id=464452450]
 transform = Transform3D(0.9996846, 0, 0.025115605, 0, 1, 0, -0.025115605, 0, 0.9996846, 4.810379, 3.0917501, 59.464283)
 
 [node name="AnimatableBody3D2" type="AnimatableBody3D" parent="Environment/Church/church" unique_id=1241126610]
@@ -4516,7 +4573,7 @@ transform = Transform3D(-0.5267332, 0, -0.8500306, 0, 1, 0, 0.8500306, 0, -0.526
 script = ExtResource("50_b1h0p")
 chargeMesh = NodePath("MeshInstance3D")
 
-[node name="Cube" parent="Environment/Light puzzle/LightPanel/LightPanel" parent_id_path=PackedInt32Array(2111136213, 144391817) index="0" unique_id=509937480]
+[node name="Cube" parent="Environment/Light puzzle/LightPanel/LightPanel" parent_id_path=PackedInt32Array(2111136213, 144391817) index="0" unique_id=1519614942]
 mesh = SubResource("ArrayMesh_8d6ko")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light puzzle/LightPanel" unique_id=2119087574]

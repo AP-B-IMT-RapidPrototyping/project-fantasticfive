@@ -246,7 +246,7 @@ material = SubResource("StandardMaterial3D_xckex")
 text = "Press A to toggle
 the train spotlight
  following you
-(or Q on querty)"
+(or Q on qwerty)"
 
 [sub_resource type="BoxMesh" id="BoxMesh_xckex"]
 size = Vector3(0.145, 0.52, 1)
@@ -259,7 +259,7 @@ emission = Color(0.641934, 0.641934, 0.641934, 1)
 material = SubResource("StandardMaterial3D_wwnxi")
 text = "Maybe press A
 again
-(or q for querty)"
+(or q for qwerty)"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wwnxi"]
 size = Vector3(1.9699707, 3.6085205, 4.72937)
@@ -678,7 +678,7 @@ light_volumetric_fog_energy = 1.825
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light Mechanic" unique_id=957107791]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.85315, 1.9831698, -1.3879585)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.85315, 1.2143164, -1.3879585)
 mesh = SubResource("BoxMesh_xckex")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Light Mechanic/MeshInstance3D" unique_id=532153184]

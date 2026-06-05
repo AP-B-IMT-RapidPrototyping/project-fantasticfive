@@ -72,13 +72,6 @@ public partial class Church : Node3D
 
 	public void OpenDoorPermanently()
 	{
-		GD.Print("Door perma open");
-		if (!isOpen && !permaOpen)
-		{
-			anim.Play("open");
-			isOpen = true;
-			audioanim.Play("play");
-		}
-		permaOpen = true;
+		
 	}
 }

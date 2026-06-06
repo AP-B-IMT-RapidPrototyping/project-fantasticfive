@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://8axsfb5bnvpa"]
+[gd_scene format=3 uid="uid://bu01jxusnsvc2"]
 
 [ext_resource type="VideoStream" uid="uid://bx4xw1hyb0yqn" path="res://assets/photos/Cutscene.ogv" id="1_6jb4h"]
 [ext_resource type="Texture2D" uid="uid://bxbk7xr4eamgf" path="res://assets/photos/3.png" id="1_nqrw0"]
@@ -672,7 +672,11 @@ Meneer Van Eyken
 \"happy happy joy joy\"
 
 
-Mentorship: Meneer Van Battel
+Mentorship: 
+
+Meneer Van Battel
+
+Meneer Van Eyken
 
 
 

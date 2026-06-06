@@ -115,19 +115,19 @@ _gunCast = NodePath("GunCast")
 [node name="dogshit gun" parent="." unique_id=611610583 instance=ExtResource("1_xc8ea")]
 transform = Transform3D(0.09649489, 0, 0, 0, 0.09649489, 0, 0, 0, 0.09649489, 0, 0, 0)
 
-[node name="Cube" parent="dogshit gun" index="0" unique_id=623337628]
+[node name="Cube" parent="dogshit gun" index="0" unique_id=242616734]
 mesh = SubResource("ArrayMesh_80hxp")
 
-[node name="Cube_001" parent="dogshit gun" index="1" unique_id=615193910]
+[node name="Cube_001" parent="dogshit gun" index="1" unique_id=1635159420]
 mesh = SubResource("ArrayMesh_80hxp")
 
-[node name="Cube_002" parent="dogshit gun" index="2" unique_id=424587689]
+[node name="Cube_002" parent="dogshit gun" index="2" unique_id=75054834]
 mesh = SubResource("ArrayMesh_80hxp")
 
-[node name="Cube_003" parent="dogshit gun" index="3" unique_id=894226623]
+[node name="Cube_003" parent="dogshit gun" index="3" unique_id=483913056]
 mesh = SubResource("ArrayMesh_80hxp")
 
-[node name="Cube_004" parent="dogshit gun" index="4" unique_id=914173024]
+[node name="Cube_004" parent="dogshit gun" index="4" unique_id=1334683514]
 mesh = SubResource("ArrayMesh_80hxp")
 
 [node name="attackDelayTimer" type="Timer" parent="." unique_id=1542957437]

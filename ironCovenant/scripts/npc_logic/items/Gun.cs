@@ -70,7 +70,14 @@ public partial class Gun : RigidBody3D, IInteractable
             if (_gunCast.IsColliding())
             {
                 var collider = _gunCast.GetCollider() as EvilCube;
-                collider.GetDamage(5);
+                if (collider is EvilCube evil)
+                {
+                    evil.GetDamage(5);
+                } else
+                {
+                    GD.Print("Hitting something else");
+                    GD.Print(collider.Name);
+                }
             }
         }
     }

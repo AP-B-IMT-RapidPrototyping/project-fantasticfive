@@ -959,7 +959,7 @@ size = Vector3(0.13916016, 2.5565186, 0.2568817)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_j7nyf"]
 
-[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("_train", "_introAnimDoor", "spotlight", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "deathTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy", "deathLayer", "spotlightArea")]
+[node name="Level1" type="Node3D" unique_id=820707932 node_paths=PackedStringArray("_train", "_introAnimDoor", "spotlight", "trainNoise", "evilCubeNoise", "playerHead", "player", "cubeMarker", "startRunTimer", "trainWheelsTimer", "bufferTimer", "deathTimer", "evilCube", "chaseAnim", "trainAnim", "defaultEnemy", "deathLayer", "spotlightArea", "fuelSystem")]
 script = ExtResource("1_fh0io")
 _train = NodePath("Train")
 _introAnimDoor = NodePath("Train/TrainDoor/DoorAnim")
@@ -980,6 +980,7 @@ trainAnim = NodePath("Train/TestTrain/AnimationPlayer")
 defaultEnemy = NodePath("defaultEnemy")
 deathLayer = NodePath("Player/DeathLayer")
 spotlightArea = NodePath("Train/TrainSpotlight/SpotlightArea")
+fuelSystem = NodePath("Train/ScreenStuff/fuelSystem")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1279296464]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -1010,7 +1011,7 @@ spot_angle = 39.17886
 [node name="Player" parent="." unique_id=1004373502 instance=ExtResource("1_1pwbc")]
 transform = Transform3D(-0.9999198, 0, 0.012670744, 0, 1, 0, -0.012670744, 0, -0.9999198, 82.36113, 2.7600298, -45.10374)
 
-[node name="Pause" parent="Player" index="2" unique_id=1074082978]
+[node name="Pause" parent="Player" index="3" unique_id=1074082978]
 visible = true
 
 [node name="Cutscene Bars" type="Node3D" parent="Player/PlayerHead/PlayerCamera" parent_id_path=PackedInt32Array(1004373502, 1820625364) index="0" unique_id=218138750]

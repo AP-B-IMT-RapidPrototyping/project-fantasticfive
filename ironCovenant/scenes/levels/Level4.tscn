@@ -678,10 +678,11 @@ height = 26.154
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4kpv"]
 size = Vector3(1, 5.8693237, 6.682007)
 
-[node name="Level4" type="Node3D" unique_id=1635894834 node_paths=PackedStringArray("spot", "door", "_bossAnimation")]
+[node name="Level4" type="Node3D" unique_id=1635894834 node_paths=PackedStringArray("spot", "door", "fuelSystem", "_bossAnimation")]
 script = ExtResource("1_e4dcm")
 spot = NodePath("Entities/Train/TrainSpotlight")
 door = NodePath("Environment/Church")
+fuelSystem = NodePath("Entities/Train/ScreenStuff/fuelSystem")
 gun = ExtResource("2_t4kpv")
 _bossAnimation = NodePath("Environment/Church/BossAnim")
 

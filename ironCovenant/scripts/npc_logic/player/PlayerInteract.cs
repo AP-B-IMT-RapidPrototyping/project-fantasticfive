@@ -15,6 +15,8 @@ public partial class PlayerInteract : Node3D
     [Export] private AnimationPlayer _uiInfoAnim;
     [Export] private RichTextLabel _uiInfoText;
 
+    [Export] private Control ELabel;
+
 
 
 
@@ -22,6 +24,29 @@ public partial class PlayerInteract : Node3D
     {
         CallDeferred(nameof(CheckPreviousItem));
     }
+
+    public override void _Process(double delta)
+    {
+        if (_interactRay.IsColliding())
+        {
+            var collider = _interactRay.GetCollider() as Node;
+
+            if (collider != null && collider.IsInGroup("screen"))
+            {
+                if (collider is ScreenInteractArea screen)
+                {
+                     ELabel.Visible = true;   
+                }
+            } else
+            {
+                ELabel.Visible = false;
+            }
+        } else
+        {
+            ELabel.Visible = false;
+        }
+    }
+
 
 
     private void CheckPreviousItem()

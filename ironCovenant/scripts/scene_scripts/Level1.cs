@@ -26,6 +26,7 @@ public partial class Level1 : Node3D
 	[Export] private Enemy defaultEnemy;
 	[Export] private CanvasLayer deathLayer;
 	[Export] private Area3D spotlightArea;
+	[Export] private fuelSystem fuelSystem;
 
 	private bool chaseCanStart = false;
 	private bool playerCanDie = false;
@@ -49,6 +50,8 @@ public partial class Level1 : Node3D
 		deathLayer.Visible = false;
 
 		spotlightArea.Visible = true;
+
+		fuelSystem.currentLevel = 1;
 	}
 
 

@@ -46,7 +46,10 @@ public partial class fuelSystem : Node
         }
         else
         {
-            if (currentLevel == 2)
+            if (currentLevel == 1)
+            {
+                suggestionLabel.Text = "The train doesn't want anything rn.";
+            } else if (currentLevel == 2)
             {
                 GD.Print("Not enough fuel");
                 suggestionLabel.Text = "The train needs fuel to start.";
@@ -54,6 +57,9 @@ public partial class fuelSystem : Node
             {
                 GD.Print("Not enough teddy");
                 suggestionLabel.Text = "The train needs a teddy bear to start.";
+            } else if (currentLevel == 4)
+            {
+                suggestionLabel.Text = "The train senses danger.";
             }
             
             suggestionTimer.Start();

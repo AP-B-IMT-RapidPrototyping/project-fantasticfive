@@ -5,7 +5,7 @@ public partial class Level4 : Node3D
 {
 	[Export] private TrainSpotlight spot;
 	[Export] private Church door;
-
+	[Export] private fuelSystem fuelSystem;
 
 
 	[Export] private ItemData gun;
@@ -16,6 +16,7 @@ public partial class Level4 : Node3D
 	public override void _Ready()
 	{
 		spot.canRadiate = true;
+		fuelSystem.currentLevel = 4;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

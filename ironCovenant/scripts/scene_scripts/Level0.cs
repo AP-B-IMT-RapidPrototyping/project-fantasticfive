@@ -23,7 +23,7 @@ public partial class Level0 : Node3D
 
     [Export] private Camera3D _cutsceneCamera;
 
-
+    
 
 
     public override void _UnhandledInput(InputEvent @event)

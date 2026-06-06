@@ -14,6 +14,10 @@
 [ext_resource type="FontFile" uid="uid://dja080asghmk4" path="res://assets/fonts/Cinzel-VariableFont_wght.ttf" id="12_ee5uu"]
 [ext_resource type="Texture2D" uid="uid://8kqsld5q2ycx" path="res://assets/overlays/bloodsplatter.png" id="12_h0ak3"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_32nx7"]
+font = ExtResource("12_ee5uu")
+font_size = 32
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_32nx7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4nt1"]
@@ -288,6 +292,35 @@ deathLayer = NodePath("DeathLayer")
 deathTimer = NodePath("DeathTimer")
 dmgAnim = NodePath("DamageAnim")
 
+[node name="EButton" type="Control" parent="." unique_id=1577270612]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="EButton" unique_id=1192714549]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.5
+offset_top = -108.0
+offset_right = 55.5
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "press E"
+label_settings = SubResource("LabelSettings_32nx7")
+
 [node name="Health" type="CanvasLayer" parent="." unique_id=1931123157]
 layer = -2
 
@@ -377,7 +410,7 @@ material = SubResource("StandardMaterial3D_35tf2")
 cull_mask = 1048567
 fov = 90.0
 
-[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_interactRay", "_playerHand", "_crosshair", "_uiInfoAnim", "_uiInfoText")]
+[node name="PlayerInteract" type="Node3D" parent="PlayerHead" unique_id=1575503551 node_paths=PackedStringArray("_interactRay", "_playerHand", "_crosshair", "_uiInfoAnim", "_uiInfoText", "ELabel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 script = ExtResource("4_50dpb")
 _interactRay = NodePath("InteractRay")
@@ -385,6 +418,7 @@ _playerHand = NodePath("Hand")
 _crosshair = NodePath("../../HUD/HUD/Crosshair")
 _uiInfoAnim = NodePath("../../HUD/HUD/InfoScreenAnim")
 _uiInfoText = NodePath("../../HUD/HUD/InfoScreen/InfoText")
+ELabel = NodePath("../../EButton")
 
 [node name="InteractRay" type="RayCast3D" parent="PlayerHead/PlayerInteract" unique_id=1289993461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

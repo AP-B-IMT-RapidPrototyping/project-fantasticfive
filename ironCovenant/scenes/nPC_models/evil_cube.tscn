@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://drooc7iv65u4q"]
 
 [ext_resource type="AudioStream" uid="uid://d23chlj4ryte1" path="res://assets/audio/sfx/universfield-horror-2-142320.mp3" id="1_06bsp"]
+[ext_resource type="Script" uid="uid://dg3kuqo1dihf" path="res://scripts/enemy_scripts/EvilCube.cs" id="1_7ee0o"]
 [ext_resource type="AudioStream" uid="uid://3y6xacg16qby" path="res://assets/audio/sfx/EvilCubeDie.mp3" id="2_aacp0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06bsp"]
@@ -228,7 +229,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_216jx"]
 resource_name = "play"
-length = 4.0
+length = 6.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -288,7 +289,11 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_aacp0"]
 radius = 2.5
 
-[node name="EvilCube" type="Node3D" unique_id=27284076]
+[node name="EvilCube" type="StaticBody3D" unique_id=714440723 node_paths=PackedStringArray("_dieAnim")]
+collision_layer = 21
+collision_mask = 8
+script = ExtResource("1_7ee0o")
+_dieAnim = NodePath("DieAnim")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=764689617]
 transform = Transform3D(0.99874336, 0.036751576, 0.034074433, -0.0414687, 0.22419845, 0.9736609, 0.028144136, -0.9738503, 0.22544077, -0.16002524, -6.310379, -1.6848242)
@@ -360,10 +365,8 @@ stream = ExtResource("2_aacp0")
 unit_size = 36.9
 pitch_scale = 0.6
 
-[node name="KillArea" type="Area3D" parent="." unique_id=1984320444]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -6)
-collision_layer = 20
-collision_mask = 12
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KillArea" unique_id=499868668]
+[node name="DieColliison" type="CollisionShape3D" parent="." unique_id=499868668]
+transform = Transform3D(1.54, 0, 0, 0, 1.54, 0, 0, 0, 1.54, 0, -5, -6)
 shape = SubResource("SphereShape3D_aacp0")
+
+[connection signal="animation_finished" from="DieAnim" to="." method="DeathAnimFinished"]

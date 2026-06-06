@@ -16,6 +16,10 @@ public partial class Gun : RigidBody3D, IInteractable
 
     private bool hasHit = false;
 
+
+    [Export] private RayCast3D _gunCast;
+
+
     public override void _Ready()
     {
         _collisionLayer = CollisionLayer;
@@ -62,6 +66,12 @@ public partial class Gun : RigidBody3D, IInteractable
         if (delayTimer.TimeLeft == 0)
         {
             _anim.Play("shoot");
+
+            if (_gunCast.IsColliding())
+            {
+                var collider = _gunCast.GetCollider() as EvilCube;
+                collider.GetDamage(5);
+            }
         }
     }
 

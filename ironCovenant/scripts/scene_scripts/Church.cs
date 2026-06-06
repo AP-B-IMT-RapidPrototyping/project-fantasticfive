@@ -1,4 +1,4 @@
-using Godot;
+	using Godot;
 using System;
 
 public partial class Church : Node3D
@@ -72,6 +72,6 @@ public partial class Church : Node3D
 
 	public void OpenDoorPermanently()
 	{
-		
+		audioanim.Play("play");
 	}
 }

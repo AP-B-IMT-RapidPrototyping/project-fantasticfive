@@ -1,0 +1,790 @@
+[gd_scene format=3 uid="uid://8axsfb5bnvpa"]
+
+[ext_resource type="VideoStream" uid="uid://bx4xw1hyb0yqn" path="res://assets/photos/Cutscene.ogv" id="1_6jb4h"]
+[ext_resource type="Texture2D" uid="uid://bxbk7xr4eamgf" path="res://assets/photos/3.png" id="1_nqrw0"]
+[ext_resource type="Script" uid="uid://df3gtn2sog0j7" path="res://scripts/scene_scripts/Credits.cs" id="1_nsbf6"]
+[ext_resource type="Texture2D" uid="uid://do7qf7klju28l" path="res://assets/photos/4.png" id="2_6kicy"]
+[ext_resource type="Texture2D" uid="uid://hncpa05y15fw" path="res://assets/photos/5.png" id="3_ouwk8"]
+[ext_resource type="Texture2D" uid="uid://brelq2ir8kuha" path="res://assets/photos/6.png" id="4_6jb4h"]
+[ext_resource type="Texture2D" uid="uid://b8wtx3dqu28n2" path="res://assets/photos/7.png" id="5_06mgh"]
+[ext_resource type="Texture2D" uid="uid://bfgugybrgn2m1" path="res://assets/photos/8.png" id="6_kunj2"]
+[ext_resource type="Texture2D" uid="uid://cdlg07uyocw64" path="res://assets/photos/9.png" id="7_yjpwk"]
+[ext_resource type="Texture2D" uid="uid://dc6480201ggry" path="res://assets/photos/10.5.png" id="8_tpouw"]
+[ext_resource type="Texture2D" uid="uid://dg3hj8grocfcb" path="res://assets/photos/10.png" id="9_is5pp"]
+[ext_resource type="Texture2D" uid="uid://cfbs3cohh2jb6" path="res://assets/photos/12.png" id="10_7aogw"]
+[ext_resource type="Texture2D" uid="uid://u3csoj1smi07" path="res://assets/photos/13.png" id="11_nsbf6"]
+[ext_resource type="Texture2D" uid="uid://b7e1fidmiuci4" path="res://assets/photos/14.png" id="12_ie470"]
+[ext_resource type="Texture2D" uid="uid://jugehtlnrkqb" path="res://assets/photos/16.png" id="13_odhns"]
+[ext_resource type="VideoStream" uid="uid://mms1wecjrbwo" path="res://assets/photos/SuicideAxe.ogv" id="14_06mgh"]
+[ext_resource type="Texture2D" uid="uid://b7dccwpcxr7g4" path="res://assets/photos/17.png" id="14_wfx7i"]
+[ext_resource type="Texture2D" uid="uid://cdpc622tqp15o" path="res://assets/photos/18.2.png" id="15_yxftg"]
+[ext_resource type="Texture2D" uid="uid://7qu3ds6gi4ay" path="res://assets/photos/18.5.png" id="16_24t3a"]
+[ext_resource type="Texture2D" uid="uid://cjb5ub53b3xk4" path="res://assets/photos/18.png" id="17_paaqu"]
+[ext_resource type="Texture2D" uid="uid://dgbu8hoqki407" path="res://assets/photos/19.png" id="18_lxm0g"]
+[ext_resource type="Texture2D" uid="uid://bkf05xret3iwm" path="res://assets/photos/20.png" id="19_jtxln"]
+[ext_resource type="Texture2D" uid="uid://c5t2dgdhk7d7c" path="res://assets/photos/21.png" id="20_5prti"]
+[ext_resource type="Texture2D" uid="uid://dtbpqpkcncc13" path="res://assets/photos/22.png" id="21_121vd"]
+[ext_resource type="Texture2D" uid="uid://c8l0n4q1txulb" path="res://assets/photos/24.png" id="23_860te"]
+[ext_resource type="Texture2D" uid="uid://ctqwa2rn1ltjx" path="res://assets/photos/FantasticFiveLogo.png" id="24_ouwk8"]
+[ext_resource type="Texture2D" uid="uid://cg4f80g86st8m" path="res://assets/photos/godot.png" id="25_6jb4h"]
+[ext_resource type="Texture2D" uid="uid://c0ofhdepgpf7j" path="res://assets/photos/sleepy.png" id="25_7aogw"]
+[ext_resource type="AudioStream" uid="uid://dqxo2ddyx14j4" path="res://assets/audio/music/Can you hear the music oppenheimer.mp3" id="26_6jb4h"]
+[ext_resource type="Texture2D" uid="uid://cg6okudw7hfxa" path="res://assets/photos/Bee.png" id="26_nsbf6"]
+[ext_resource type="Texture2D" uid="uid://31uaufp2xgi4" path="res://assets/photos/Kaj.png" id="27_ie470"]
+[ext_resource type="Texture2D" uid="uid://ci3g0cll3fxoo" path="res://assets/photos/Caitlin.png" id="28_odhns"]
+[ext_resource type="Texture2D" uid="uid://djsm3yqmoaset" path="res://assets/photos/xasvegas.png" id="29_wfx7i"]
+
+[sub_resource type="Animation" id="Animation_ouwk8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Scroll:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 720)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Scroll/Title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_24uo0"]
+resource_name = "play"
+length = 115.0
+step = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Scroll:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5, 115),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 800), Vector2(0, -11335.852)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Scroll/Title:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_id67h"]
+_data = {
+&"RESET": SubResource("Animation_ouwk8"),
+&"play": SubResource("Animation_24uo0")
+}
+
+[node name="Credits" type="Node3D" unique_id=869146567]
+script = ExtResource("1_nsbf6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2094417895]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+
+[node name="Control" type="Control" parent="." unique_id=1107763207]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scroll" type="Control" parent="Control" unique_id=2112974639]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 720.0
+offset_bottom = 14067.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Picture3" type="TextureRect" parent="Control/Scroll" unique_id=231964116]
+layout_mode = 0
+offset_left = -125.000015
+offset_top = 1012.0
+offset_right = 2755.0
+offset_bottom = 3172.0
+rotation = -0.22777992
+scale = Vector2(0.15784022, 0.16160932)
+texture = ExtResource("1_nqrw0")
+
+[node name="Picture4" type="TextureRect" parent="Control/Scroll" unique_id=62076249]
+layout_mode = 0
+offset_left = 945.00006
+offset_top = 1219.9999
+offset_right = 3416.2646
+offset_bottom = 3188.238
+rotation = 0.14043087
+scale = Vector2(0.19089323, 0.14314488)
+texture = ExtResource("2_6kicy")
+
+[node name="Picture5" type="TextureRect" parent="Control/Scroll" unique_id=700915782]
+layout_mode = 0
+offset_left = 790.99994
+offset_top = 1872.0
+offset_right = 7441.2866
+offset_bottom = 5669.082
+rotation = -0.1911974
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("3_ouwk8")
+
+[node name="Picture6" type="TextureRect" parent="Control/Scroll" unique_id=1476005703]
+layout_mode = 0
+offset_left = -0.9999747
+offset_top = 1606.0
+offset_right = 3246.85
+offset_bottom = 4232.0117
+rotation = 0.118532896
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("4_6jb4h")
+
+[node name="Picture7" type="TextureRect" parent="Control/Scroll" unique_id=1057425024]
+layout_mode = 0
+offset_left = 33.000008
+offset_top = 2234.9998
+offset_right = 2913.0
+offset_bottom = 5983.666
+rotation = 0.03358767
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("5_06mgh")
+
+[node name="Picture8" type="TextureRect" parent="Control/Scroll" unique_id=1406441297]
+layout_mode = 0
+offset_left = 868.99994
+offset_top = 2619.9998
+offset_right = 4234.001
+offset_bottom = 5102.361
+rotation = -0.2131477
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("6_kunj2")
+
+[node name="Picture9" type="TextureRect" parent="Control/Scroll" unique_id=1113308679]
+layout_mode = 0
+offset_left = 944.99994
+offset_top = 3210.9995
+offset_right = 4086.999
+offset_bottom = 5550.8257
+rotation = 0.14043087
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("7_yjpwk")
+
+[node name="Picture10" type="TextureRect" parent="Control/Scroll" unique_id=695059162]
+layout_mode = 0
+offset_left = -19.000002
+offset_top = 3058.0
+offset_right = 3398.2437
+offset_bottom = 8122.4434
+rotation = -0.004937187
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("8_tpouw")
+
+[node name="Picture11" type="TextureRect" parent="Control/Scroll" unique_id=259526312]
+layout_mode = 0
+offset_left = 911.99994
+offset_top = 3724.9995
+offset_right = 6460.9814
+offset_bottom = 7108.515
+rotation = 0.10108176
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("9_is5pp")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control/Scroll" unique_id=1882296673]
+layout_mode = 0
+offset_left = -24.00003
+offset_top = 3902.0
+offset_right = 1896.0
+offset_bottom = 5102.0
+rotation = -0.073959865
+scale = Vector2(0.27757323, 0.27757323)
+stream = ExtResource("1_6jb4h")
+volume_db = -80.0
+speed_scale = 1.5
+autoplay = true
+loop = true
+
+[node name="Picture12" type="TextureRect" parent="Control/Scroll" unique_id=735124783]
+layout_mode = 0
+offset_left = -191.00002
+offset_top = 4284.0005
+offset_right = 14369.4375
+offset_bottom = 10265.5
+rotation = 0.006245222
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("10_7aogw")
+
+[node name="Picture13" type="TextureRect" parent="Control/Scroll" unique_id=1435619307]
+layout_mode = 0
+offset_left = 727.0
+offset_top = 5033.9995
+offset_right = 8700.111
+offset_bottom = 9277.301
+rotation = 0.14043087
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("11_nsbf6")
+
+[node name="Picture15" type="TextureRect" parent="Control/Scroll" unique_id=1895495876]
+layout_mode = 0
+offset_left = -175.99998
+offset_top = 5704.0
+offset_right = 4957.533
+offset_bottom = 9121.945
+rotation = -0.15676813
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("12_ie470")
+
+[node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="Control/Scroll" unique_id=1777701685]
+layout_mode = 0
+offset_left = 821.0
+offset_top = 5699.0
+offset_right = 2741.0
+offset_bottom = 6899.0
+rotation = 0.08735713
+scale = Vector2(0.33877715, 0.33877715)
+stream = ExtResource("14_06mgh")
+volume_db = -80.0
+speed_scale = 1.5
+autoplay = true
+loop = true
+
+[node name="Picture16" type="TextureRect" parent="Control/Scroll" unique_id=1136681711]
+layout_mode = 0
+offset_left = -118.0
+offset_top = 5087.0
+offset_right = 4757.874
+offset_bottom = 9173.203
+rotation = 0.0144521445
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("13_odhns")
+
+[node name="Picture17" type="TextureRect" parent="Control/Scroll" unique_id=1171414721]
+layout_mode = 0
+offset_left = -9.000002
+offset_top = 6235.0005
+offset_right = 2414.3257
+offset_bottom = 8246.521
+rotation = 0.023874313
+scale = Vector2(0.1689344, 0.24416806)
+texture = ExtResource("14_wfx7i")
+
+[node name="Picture19" type="TextureRect" parent="Control/Scroll" unique_id=322956948]
+layout_mode = 0
+offset_left = 922.00006
+offset_top = 8077.001
+offset_right = 5100.456
+offset_bottom = 17330.594
+rotation = 0.03723593
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("16_24t3a")
+
+[node name="Picture18" type="TextureRect" parent="Control/Scroll" unique_id=1717024850]
+layout_mode = 0
+offset_left = -659.0
+offset_top = 6802.0005
+offset_right = 17671.86
+offset_bottom = 16369.432
+rotation = 0.013651222
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("15_yxftg")
+
+[node name="Picture20" type="TextureRect" parent="Control/Scroll" unique_id=1933576752]
+layout_mode = 0
+offset_left = 943.99994
+offset_top = 6215.0
+offset_right = 3824.0
+offset_bottom = 10888.863
+rotation = -0.05519335
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("17_paaqu")
+
+[node name="Picture21" type="TextureRect" parent="Control/Scroll" unique_id=528440816]
+layout_mode = 0
+offset_left = 30.999977
+offset_top = 8761.001
+offset_right = 3161.7842
+offset_bottom = 12801.519
+rotation = -0.14767997
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("18_lxm0g")
+
+[node name="Picture22" type="TextureRect" parent="Control/Scroll" unique_id=972837367]
+layout_mode = 0
+offset_left = -20.999987
+offset_top = 8080.999
+offset_right = 3417.8447
+offset_bottom = 10905.789
+rotation = 0.14043087
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("19_jtxln")
+
+[node name="Picture23" type="TextureRect" parent="Control/Scroll" unique_id=1901089942]
+layout_mode = 0
+offset_left = 38.99999
+offset_top = 9376.999
+offset_right = 5430.8896
+offset_bottom = 13458.085
+rotation = 0.14783536
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("20_5prti")
+
+[node name="Picture24" type="TextureRect" parent="Control/Scroll" unique_id=1429496756]
+layout_mode = 0
+offset_left = 734.9999
+offset_top = 9346.0
+offset_right = 6522.4756
+offset_bottom = 13097.805
+rotation = -0.09249292
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("21_121vd")
+
+[node name="Picture26" type="TextureRect" parent="Control/Scroll" unique_id=1954020522]
+layout_mode = 0
+offset_left = -57.99997
+offset_top = 9860.0
+offset_right = 13318.652
+offset_bottom = 17749.176
+rotation = 0.03130596
+scale = Vector2(0.11692649, 0.11692649)
+texture = ExtResource("23_860te")
+
+[node name="Pfp1" type="TextureRect" parent="Control/Scroll" unique_id=1654487461]
+layout_mode = 0
+offset_left = 131.00021
+offset_top = 10043.0
+offset_right = 2782.4248
+offset_bottom = 12519.1875
+rotation = -0.18170811
+scale = Vector2(0.08939277, 0.08926881)
+texture = ExtResource("25_7aogw")
+
+[node name="Pfp2" type="TextureRect" parent="Control/Scroll" unique_id=45891725]
+layout_mode = 0
+offset_left = 565.99976
+offset_top = 9924.0
+offset_right = 3217.4243
+offset_bottom = 12400.1875
+rotation = 0.19160056
+scale = Vector2(0.08939278, 0.089268826)
+texture = ExtResource("26_nsbf6")
+
+[node name="Pfp3" type="TextureRect" parent="Control/Scroll" unique_id=1481195929]
+layout_mode = 0
+offset_left = 906.0
+offset_top = 10069.0
+offset_right = 3557.4248
+offset_bottom = 12545.1875
+rotation = -0.11182466
+scale = Vector2(0.08939277, 0.08926881)
+texture = ExtResource("27_ie470")
+
+[node name="Pfp4" type="TextureRect" parent="Control/Scroll" unique_id=279073996]
+layout_mode = 0
+offset_left = 711.0
+offset_top = 10433.0
+offset_right = 3362.4246
+offset_bottom = 12909.1875
+rotation = -0.23275697
+scale = Vector2(0.08939276, 0.0892688)
+texture = ExtResource("28_odhns")
+
+[node name="Pfp5" type="TextureRect" parent="Control/Scroll" unique_id=763954259]
+layout_mode = 0
+offset_left = 349.00006
+offset_top = 10332.0
+offset_right = 3000.4246
+offset_bottom = 12808.1875
+rotation = 0.21871397
+scale = Vector2(0.08939276, 0.0892688)
+texture = ExtResource("29_wfx7i")
+
+[node name="Credits" type="RichTextLabel" parent="Control/Scroll" unique_id=534211819]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 387.0
+offset_right = -387.0
+offset_bottom = -4952.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Designed, developed, and ‘published’ By
+
+Fantastic Five
+
+
+
+
+
+LOGO HERE
+LOGO HERE
+LOGO HERE
+
+
+
+
+
+Executive & Production
+
+
+
+Project Lead / Director: 
+
+Fantastic Five
+
+
+
+Producer: 
+
+Luigi
+
+Lani
+
+Mohamad
+
+Christophe
+
+Caitlin
+
+
+
+Associate Producer: 
+
+Bob (Blender)
+
+
+
+
+Art & Design
+
+
+Lead Game Designer: 
+Luigi
+
+Lani
+
+Mohamad
+
+
+3D Artists:
+
+Lani
+
+Mohamed
+
+Luigi
+
+
+Art Director: 
+
+Mohamad
+
+Lani
+
+
+Logo Designer:
+
+Lani
+
+
+3D Character Artist: 
+
+Mohamad
+
+
+Environment Artist: 
+
+Lani
+
+Caitlin
+
+
+Animator: 
+
+Mohamad
+
+Lani
+
+
+Concept Art: 
+
+Mohamad
+
+
+
+Programming & Engineering
+
+
+Lead Gameplay Programmer:
+
+Luigi
+
+
+Technical Director: 
+
+Lani
+
+
+Core Gameplay Programming:
+
+Luigi
+
+Lani
+
+
+AI Programmer:
+
+Christophe
+
+
+UI/UX Engineer:
+
+Luigi
+
+Lani
+
+
+Human Resources:
+
+Lani
+
+Luigi
+
+
+Emotional Support:
+
+Bob
+
+Lani
+
+Luigi
+
+Mohamad
+
+Caitlin
+
+Christophe
+
+
+Audio & Music
+
+Composer / Sound Designer:
+
+Lani
+
+Caitlin
+
+Luigi
+
+
+Voice Director:
+
+Lani
+
+Luigi
+
+
+Voice Actor (Gun): Lani
+
+Voice Actor (Evil Cube): Luigi
+
+
+Music By: Pixabay
+
+
+Sound effect editing with:
+
+Audacity
+
+Online mp3 converter
+
+
+
+Special Thanks
+
+AP University
+
+Playtesters:
+
+Meneer Van Eyken
+
+Jorgan
+
+Jens
+
+Elisha
+
+Anas
+
+Yusuf
+
+Lucas
+
+Alen
+
+Stef
+
+Quinten
+
+Leon
+
+Tutku
+
+En de rest van IMT
+
+Papa van Lani
+
+Olena
+
+Elias
+
+
+
+Extra Special Thanks:
+
+Meneer Van Eyken
+\"happy happy joy joy\"
+
+
+Mentorship: Meneer Van Battel
+
+
+
+Made With
+
+
+
+
+GODOT LOGO
+GODOT LOGO
+GODOT LOGO
+
+
+
+
+Godot Engine
+
+Audacity
+
+Blender
+
+
+
+Special message from developers:
+
+Lani:
+\"I want to thank my fellow group members for being 
+the best people I could ask for in a group project.
+This journey was a lot of fun and I’m glad I’ve had all of you
+to share the experience with.
+
+I’m very happy with how the project turned out.
+If I had to choose my project or group members again
+I wouldn’t change a thing.
+
+Thank you all for the motivation and energy,
+all the fun and creativity.
+
+It’s been a pleasure.\"
+
+Luigi:
+\"Steam Train Fest?\"
+
+Christophe:
+\"My brain is like my browser, 19 tabs, 3 are glitching, and where the fuck does that music come from\"
+
+Caitlin:
+
+
+Mohamad:
+\"Special thanks to Bob\"
+
+
+
+
+Thank you for playing
+"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control/Scroll/Credits" unique_id=1679721748]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.105882354)
+
+[node name="F5" type="TextureRect" parent="Control/Scroll" unique_id=1389537079]
+layout_mode = 0
+offset_left = 405.00003
+offset_top = 165.0
+offset_right = 2979.0
+offset_bottom = 1486.0
+scale = Vector2(0.18027636, 0.18027636)
+texture = ExtResource("24_ouwk8")
+
+[node name="Godot" type="TextureRect" parent="Control/Scroll" unique_id=805374502]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 7316.0
+offset_right = 4366.0
+offset_bottom = 11156.0
+scale = Vector2(0.06174397, 0.06162904)
+texture = ExtResource("25_6jb4h")
+
+[node name="Title" type="RichTextLabel" parent="Control/Scroll" unique_id=78521328]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -391.0
+offset_top = -7644.0
+offset_right = 391.0
+offset_bottom = -7303.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 85
+text = "Iron Covenant"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1517101914]
+libraries/ = SubResource("AnimationLibrary_id67h")
+autoplay = &"play"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1859782429]
+stream = ExtResource("26_6jb4h")
+volume_db = -20.0
+autoplay = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="AnimatioFinish"]

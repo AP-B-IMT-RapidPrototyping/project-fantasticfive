@@ -4,7 +4,7 @@ using System;
 public partial class EvilCube : Node3D
 {
     [Export] private AnimationPlayer _dieAnim;
-    //[Export] private AudioStreamPlayer3D dmgAudio;
+    [Export] private AudioStreamPlayer3D dmgAudio;
 
     private PackedScene _creditsScene = GD.Load<PackedScene>("res://scenes/levels/credits.tscn");
 
@@ -18,7 +18,7 @@ public partial class EvilCube : Node3D
         if (_health > 0)
         {
             _health -= dmg;
-            //dmgAudio.Play();    
+            dmgAudio.Play();    
         }
         else
         {

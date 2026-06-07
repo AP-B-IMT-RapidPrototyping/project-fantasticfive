@@ -757,9 +757,9 @@ texture = ExtResource("24_ouwk8")
 [node name="Godot" type="TextureRect" parent="Control/Scroll" unique_id=805374502]
 layout_mode = 0
 offset_left = 526.0
-offset_top = 7316.0
+offset_top = 7444.0
 offset_right = 4366.0
-offset_bottom = 11156.0
+offset_bottom = 11284.0
 scale = Vector2(0.06174397, 0.06162904)
 texture = ExtResource("25_6jb4h")
 

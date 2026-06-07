@@ -20,6 +20,7 @@ public partial class Gun : RigidBody3D, IInteractable
     [Export] private RayCast3D _gunCast;
 
 
+
     public override void _Ready()
     {
         _collisionLayer = CollisionLayer;
@@ -69,14 +70,13 @@ public partial class Gun : RigidBody3D, IInteractable
 
             if (_gunCast.IsColliding())
             {
-                var collider = _gunCast.GetCollider() as EvilCube;
+                var collider = _gunCast.GetCollider() as Node3D;
+                GD.Print(collider.Name);
+
                 if (collider is EvilCube evil)
                 {
+                    GD.Print("Hitting cube");
                     evil.GetDamage(5);
-                } else
-                {
-                    GD.Print("Hitting something else");
-                    GD.Print(collider.Name);
                 }
             }
         }

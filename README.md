@@ -1,11 +1,8 @@
-# Iron Covenant
+# Iron Covenant - Design Doc
 Created by Fantastic Five
 
 
 ## Gameplay Mechanics
-### Summary
-
-
 ### Pitch
 A story driven, extraction-like game where you play as a survivor of a massive anomalous explosion near the Russian Border. You must survive with the help of a conscious locomotive train. Gather resources to protect yourself and to keep the train running while avoiding deadly robot-like anomalies.
 Who knows where the rails might end...
@@ -30,9 +27,15 @@ Gamers who enjoy atmospheric, slow paced, story driven survival experiences.
 
 Inspired by Chernobyl, Pripyat.
 
+### GamePlay & Mechanics
+Throughout the game you need to stay in the light of the train. This requires you to think about where you walk and be quick when you need to be somewhere in the dark.
+But you can't be in the light forever. This game also introduces a puzzle mechanic that requires you to leave the train light on a light panel and go in the dark yourself to get past a door. 
+Later in the levels this puzzle gets expanded to have multiple light panels of which one that now has a charge and you need to quickly run to get through the door.
+Besides those unique mechanic the game also introduces basic interacting and fighting mechanics suchs as using a melee and ranged weapon.
+
 
 ## Story/Immersive Design
-### Story
+### Story/Setting
 Between 2036 and 2041, a secret Russian organization experimented with new atomic tech. An accident caused a massive explosion, wiping out more than 90% of the population in a wide expanding range.
 You _somehow_ survived and are now alone in a dangerous zone filled with deadly anomalies that look like robots. Until you come across a weird, conscious locomotive that communicates with you through light and noises. You navigate the wasteland, sneaking past, or fighting anomalous robots.
 And you start to wonder, _where do these rails lead to?_
@@ -45,6 +48,9 @@ Some of the more specific sounds such as the cube dying and the gun shooting wer
 
 ### UI
 Avoid as much UI as possible, and lean on in-world information.
+Some information that doesn't fit in the world is introduced as text overlay to make sure the player doesn't miss it.
+Health is shown by using a red vignet that get's stronger the lower you are on hp.
+Dying in the dark is shown by a static around your screen that gets increasingly stronger the longer you are in the dark. Besides the visual hint there's also a clear static sound that gets louder and louder while you are in the dark.
 
 Inspired by Metro Exodus.
 
@@ -88,3 +94,12 @@ Ranged weapons:
 
 ### Utility
 Items like flares you can throw to distract enemies
+
+### Game-engine
+Godot
+
+### Gamefunctions
+Combining a raycast and an area 3D to detect if the player is inside the light or not was a more difficult task.
+It couldn't just use a simple raycast hence it wouldn't cover the entire cone of light when the player steps away.
+With the combination of the raycast and the area 3D the game knows perfectly when the player is inside the light and when they aren't.
+This mechanic is also reused to know if the light is shining on a light panel or not. This allows the light panel to be powered and unpowered correctly.

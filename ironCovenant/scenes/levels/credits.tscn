@@ -60,6 +60,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_24uo0"]
 resource_name = "play"
@@ -72,10 +84,10 @@ tracks/0/path = NodePath("Control/Scroll:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(5, 115),
+"times": PackedFloat32Array(5, 102),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 800), Vector2(0, -11335.852)]
+"values": [Vector2(0, 800), Vector2(0, -9901.614)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -88,6 +100,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(106, 114),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_id67h"]
@@ -375,50 +399,50 @@ texture = ExtResource("23_860te")
 
 [node name="Pfp1" type="TextureRect" parent="Control/Scroll" unique_id=1654487461]
 layout_mode = 0
-offset_left = 131.00021
-offset_top = 10043.0
-offset_right = 2782.4248
-offset_bottom = 12519.1875
+offset_left = 118.99991
+offset_top = 10020.615
+offset_right = 2770.4246
+offset_bottom = 12496.803
 rotation = -0.18170811
 scale = Vector2(0.08939277, 0.08926881)
 texture = ExtResource("25_7aogw")
 
 [node name="Pfp2" type="TextureRect" parent="Control/Scroll" unique_id=45891725]
 layout_mode = 0
-offset_left = 565.99976
-offset_top = 9924.0
-offset_right = 3217.4243
-offset_bottom = 12400.1875
+offset_left = 587.00006
+offset_top = 9920.614
+offset_right = 3238.4246
+offset_bottom = 12396.802
 rotation = 0.19160056
 scale = Vector2(0.08939278, 0.089268826)
 texture = ExtResource("26_nsbf6")
 
 [node name="Pfp3" type="TextureRect" parent="Control/Scroll" unique_id=1481195929]
 layout_mode = 0
-offset_left = 906.0
-offset_top = 10069.0
-offset_right = 3557.4248
-offset_bottom = 12545.1875
+offset_left = 932.99994
+offset_top = 10026.614
+offset_right = 3584.4248
+offset_bottom = 12502.802
 rotation = -0.11182466
 scale = Vector2(0.08939277, 0.08926881)
 texture = ExtResource("27_ie470")
 
 [node name="Pfp4" type="TextureRect" parent="Control/Scroll" unique_id=279073996]
 layout_mode = 0
-offset_left = 711.0
-offset_top = 10433.0
-offset_right = 3362.4246
-offset_bottom = 12909.1875
+offset_left = 744.0001
+offset_top = 10364.614
+offset_right = 3395.4248
+offset_bottom = 12840.802
 rotation = -0.23275697
 scale = Vector2(0.08939276, 0.0892688)
 texture = ExtResource("28_odhns")
 
 [node name="Pfp5" type="TextureRect" parent="Control/Scroll" unique_id=763954259]
 layout_mode = 0
-offset_left = 349.00006
-offset_top = 10332.0
-offset_right = 3000.4246
-offset_bottom = 12808.1875
+offset_left = 306.00006
+offset_top = 10306.614
+offset_right = 2957.4246
+offset_bottom = 12782.802
 rotation = 0.21871397
 scale = Vector2(0.08939276, 0.0892688)
 texture = ExtResource("29_wfx7i")
